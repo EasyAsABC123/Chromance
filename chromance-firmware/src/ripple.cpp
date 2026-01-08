@@ -371,21 +371,27 @@ void Ripple::advance(LedController &ledController)
                 node = Topology::segmentConnections[node][0];
                 if (node < 0 || node >= Constants::NUMBER_OF_NODES)
                 {
-#ifdef DEBUG_ADVANCEMENT
-                    Serial.print("Node out of bound :");
-                    Serial.print(node);
-                    Serial.println("");
-#endif
                     state = STATE_DEAD;
                     return;
                 }
+                bool foundConnection = false;
                 for (int i = 0; i < Constants::MAX_PATHS_PER_NODE; i++)
                 {
                     // Figure out from which direction the ripple is entering the node.
                     // Allows us to exit in an appropriately aggressive direction.
                     int incomingConnection = Topology::nodeConnections[node][i];
                     if (incomingConnection == segment)
+                    {
                         direction = i;
+                        foundConnection = true;
+                        break;
+                    }
+                }
+                if (!foundConnection)
+                {
+                    // Serial.println("Topology mismatch: entered node but no back-connection found");
+                    state = STATE_DEAD;
+                    return;
                 }
 #ifdef DEBUG_ADVANCEMENT
                 Serial.print("  Entering node ");
@@ -430,19 +436,28 @@ void Ripple::advance(LedController &ledController)
 
                 if (node < 0 || node >= Constants::NUMBER_OF_NODES)
                 {
-                    // Serial.print("Node out of bound :");
-                    // Serial.println(node);
                     state = STATE_DEAD;
                     return;
                 }
 
+                bool foundConnection = false;
                 for (int i = 0; i < Constants::MAX_PATHS_PER_NODE; i++)
                 {
                     // Figure out from which direction the ripple is entering the node.
                     // Allows us to exit in an appropriately aggressive direction.
                     int incomingConnection = Topology::nodeConnections[node][i];
                     if (incomingConnection == segment)
+                    {
                         direction = i;
+                        foundConnection = true;
+                        break;
+                    }
+                }
+                if (!foundConnection)
+                {
+                    // Serial.println("Topology mismatch: entered node but no back-connection found");
+                    state = STATE_DEAD;
+                    return;
                 }
 #ifdef DEBUG_ADVANCEMENT
                 Serial.print("  Entering node ");

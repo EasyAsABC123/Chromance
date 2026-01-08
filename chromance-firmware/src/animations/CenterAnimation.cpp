@@ -6,7 +6,7 @@
 void CenterAnimation::run()
 {
     unsigned int startingNode = Topology::starburstNode;
-    RippleBehavior behavior = BEHAVIOR_FEISTY;
+    RippleBehavior behavior = random(2) ? BEHAVIOR_ALWAYS_LEFT : BEHAVIOR_ALWAYS_RIGHT;
 
     for (int i = 0; i < Constants::MAX_PATHS_PER_NODE; i++)
     {
