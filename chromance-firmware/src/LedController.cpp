@@ -3,20 +3,30 @@
 
 LedController::LedController()
 {
-  initStrips();
-  clear();
+  for (int i = 0; i < Constants::NUMBER_OF_STRIPS; i++)
+  {
+    strips[i] = nullptr;
+  }
 }
 
 LedController::~LedController()
 {
   for (int i = 0; i < Constants::NUMBER_OF_STRIPS; i++)
   {
-    delete strips[i];
+    if (strips[i] != nullptr)
+    {
+      delete strips[i];
+      strips[i] = nullptr;
+    }
   }
 }
 
 void LedController::initStrips()
 {
+  // check if already initialized to prevent double allocation
+  if (strips[0] != nullptr)
+    return;
+
 #ifdef USING_DOTSTAR
   strips[Constants::BLUE_INDEX] = new Adafruit_DotStar(Constants::BLUE_LENGTH, Constants::BLUE_STRIP_DATA_PIN, Constants::BLUE_STRIP_CLOCK_PIN, DOTSTAR_BRG);
   strips[Constants::GREEN_INDEX] = new Adafruit_DotStar(Constants::GREEN_LENGTH, Constants::GREEN_STRIP_DATA_PIN, Constants::GREEN_STRIP_CLOCK_PIN, DOTSTAR_BRG);
@@ -32,6 +42,9 @@ void LedController::initStrips()
 
 void LedController::begin()
 {
+  initStrips();
+  clear();
+
   for (int i = 0; i < Constants::NUMBER_OF_STRIPS; i++)
   {
     strips[i]->begin();

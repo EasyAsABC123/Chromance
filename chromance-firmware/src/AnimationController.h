@@ -11,12 +11,23 @@ class AnimationController
 {
 public:
   AnimationController(LedController &ledController);
+  ~AnimationController();
   void init();
   void update(); // Main loop update (advance animations)
+
+  // Helper methods exposed for animations
+  void startRipple(int node, int direction, uint32_t color, float speed, unsigned long lifespan, RippleBehavior behavior);
+  uint32_t getRandomColor();
+  float getSpeed();
+  byte getLastNode();
+  void setLastNode(byte node);
+  LedController &getLedController();
+  unsigned int getBaseColor();
 
 private:
   LedController &ledController;
   Ripple ripples[Constants::NUMBER_OF_RIPPLES];
+  class Animation *animations[Constants::NUMBER_OF_ANIMATIONS];
 
   unsigned int baseColor;
   unsigned long lastRandomPulse;
@@ -30,15 +41,6 @@ private:
 
   void getNextAnimation();
   void startAnimation(byte animation);
-
-  void randomPulse();
-  void cubePulse();
-  void starburstPulse();
-  void centerPulse();
-  void rainbow();
-
-  uint32_t getRandomColor();
-  float getSpeed();
 };
 
 #endif // ANIMATIONCONTROLLER_H

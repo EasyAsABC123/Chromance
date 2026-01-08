@@ -7,15 +7,15 @@
 
 Ripple::Ripple(int id) : rippleId(id)
 {
-    Serial.print("Instanced ripple #");
-    Serial.println(rippleId);
+    // Serial.print("Instanced ripple #");
+    // Serial.println(rippleId);
 }
 
 void Ripple::start(int node, int direction, unsigned long color, float speed, unsigned long lifespan, RippleBehavior behavior)
 {
     Ripple::color = color;
     Ripple::speed = speed;
-    Ripple::lifespan = lifespan;
+    Ripple::lifespan = (lifespan == 0) ? 1 : lifespan;
     Ripple::behavior = behavior;
 
     birthday = millis();
@@ -112,8 +112,10 @@ void Ripple::advance(LedController &ledController)
                     int anger = (int)behavior;
                     int forwardConnection = Topology::nodeConnections[node][forward];
 
-                    while (newDirection < 0)
+                    int attempts = 0;
+                    while (newDirection < 0 && attempts < 10)
                     {
+                        attempts++;
                         if (anger == BEHAVIOR_COUCH_POTATO)
                         {
 
@@ -244,6 +246,13 @@ void Ripple::advance(LedController &ledController)
                         // Good thing we don't have any of those!
 
                     } // End while loop
+
+                    if (newDirection < 0)
+                    {
+                        // If we couldn't find a direction after attempts, kill the ripple to prevent hanging
+                        state = STATE_DEAD;
+                        return;
+                    }
                 }
                 else if (behavior == BEHAVIOR_ALWAYS_RIGHT)
                 {
@@ -308,10 +317,12 @@ void Ripple::advance(LedController &ledController)
             } // End else from 'if (justStarted) {'
 
             node = Topology::nodeConnections[node][direction]; // Look up which segment we're on
-            if (node > 37)
+            if (node < 0 || node >= Constants::NUMBER_OF_SEGMENTS)
             {
                 Serial.print("Uhoh, node out of bound at line 296 :");
                 Serial.println(node);
+                state = STATE_DEAD;
+                return;
             }
 #ifdef DEBUG_ADVANCEMENT
             Serial.print("  and entering segment ");
@@ -350,14 +361,23 @@ void Ripple::advance(LedController &ledController)
 #endif
                 // Enter the new node.
                 int segment = node;
+
+                if (node < 0 || node >= Constants::NUMBER_OF_SEGMENTS)
+                {
+                    state = STATE_DEAD;
+                    return;
+                }
+
                 node = Topology::segmentConnections[node][0];
-                if (node > Constants::NUMBER_OF_SEGMENTS)
+                if (node < 0 || node >= Constants::NUMBER_OF_NODES)
                 {
 #ifdef DEBUG_ADVANCEMENT
-                    Serial.print("Segment out of bound :");
+                    Serial.print("Node out of bound :");
                     Serial.print(node);
                     Serial.println("");
 #endif
+                    state = STATE_DEAD;
+                    return;
                 }
                 for (int i = 0; i < Constants::MAX_PATHS_PER_NODE; i++)
                 {
@@ -399,12 +419,23 @@ void Ripple::advance(LedController &ledController)
 #endif
                 // Enter the new node.
                 int segment = node;
-                node = Topology::segmentConnections[node][1];
+
+                if (node < 0 || node >= Constants::NUMBER_OF_SEGMENTS)
                 {
-                    Serial.print("Segment out of bound :");
-                    Serial.print(node);
-                    Serial.println("");
+                    state = STATE_DEAD;
+                    return;
                 }
+
+                node = Topology::segmentConnections[node][1];
+
+                if (node < 0 || node >= Constants::NUMBER_OF_NODES)
+                {
+                    // Serial.print("Node out of bound :");
+                    // Serial.println(node);
+                    state = STATE_DEAD;
+                    return;
+                }
+
                 for (int i = 0; i < Constants::MAX_PATHS_PER_NODE; i++)
                 {
                     // Figure out from which direction the ripple is entering the node.

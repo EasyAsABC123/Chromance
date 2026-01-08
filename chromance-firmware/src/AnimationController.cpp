@@ -1,4 +1,9 @@
 #include "AnimationController.h"
+#include "animations/RandomAnimation.h"
+#include "animations/CubeAnimation.h"
+#include "animations/StarburstAnimation.h"
+#include "animations/CenterAnimation.h"
+#include "animations/RainbowAnimation.h"
 
 AnimationController::AnimationController(LedController &controller)
     : ledController(controller)
@@ -7,10 +12,36 @@ AnimationController::AnimationController(LedController &controller)
   {
     ripples[i] = Ripple(i);
   }
+
+  for (int i = 0; i < Constants::NUMBER_OF_ANIMATIONS; i++)
+  {
+    animations[i] = nullptr;
+  }
+}
+
+AnimationController::~AnimationController()
+{
+  for (int i = 0; i < Constants::NUMBER_OF_ANIMATIONS; i++)
+  {
+    if (animations[i] != nullptr)
+    {
+      delete animations[i];
+      animations[i] = nullptr;
+    }
+  }
 }
 
 void AnimationController::init()
 {
+  if (animations[0] == nullptr)
+  {
+    animations[0] = new RandomAnimation(*this);
+    animations[1] = new CubeAnimation(*this);
+    animations[2] = new StarburstAnimation(*this);
+    animations[3] = new CenterAnimation(*this);
+    animations[4] = new RainbowAnimation(*this);
+  }
+
   numberOfAutoPulseTypes =
       (Constants::randomPulsesEnabled ? 1 : 0) +
       (Constants::cubePulsesEnabled ? 1 : 0) +
@@ -104,25 +135,9 @@ void AnimationController::getNextAnimation()
 
 void AnimationController::startAnimation(byte animation)
 {
-  switch (animation)
+  if (animation < 5 && animations[animation])
   {
-  case 0:
-    randomPulse();
-    break;
-  case 1:
-    cubePulse();
-    break;
-  case 2:
-    starburstPulse();
-    break;
-  case 3:
-    centerPulse();
-    break;
-  case 4:
-    rainbow();
-    break;
-  default:
-    break;
+    animations[animation]->run();
   }
 }
 
@@ -136,125 +151,40 @@ float AnimationController::getSpeed()
   return random(500, 800) / 1000.0f;
 }
 
-void AnimationController::randomPulse()
+void AnimationController::startRipple(int node, int direction, uint32_t color, float speed, unsigned long lifespan, RippleBehavior behavior)
 {
-  int node = Topology::funNodes[random(Topology::numberOfFunNodes)];
-  while (node == lastAutoPulseNode)
+  for (int j = 0; j < Constants::NUMBER_OF_RIPPLES; j++)
   {
-    node = Topology::funNodes[random(Topology::numberOfFunNodes)];
+    if (ripples[j].state == STATE_DEAD)
+    {
+      ripples[j].start(
+          node,
+          direction,
+          color,
+          speed,
+          lifespan,
+          behavior);
+      break;
+    }
   }
+}
+
+byte AnimationController::getLastNode()
+{
+  return lastAutoPulseNode;
+}
+
+void AnimationController::setLastNode(byte node)
+{
   lastAutoPulseNode = node;
-
-  for (int i = 0; i < Constants::MAX_PATHS_PER_NODE; i++)
-  {
-    if (Topology::nodeConnections[node][i] >= 0)
-    {
-      for (int j = 0; j < Constants::NUMBER_OF_RIPPLES; j++)
-      {
-        if (ripples[j].state == STATE_DEAD)
-        {
-          ripples[j].start(
-              node,
-              i,
-              getRandomColor(),
-              float(random(100)) / 100.0f * .2f + .5f,
-              Constants::ANIMATION_TIME,
-              BEHAVIOR_FEISTY);
-          break;
-        }
-      }
-    }
-  }
 }
 
-void AnimationController::cubePulse()
+LedController &AnimationController::getLedController()
 {
-  int node = Topology::cubeNodes[random(Topology::numberOfCubeNodes)];
-  while (node == lastAutoPulseNode)
-  {
-    node = Topology::cubeNodes[random(Topology::numberOfCubeNodes)];
-  }
-  lastAutoPulseNode = node;
-
-  RippleBehavior behavior = random(2) ? BEHAVIOR_ALWAYS_LEFT : BEHAVIOR_ALWAYS_RIGHT;
-
-  for (int i = 0; i < Constants::MAX_PATHS_PER_NODE; i++)
-  {
-    if (Topology::nodeConnections[node][i] >= 0)
-    {
-      for (int j = 0; j < Constants::NUMBER_OF_RIPPLES; j++)
-      {
-        if (ripples[j].state == STATE_DEAD)
-        {
-          ripples[j].start(
-              node,
-              i,
-              getRandomColor(),
-              .8f,
-              Constants::ANIMATION_TIME,
-              behavior);
-          break;
-        }
-      }
-    }
-  }
+  return ledController;
 }
 
-void AnimationController::starburstPulse()
+unsigned int AnimationController::getBaseColor()
 {
-  RippleBehavior behavior = random(2) ? BEHAVIOR_ALWAYS_LEFT : BEHAVIOR_ALWAYS_RIGHT;
-  lastAutoPulseNode = Topology::starburstNode;
-
-  for (int i = 0; i < Constants::MAX_PATHS_PER_NODE; i++)
-  {
-    for (int j = 0; j < Constants::NUMBER_OF_RIPPLES; j++)
-    {
-      if (ripples[j].state == STATE_DEAD)
-      {
-        // strip0.ColorHSV(baseColor + (0xFFFF / 6) * i, 255, 255)
-        uint32_t color = ledController.ColorHSV(baseColor + (0xFFFF / 6) * i, 255, 255);
-
-        ripples[j].start(
-            Topology::starburstNode,
-            i,
-            color,
-            .65f,
-            2600,
-            behavior);
-        break;
-      }
-    }
-  }
-}
-
-void AnimationController::centerPulse()
-{
-  unsigned int startingNode = Topology::starburstNode;
-  RippleBehavior behavior = BEHAVIOR_FEISTY;
-
-  for (int i = 0; i < Constants::MAX_PATHS_PER_NODE; i++)
-  {
-    if (Topology::nodeConnections[startingNode][i] >= 0)
-    {
-      for (int j = 0; j < Constants::NUMBER_OF_RIPPLES; j++)
-      {
-        if (ripples[j].state == STATE_DEAD)
-        {
-          ripples[j].start(
-              startingNode,
-              i,
-              getRandomColor(),
-              getSpeed(),
-              5000,
-              behavior);
-          break;
-        }
-      }
-    }
-  }
-}
-
-void AnimationController::rainbow()
-{
-  ledController.rainbow();
+  return baseColor;
 }
