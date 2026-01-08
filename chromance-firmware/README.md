@@ -48,4 +48,4 @@ Once it is on your network I recommend going into your router and assigning the 
 
 ## How to make an animation
 
-To create your own animations you will want to look at the [mapping.h](src/mapping.h) file and the [ripple.cpp](src/ripple.cpp) file to a lesser extent.  This repository contains a [mapping.jpeg](mapping.jpeg) that shows each nodes number and the segment numbers.  You can use this image to make sense of the `nodeConnections`, `segmentConnections`, `borderNodes`, `cubeNodes`, `funNodes`, and `starburstNode` variables in [`mapping.h`](src/mapping.h)
+To create your own animations you will want to look at the [mapping.h](src/mapping.h) file and the [ripple.cpp](src/ripple.cpp) file to a lesser extent.  This repository contains a [mapping.jpg](mapping.jpg) that shows each nodes number and the segment numbers.  You can use this image to make sense of the `nodeConnections`, `segmentConnections`, `borderNodes`, `cubeNodes`, `funNodes`, and `starburstNode` variables in [`mapping.h`](src/mapping.h)

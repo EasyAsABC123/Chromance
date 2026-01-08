@@ -1,9 +1,9 @@
 #include "ripple.h"
+#include "Utils.h"
 
-float fmap(float x, float in_min, float in_max, float out_min, float out_max)
-{
-    return (x - in_min) * (out_max - out_min) / (in_max - in_min) + out_min;
-}
+// #define DEBUG_ADVANCEMENT
+// #define DEBUG_RENDERING
+// #define DEBUG_AGE
 
 Ripple::Ripple(int id) : rippleId(id)
 {
@@ -11,7 +11,7 @@ Ripple::Ripple(int id) : rippleId(id)
     Serial.println(rippleId);
 }
 
-void Ripple::start(int node, int direction, unsigned long color, float speed, unsigned long lifespan, rippleBehavior behavior)
+void Ripple::start(int node, int direction, unsigned long color, float speed, unsigned long lifespan, RippleBehavior behavior)
 {
     Ripple::color = color;
     Ripple::speed = speed;
@@ -35,20 +35,26 @@ void Ripple::start(int node, int direction, unsigned long color, float speed, un
     Serial.println(direction);
 }
 
-void Ripple::renderLed(byte ledColors[NUMBER_OF_SEGMENTS][LEDS_PER_SEGMENTS][3], unsigned long age)
+void Ripple::renderLed(LedController &ledController, unsigned long age)
 {
-    int strip = ledAssignments[node][0];
-    int led = ledAssignments[node][2] + direction;
-    int red = ledColors[node][direction][0];
-    int green = ledColors[node][direction][1];
-    int blue = ledColors[node][direction][2];
+    // In Ripple logic: 'node' maps to segment index, 'direction' maps to LED index within segment
+    int segment = node;
+    int led = direction;
 
-    ledColors[node][direction][0] = byte(min(255, max(0, int(fmap(float(age), 0.0, float(lifespan), (color >> 8) & 0xFF, 0.0)) + red)));
-    ledColors[node][direction][1] = byte(min(255, max(0, int(fmap(float(age), 0.0, float(lifespan), (color >> 16) & 0xFF, 0.0)) + green)));
-    ledColors[node][direction][2] = byte(min(255, max(0, int(fmap(float(age), 0.0, float(lifespan), color & 0xFF, 0.0)) + blue)));
+    // Check bounds just in case
+    if (segment < 0 || segment >= Constants::NUMBER_OF_SEGMENTS || led < 0 || led >= Constants::LEDS_PER_SEGMENT)
+    {
+        return;
+    }
+
+    byte val0 = (byte)fmap(float(age), 0.0f, float(lifespan), (float)((color >> 8) & 0xFF), 0.0f);
+    byte val1 = (byte)fmap(float(age), 0.0f, float(lifespan), (float)((color >> 16) & 0xFF), 0.0f);
+    byte val2 = (byte)fmap(float(age), 0.0f, float(lifespan), (float)(color & 0xFF), 0.0f);
+
+    ledController.addPixelColor(segment, led, val0, val1, val2);
 }
 
-void Ripple::advance(byte ledColors[NUMBER_OF_SEGMENTS][LEDS_PER_SEGMENTS][3])
+void Ripple::advance(LedController &ledController)
 {
     unsigned long age = millis() - birthday;
 
@@ -63,7 +69,7 @@ void Ripple::advance(byte ledColors[NUMBER_OF_SEGMENTS][LEDS_PER_SEGMENTS][3])
     if (pressure < 1 && (state == STATE_TRAVEL_UP || state == STATE_TRAVEL_DOWN))
     {
         // Ripple is visible but hasn't moved - render it to avoid flickering
-        renderLed(ledColors, age);
+        renderLed(ledController, age);
     }
 
     while (pressure >= 1)
@@ -93,18 +99,18 @@ void Ripple::advance(byte ledColors[NUMBER_OF_SEGMENTS][LEDS_PER_SEGMENTS][3])
 
                 int newDirection = -1;
 
-                int sharpLeft = (direction + 1) % MAX_PATHS_PER_NODES;
-                int wideLeft = (direction + 2) % MAX_PATHS_PER_NODES;
-                int forward = (direction + 3) % MAX_PATHS_PER_NODES;
-                int wideRight = (direction + 4) % MAX_PATHS_PER_NODES;
-                int sharpRight = (direction + 5) % MAX_PATHS_PER_NODES;
+                int sharpLeft = (direction + 1) % Constants::MAX_PATHS_PER_NODE;
+                int wideLeft = (direction + 2) % Constants::MAX_PATHS_PER_NODE;
+                int forward = (direction + 3) % Constants::MAX_PATHS_PER_NODE;
+                int wideRight = (direction + 4) % Constants::MAX_PATHS_PER_NODE;
+                int sharpRight = (direction + 5) % Constants::MAX_PATHS_PER_NODE;
 
                 if (behavior <= BEHAVIOR_ANGRY)
                 { // Semi-random aggressive turn mode
                     // The more aggressive a ripple, the tighter turns it wants to make.
                     // If there aren't any segments it can turn to, we need to adjust its behavior.
-                    byte anger = behavior;
-                    int forwardConnection = nodeConnections[node][forward];
+                    int anger = (int)behavior;
+                    int forwardConnection = Topology::nodeConnections[node][forward];
 
                     while (newDirection < 0)
                     {
@@ -165,8 +171,8 @@ void Ripple::advance(byte ledColors[NUMBER_OF_SEGMENTS][LEDS_PER_SEGMENTS][3])
 
                         if (anger == BEHAVIOR_FEISTY)
                         {
-                            int leftConnection = nodeConnections[node][wideLeft];
-                            int rightConnection = nodeConnections[node][wideRight];
+                            int leftConnection = Topology::nodeConnections[node][wideLeft];
+                            int rightConnection = Topology::nodeConnections[node][wideRight];
 
                             if (leftConnection >= 0 && rightConnection >= 0)
                             {
@@ -200,8 +206,8 @@ void Ripple::advance(byte ledColors[NUMBER_OF_SEGMENTS][LEDS_PER_SEGMENTS][3])
 
                         if (anger == BEHAVIOR_ANGRY)
                         {
-                            int leftConnection = nodeConnections[node][sharpLeft];
-                            int rightConnection = nodeConnections[node][sharpRight];
+                            int leftConnection = Topology::nodeConnections[node][sharpLeft];
+                            int rightConnection = Topology::nodeConnections[node][sharpRight];
 
                             if (leftConnection >= 0 && rightConnection >= 0)
                             {
@@ -241,11 +247,11 @@ void Ripple::advance(byte ledColors[NUMBER_OF_SEGMENTS][LEDS_PER_SEGMENTS][3])
                 }
                 else if (behavior == BEHAVIOR_ALWAYS_RIGHT)
                 {
-                    for (int i = 1; i < MAX_PATHS_PER_NODES; i++)
+                    for (int i = 1; i < Constants::MAX_PATHS_PER_NODE; i++)
                     {
-                        int possibleDirection = (direction + i) % MAX_PATHS_PER_NODES;
+                        int possibleDirection = (direction + i) % Constants::MAX_PATHS_PER_NODE;
 
-                        if (nodeConnections[node][possibleDirection] >= 0)
+                        if (Topology::nodeConnections[node][possibleDirection] >= 0)
                         {
                             newDirection = possibleDirection;
                             break;
@@ -259,9 +265,9 @@ void Ripple::advance(byte ledColors[NUMBER_OF_SEGMENTS][LEDS_PER_SEGMENTS][3])
                 {
                     for (int i = 5; i >= 1; i--)
                     {
-                        int possibleDirection = (direction + i) % MAX_PATHS_PER_NODES;
+                        int possibleDirection = (direction + i) % Constants::MAX_PATHS_PER_NODE;
 
-                        if (nodeConnections[node][possibleDirection] >= 0)
+                        if (Topology::nodeConnections[node][possibleDirection] >= 0)
                         {
                             newDirection = possibleDirection;
                             break;
@@ -275,9 +281,9 @@ void Ripple::advance(byte ledColors[NUMBER_OF_SEGMENTS][LEDS_PER_SEGMENTS][3])
                 {
                     for (int i = 5; i >= 1; i--)
                     {
-                        int possibleDirection = (direction + i) % MAX_PATHS_PER_NODES;
+                        int possibleDirection = (direction + i) % Constants::MAX_PATHS_PER_NODE;
 
-                        if (nodeConnections[node][possibleDirection] >= 0 && (possibleDirection != node))
+                        if (Topology::nodeConnections[node][possibleDirection] >= 0 && (possibleDirection != node))
                         {
                             newDirection = possibleDirection;
                             // start
@@ -301,7 +307,7 @@ void Ripple::advance(byte ledColors[NUMBER_OF_SEGMENTS][LEDS_PER_SEGMENTS][3])
                 }
             } // End else from 'if (justStarted) {'
 
-            node = nodeConnections[node][direction]; // Look up which segment we're on
+            node = Topology::nodeConnections[node][direction]; // Look up which segment we're on
             if (node > 37)
             {
                 Serial.print("Uhoh, node out of bound at line 296 :");
@@ -326,7 +332,7 @@ void Ripple::advance(byte ledColors[NUMBER_OF_SEGMENTS][LEDS_PER_SEGMENTS][3])
                 Serial.println("  (starting at top)");
 #endif
                 state = STATE_TRAVEL_DOWN;
-                direction = LEDS_PER_SEGMENTS - 1; // Starting at top of LED-strip
+                direction = Constants::LEDS_PER_SEGMENT - 1; // Starting at top of LED-strip
             }
             break;
         }
@@ -335,7 +341,7 @@ void Ripple::advance(byte ledColors[NUMBER_OF_SEGMENTS][LEDS_PER_SEGMENTS][3])
         {
             direction++;
 
-            if (direction >= LEDS_PER_SEGMENTS)
+            if (direction >= Constants::LEDS_PER_SEGMENT)
             {
                 // We've reached the top!
 #ifdef DEBUG_ADVANCEMENT
@@ -344,18 +350,20 @@ void Ripple::advance(byte ledColors[NUMBER_OF_SEGMENTS][LEDS_PER_SEGMENTS][3])
 #endif
                 // Enter the new node.
                 int segment = node;
-                node = segmentConnections[node][0];
-                if (node > NUMBER_OF_SEGMENTS)
+                node = Topology::segmentConnections[node][0];
+                if (node > Constants::NUMBER_OF_SEGMENTS)
                 {
+#ifdef DEBUG_ADVANCEMENT
                     Serial.print("Segment out of bound :");
                     Serial.print(node);
                     Serial.println("");
+#endif
                 }
-                for (int i = 0; i < MAX_PATHS_PER_NODES; i++)
+                for (int i = 0; i < Constants::MAX_PATHS_PER_NODE; i++)
                 {
                     // Figure out from which direction the ripple is entering the node.
                     // Allows us to exit in an appropriately aggressive direction.
-                    int incomingConnection = nodeConnections[node][i];
+                    int incomingConnection = Topology::nodeConnections[node][i];
                     if (incomingConnection == segment)
                         direction = i;
                 }
@@ -391,17 +399,17 @@ void Ripple::advance(byte ledColors[NUMBER_OF_SEGMENTS][LEDS_PER_SEGMENTS][3])
 #endif
                 // Enter the new node.
                 int segment = node;
-                node = segmentConnections[node][1];
+                node = Topology::segmentConnections[node][1];
                 {
                     Serial.print("Segment out of bound :");
                     Serial.print(node);
                     Serial.println("");
                 }
-                for (int i = 0; i < MAX_PATHS_PER_NODES; i++)
+                for (int i = 0; i < Constants::MAX_PATHS_PER_NODE; i++)
                 {
                     // Figure out from which direction the ripple is entering the node.
                     // Allows us to exit in an appropriately aggressive direction.
-                    int incomingConnection = nodeConnections[node][i];
+                    int incomingConnection = Topology::nodeConnections[node][i];
                     if (incomingConnection == segment)
                         direction = i;
                 }
@@ -434,7 +442,7 @@ void Ripple::advance(byte ledColors[NUMBER_OF_SEGMENTS][LEDS_PER_SEGMENTS][3])
         if (state == STATE_TRAVEL_UP || state == STATE_TRAVEL_DOWN)
         {
             // Ripple is visible - render it
-            renderLed(ledColors, age);
+            renderLed(ledController, age);
         }
     }
 

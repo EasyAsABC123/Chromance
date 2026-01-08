@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(pio run:*)",
+      "Bash(platformio run:*)",
+      "Bash(/Users/jschuhmann/Library/Python/3.9/bin/platformio run -e esp-wrover-kit)",
+      "Bash(ls:*)",
+      "Bash(/opt/homebrew/bin/platformio run -e esp-wrover-kit)",
+      "Bash(bash:*)"
+    ],
+    "deny": []
+  }
+}
