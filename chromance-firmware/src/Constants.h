@@ -15,7 +15,7 @@ namespace Constants
 
   constexpr const char *HOSTNAME = "Chromance";
 
-  constexpr int NUMBER_OF_ANIMATIONS = 6;
+  constexpr int NUMBER_OF_ANIMATIONS = 7;
   constexpr int NUMBER_OF_RIPPLES = 30;
   constexpr int RIPPLE_TIMEOUT = NUMBER_OF_RIPPLES * 1000;
   constexpr int ANIMATION_TIME = 3000;
@@ -59,6 +59,8 @@ namespace Constants
   constexpr bool centerPulseEnabled = true;
   constexpr bool rainbowEnabled = true;
   constexpr bool chaseEnabled = true;
+  constexpr bool heartbeatEnabled = true;
+  constexpr int RAINBOW_BRIGHTNESS = 50;
 
   constexpr int randomPulseTime = 2000; // ms
 

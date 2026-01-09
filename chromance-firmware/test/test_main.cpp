@@ -126,6 +126,8 @@ std::string getAnimationName(int id)
     return "Rainbow";
   case 5:
     return "Chase";
+  case 6:
+    return "Heartbeat";
   case 255:
     return "None";
   default:

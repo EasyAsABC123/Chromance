@@ -6,7 +6,7 @@
 class StarburstAnimation : public Animation
 {
 public:
-  StarburstAnimation(AnimationController &controller) : Animation(controller) {}
+  StarburstAnimation(AnimationController &controller) : Animation(controller, Constants::starburstPulsesEnabled) {}
   void run() override;
 };
 

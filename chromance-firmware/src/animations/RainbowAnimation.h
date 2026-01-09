@@ -6,7 +6,7 @@
 class RainbowAnimation : public Animation
 {
 public:
-  RainbowAnimation(AnimationController &controller) : Animation(controller) {}
+  RainbowAnimation(AnimationController &controller) : Animation(controller, Constants::rainbowEnabled) {}
   void run() override;
   void update() override;
 

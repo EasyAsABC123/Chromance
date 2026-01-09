@@ -6,7 +6,7 @@
 class ChaseAnimation : public Animation
 {
 public:
-  ChaseAnimation(AnimationController &controller) : Animation(controller) {}
+  ChaseAnimation(AnimationController &controller) : Animation(controller, Constants::chaseEnabled) {}
   void run() override;
   void update() override;
   void stop() override;

@@ -6,7 +6,7 @@
 class CubeAnimation : public Animation
 {
 public:
-  CubeAnimation(AnimationController &controller) : Animation(controller) {}
+  CubeAnimation(AnimationController &controller) : Animation(controller, Constants::cubePulsesEnabled) {}
   void run() override;
 };
 

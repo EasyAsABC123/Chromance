@@ -6,7 +6,7 @@
 class CenterAnimation : public Animation
 {
 public:
-  CenterAnimation(AnimationController &controller) : Animation(controller) {}
+  CenterAnimation(AnimationController &controller) : Animation(controller, Constants::centerPulseEnabled) {}
   void run() override;
 };
 

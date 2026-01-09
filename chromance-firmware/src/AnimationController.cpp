@@ -5,6 +5,7 @@
 #include "animations/CenterAnimation.h"
 #include "animations/RainbowAnimation.h"
 #include "animations/ChaseAnimation.h"
+#include "animations/HeartbeatAnimation.h"
 
 AnimationController::AnimationController(LedController &controller)
     : ledController(controller)
@@ -42,15 +43,17 @@ void AnimationController::init()
     animations[3] = new CenterAnimation(*this);
     animations[4] = new RainbowAnimation(*this);
     animations[5] = new ChaseAnimation(*this);
+    animations[6] = new HeartbeatAnimation(*this);
   }
 
-  numberOfAutoPulseTypes =
-      (Constants::randomPulsesEnabled ? 1 : 0) +
-      (Constants::cubePulsesEnabled ? 1 : 0) +
-      (Constants::starburstPulsesEnabled ? 1 : 0) +
-      (Constants::centerPulseEnabled ? 1 : 0) +
-      (Constants::rainbowEnabled ? 1 : 0) +
-      (Constants::chaseEnabled ? 1 : 0);
+  numberOfAutoPulseTypes = 0;
+  for (int i = 0; i < Constants::NUMBER_OF_ANIMATIONS; i++)
+  {
+    if (animations[i] != nullptr && animations[i]->isEnabled())
+    {
+      numberOfAutoPulseTypes++;
+    }
+  }
 
   baseColor = random(0xFFFF);
   lastRandomPulse = millis();
@@ -76,7 +79,7 @@ void AnimationController::update()
   ledController.show();
 
   // Update current animation
-  if (currentAutoPulseType < 6 && animations[currentAutoPulseType])
+  if (currentAutoPulseType < 7 && animations[currentAutoPulseType])
   {
     animations[currentAutoPulseType]->update();
   }
@@ -84,17 +87,30 @@ void AnimationController::update()
   // Check for new animation trigger
   if (autoSwitching && numberOfAutoPulseTypes > 0 && millis() - lastRandomPulse >= Constants::randomPulseTime)
   {
-    if (currentAutoPulseType < 6 && animations[currentAutoPulseType])
+    bool readyToSwitch = true;
+
+    if (currentAutoPulseType < 7 && animations[currentAutoPulseType])
     {
-      animations[currentAutoPulseType]->stop();
+      if (!animations[currentAutoPulseType]->canBePreempted() && !animations[currentAutoPulseType]->isFinished())
+      {
+        readyToSwitch = false;
+      }
     }
 
-    baseColor = random(0xFFFF);
+    if (readyToSwitch)
+    {
+      if (currentAutoPulseType < 7 && animations[currentAutoPulseType])
+      {
+        animations[currentAutoPulseType]->stop();
+      }
 
-    getNextAnimation();
-    startAnimation(currentAutoPulseType);
+      baseColor = random(0xFFFF);
 
-    lastRandomPulse = millis();
+      getNextAnimation();
+      startAnimation(currentAutoPulseType);
+
+      lastRandomPulse = millis();
+    }
   }
 }
 
@@ -108,7 +124,7 @@ void AnimationController::getNextAnimation()
     int attempts = 0;
     while (attempts < 100)
     {
-      possiblePulse = random(6); // 0 to 5
+      possiblePulse = random(7); // 0 to 6
 
       if (possiblePulse == currentAutoPulseType)
       {
@@ -116,30 +132,7 @@ void AnimationController::getNextAnimation()
         continue;
       }
 
-      bool accepted = false;
-      switch (possiblePulse)
-      {
-      case 0:
-        accepted = Constants::randomPulsesEnabled;
-        break;
-      case 1:
-        accepted = Constants::cubePulsesEnabled;
-        break;
-      case 2:
-        accepted = Constants::starburstPulsesEnabled;
-        break;
-      case 3:
-        accepted = Constants::centerPulseEnabled;
-        break;
-      case 4:
-        accepted = Constants::rainbowEnabled;
-        break;
-      case 5:
-        accepted = Constants::chaseEnabled;
-        break;
-      }
-
-      if (accepted)
+      if (animations[possiblePulse] != nullptr && animations[possiblePulse]->isEnabled())
       {
         currentAutoPulseType = possiblePulse;
         lastAutoPulseChange = millis();
@@ -153,7 +146,7 @@ void AnimationController::getNextAnimation()
 void AnimationController::startAnimation(byte animation)
 {
   currentAutoPulseType = animation;
-  if (animation < 6 && animations[animation])
+  if (animation < 7 && animations[animation])
   {
     animations[animation]->run();
   }

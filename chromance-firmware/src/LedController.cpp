@@ -128,14 +128,14 @@ void LedController::show()
   }
 }
 
-void LedController::rainbow(uint16_t first_hue)
+void LedController::rainbow(uint16_t first_hue, uint8_t brightness)
 {
   for (int segment = 0; segment < Constants::NUMBER_OF_SEGMENTS; segment++)
   {
     for (int led = 0; led < Constants::LEDS_PER_SEGMENT; led++)
     {
       int hue = first_hue + (segment * 65536L / Constants::NUMBER_OF_SEGMENTS);
-      uint32_t color = ColorHSV(hue, 255, 255);
+      uint32_t color = ColorHSV(hue, 255, brightness);
       ledColors[segment][led][0] = (uint8_t)(color >> 16);
       ledColors[segment][led][1] = (uint8_t)(color >> 8);
       ledColors[segment][led][2] = (uint8_t)(color);

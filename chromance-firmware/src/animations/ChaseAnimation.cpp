@@ -144,7 +144,7 @@ void ChaseAnimation::update()
                 collisionNode,
                 i,
                 0xFF0000, // Red explosion
-                3.5f,
+                2.5f,
                 2000,
                 BEHAVIOR_EXPLODING // Or random
             );

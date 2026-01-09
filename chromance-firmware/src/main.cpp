@@ -53,7 +53,7 @@ void HandleArduinoOTA(void *pvParameters)
     if (!getLocalTime(&timeinfo))
     {
       Serial.println("Failed to obtain time");
-      delay(100);
+      delay(2000);
       continue; // Don't exit the task, just skip this iteration
     }
 
@@ -70,7 +70,7 @@ void HandleArduinoOTA(void *pvParameters)
         stillAnimating = animating;
         if (stillAnimating)
         {
-          delay(100);
+          delay(1000);
         }
       }
 
@@ -80,7 +80,7 @@ void HandleArduinoOTA(void *pvParameters)
       esp_deep_sleep_start();
     }
 
-    delay(1000); // Check time every second
+    delay(2000); // Check time every second
   }
 }
 

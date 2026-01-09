@@ -24,28 +24,9 @@ fi
 HASH_FILE=".emulator_build_hash"
 BINARY="emulator"
 
-# Function to calculate hash of all relevant source files
-calc_hash() {
-    # Find all .cpp and .h files in src and test directories
-    # Sort to ensure consistent ordering
-    # Calculate hash of contents to detect changes
-    find src test -type f \( -name "*.cpp" -o -name "*.h" \) -print0 | sort -z | xargs -0 shasum | shasum | awk '{print $1}'
-}
+source ./build_utils.sh
 
-# Calculate current hash
-CURRENT_HASH=$(calc_hash)
-
-# Check if we need to recompile
-DO_COMPILE=true
-
-if [ -f "$BINARY" ] && [ -f "$HASH_FILE" ]; then
-    STORED_HASH=$(cat "$HASH_FILE")
-    if [ "$CURRENT_HASH" == "$STORED_HASH" ]; then
-        DO_COMPILE=false
-    fi
-fi
-
-if [ "$DO_COMPILE" = true ]; then
+if check_recompile_needed "$BINARY" "$HASH_FILE"; then
     echo "Compiling Chromance Emulator..."
 
     g++ -std=c++11 -D NATIVE_TEST -D DEBUG=1 -D USING_NEOPIXEL \
@@ -63,13 +44,12 @@ if [ "$DO_COMPILE" = true ]; then
       src/animations/RainbowAnimation.cpp \
       src/animations/RandomAnimation.cpp \
       src/animations/StarburstAnimation.cpp \
-      -o emulator
+      src/animations/HeartbeatAnimation.cpp \
+      -o "$BINARY"
 
     echo "Compilation successful."
-    echo "$CURRENT_HASH" > "$HASH_FILE"
-else
-    echo "Source files unchanged. Skipping compilation."
+    update_build_hash "$HASH_FILE"
 fi
 
 echo "Running emulator..."
-./emulator "$@"
+./"$BINARY" "$@"

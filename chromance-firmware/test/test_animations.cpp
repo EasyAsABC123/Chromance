@@ -154,6 +154,9 @@ void test_rainbow_animation()
   // RainbowAnimation is index 4
   animController.startAnimation(4);
 
+  // Force a show to update the strips from the internal buffer
+  ledController.show();
+
   // RainbowAnimation calls ledController.rainbow() directly, it doesn't use ripples.
 
   int count = animController.getActiveRippleCount();
@@ -219,6 +222,46 @@ void test_chase_animation()
   TEST_ASSERT(foundChaser);
 }
 
+void test_heartbeat_animation()
+{
+  TEST_CASE("HeartbeatAnimation");
+  reset_mocks();
+
+  LedController ledController;
+  AnimationController animController(ledController);
+  ledController.begin();
+  animController.init();
+  animController.setAutoSwitching(false);
+
+  // HeartbeatAnimation is index 6
+  animController.startAnimation(6);
+
+  // Run update to set the LEDs
+  animController.update();
+
+  // Force a show to push internal buffer to the strip mock (since update() showed the *previous* frame)
+  ledController.show();
+
+  // HeartbeatAnimation uses setPixelColor directly, not ripples.
+  // Check if LEDs are lit.
+  bool anyLit = false;
+  auto strip = ledController.getStrip(0);
+  if (strip)
+  {
+    for (int i = 0; i < strip->numPixels(); i++)
+    {
+      if (strip->getPixelColor(i) != 0)
+      {
+        anyLit = true;
+        break;
+      }
+    }
+  }
+
+  std::cout << "HeartbeatAnimation LEDs Lit: " << (anyLit ? "Yes" : "No") << std::endl;
+  TEST_ASSERT(anyLit);
+}
+
 int main()
 {
   std::cout << "Starting Animation Tests..." << std::endl;
@@ -229,6 +272,7 @@ int main()
   test_center_animation();
   test_rainbow_animation();
   test_chase_animation();
+  test_heartbeat_animation();
 
   std::cout << "\nTest Summary:" << std::endl;
   std::cout << "Passed: " << tests_passed << std::endl;

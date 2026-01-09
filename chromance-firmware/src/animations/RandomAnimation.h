@@ -6,7 +6,7 @@
 class RandomAnimation : public Animation
 {
 public:
-  RandomAnimation(AnimationController &controller) : Animation(controller) {}
+  RandomAnimation(AnimationController &controller) : Animation(controller, Constants::randomPulsesEnabled) {}
   void run() override;
 };
 
