@@ -36,6 +36,9 @@ public:
   static const int funNodes[numberOfFunNodes];
 
   static const int starburstNode = 15;
+
+  // Pathfinding
+  static int getNextStep(int startNode, int targetNode);
 };
 
 #endif // TOPOLOGY_H

@@ -32,12 +32,11 @@ const uint64_t uS_TO_S_FACTOR = 1000000; /* Conversion factor for micro seconds 
 TaskHandle_t HandleArduinoOTA_Task;
 
 // Semaphore for protecting shared variables (activeOTAUpdate, animating)
-SemaphoreHandle_t animationMutex = NULL;
 bool activeOTAUpdate = false;
 bool animating = true;
 
 // Function declarations
-void connectToWiFi(const char *ssid, const char *pwd);
+void connectToWiFi();
 void setupOTA(void);
 
 // Thread for running on opposite thread as loop
@@ -54,35 +53,21 @@ void HandleArduinoOTA(void *pvParameters)
     if (!getLocalTime(&timeinfo))
     {
       Serial.println("Failed to obtain time");
-      delay(500);
+      delay(100);
       continue; // Don't exit the task, just skip this iteration
     }
 
     if (timeinfo.tm_hour >= 22 || timeinfo.tm_hour <= 1)
     {
-      // Wait for mutex to be created if setup hasn't finished yet
-      if (animationMutex == NULL)
-      {
-        delay(100);
-        continue;
-      }
 
       // Acquire mutex to safely set activeOTAUpdate and wait for animation to stop
-      if (xSemaphoreTake(animationMutex, portMAX_DELAY) == pdTRUE)
-      {
-        activeOTAUpdate = true;
-        xSemaphoreGive(animationMutex);
-      }
+      activeOTAUpdate = true;
 
       // Wait for animation to complete (check with mutex protection)
       bool stillAnimating = true;
       while (stillAnimating)
       {
-        if (animationMutex != NULL && xSemaphoreTake(animationMutex, portMAX_DELAY) == pdTRUE)
-        {
-          stillAnimating = animating;
-          xSemaphoreGive(animationMutex);
-        }
+        stillAnimating = animating;
         if (stillAnimating)
         {
           delay(100);
@@ -95,8 +80,7 @@ void HandleArduinoOTA(void *pvParameters)
       esp_deep_sleep_start();
     }
 
-    // only check for OTA update every 1/2 second
-    delay(500);
+    delay(1000); // Check time every second
   }
 }
 
@@ -116,11 +100,7 @@ void setupOTA()
       type = "filesystem";
 
     // Protect shared variable access with mutex
-    if (animationMutex != NULL && xSemaphoreTake(animationMutex, portMAX_DELAY) == pdTRUE)
-    {
-      activeOTAUpdate = true;
-      xSemaphoreGive(animationMutex);
-    }
+    activeOTAUpdate = true;
     // NOTE: if updating SPIFFS this would be the place to unmount SPIFFS using SPIFFS.end()
     Serial.println("Start updating " + type); });
   ArduinoOTA.onEnd([]()
@@ -130,22 +110,18 @@ void setupOTA()
   ArduinoOTA.onError([](ota_error_t error)
                      {
                       // Protect shared variable access with mutex
-                      if (animationMutex != NULL && xSemaphoreTake(animationMutex, portMAX_DELAY) == pdTRUE)
-                      {
-                        activeOTAUpdate = false;
-                        xSemaphoreGive(animationMutex);
-                      }
-                       Serial.printf("Error[%u]: ", error);
-                       if (error == OTA_AUTH_ERROR)
-                         Serial.println("Auth Failed");
-                       else if (error == OTA_BEGIN_ERROR)
-                         Serial.println("Begin Failed");
-                       else if (error == OTA_CONNECT_ERROR)
-                         Serial.println("Connect Failed");
-                       else if (error == OTA_RECEIVE_ERROR)
-                         Serial.println("Receive Failed");
-                       else if (error == OTA_END_ERROR)
-                         Serial.println("End Failed"); });
+                      activeOTAUpdate = false;
+                      Serial.printf("Error[%u]: ", error);
+                      if (error == OTA_AUTH_ERROR)
+                        Serial.println("Auth Failed");
+                      else if (error == OTA_BEGIN_ERROR)
+                        Serial.println("Begin Failed");
+                      else if (error == OTA_CONNECT_ERROR)
+                        Serial.println("Connect Failed");
+                      else if (error == OTA_RECEIVE_ERROR)
+                        Serial.println("Receive Failed");
+                      else if (error == OTA_END_ERROR)
+                        Serial.println("End Failed"); });
 
   ArduinoOTA.begin();
 
@@ -178,12 +154,6 @@ void setup()
   Serial.println("*** LET'S GOOOOO ***");
 
   // Create mutex semaphore for protecting shared animation state
-  animationMutex = xSemaphoreCreateMutex();
-  if (animationMutex == NULL)
-  {
-    Serial.println("Failed to create mutex!");
-  }
-
   ledController.begin();
 
   connectToWiFi();
@@ -199,14 +169,10 @@ void loop()
   // We are doing an OTA update, might as well just stop
   // Check and update with mutex protection
   bool shouldStop = false;
-  if (animationMutex != NULL && xSemaphoreTake(animationMutex, portMAX_DELAY) == pdTRUE)
+  if (activeOTAUpdate)
   {
-    if (activeOTAUpdate)
-    {
-      animating = false;
-      shouldStop = true;
-    }
-    xSemaphoreGive(animationMutex);
+    animating = false;
+    shouldStop = true;
   }
 
   if (shouldStop)

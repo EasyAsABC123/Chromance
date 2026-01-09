@@ -13,6 +13,8 @@ public:
   virtual ~Animation() {}
 
   virtual void run() = 0;
+  virtual void update() {}
+  virtual void stop() {}
 
 protected:
   AnimationController &controller;

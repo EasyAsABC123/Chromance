@@ -8,6 +8,10 @@ class RainbowAnimation : public Animation
 public:
   RainbowAnimation(AnimationController &controller) : Animation(controller) {}
   void run() override;
+  void update() override;
+
+private:
+  uint16_t firstHue = 0;
 };
 
 #endif

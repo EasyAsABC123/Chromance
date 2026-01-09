@@ -8,12 +8,14 @@ namespace Constants
 
 // LED Type Configuration
 // Uncomment the one you want to use
-#define USING_NEOPIXEL
+#ifndef USING_NEOPIXEL
+// #define USING_NEOPIXEL
+#endif
   // #define USING_DOTSTAR
 
   constexpr const char *HOSTNAME = "Chromance";
 
-  constexpr int NUMBER_OF_ANIMATIONS = 5;
+  constexpr int NUMBER_OF_ANIMATIONS = 6;
   constexpr int NUMBER_OF_RIPPLES = 30;
   constexpr int RIPPLE_TIMEOUT = NUMBER_OF_RIPPLES * 1000;
   constexpr int ANIMATION_TIME = 3000;
@@ -55,7 +57,8 @@ namespace Constants
   constexpr bool cubePulsesEnabled = true;
   constexpr bool starburstPulsesEnabled = true;
   constexpr bool centerPulseEnabled = true;
-  constexpr bool rainbowEnabled = false;
+  constexpr bool rainbowEnabled = true;
+  constexpr bool chaseEnabled = true;
 
   constexpr int randomPulseTime = 2000; // ms
 

@@ -4,6 +4,7 @@
 #include "animations/StarburstAnimation.h"
 #include "animations/CenterAnimation.h"
 #include "animations/RainbowAnimation.h"
+#include "animations/ChaseAnimation.h"
 
 AnimationController::AnimationController(LedController &controller)
     : ledController(controller)
@@ -40,6 +41,7 @@ void AnimationController::init()
     animations[2] = new StarburstAnimation(*this);
     animations[3] = new CenterAnimation(*this);
     animations[4] = new RainbowAnimation(*this);
+    animations[5] = new ChaseAnimation(*this);
   }
 
   numberOfAutoPulseTypes =
@@ -47,7 +49,8 @@ void AnimationController::init()
       (Constants::cubePulsesEnabled ? 1 : 0) +
       (Constants::starburstPulsesEnabled ? 1 : 0) +
       (Constants::centerPulseEnabled ? 1 : 0) +
-      (Constants::rainbowEnabled ? 1 : 0);
+      (Constants::rainbowEnabled ? 1 : 0) +
+      (Constants::chaseEnabled ? 1 : 0);
 
   baseColor = random(0xFFFF);
   lastRandomPulse = millis();
@@ -72,9 +75,20 @@ void AnimationController::update()
   // Show strips
   ledController.show();
 
-  // Check for new animation trigger
-  if (numberOfAutoPulseTypes > 0 && millis() - lastRandomPulse >= Constants::randomPulseTime)
+  // Update current animation
+  if (currentAutoPulseType < 6 && animations[currentAutoPulseType])
   {
+    animations[currentAutoPulseType]->update();
+  }
+
+  // Check for new animation trigger
+  if (autoSwitching && numberOfAutoPulseTypes > 0 && millis() - lastRandomPulse >= Constants::randomPulseTime)
+  {
+    if (currentAutoPulseType < 6 && animations[currentAutoPulseType])
+    {
+      animations[currentAutoPulseType]->stop();
+    }
+
     baseColor = random(0xFFFF);
 
     getNextAnimation();
@@ -94,7 +108,7 @@ void AnimationController::getNextAnimation()
     int attempts = 0;
     while (attempts < 100)
     {
-      possiblePulse = random(5); // 0 to 4
+      possiblePulse = random(6); // 0 to 5
 
       if (possiblePulse == currentAutoPulseType)
       {
@@ -120,6 +134,9 @@ void AnimationController::getNextAnimation()
       case 4:
         accepted = Constants::rainbowEnabled;
         break;
+      case 5:
+        accepted = Constants::chaseEnabled;
+        break;
       }
 
       if (accepted)
@@ -135,7 +152,8 @@ void AnimationController::getNextAnimation()
 
 void AnimationController::startAnimation(byte animation)
 {
-  if (animation < 5 && animations[animation])
+  currentAutoPulseType = animation;
+  if (animation < 6 && animations[animation])
   {
     animations[animation]->run();
   }
@@ -187,4 +205,33 @@ LedController &AnimationController::getLedController()
 unsigned int AnimationController::getBaseColor()
 {
   return baseColor;
+}
+
+int AnimationController::getActiveRippleCount() const
+{
+  int count = 0;
+  for (int i = 0; i < Constants::NUMBER_OF_RIPPLES; i++)
+  {
+    if (ripples[i].state != STATE_DEAD)
+    {
+      count++;
+    }
+  }
+  return count;
+}
+
+void AnimationController::setAutoSwitching(bool enabled)
+{
+  autoSwitching = enabled;
+}
+
+Ripple &AnimationController::getRipple(int index)
+{
+  if (index < 0 || index >= Constants::NUMBER_OF_RIPPLES)
+  {
+    // Return the first one as a fallback or handle error?
+    // For now we assume valid index or return 0
+    return ripples[0];
+  }
+  return ripples[index];
 }

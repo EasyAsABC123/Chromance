@@ -7,14 +7,6 @@
 #include "LedController.h"
 
 // Define ripple behaviors
-enum RippleState
-{
-  STATE_DEAD,        // Ripple is to be deleted and should not lit up
-  STATE_WITHIN_NODE, // Ripple isn't drawn as it passes through a node to keep the speed consistent
-  STATE_TRAVEL_UP,   // Ripple is moving upward
-  STATE_TRAVEL_DOWN  // Ripple is moving downward
-};
-
 enum RippleBehavior
 {
   BEHAVIOR_COUCH_POTATO, // Stop at next node
@@ -24,7 +16,17 @@ enum RippleBehavior
   BEHAVIOR_ANGRY,
   BEHAVIOR_ALWAYS_RIGHT,
   BEHAVIOR_ALWAYS_LEFT,
-  BEHAVIOR_EXPLODING
+  BEHAVIOR_EXPLODING,
+  BEHAVIOR_CHASE,
+  BEHAVIOR_RUNNER
+};
+
+enum RippleState
+{
+  STATE_DEAD,
+  STATE_WITHIN_NODE,
+  STATE_TRAVEL_UP,
+  STATE_TRAVEL_DOWN
 };
 
 class Ripple
@@ -34,6 +36,7 @@ public:
 
   void start(int node, int direction, unsigned long color, float speed, unsigned long lifespan, RippleBehavior behavior);
   void advance(LedController &ledController);
+  RippleBehavior getBehavior() const { return behavior; }
 
   RippleState state = STATE_DEAD;
   unsigned long color;
@@ -44,6 +47,8 @@ public:
   */
   int node;
   int direction;
+
+  static int runnerNode;
 
 private:
   void renderLed(LedController &ledController, unsigned long age);

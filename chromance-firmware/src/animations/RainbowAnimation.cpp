@@ -4,5 +4,12 @@
 
 void RainbowAnimation::run()
 {
-    controller.getLedController().rainbow();
+    firstHue = 0;
+    controller.getLedController().rainbow(firstHue);
+}
+
+void RainbowAnimation::update()
+{
+    firstHue += 1024;
+    controller.getLedController().rainbow(firstHue);
 }

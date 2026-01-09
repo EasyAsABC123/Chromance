@@ -131,3 +131,79 @@ const int Topology::borderNodes[Topology::numberOfBorderNodes] = {0, 1, 2, 3, 6,
 const int Topology::cubeNodes[Topology::numberOfCubeNodes] = {7, 8, 9, 11, 12, 17, 18, 20};
 
 const int Topology::funNodes[Topology::numberOfFunNodes] = {4, 5, 14, 15, 16, 22, 23};
+
+int Topology::getNextStep(int startNode, int targetNode)
+{
+  if (startNode == targetNode)
+  {
+    return -1;
+  }
+  if (startNode < 0 || startNode >= Constants::NUMBER_OF_NODES)
+  {
+    return -1;
+  }
+  if (targetNode < 0 || targetNode >= Constants::NUMBER_OF_NODES)
+  {
+    return -1;
+  }
+
+  int dist[Constants::NUMBER_OF_NODES];
+  int parent[Constants::NUMBER_OF_NODES];
+  for (int i = 0; i < Constants::NUMBER_OF_NODES; i++)
+  {
+    dist[i] = -1;
+    parent[i] = -1;
+  }
+
+  int queue[Constants::NUMBER_OF_NODES];
+  int front = 0;
+  int rear = 0;
+
+  queue[rear++] = targetNode;
+  dist[targetNode] = 0;
+
+  while (front < rear)
+  {
+    int u = queue[front++];
+
+    if (u == startNode)
+    {
+      break;
+    }
+
+    for (int i = 0; i < Constants::MAX_PATHS_PER_NODE; i++)
+    {
+      int segment = nodeConnections[u][i];
+      if (segment != -1)
+      {
+        int v = (segmentConnections[segment][0] == u) ? segmentConnections[segment][1] : segmentConnections[segment][0];
+
+        if (v >= 0 && v < Constants::NUMBER_OF_NODES && dist[v] == -1)
+        {
+          dist[v] = dist[u] + 1;
+          parent[v] = u;
+          queue[rear++] = v;
+        }
+      }
+    }
+  }
+
+  int nextNode = parent[startNode];
+  if (nextNode != -1)
+  {
+    for (int i = 0; i < Constants::MAX_PATHS_PER_NODE; i++)
+    {
+      int segment = nodeConnections[startNode][i];
+      if (segment != -1)
+      {
+        int v = (segmentConnections[segment][0] == startNode) ? segmentConnections[segment][1] : segmentConnections[segment][0];
+        if (v == nextNode)
+        {
+          return i;
+        }
+      }
+    }
+  }
+
+  return -1;
+}

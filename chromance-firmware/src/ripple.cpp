@@ -5,6 +5,8 @@
 // #define DEBUG_RENDERING
 // #define DEBUG_AGE
 
+int Ripple::runnerNode = -1;
+
 Ripple::Ripple(int id) : rippleId(id)
 {
     // Serial.print("Instanced ripple #");
@@ -47,11 +49,24 @@ void Ripple::renderLed(LedController &ledController, unsigned long age)
         return;
     }
 
-    byte val0 = (byte)fmap(float(age), 0.0f, float(lifespan), (float)((color >> 8) & 0xFF), 0.0f);
-    byte val1 = (byte)fmap(float(age), 0.0f, float(lifespan), (float)((color >> 16) & 0xFF), 0.0f);
-    byte val2 = (byte)fmap(float(age), 0.0f, float(lifespan), (float)(color & 0xFF), 0.0f);
+    // Clamp values to 0-255 range to prevent underflow/overflow artifacts
+    // and correctly map color channels (Color is packed 0x00RRGGBB usually, but check Utils)
+    // Adafruit_NeoPixel::Color packs as (R << 16) | (G << 8) | B
 
-    ledController.addPixelColor(segment, led, val0, val1, val2);
+    // Extract RGB from packed color
+    byte r = (byte)((color >> 16) & 0xFF);
+    byte g = (byte)((color >> 8) & 0xFF);
+    byte b = (byte)(color & 0xFF);
+
+    // Calculate brightness based on age
+    float brightness = fmap(float(age), 0.0f, float(lifespan), 1.0f, 0.0f);
+    brightness = constrain(brightness, 0.0f, 1.0f);
+
+    byte valR = (byte)(r * brightness);
+    byte valG = (byte)(g * brightness);
+    byte valB = (byte)(b * brightness);
+
+    ledController.addPixelColor(segment, led, valR, valG, valB);
 }
 
 void Ripple::advance(LedController &ledController)
@@ -302,6 +317,48 @@ void Ripple::advance(LedController &ledController)
 #ifdef DEBUG_ADVANCEMENT
                     Serial.println(" Exploding !");
 #endif
+                }
+                else if (behavior == BEHAVIOR_RUNNER)
+                {
+                    runnerNode = node; // Update shared location
+                    int count = 0;
+                    int candidates[Constants::MAX_PATHS_PER_NODE];
+                    for (int i = 0; i < Constants::MAX_PATHS_PER_NODE; i++)
+                    {
+                        if (Topology::nodeConnections[node][i] >= 0)
+                        {
+                            candidates[count++] = i;
+                        }
+                    }
+                    if (count > 0)
+                    {
+                        newDirection = candidates[random(count)];
+                    }
+                }
+                else if (behavior == BEHAVIOR_CHASE)
+                {
+                    if (runnerNode >= 0)
+                    {
+                        newDirection = Topology::getNextStep(node, runnerNode);
+                    }
+
+                    if (newDirection < 0)
+                    {
+                        // Fallback to random walk
+                        int count = 0;
+                        int candidates[Constants::MAX_PATHS_PER_NODE];
+                        for (int i = 0; i < Constants::MAX_PATHS_PER_NODE; i++)
+                        {
+                            if (Topology::nodeConnections[node][i] >= 0)
+                            {
+                                candidates[count++] = i;
+                            }
+                        }
+                        if (count > 0)
+                        {
+                            newDirection = candidates[random(count)];
+                        }
+                    }
                 }
 
 #ifdef DEBUG_ADVANCEMENT

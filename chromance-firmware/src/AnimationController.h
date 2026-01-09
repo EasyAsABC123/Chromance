@@ -23,6 +23,11 @@ public:
   void setLastNode(byte node);
   LedController &getLedController();
   unsigned int getBaseColor();
+  int getActiveRippleCount() const;
+  byte getCurrentAnimation() const { return currentAutoPulseType; }
+  void startAnimation(byte animation);
+  void setAutoSwitching(bool enabled);
+  Ripple &getRipple(int index);
 
 private:
   LedController &ledController;
@@ -31,6 +36,7 @@ private:
 
   unsigned int baseColor;
   unsigned long lastRandomPulse;
+  bool autoSwitching = true;
 
   byte currentAutoPulseType = 255;
   unsigned long lastAutoPulseChange;
@@ -40,7 +46,6 @@ private:
   byte numberOfAutoPulseTypes;
 
   void getNextAnimation();
-  void startAnimation(byte animation);
 };
 
 #endif // ANIMATIONCONTROLLER_H

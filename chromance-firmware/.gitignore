@@ -1,2 +1,5 @@
 .vscode
 .pio
+emulator
+tests
+.emulator_build_hash

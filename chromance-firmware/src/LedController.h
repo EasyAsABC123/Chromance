@@ -35,7 +35,13 @@ public:
   // [Segment][LED][RGB]
   byte ledColors[Constants::NUMBER_OF_SEGMENTS][Constants::LEDS_PER_SEGMENT][3];
 
-  void rainbow();
+  void rainbow(uint16_t first_hue = 0);
+
+#ifdef USING_DOTSTAR
+  Adafruit_DotStar *getStrip(int index) { return strips[index]; }
+#else
+  Adafruit_NeoPixel *getStrip(int index) { return strips[index]; }
+#endif
 
 private:
 #ifdef USING_DOTSTAR
