@@ -7,6 +7,8 @@
 #include "ripple.h"
 #include "Topology.h"
 
+class Animation;
+
 class AnimationController
 {
 public:
@@ -26,8 +28,11 @@ public:
   int getActiveRippleCount() const;
   byte getCurrentAnimation() const { return currentAutoPulseType; }
   void startAnimation(byte animation);
+  void changeAnimation(byte animation);
   void setAutoSwitching(bool enabled);
+  bool isAutoSwitching() const { return autoSwitching; }
   Ripple &getRipple(int index);
+  Animation *getAnimation(int index);
 
 private:
   LedController &ledController;

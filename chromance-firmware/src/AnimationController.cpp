@@ -85,7 +85,7 @@ void AnimationController::update()
   }
 
   // Check for new animation trigger
-  if (autoSwitching && numberOfAutoPulseTypes > 0 && millis() - lastRandomPulse >= Constants::randomPulseTime)
+  if (numberOfAutoPulseTypes > 0 && millis() - lastRandomPulse >= Constants::randomPulseTime)
   {
     bool readyToSwitch = true;
 
@@ -99,17 +99,33 @@ void AnimationController::update()
 
     if (readyToSwitch)
     {
-      if (currentAutoPulseType < 7 && animations[currentAutoPulseType])
+      if (autoSwitching)
       {
-        animations[currentAutoPulseType]->stop();
+        if (currentAutoPulseType < 7 && animations[currentAutoPulseType])
+        {
+          animations[currentAutoPulseType]->stop();
+        }
+
+        baseColor = random(0xFFFF);
+
+        getNextAnimation();
+        startAnimation(currentAutoPulseType);
+
+        lastRandomPulse = millis();
       }
-
-      baseColor = random(0xFFFF);
-
-      getNextAnimation();
-      startAnimation(currentAutoPulseType);
-
-      lastRandomPulse = millis();
+      else
+      {
+        // Manual mode: continue playing selected animation
+        // Only re-trigger if the animation considers itself finished (e.g. one-shot pulses)
+        if (currentAutoPulseType < 7 && animations[currentAutoPulseType] && animations[currentAutoPulseType]->isFinished())
+        {
+          // We don't stop(), just add another pulse/run
+          // For ChaseAnimation, we might want to be careful, but isFinished() should handle that.
+          // For Random/Cube/etc, isFinished() is true, so we add more ripples.
+          animations[currentAutoPulseType]->run();
+          lastRandomPulse = millis();
+        }
+      }
     }
   }
 }
@@ -150,6 +166,15 @@ void AnimationController::startAnimation(byte animation)
   {
     animations[animation]->run();
   }
+}
+
+void AnimationController::changeAnimation(byte animation)
+{
+  if (currentAutoPulseType < 7 && animations[currentAutoPulseType])
+  {
+    animations[currentAutoPulseType]->stop();
+  }
+  startAnimation(animation);
 }
 
 uint32_t AnimationController::getRandomColor()
@@ -227,4 +252,13 @@ Ripple &AnimationController::getRipple(int index)
     return ripples[0];
   }
   return ripples[index];
+}
+
+Animation *AnimationController::getAnimation(int index)
+{
+  if (index < 0 || index >= Constants::NUMBER_OF_ANIMATIONS)
+  {
+    return nullptr;
+  }
+  return animations[index];
 }

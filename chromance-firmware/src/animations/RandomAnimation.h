@@ -8,6 +8,7 @@ class RandomAnimation : public Animation
 public:
   RandomAnimation(AnimationController &controller) : Animation(controller, Constants::randomPulsesEnabled) {}
   void run() override;
+  const char* getName() const override { return "Random Pulse"; }
 };
 
 #endif

@@ -17,10 +17,12 @@
 #include "Constants.h"
 #include "LedController.h"
 #include "AnimationController.h"
+#include "ChromanceWebServer.h"
 
 // Globals
 LedController ledController;
 AnimationController animationController(ledController);
+ChromanceWebServer webServer(animationController);
 
 const char *ntpServer = "pool.ntp.org";
 const long gmtOffset_sec = -14400;
@@ -162,6 +164,7 @@ void setup()
   esp_sleep_enable_timer_wakeup(TIME_TO_SLEEP * uS_TO_S_FACTOR);
 
   animationController.init();
+  webServer.begin();
 }
 
 void loop()

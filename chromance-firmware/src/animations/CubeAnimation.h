@@ -8,6 +8,7 @@ class CubeAnimation : public Animation
 public:
   CubeAnimation(AnimationController &controller) : Animation(controller, Constants::cubePulsesEnabled) {}
   void run() override;
+  const char* getName() const override { return "Cube Pulse"; }
 };
 
 #endif

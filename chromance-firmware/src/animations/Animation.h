@@ -5,6 +5,8 @@
 #include "../ripple.h"
 #include "../Constants.h"
 
+#include <ArduinoJson.h>
+
 class AnimationController;
 
 class Animation
@@ -19,6 +21,9 @@ public:
   virtual bool canBePreempted() { return true; }
   virtual bool isFinished() { return true; }
   bool isEnabled() const { return enabled; }
+  virtual const char *getName() const = 0;
+  virtual void getConfig(JsonObject &doc) {}
+  virtual void setConfig(const JsonObject &doc) {}
 
 protected:
   AnimationController &controller;

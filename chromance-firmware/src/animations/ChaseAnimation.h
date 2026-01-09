@@ -10,6 +10,8 @@ public:
   void run() override;
   void update() override;
   void stop() override;
+  bool isFinished() override;
+  const char* getName() const override { return "Chase"; }
 };
 
 #endif

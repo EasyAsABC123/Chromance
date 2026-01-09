@@ -83,21 +83,21 @@ Point getNodePos(int n)
 
   // Seventh Row
   case 19:
-    return {20, 17};
+    return {20, 19};
   case 20:
-    return {40, 17};
+    return {40, 19};
   case 21:
-    return {60, 17};
+    return {60, 19};
 
   // Eighth Row
   case 22:
-    return {30, 20};
+    return {30, 22};
   case 23:
-    return {50, 20};
+    return {50, 22};
 
   // Bottom
   case 24:
-    return {40, 23};
+    return {40, 25};
 
   default:
     return {0, 0};

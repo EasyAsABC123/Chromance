@@ -33,6 +33,7 @@ if check_recompile_needed "$BINARY" "$HASH_FILE"; then
       -I src \
       -I test/mocks \
       -I src/animations \
+      -I .pio/libdeps/esp-wrover-kit/ArduinoJson/src \
       test/test_main.cpp \
       src/AnimationController.cpp \
       src/LedController.cpp \

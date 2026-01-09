@@ -169,3 +169,20 @@ void ChaseAnimation::stop()
     }
   }
 }
+
+bool ChaseAnimation::isFinished()
+{
+  for (int i = 0; i < Constants::NUMBER_OF_RIPPLES; i++)
+  {
+    Ripple &r = controller.getRipple(i);
+    if (r.state != STATE_DEAD)
+    {
+      RippleBehavior b = r.getBehavior();
+      if (b == BEHAVIOR_RUNNER || b == BEHAVIOR_CHASE)
+      {
+        return false;
+      }
+    }
+  }
+  return true;
+}
