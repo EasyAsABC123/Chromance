@@ -1,188 +1,10 @@
 #include "ChromanceWebServer.h"
 #include "Constants.h"
 #include "animations/Animation.h"
-
-const char index_html[] PROGMEM = R"rawliteral(
-<!DOCTYPE HTML><html>
-<head>
-  <title>Chromance Control</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <style>
-    body { font-family: Arial, sans-serif; text-align: center; margin: 0; padding: 20px; background-color: #222; color: #fff; }
-    h1 { color: #00bcd4; }
-    .card { background-color: #333; max-width: 400px; margin: 0 auto; padding: 20px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.2); }
-    select, button, input[type=text], input[type=number] { padding: 10px; margin: 10px 0; width: 100%; font-size: 16px; border-radius: 5px; border: none; box-sizing: border-box; }
-    select, input[type=text], input[type=number] { background-color: #444; color: #fff; }
-    button { background-color: #00bcd4; color: white; cursor: pointer; font-weight: bold; }
-    button:hover { background-color: #008ba3; }
-    .toggle-container { display: flex; align-items: center; justify-content: space-between; margin: 15px 0; }
-    .switch { position: relative; display: inline-block; width: 60px; height: 34px; }
-    .switch input { opacity: 0; width: 0; height: 0; }
-    .slider { position: absolute; cursor: pointer; top: 0; left: 0; right: 0; bottom: 0; background-color: #ccc; -webkit-transition: .4s; transition: .4s; border-radius: 34px; }
-    .slider:before { position: absolute; content: ""; height: 26px; width: 26px; left: 4px; bottom: 4px; background-color: white; -webkit-transition: .4s; transition: .4s; border-radius: 50%; }
-    input:checked + .slider { background-color: #2196F3; }
-    input:focus + .slider { box-shadow: 0 0 1px #2196F3; }
-    input:checked + .slider:before { -webkit-transform: translateX(26px); -ms-transform: translateX(26px); transform: translateX(26px); }
-    .config-field { margin: 10px 0; text-align: left; }
-    .config-field label { display: block; margin-bottom: 5px; color: #aaa; }
-  </style>
-</head>
-<body>
-  <div class="card">
-    <h1>Chromance</h1>
-
-    <div class="toggle-container">
-      <span>Auto Switching</span>
-      <label class="switch">
-        <input type="checkbox" id="autoSwitch" onchange="toggleAutoSwitch()">
-        <span class="slider"></span>
-      </label>
-    </div>
-
-    <label for="animationSelect">Select Animation:</label>
-    <select id="animationSelect" onchange="changeAnimation()">
-      <option value="" disabled selected>Loading...</option>
-    </select>
-
-    <div id="configSection" style="display:none; border-top: 1px solid #555; margin-top: 20px; padding-top: 20px;">
-        <h3>Configuration</h3>
-        <div id="configFields"></div>
-        <button onclick="saveConfig()">Save Configuration</button>
-    </div>
-
-    <div id="status" style="margin-top: 20px; font-size: 12px; color: #888;"></div>
-  </div>
-
-<script>
-  let currentConfig = {};
-
-  function fetchStatus() {
-    fetch('/api/status')
-      .then(response => response.json())
-      .then(data => {
-        document.getElementById('autoSwitch').checked = data.autoSwitching;
-        const select = document.getElementById('animationSelect');
-        const currentAnim = data.currentAnimation;
-
-        if (select.options.length <= 1) {
-            select.innerHTML = '';
-            data.animations.forEach(anim => {
-                const option = document.createElement('option');
-                option.value = anim.id;
-                option.text = anim.name;
-                select.appendChild(option);
-            });
-        }
-
-        if (select.value != currentAnim && document.activeElement !== select) {
-             select.value = currentAnim;
-             // Only fetch config if we haven't manually selected another one to edit
-             // or just update it.
-             fetchConfig(currentAnim);
-        }
-      })
-      .catch(error => console.error('Error:', error));
-  }
-
-  function toggleAutoSwitch() {
-    const enabled = document.getElementById('autoSwitch').checked;
-    fetch('/api/autoswitch', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ enabled: enabled })
-    });
-  }
-
-  function changeAnimation() {
-    const id = document.getElementById('animationSelect').value;
-    fetch('/api/animation', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ id: parseInt(id) })
-    })
-    .then(() => {
-        document.getElementById('autoSwitch').checked = false;
-        fetchConfig(id);
-    });
-  }
-
-  function fetchConfig(id) {
-      fetch('/api/config?id=' + id)
-      .then(response => response.json())
-      .then(data => {
-          const container = document.getElementById('configFields');
-          const section = document.getElementById('configSection');
-          container.innerHTML = '';
-          currentConfig = data;
-
-          const keys = Object.keys(data);
-          if (keys.length > 0) {
-              section.style.display = 'block';
-              keys.forEach(key => {
-                  const val = data[key];
-                  const div = document.createElement('div');
-                  div.className = 'config-field';
-
-                  const label = document.createElement('label');
-                  label.innerText = key;
-                  div.appendChild(label);
-
-                  const input = document.createElement('input');
-                  input.id = 'config_' + key;
-                  if (typeof val === 'number') {
-                      input.type = 'number';
-                      input.value = val;
-                  } else if (typeof val === 'boolean') {
-                      input.type = 'checkbox';
-                      input.checked = val;
-                  } else {
-                      input.type = 'text';
-                      input.value = val;
-                  }
-                  div.appendChild(input);
-                  container.appendChild(div);
-              });
-          } else {
-              section.style.display = 'none';
-          }
-      });
-  }
-
-  function saveConfig() {
-      const id = document.getElementById('animationSelect').value;
-      const newConfig = {};
-      Object.keys(currentConfig).forEach(key => {
-          const input = document.getElementById('config_' + key);
-          if (input.type === 'checkbox') {
-              newConfig[key] = input.checked;
-          } else if (input.type === 'number') {
-              newConfig[key] = parseFloat(input.value);
-          } else {
-              newConfig[key] = input.value;
-          }
-      });
-
-      fetch('/api/config?id=' + id, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(newConfig)
-      }).then(res => {
-          if (res.ok) alert('Saved!');
-          else alert('Error saving');
-      });
-  }
-
-  // Poll status every 5 seconds
-  setInterval(fetchStatus, 5000);
-  // Initial fetch
-  fetchStatus();
-</script>
-</body>
-</html>
-)rawliteral";
+#include "WebAssets.h"
 
 ChromanceWebServer::ChromanceWebServer(AnimationController &animationController)
-    : server(80), animationController(animationController)
+    : server(80), ws("/ws"), animationController(animationController)
 {
 }
 
@@ -190,39 +12,39 @@ void ChromanceWebServer::begin()
 {
     setupRoutes();
     server.begin();
+
+    // Register callback for animation changes
+    animationController.setStateChangeCallback([this](byte anim, bool autoSwitch)
+                                               { this->broadcastStatus(); });
 }
 
 void ChromanceWebServer::setupRoutes()
 {
+    // WebSocket
+    ws.onEvent([this](AsyncWebSocket *server, AsyncWebSocketClient *client, AwsEventType type, void *arg, uint8_t *data, size_t len)
+               { this->onEvent(server, client, type, arg, data, len); });
+    server.addHandler(&ws);
+
     // Serve Static HTML
-    server.on("/", HTTP_GET, [](AsyncWebServerRequest *request) {
-        request->send(200, "text/html", index_html);
-    });
+    server.on("/", HTTP_GET, [](AsyncWebServerRequest *request)
+              { request->send_P(200, "text/html", index_html); });
+
+    server.on("/style.css", HTTP_GET, [](AsyncWebServerRequest *request)
+              { request->send_P(200, "text/css", style_css); });
+
+    server.on("/script.js", HTTP_GET, [](AsyncWebServerRequest *request)
+              { request->send_P(200, "application/javascript", script_js); });
 
     // API Status
-    server.on("/api/status", HTTP_GET, [this](AsyncWebServerRequest *request) {
+    server.on("/api/status", HTTP_GET, [this](AsyncWebServerRequest *request)
+              {
         AsyncResponseStream *response = request->beginResponseStream("application/json");
-        JsonDocument doc;
-
-        doc["currentAnimation"] = animationController.getCurrentAnimation();
-        doc["autoSwitching"] = animationController.isAutoSwitching();
-
-        JsonArray anims = doc["animations"].to<JsonArray>();
-        for (int i = 0; i < Constants::NUMBER_OF_ANIMATIONS; i++) {
-            Animation* anim = animationController.getAnimation(i);
-            if (anim != nullptr) {
-                JsonObject animObj = anims.add<JsonObject>();
-                animObj["id"] = i;
-                animObj["name"] = anim->getName();
-            }
-        }
-
-        serializeJson(doc, *response);
-        request->send(response);
-    });
+        response->print(getStatusJson());
+        request->send(response); });
 
     // API Set Animation
-    server.on("/api/animation", HTTP_POST, [](AsyncWebServerRequest *request) {}, NULL, [this](AsyncWebServerRequest *request, uint8_t *data, size_t len, size_t index, size_t total) {
+    server.on("/api/animation", HTTP_POST, [](AsyncWebServerRequest *request) {}, NULL, [this](AsyncWebServerRequest *request, uint8_t *data, size_t len, size_t index, size_t total)
+              {
         JsonDocument doc;
         deserializeJson(doc, data);
 
@@ -234,11 +56,11 @@ void ChromanceWebServer::setupRoutes()
             request->send(200, "application/json", "{\"status\":\"ok\"}");
         } else {
             request->send(400, "application/json", "{\"status\":\"error\", \"message\":\"Missing id\"}");
-        }
-    });
+        } });
 
     // API Set AutoSwitch
-    server.on("/api/autoswitch", HTTP_POST, [](AsyncWebServerRequest *request) {}, NULL, [this](AsyncWebServerRequest *request, uint8_t *data, size_t len, size_t index, size_t total) {
+    server.on("/api/autoswitch", HTTP_POST, [](AsyncWebServerRequest *request) {}, NULL, [this](AsyncWebServerRequest *request, uint8_t *data, size_t len, size_t index, size_t total)
+              {
         JsonDocument doc;
         deserializeJson(doc, data);
 
@@ -248,11 +70,11 @@ void ChromanceWebServer::setupRoutes()
             request->send(200, "application/json", "{\"status\":\"ok\"}");
         } else {
             request->send(400, "application/json", "{\"status\":\"error\", \"message\":\"Missing enabled\"}");
-        }
-    });
+        } });
 
     // API Get Config
-    server.on("/api/config", HTTP_GET, [this](AsyncWebServerRequest *request) {
+    server.on("/api/config", HTTP_GET, [this](AsyncWebServerRequest *request)
+              {
         if (request->hasParam("id")) {
             int id = request->getParam("id")->value().toInt();
             Animation* anim = animationController.getAnimation(id);
@@ -268,11 +90,11 @@ void ChromanceWebServer::setupRoutes()
             }
         } else {
              request->send(400, "application/json", "{\"status\":\"error\", \"message\":\"Missing id\"}");
-        }
-    });
+        } });
 
     // API Set Config
-    server.on("/api/config", HTTP_POST, [](AsyncWebServerRequest *request) {}, NULL, [this](AsyncWebServerRequest *request, uint8_t *data, size_t len, size_t index, size_t total) {
+    server.on("/api/config", HTTP_POST, [](AsyncWebServerRequest *request) {}, NULL, [this](AsyncWebServerRequest *request, uint8_t *data, size_t len, size_t index, size_t total)
+              {
         if (request->hasParam("id")) {
             int id = request->getParam("id")->value().toInt();
             Animation* anim = animationController.getAnimation(id);
@@ -286,6 +108,186 @@ void ChromanceWebServer::setupRoutes()
             }
         } else {
              request->send(400, "application/json", "{\"status\":\"error\", \"message\":\"Missing id\"}");
+        } });
+}
+
+void ChromanceWebServer::onEvent(AsyncWebSocket *server, AsyncWebSocketClient *client, AwsEventType type, void *arg, uint8_t *data, size_t len)
+{
+    if (type == WS_EVT_CONNECT)
+    {
+        Serial.printf("WebSocket client #%u connected from %s\n", client->id(), client->remoteIP().toString().c_str());
+        client->text(getStatusJson());
+        // Default to enabled for backward compatibility
+        emulatorClients.push_back(client->id());
+        clientsNeedingFullFrame.insert(client->id());
+    }
+    else if (type == WS_EVT_DISCONNECT)
+    {
+        Serial.printf("WebSocket client #%u disconnected\n", client->id());
+        auto it = std::find(emulatorClients.begin(), emulatorClients.end(), client->id());
+        if (it != emulatorClients.end())
+        {
+            emulatorClients.erase(it);
         }
-    });
+        clientsNeedingFullFrame.erase(client->id());
+    }
+    else if (type == WS_EVT_DATA)
+    {
+        handleWebSocketMessage(client, arg, data, len);
+    }
+}
+
+void ChromanceWebServer::handleWebSocketMessage(AsyncWebSocketClient *client, void *arg, uint8_t *data, size_t len)
+{
+    AwsFrameInfo *info = (AwsFrameInfo *)arg;
+    if (info->final && info->index == 0 && info->len == len && info->opcode == WS_TEXT)
+    {
+        data[len] = 0;
+        JsonDocument doc;
+        DeserializationError error = deserializeJson(doc, (char *)data);
+        if (error)
+        {
+            return;
+        }
+
+        if (doc.containsKey("emulator"))
+        {
+            bool enabled = doc["emulator"];
+            auto it = std::find(emulatorClients.begin(), emulatorClients.end(), client->id());
+            if (enabled)
+            {
+                if (it == emulatorClients.end())
+                {
+                    emulatorClients.push_back(client->id());
+                    clientsNeedingFullFrame.insert(client->id());
+                }
+            }
+            else
+            {
+                if (it != emulatorClients.end())
+                {
+                    emulatorClients.erase(it);
+                }
+            }
+        }
+    }
+}
+
+void ChromanceWebServer::broadcastStatus()
+{
+    ws.textAll(getStatusJson());
+}
+
+void ChromanceWebServer::broadcastLedData()
+{
+    if (ws.count() == 0 || emulatorClients.empty())
+        return;
+
+    // Throttle to ~30fps
+    static unsigned long lastUpdate = 0;
+    if (millis() - lastUpdate < 33)
+        return;
+    lastUpdate = millis();
+
+    size_t bufferSize = Constants::NUMBER_OF_SEGMENTS * Constants::LEDS_PER_SEGMENT * 3;
+    LedController &led = animationController.getLedController();
+    uint8_t *currentData = &led.ledColors[0][0][0];
+
+    // Initialize lastLedData if empty
+    if (lastLedData.empty())
+    {
+        lastLedData.resize(bufferSize, 0);
+    }
+
+    // Calculate Diff
+    // Format: [Type(1), Count(2), [Index(2), R, G, B]...]
+    std::vector<uint8_t> diffPayload;
+    diffPayload.push_back(1); // Type 1 = Diff
+    diffPayload.push_back(0); // Count High placeholder
+    diffPayload.push_back(0); // Count Low placeholder
+
+    uint16_t changeCount = 0;
+    // Iterate pixels
+    for (size_t i = 0; i < bufferSize / 3; i++)
+    {
+        size_t idx = i * 3;
+        if (currentData[idx] != lastLedData[idx] ||
+            currentData[idx + 1] != lastLedData[idx + 1] ||
+            currentData[idx + 2] != lastLedData[idx + 2])
+        {
+            changeCount++;
+            // Index (2 bytes)
+            diffPayload.push_back((i >> 8) & 0xFF);
+            diffPayload.push_back(i & 0xFF);
+            // RGB
+            diffPayload.push_back(currentData[idx]);
+            diffPayload.push_back(currentData[idx + 1]);
+            diffPayload.push_back(currentData[idx + 2]);
+        }
+    }
+
+    // Update count in payload
+    diffPayload[1] = (changeCount >> 8) & 0xFF;
+    diffPayload[2] = changeCount & 0xFF;
+
+    // Determine if we should send Full or Diff
+    // Full payload size: 1 (Type) + bufferSize
+    // Diff payload size: diffPayload.size()
+    bool preferFull = (diffPayload.size() > (bufferSize + 1));
+
+    // Prepare Full Payload if needed
+    // We construct it on demand to avoid memory usage if not needed,
+    // or we could use a static buffer.
+    // Let's just create a vector for it if we need it.
+    std::vector<uint8_t> fullPayload;
+    if (preferFull || !clientsNeedingFullFrame.empty())
+    {
+        fullPayload.reserve(bufferSize + 1);
+        fullPayload.push_back(0); // Type 0 = Full
+        fullPayload.insert(fullPayload.end(), currentData, currentData + bufferSize);
+    }
+
+    for (uint32_t id : emulatorClients)
+    {
+        bool needsFull = clientsNeedingFullFrame.count(id) > 0;
+
+        if (needsFull || preferFull)
+        {
+            ws.binary(id, fullPayload.data(), fullPayload.size());
+            if (needsFull)
+            {
+                clientsNeedingFullFrame.erase(id);
+            }
+        }
+        else
+        {
+            ws.binary(id, diffPayload.data(), diffPayload.size());
+        }
+    }
+
+    // Update lastLedData
+    memcpy(lastLedData.data(), currentData, bufferSize);
+}
+
+String ChromanceWebServer::getStatusJson()
+{
+    JsonDocument doc;
+    doc["currentAnimation"] = animationController.getCurrentAnimation();
+    doc["autoSwitching"] = animationController.isAutoSwitching();
+
+    JsonArray anims = doc["animations"].to<JsonArray>();
+    for (int i = 0; i < Constants::NUMBER_OF_ANIMATIONS; i++)
+    {
+        Animation *anim = animationController.getAnimation(i);
+        if (anim != nullptr)
+        {
+            JsonObject animObj = anims.add<JsonObject>();
+            animObj["id"] = i;
+            animObj["name"] = anim->getName();
+        }
+    }
+
+    String jsonString;
+    serializeJson(doc, jsonString);
+    return jsonString;
 }

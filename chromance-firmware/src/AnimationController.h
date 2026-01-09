@@ -6,12 +6,15 @@
 #include "LedController.h"
 #include "ripple.h"
 #include "Topology.h"
+#include <functional>
 
 class Animation;
 
 class AnimationController
 {
 public:
+  using StateChangeCallback = std::function<void(byte currentAnimation, bool autoSwitching)>;
+
   AnimationController(LedController &ledController);
   ~AnimationController();
   void init();
@@ -33,6 +36,7 @@ public:
   bool isAutoSwitching() const { return autoSwitching; }
   Ripple &getRipple(int index);
   Animation *getAnimation(int index);
+  void setStateChangeCallback(StateChangeCallback callback) { stateChangeCallback = callback; }
 
 private:
   LedController &ledController;
@@ -50,7 +54,10 @@ private:
   // Auto pulse types count
   byte numberOfAutoPulseTypes;
 
+  StateChangeCallback stateChangeCallback;
+
   void getNextAnimation();
+  void notifyStateChange();
 };
 
 #endif // ANIMATIONCONTROLLER_H

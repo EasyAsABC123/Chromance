@@ -166,6 +166,7 @@ void AnimationController::startAnimation(byte animation)
   {
     animations[animation]->run();
   }
+  notifyStateChange();
 }
 
 void AnimationController::changeAnimation(byte animation)
@@ -241,6 +242,7 @@ int AnimationController::getActiveRippleCount() const
 void AnimationController::setAutoSwitching(bool enabled)
 {
   autoSwitching = enabled;
+  notifyStateChange();
 }
 
 Ripple &AnimationController::getRipple(int index)
@@ -261,4 +263,12 @@ Animation *AnimationController::getAnimation(int index)
     return nullptr;
   }
   return animations[index];
+}
+
+void AnimationController::notifyStateChange()
+{
+  if (stateChangeCallback)
+  {
+    stateChangeCallback(currentAutoPulseType, autoSwitching);
+  }
 }

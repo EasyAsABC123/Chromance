@@ -31,18 +31,18 @@ const uint64_t TIME_TO_SLEEP = 36000;    /* Time ESP32 will go to sleep (in seco
 const uint64_t uS_TO_S_FACTOR = 1000000; /* Conversion factor for micro seconds to seconds */
 
 // Task for running on Core 0
-TaskHandle_t HandleArduinoOTA_Task;
+TaskHandle_t Core0TaskHandle;
 
 // Semaphore for protecting shared variables (activeOTAUpdate, animating)
-bool activeOTAUpdate = false;
-bool animating = true;
+volatile bool activeOTAUpdate = false;
+volatile bool animating = true;
 
 // Function declarations
 void connectToWiFi();
 void setupOTA(void);
 
 // Thread for running on opposite thread as loop
-void HandleArduinoOTA(void *pvParameters)
+void Core0Task(void *pvParameters)
 {
   Serial.print("Task1 running on core ");
   Serial.println(xPortGetCoreID());
@@ -50,39 +50,45 @@ void HandleArduinoOTA(void *pvParameters)
   for (;;)
   {
     ArduinoOTA.handle();
+    webServer.broadcastLedData();
 
-    struct tm timeinfo;
-    if (!getLocalTime(&timeinfo))
+    static unsigned long lastTimeCheck = 0;
+    if (millis() - lastTimeCheck > 2000)
     {
-      Serial.println("Failed to obtain time");
-      delay(2000);
-      continue; // Don't exit the task, just skip this iteration
-    }
-
-    if (timeinfo.tm_hour >= 22 || timeinfo.tm_hour <= 1)
-    {
-
-      // Acquire mutex to safely set activeOTAUpdate and wait for animation to stop
-      activeOTAUpdate = true;
-
-      // Wait for animation to complete (check with mutex protection)
-      bool stillAnimating = true;
-      while (stillAnimating)
+      lastTimeCheck = millis();
+      struct tm timeinfo;
+      if (!getLocalTime(&timeinfo))
       {
-        stillAnimating = animating;
-        if (stillAnimating)
-        {
-          delay(1000);
-        }
+        Serial.println("Failed to obtain time");
+        // delay(2000); // Handled by outer loop delay and timer
+        continue; // Don't exit the task, just skip this iteration
       }
 
-      ledController.clear();
-      ledController.show();
+      if (timeinfo.tm_hour >= 22 || timeinfo.tm_hour <= 1)
+      {
 
-      esp_deep_sleep_start();
+        // Acquire mutex to safely set activeOTAUpdate and wait for animation to stop
+        activeOTAUpdate = true;
+
+        // Wait for animation to complete (check with mutex protection)
+        bool stillAnimating = true;
+        while (stillAnimating)
+        {
+          stillAnimating = animating;
+          if (stillAnimating)
+          {
+            delay(1000);
+          }
+        }
+
+        ledController.clear();
+        ledController.show();
+
+        esp_deep_sleep_start();
+      }
     }
 
-    delay(2000); // Check time every second
+    delay(2); // Check time every second
   }
 }
 
@@ -129,13 +135,13 @@ void setupOTA()
 
   // loop and setup are pinned to core 1
   xTaskCreatePinnedToCore(
-      HandleArduinoOTA,        /* Task function. */
-      "HandleArduinoOTA_Task", /* name of task. */
-      10000,                   /* Stack size of task */
-      NULL,                    /* parameter of the task */
-      1,                       /* priority of the task */
-      &HandleArduinoOTA_Task,  /* Task handle to keep track of created task */
-      0);                      /* pin task to core 0 */
+      Core0Task,        /* Task function. */
+      "Core0Task",      /* name of task. */
+      10000,            /* Stack size of task */
+      NULL,             /* parameter of the task */
+      1,                /* priority of the task */
+      &Core0TaskHandle, /* Task handle to keep track of created task */
+      0);               /* pin task to core 0 */
 }
 
 void connectToWiFi()
@@ -185,4 +191,5 @@ void loop()
   }
 
   animationController.update();
+  // webServer.broadcastLedData(); // Moved to Core 0
 }
