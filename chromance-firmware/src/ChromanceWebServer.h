@@ -1,12 +1,9 @@
 #ifndef CHROMANCE_WEB_SERVER_H
 #define CHROMANCE_WEB_SERVER_H
 
-#include <Arduino.h>
 #include <ESPAsyncWebServer.h>
 #include <ArduinoJson.h>
-#include <vector>
 #include <set>
-#include <algorithm>
 #include "AnimationController.h"
 
 class ChromanceWebServer
@@ -14,7 +11,7 @@ class ChromanceWebServer
 public:
     ChromanceWebServer(AnimationController &animationController);
     void begin();
-    void broadcastStatus();
+    bool isSleepEnabled() const { return sleepEnabled; }
     void broadcastLedData();
 
 private:
@@ -24,11 +21,17 @@ private:
     std::vector<uint32_t> emulatorClients;
     std::set<uint32_t> clientsNeedingFullFrame;
     std::vector<uint8_t> lastLedData;
+    bool sleepEnabled = false;
 
     void setupRoutes();
     void onEvent(AsyncWebSocket *server, AsyncWebSocketClient *client, AwsEventType type, void *arg, uint8_t *data, size_t len);
     void handleWebSocketMessage(AsyncWebSocketClient *client, void *arg, uint8_t *data, size_t len);
+    void broadcastStatus();
     String getStatusJson();
+    String getEmulatorConfigJson();
+    void setSleepEnabled(bool enabled) { sleepEnabled = enabled; }
+
+    // Friend function or access to LedController if needed, but animationController has it.
 };
 
 #endif

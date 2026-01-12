@@ -14,7 +14,7 @@ void CenterAnimation::run()
             controller.startRipple(
                 startingNode,
                 i,
-                controller.getLedController().ColorHSV(controller.getBaseColor(), 255, 100),
+                controller.getLedController().ColorHSV(controller.getBaseColor(), 255, 50),
                 controller.getSpeed(),
                 5000,
                 BEHAVIOR_FEISTY);

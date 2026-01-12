@@ -49,6 +49,12 @@ void HeartbeatAnimation::update()
   // Apply to all LEDs
   for (int segment = 0; segment < Constants::NUMBER_OF_SEGMENTS; segment++)
   {
+    // Skip segments 2 and 3 (Node 1)
+    if (segment == 2 || segment == 3)
+    {
+      continue;
+    }
+
     for (int led = 0; led < Constants::LEDS_PER_SEGMENT; led++)
     {
       // Extract RGB components from packed color

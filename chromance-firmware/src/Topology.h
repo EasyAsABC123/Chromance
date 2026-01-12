@@ -3,6 +3,12 @@
 
 #include "Constants.h"
 
+struct NodePosition
+{
+  int x;
+  int y;
+};
+
 class Topology
 {
 public:
@@ -22,6 +28,9 @@ public:
   // Segment connections: [Segment][Side] -> Connected Node ID
   // Side 0: Closer to ceiling, Side 1: Closer to floor
   static const int segmentConnections[Constants::NUMBER_OF_SEGMENTS][Constants::SIDES_PER_SEGMENT];
+
+  // Node Positions for Emulator/UI
+  static const NodePosition nodePositions[Constants::NUMBER_OF_NODES];
 
   // LED Assignments: [Segment][3] -> {StripIndex, CeilingLedIndex, FloorLedIndex}
   static const int ledAssignments[Constants::NUMBER_OF_SEGMENTS][3];

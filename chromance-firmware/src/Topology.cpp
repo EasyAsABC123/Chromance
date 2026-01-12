@@ -77,6 +77,9 @@ const int Topology::segmentConnections[Constants::NUMBER_OF_SEGMENTS][Constants:
     {22, 24},
     {23, 24}};
 
+const NodePosition Topology::nodePositions[Constants::NUMBER_OF_NODES] = {
+    {20, 1}, {40, 1}, {60, 1}, {10, 4}, {30, 4}, {50, 4}, {70, 4}, {20, 7}, {40, 7}, {60, 7}, {10, 10}, {30, 10}, {50, 10}, {70, 10}, {20, 13}, {40, 13}, {60, 13}, {30, 16}, {50, 16}, {20, 19}, {40, 19}, {60, 19}, {30, 22}, {50, 22}, {40, 25}};
+
 const int Topology::ledAssignments[Constants::NUMBER_OF_SEGMENTS][3] = {
     {Constants::RED_INDEX, headof(3), tailof(3)},
     {Constants::RED_INDEX, tailof(2), headof(2)},

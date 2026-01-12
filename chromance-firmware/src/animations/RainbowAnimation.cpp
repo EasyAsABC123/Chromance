@@ -4,13 +4,19 @@
 
 void RainbowAnimation::run()
 {
-    firstHue = 0;
-    controller.getLedController().rainbow(firstHue, brightness);
+    // Use update() to set the initial state immediately
+    update();
 }
 
 void RainbowAnimation::update()
 {
-    firstHue += 1024;
+    // Use time-based hue calculation to ensure the rainbow animation
+    // appears continuous even when switching between animations.
+    // Original speed: 1024 units per ~33ms => ~31 units/ms.
+    // 32 units/ms gives a ~2 second cycle (65536 / 32 = 2048ms).
+    firstHue = (millis() % 2048) * 32;
+
+    // Serial.println("Rainbow hue: " + String(firstHue));
     controller.getLedController().rainbow(firstHue, brightness);
 }
 

@@ -2,6 +2,7 @@
 #include "Constants.h"
 #include "animations/Animation.h"
 #include "WebAssets.h"
+#include "Topology.h"
 
 ChromanceWebServer::ChromanceWebServer(AnimationController &animationController)
     : server(80), ws("/ws"), animationController(animationController)
@@ -27,13 +28,13 @@ void ChromanceWebServer::setupRoutes()
 
     // Serve Static HTML
     server.on("/", HTTP_GET, [](AsyncWebServerRequest *request)
-              { request->send_P(200, "text/html", index_html); });
+              { request->send(200, "text/html", index_html); });
 
     server.on("/style.css", HTTP_GET, [](AsyncWebServerRequest *request)
-              { request->send_P(200, "text/css", style_css); });
+              { request->send(200, "text/css", style_css); });
 
     server.on("/script.js", HTTP_GET, [](AsyncWebServerRequest *request)
-              { request->send_P(200, "application/javascript", script_js); });
+              { request->send(200, "application/javascript", script_js); });
 
     // API Status
     server.on("/api/status", HTTP_GET, [this](AsyncWebServerRequest *request)
@@ -68,6 +69,22 @@ void ChromanceWebServer::setupRoutes()
             bool enabled = doc["enabled"];
             animationController.setAutoSwitching(enabled);
             request->send(200, "application/json", "{\"status\":\"ok\"}");
+            this->broadcastStatus();
+        } else {
+            request->send(400, "application/json", "{\"status\":\"error\", \"message\":\"Missing enabled\"}");
+        } });
+
+    // API Set Sleep
+    server.on("/api/sleep", HTTP_POST, [](AsyncWebServerRequest *request) {}, NULL, [this](AsyncWebServerRequest *request, uint8_t *data, size_t len, size_t index, size_t total)
+              {
+        JsonDocument doc;
+        deserializeJson(doc, data);
+
+        if (doc["enabled"].is<bool>()) {
+            bool enabled = doc["enabled"];
+            setSleepEnabled(enabled);
+            request->send(200, "application/json", "{\"status\":\"ok\"}");
+            this->broadcastStatus();
         } else {
             request->send(400, "application/json", "{\"status\":\"error\", \"message\":\"Missing enabled\"}");
         } });
@@ -104,7 +121,7 @@ void ChromanceWebServer::setupRoutes()
                 anim->setConfig(doc.as<JsonObject>());
                 request->send(200, "application/json", "{\"status\":\"ok\"}");
             } else {
-                 request->send(404, "application/json", "{\"status\":\"error\", \"message\":\"Animation not found\"}");
+                request->send(404, "application/json", "{\"status\":\"error\", \"message\":\"Animation not found\"}");
             }
         } else {
              request->send(400, "application/json", "{\"status\":\"error\", \"message\":\"Missing id\"}");
@@ -116,7 +133,13 @@ void ChromanceWebServer::onEvent(AsyncWebSocket *server, AsyncWebSocketClient *c
     if (type == WS_EVT_CONNECT)
     {
         Serial.printf("WebSocket client #%u connected from %s\n", client->id(), client->remoteIP().toString().c_str());
+
+        // Send configuration first
+        client->text(getEmulatorConfigJson());
+
+        // Then send status
         client->text(getStatusJson());
+
         // Default to enabled for backward compatibility
         emulatorClients.push_back(client->id());
         clientsNeedingFullFrame.insert(client->id());
@@ -150,7 +173,13 @@ void ChromanceWebServer::handleWebSocketMessage(AsyncWebSocketClient *client, vo
             return;
         }
 
-        if (doc.containsKey("emulator"))
+        if (doc["type"] == "ping")
+        {
+            client->text("{\"type\":\"pong\"}");
+            return;
+        }
+
+        if (doc["emulator"].is<bool>())
         {
             bool enabled = doc["emulator"];
             auto it = std::find(emulatorClients.begin(), emulatorClients.end(), client->id());
@@ -272,8 +301,10 @@ void ChromanceWebServer::broadcastLedData()
 String ChromanceWebServer::getStatusJson()
 {
     JsonDocument doc;
+    doc["type"] = "status";
     doc["currentAnimation"] = animationController.getCurrentAnimation();
     doc["autoSwitching"] = animationController.isAutoSwitching();
+    doc["sleepEnabled"] = sleepEnabled;
 
     JsonArray anims = doc["animations"].to<JsonArray>();
     for (int i = 0; i < Constants::NUMBER_OF_ANIMATIONS; i++)
@@ -285,6 +316,33 @@ String ChromanceWebServer::getStatusJson()
             animObj["id"] = i;
             animObj["name"] = anim->getName();
         }
+    }
+
+    String jsonString;
+    serializeJson(doc, jsonString);
+    return jsonString;
+}
+
+String ChromanceWebServer::getEmulatorConfigJson()
+{
+    JsonDocument doc;
+    doc["type"] = "config";
+    doc["ledsPerSegment"] = Constants::LEDS_PER_SEGMENT;
+
+    JsonArray nodes = doc["nodePositions"].to<JsonArray>();
+    for (int i = 0; i < Constants::NUMBER_OF_NODES; i++)
+    {
+        JsonObject n = nodes.add<JsonObject>();
+        n["x"] = Topology::nodePositions[i].x;
+        n["y"] = Topology::nodePositions[i].y;
+    }
+
+    JsonArray segs = doc["segmentConnections"].to<JsonArray>();
+    for (int i = 0; i < Constants::NUMBER_OF_SEGMENTS; i++)
+    {
+        JsonArray s = segs.add<JsonArray>();
+        s.add(Topology::segmentConnections[i][0]);
+        s.add(Topology::segmentConnections[i][1]);
     }
 
     String jsonString;

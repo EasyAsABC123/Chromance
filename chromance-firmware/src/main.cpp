@@ -66,6 +66,10 @@ void Core0Task(void *pvParameters)
 
       if (timeinfo.tm_hour >= 22 || timeinfo.tm_hour <= 1)
       {
+        if (!webServer.isSleepEnabled())
+        {
+          continue;
+        }
 
         // Acquire mutex to safely set activeOTAUpdate and wait for animation to stop
         activeOTAUpdate = true;
@@ -88,7 +92,7 @@ void Core0Task(void *pvParameters)
       }
     }
 
-    delay(2); // Check time every second
+    delay(100); // Check time every second
   }
 }
 
@@ -137,7 +141,7 @@ void setupOTA()
   xTaskCreatePinnedToCore(
       Core0Task,        /* Task function. */
       "Core0Task",      /* name of task. */
-      10000,            /* Stack size of task */
+      16384,            /* Stack size of task */
       NULL,             /* parameter of the task */
       1,                /* priority of the task */
       &Core0TaskHandle, /* Task handle to keep track of created task */
@@ -165,12 +169,13 @@ void setup()
   ledController.begin();
 
   connectToWiFi();
-  setupOTA();
   configTime(gmtOffset_sec, daylightOffset_sec, ntpServer);
   esp_sleep_enable_timer_wakeup(TIME_TO_SLEEP * uS_TO_S_FACTOR);
 
   animationController.init();
   webServer.begin();
+
+  setupOTA();
 }
 
 void loop()
