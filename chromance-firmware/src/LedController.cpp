@@ -101,6 +101,25 @@ void LedController::addPixelColor(int segment, int led, byte r, byte g, byte b)
 
 void LedController::show()
 {
+  // Power limiting logic
+  unsigned long totalCurrent = 200; // Base current for ESP32 in mA
+  for (int segment = 0; segment < Constants::NUMBER_OF_SEGMENTS; segment++)
+  {
+    for (int led = 0; led < Constants::LEDS_PER_SEGMENT; led++)
+    {
+      // Approximate current: 20mA per channel at full brightness
+      totalCurrent += (ledColors[segment][led][0] * 20) / 255;
+      totalCurrent += (ledColors[segment][led][1] * 20) / 255;
+      totalCurrent += (ledColors[segment][led][2] * 20) / 255;
+    }
+  }
+
+  float scale = 1.0f;
+  if (totalCurrent > Constants::MAX_CURRENT_MA)
+  {
+    scale = (float)Constants::MAX_CURRENT_MA / (float)totalCurrent;
+  }
+
   for (int segment = 0; segment < Constants::NUMBER_OF_SEGMENTS; segment++)
   {
     for (int fromBottom = 0; fromBottom < Constants::LEDS_PER_SEGMENT; fromBottom++)
@@ -114,11 +133,22 @@ void LedController::show()
           0, (Constants::LEDS_PER_SEGMENT - 1),
           floorIndex, ceilingIndex));
 
+      byte r = ledColors[segment][fromBottom][0];
+      byte g = ledColors[segment][fromBottom][1];
+      byte b = ledColors[segment][fromBottom][2];
+
+      if (scale < 1.0f)
+      {
+        r = (byte)(r * scale);
+        g = (byte)(g * scale);
+        b = (byte)(b * scale);
+      }
+
       strips[stripIdx]->setPixelColor(
           ledIndex,
-          ledColors[segment][fromBottom][0],
-          ledColors[segment][fromBottom][1],
-          ledColors[segment][fromBottom][2]);
+          r,
+          g,
+          b);
     }
   }
 

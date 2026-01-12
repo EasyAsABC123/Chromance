@@ -8,6 +8,7 @@
 #include <sstream>
 #include "Arduino.h"
 #include "AnimationController.h"
+#include "animations/Animation.h"
 #include "LedController.h"
 #include "mocks/Arduino.h"
 #include "Topology.h"
@@ -110,31 +111,6 @@ struct Pixel
   uint8_t r, g, b;
 };
 
-std::string getAnimationName(int id)
-{
-  switch (id)
-  {
-  case 0:
-    return "Random";
-  case 1:
-    return "Cube";
-  case 2:
-    return "Starburst";
-  case 3:
-    return "Center";
-  case 4:
-    return "Rainbow";
-  case 5:
-    return "Chase";
-  case 6:
-    return "Heartbeat";
-  case 255:
-    return "None";
-  default:
-    return "Unknown (" + std::to_string(id) + ")";
-  }
-}
-
 void printDisplay(LedController &ledController, AnimationController &animController)
 {
   // Canvas size
@@ -217,7 +193,20 @@ void printDisplay(LedController &ledController, AnimationController &animControl
   std::stringstream ss;
   ss << "\033[H"; // Move cursor to home
   ss << "Chromance Emulator (Time: " << millis() << "ms)" << "\n";
-  ss << "Animation: " << getAnimationName(animController.getCurrentAnimation())
+
+  std::string animName = "None";
+  byte currentAnim = animController.getCurrentAnimation();
+  Animation *anim = animController.getAnimation(currentAnim);
+  if (anim)
+  {
+    animName = anim->getName();
+  }
+  else if (currentAnim != 255)
+  {
+    animName = "Unknown (" + std::to_string(currentAnim) + ")";
+  }
+
+  ss << "Animation: " << animName
      << " | Active Ripples: " << animController.getActiveRippleCount() << "\n";
 
   for (int y = 0; y < HEIGHT; y++)
@@ -294,8 +283,6 @@ int main(int argc, char *argv[])
   std::cout << "Starting Chromance Test Suite..." << std::endl;
   if (duration > 0)
     std::cout << "Running for " << duration << " ms" << std::endl;
-  if (forceAnimation >= 0)
-    std::cout << "Forcing animation " << forceAnimation << " (" << getAnimationName(forceAnimation) << ")" << std::endl;
   if (timeSpeed != 1.0f)
     std::cout << "Time multiplier: " << timeSpeed << "x" << std::endl;
 
@@ -309,6 +296,13 @@ int main(int argc, char *argv[])
 
   if (forceAnimation >= 0)
   {
+    std::string animName = "Unknown";
+    Animation *anim = animationController.getAnimation(forceAnimation);
+    if (anim)
+      animName = anim->getName();
+
+    std::cout << "Forcing animation " << forceAnimation << " (" << animName << ")" << std::endl;
+
     animationController.setAutoSwitching(false);
     animationController.startAnimation(forceAnimation);
   }
