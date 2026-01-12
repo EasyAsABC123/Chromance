@@ -22,7 +22,7 @@ void RandomAnimation::run()
                 controller.getRandomColor(),
                 float(random(100)) / 100.0f * .2f + .5f,
                 Constants::ANIMATION_TIME,
-                random(2) ? BEHAVIOR_ALWAYS_LEFT : BEHAVIOR_ALWAYS_RIGHT);
+                BEHAVIOR_FEISTY);
         }
     }
 }

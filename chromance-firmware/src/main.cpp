@@ -88,6 +88,12 @@ void Core0Task(void *pvParameters)
         ledController.clear();
         ledController.show();
 
+        Serial.println("Going to sleep now...");
+        Serial.flush();
+
+        WiFi.disconnect(true);
+        WiFi.mode(WIFI_OFF);
+
         esp_deep_sleep_start();
       }
     }
@@ -164,6 +170,11 @@ void setup()
 {
   Serial.begin(115200);
   Serial.println("*** LET'S GOOOOO ***");
+
+  if (esp_sleep_get_wakeup_cause() == ESP_SLEEP_WAKEUP_TIMER)
+  {
+    Serial.println("Woke up from deep sleep!");
+  }
 
   // Create mutex semaphore for protecting shared animation state
   ledController.begin();
