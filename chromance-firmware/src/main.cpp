@@ -18,11 +18,13 @@
 #include "LedController.h"
 #include "AnimationController.h"
 #include "ChromanceWebServer.h"
+#include "Configuration.h"
 
 // Globals
+Configuration configuration;
 LedController ledController;
 AnimationController animationController(ledController);
-ChromanceWebServer webServer(animationController);
+ChromanceWebServer webServer(animationController, configuration);
 
 const char *ntpServer = "pool.ntp.org";
 const long gmtOffset_sec = -14400;
@@ -66,7 +68,7 @@ void Core0Task(void *pvParameters)
 
       if (timeinfo.tm_hour >= 22 || timeinfo.tm_hour <= 1)
       {
-        if (!webServer.isSleepEnabled())
+        if (!configuration.isSleepEnabled())
         {
           continue;
         }
@@ -174,6 +176,7 @@ void setup()
   if (esp_sleep_get_wakeup_cause() == ESP_SLEEP_WAKEUP_TIMER)
   {
     Serial.println("Woke up from deep sleep!");
+    configuration.setSleepEnabled(true);
   }
 
   // Create mutex semaphore for protecting shared animation state

@@ -4,8 +4,8 @@
 #include "WebAssets.h"
 #include "Topology.h"
 
-ChromanceWebServer::ChromanceWebServer(AnimationController &animationController)
-    : server(80), ws("/ws"), animationController(animationController)
+ChromanceWebServer::ChromanceWebServer(AnimationController &animationController, Configuration &configuration)
+    : server(80), ws("/ws"), animationController(animationController), configuration(configuration)
 {
 }
 
@@ -82,7 +82,7 @@ void ChromanceWebServer::setupRoutes()
 
         if (doc["enabled"].is<bool>()) {
             bool enabled = doc["enabled"];
-            setSleepEnabled(enabled);
+            configuration.setSleepEnabled(enabled);
             request->send(200, "application/json", "{\"status\":\"ok\"}");
             this->broadcastStatus();
         } else {
@@ -227,10 +227,12 @@ void ChromanceWebServer::broadcastLedData()
     {
         lastLedData.resize(bufferSize, 0);
     }
-
     // Calculate Diff
     // Format: [Type(1), Count(2), [Index(2), R, G, B]...]
     std::vector<uint8_t> diffPayload;
+
+    // Reuse diffPayload buffer
+    diffPayload.clear();
     diffPayload.push_back(1); // Type 1 = Diff
     diffPayload.push_back(0); // Count High placeholder
     diffPayload.push_back(0); // Count Low placeholder
@@ -271,6 +273,7 @@ void ChromanceWebServer::broadcastLedData()
     std::vector<uint8_t> fullPayload;
     if (preferFull || !clientsNeedingFullFrame.empty())
     {
+        fullPayload.clear();
         fullPayload.reserve(bufferSize + 1);
         fullPayload.push_back(0); // Type 0 = Full
         fullPayload.insert(fullPayload.end(), currentData, currentData + bufferSize);
@@ -304,7 +307,7 @@ String ChromanceWebServer::getStatusJson()
     doc["type"] = "status";
     doc["currentAnimation"] = animationController.getCurrentAnimation();
     doc["autoSwitching"] = animationController.isAutoSwitching();
-    doc["sleepEnabled"] = sleepEnabled;
+    doc["sleepEnabled"] = configuration.isSleepEnabled();
 
     JsonArray anims = doc["animations"].to<JsonArray>();
     for (int i = 0; i < Constants::NUMBER_OF_ANIMATIONS; i++)
