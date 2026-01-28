@@ -111,6 +111,35 @@ struct Pixel
   uint8_t r, g, b;
 };
 
+std::string getAnimationName(int id)
+{
+  switch (id)
+  {
+  case 0:
+    return "Random";
+  case 1:
+    return "Cube";
+  case 2:
+    return "Starburst";
+  case 3:
+    return "Center";
+  case 4:
+    return "Rainbow";
+  case 5:
+    return "Chase";
+  case 6:
+    return "Heartbeat";
+  case 7:
+    return "Rainbow Pinwheel";
+  case 8:
+    return "Rainbow Radiate";
+  case 255:
+    return "None";
+  default:
+    return "Unknown (" + std::to_string(id) + ")";
+  }
+}
+
 void printDisplay(LedController &ledController, AnimationController &animController)
 {
   // Canvas size

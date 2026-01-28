@@ -5,7 +5,7 @@ calc_hash() {
     # Find all .cpp and .h files in src and test directories
     # Sort to ensure consistent ordering
     # Calculate hash of contents to detect changes
-    find src test -type f \( -name "*.cpp" -o -name "*.h" \) -print0 | sort -z | xargs -0 shasum | shasum | awk '{print $1}'
+    find src test -type f \( -name "*.cpp" -o -name "*.h" \) -print0 | sort -z | xargs -0 sha256sum | sha256sum | awk '{print $1}'
 }
 
 # Checks if recompilation is needed

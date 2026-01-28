@@ -6,6 +6,9 @@
 #include "animations/RainbowAnimation.h"
 #include "animations/ChaseAnimation.h"
 #include "animations/HeartbeatAnimation.h"
+#include "animations/RainbowPinwheelAnimation.h"
+#include "animations/RainbowRadiateAnimation.h"
+#include "animations/ShootingStarAnimation.h"
 
 AnimationController::AnimationController(LedController &controller)
     : ledController(controller)
@@ -44,6 +47,9 @@ void AnimationController::init()
     animations[4] = new RainbowAnimation(*this);
     animations[5] = new ChaseAnimation(*this);
     animations[6] = new HeartbeatAnimation(*this);
+    animations[7] = new RainbowPinwheelAnimation(*this);
+    animations[8] = new RainbowRadiateAnimation(*this);
+    animations[9] = new ShootingStarAnimation(*this);
   }
 
   numberOfAutoPulseTypes = 0;
@@ -79,7 +85,7 @@ void AnimationController::update()
   ledController.show();
 
   // Update current animation
-  if (currentAutoPulseType < 7 && animations[currentAutoPulseType])
+  if (currentAutoPulseType < Constants::NUMBER_OF_ANIMATIONS && animations[currentAutoPulseType])
   {
     animations[currentAutoPulseType]->update();
   }
@@ -89,7 +95,7 @@ void AnimationController::update()
   {
     bool readyToSwitch = true;
 
-    if (currentAutoPulseType < 7 && animations[currentAutoPulseType])
+    if (currentAutoPulseType < Constants::NUMBER_OF_ANIMATIONS && animations[currentAutoPulseType])
     {
       if (!animations[currentAutoPulseType]->canBePreempted() && !animations[currentAutoPulseType]->isFinished())
       {
@@ -101,7 +107,7 @@ void AnimationController::update()
     {
       if (autoSwitching)
       {
-        if (currentAutoPulseType < 7 && animations[currentAutoPulseType])
+        if (currentAutoPulseType < Constants::NUMBER_OF_ANIMATIONS && animations[currentAutoPulseType])
         {
           animations[currentAutoPulseType]->stop();
         }
@@ -117,17 +123,29 @@ void AnimationController::update()
       {
         // Manual mode: continue playing selected animation
         // Only re-trigger if the animation considers itself finished (e.g. one-shot pulses)
-        if (currentAutoPulseType < 7 && animations[currentAutoPulseType] && animations[currentAutoPulseType]->isFinished())
+        if (currentAutoPulseType < Constants::NUMBER_OF_ANIMATIONS && animations[currentAutoPulseType] && animations[currentAutoPulseType]->isFinished())
         {
           // We don't stop(), just add another pulse/run
           // For ChaseAnimation, we might want to be careful, but isFinished() should handle that.
           // For Random/Cube/etc, isFinished() is true, so we add more ripples.
+          rollNewBaseColor();  // New random color for each re-triggered pulse in manual mode (differs from previous)
           animations[currentAutoPulseType]->run();
           lastRandomPulse = millis();
         }
       }
     }
   }
+}
+
+void AnimationController::rollNewBaseColor()
+{
+  unsigned int prev = baseColor;
+  int attempts = 0;
+  do {
+    baseColor = random(0xFFFF);
+  } while (baseColor == prev && attempts++ < 16);
+  if (baseColor == prev)
+    baseColor = (prev + 0x8000) & 0xFFFF;  // Fallback: opposite hue so it always differs
 }
 
 void AnimationController::getNextAnimation()
@@ -140,7 +158,7 @@ void AnimationController::getNextAnimation()
     int attempts = 0;
     while (attempts < 100)
     {
-      possiblePulse = random(7); // 0 to 6
+      possiblePulse = random(Constants::NUMBER_OF_ANIMATIONS); // 0 to NUMBER_OF_ANIMATIONS-1
 
       if (possiblePulse == currentAutoPulseType)
       {
@@ -162,7 +180,7 @@ void AnimationController::getNextAnimation()
 void AnimationController::startAnimation(byte animation)
 {
   currentAutoPulseType = animation;
-  if (animation < 7 && animations[animation])
+  if (animation < Constants::NUMBER_OF_ANIMATIONS && animations[animation])
   {
     animations[animation]->run();
   }
@@ -171,10 +189,11 @@ void AnimationController::startAnimation(byte animation)
 
 void AnimationController::changeAnimation(byte animation)
 {
-  if (currentAutoPulseType < 7 && animations[currentAutoPulseType])
+  if (currentAutoPulseType < Constants::NUMBER_OF_ANIMATIONS && animations[currentAutoPulseType])
   {
     animations[currentAutoPulseType]->stop();
   }
+  rollNewBaseColor();  // New random color when manually selecting (differs from previous)
   startAnimation(animation);
 }
 

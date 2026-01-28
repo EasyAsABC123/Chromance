@@ -34,6 +34,7 @@ if check_recompile_needed "$BINARY" "$HASH_FILE"; then
       -I test/mocks \
       -I src/animations \
       -I .pio/libdeps/esp-wrover-kit/ArduinoJson/src \
+      -I .pio/libdeps/esp-wrover-kit/ArduinoJson/src/src \
       test/test_main.cpp \
       src/AnimationController.cpp \
       src/LedController.cpp \
@@ -46,6 +47,9 @@ if check_recompile_needed "$BINARY" "$HASH_FILE"; then
       src/animations/RandomAnimation.cpp \
       src/animations/StarburstAnimation.cpp \
       src/animations/HeartbeatAnimation.cpp \
+      src/animations/RainbowPinwheelAnimation.cpp \
+      src/animations/RainbowRadiateAnimation.cpp \
+      src/animations/ShootingStarAnimation.cpp \
       -o "$BINARY"
 
     echo "Compilation successful."

@@ -58,6 +58,7 @@ private:
 
   void getNextAnimation();
   void notifyStateChange();
+  void rollNewBaseColor();  // Picks a new random baseColor different from the previous
 };
 
 #endif // ANIMATIONCONTROLLER_H
