@@ -23,7 +23,7 @@
 // Globals
 Configuration configuration;
 LedController ledController;
-AnimationController animationController(ledController);
+AnimationController animationController(ledController, configuration);
 ChromanceWebServer webServer(animationController, configuration);
 
 const char *ntpServer = "pool.ntp.org";

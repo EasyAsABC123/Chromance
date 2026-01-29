@@ -45,7 +45,7 @@ void RainbowAnimation::update()
             // (assuming y=1 is top and we want upward motion)
             uint16_t pixelHue = firstHue + (uint16_t)(currentY * Y_SCALE);
 
-            uint32_t color = controller.getLedController().ColorHSV(pixelHue, 255, brightness);
+            uint32_t color = controller.getLedController().ColorHSV(pixelHue, 255, controller.getConfiguration().getRainbowBrightness());
 
             // Extract RGB components
             byte r = (uint8_t)(color >> 16);
@@ -54,18 +54,5 @@ void RainbowAnimation::update()
 
             controller.getLedController().setPixelColor(i, led, r, g, b);
         }
-    }
-}
-
-void RainbowAnimation::getConfig(JsonObject &doc)
-{
-    doc["brightness"] = brightness;
-}
-
-void RainbowAnimation::setConfig(const JsonObject &doc)
-{
-    if (doc["brightness"].is<int>())
-    {
-        brightness = doc["brightness"];
     }
 }

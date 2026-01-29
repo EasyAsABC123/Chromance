@@ -10,8 +10,8 @@
 #include "animations/RainbowRadiateAnimation.h"
 #include "animations/ShootingStarAnimation.h"
 
-AnimationController::AnimationController(LedController &controller)
-    : ledController(controller)
+AnimationController::AnimationController(LedController &controller, Configuration &config)
+    : ledController(controller), configuration(config)
 {
   for (int i = 0; i < Constants::NUMBER_OF_RIPPLES; i++)
   {
@@ -36,6 +36,18 @@ AnimationController::~AnimationController()
   }
 }
 
+void AnimationController::recalculateAutoPulseTypes()
+{
+  numberOfAutoPulseTypes = 0;
+  for (int i = 0; i < Constants::NUMBER_OF_ANIMATIONS; i++)
+  {
+    if (animations[i] != nullptr && animations[i]->isEnabled())
+    {
+      numberOfAutoPulseTypes++;
+    }
+  }
+}
+
 void AnimationController::init()
 {
   if (animations[0] == nullptr)
@@ -52,14 +64,7 @@ void AnimationController::init()
     animations[9] = new ShootingStarAnimation(*this);
   }
 
-  numberOfAutoPulseTypes = 0;
-  for (int i = 0; i < Constants::NUMBER_OF_ANIMATIONS; i++)
-  {
-    if (animations[i] != nullptr && animations[i]->isEnabled())
-    {
-      numberOfAutoPulseTypes++;
-    }
-  }
+  recalculateAutoPulseTypes();
 
   baseColor = random(0xFFFF);
   lastRandomPulse = millis();

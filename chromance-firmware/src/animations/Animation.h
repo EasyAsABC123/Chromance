@@ -22,8 +22,14 @@ public:
   virtual bool isFinished() { return true; }
   bool isEnabled() const { return enabled; }
   virtual const char *getName() const = 0;
-  virtual void getConfig(JsonObject &doc) {}
-  virtual void setConfig(const JsonObject &doc) {}
+  virtual void getConfig(JsonObject &doc) {
+      doc["enabled"] = enabled;
+  }
+  virtual void setConfig(const JsonObject &doc) {
+      if (doc["enabled"].is<bool>()) {
+          enabled = doc["enabled"];
+      }
+  }
 
 protected:
   AnimationController &controller;

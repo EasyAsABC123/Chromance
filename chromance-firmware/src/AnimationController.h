@@ -4,6 +4,7 @@
 #include <Arduino.h>
 #include "Constants.h"
 #include "LedController.h"
+#include "Configuration.h"
 #include "ripple.h"
 #include "Topology.h"
 #include <functional>
@@ -15,7 +16,7 @@ class AnimationController
 public:
   using StateChangeCallback = std::function<void(byte currentAnimation, bool autoSwitching)>;
 
-  AnimationController(LedController &ledController);
+  AnimationController(LedController &ledController, Configuration &configuration);
   ~AnimationController();
   void init();
   void update(); // Main loop update (advance animations)
@@ -27,6 +28,7 @@ public:
   byte getLastNode();
   void setLastNode(byte node);
   LedController &getLedController();
+  Configuration &getConfiguration() { return configuration; }
   unsigned int getBaseColor();
   int getActiveRippleCount() const;
   byte getCurrentAnimation() const { return currentAutoPulseType; }
@@ -37,9 +39,11 @@ public:
   Ripple &getRipple(int index);
   Animation *getAnimation(int index);
   void setStateChangeCallback(StateChangeCallback callback) { stateChangeCallback = callback; }
+  void recalculateAutoPulseTypes();
 
 private:
   LedController &ledController;
+  Configuration &configuration;
   Ripple ripples[Constants::NUMBER_OF_RIPPLES];
   class Animation *animations[Constants::NUMBER_OF_ANIMATIONS];
 

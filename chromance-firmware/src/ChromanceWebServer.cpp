@@ -89,6 +89,25 @@ void ChromanceWebServer::setupRoutes()
             request->send(400, "application/json", "{\"status\":\"error\", \"message\":\"Missing enabled\"}");
         } });
 
+    // API Get Global Config
+    server.on("/api/config/global", HTTP_GET, [this](AsyncWebServerRequest *request)
+              {
+        AsyncResponseStream *response = request->beginResponseStream("application/json");
+        JsonDocument doc;
+        JsonObject obj = doc.to<JsonObject>();
+        configuration.serialize(obj);
+        serializeJson(doc, *response);
+        request->send(response); });
+
+    // API Set Global Config
+    server.on("/api/config/global", HTTP_POST, [](AsyncWebServerRequest *request) {}, NULL, [this](AsyncWebServerRequest *request, uint8_t *data, size_t len, size_t index, size_t total)
+              {
+        JsonDocument doc;
+        deserializeJson(doc, data);
+        configuration.deserialize(doc.as<JsonObject>());
+        this->broadcastStatus();
+        request->send(200, "application/json", "{\"status\":\"ok\"}"); });
+
     // API Get Config
     server.on("/api/config", HTTP_GET, [this](AsyncWebServerRequest *request)
               {
@@ -119,6 +138,8 @@ void ChromanceWebServer::setupRoutes()
                 JsonDocument doc;
                 deserializeJson(doc, data);
                 anim->setConfig(doc.as<JsonObject>());
+                animationController.recalculateAutoPulseTypes();
+                this->broadcastStatus();
                 request->send(200, "application/json", "{\"status\":\"ok\"}");
             } else {
                 request->send(404, "application/json", "{\"status\":\"error\", \"message\":\"Animation not found\"}");
@@ -318,6 +339,7 @@ String ChromanceWebServer::getStatusJson()
             JsonObject animObj = anims.add<JsonObject>();
             animObj["id"] = i;
             animObj["name"] = anim->getName();
+            animObj["enabled"] = anim->isEnabled();
         }
     }
 

@@ -11,12 +11,9 @@ public:
   void update() override;
   bool isFinished() override { return false; }
   const char *getName() const override { return "Rainbow"; }
-  void getConfig(JsonObject &doc) override;
-  void setConfig(const JsonObject &doc) override;
 
 private:
   uint16_t firstHue = 0;
-  int brightness = Constants::RAINBOW_BRIGHTNESS;
 };
 
 #endif

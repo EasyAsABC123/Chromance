@@ -60,7 +60,6 @@ namespace Constants
   constexpr bool rainbowEnabled = true;
   constexpr bool chaseEnabled = true;
   constexpr bool heartbeatEnabled = true;
-  constexpr int RAINBOW_BRIGHTNESS = 50;
   constexpr int MAX_CURRENT_MA = 2500; // Limit total current to 2500mA to prevent voltage drop
 
   constexpr int randomPulseTime = 2000; // ms
