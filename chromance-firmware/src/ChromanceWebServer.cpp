@@ -96,6 +96,18 @@ void ChromanceWebServer::setupRoutes()
         JsonDocument doc;
         JsonObject obj = doc.to<JsonObject>();
         configuration.serialize(obj);
+        
+        JsonArray anims = obj.createNestedArray("animations");
+        for (int i = 0; i < Constants::NUMBER_OF_ANIMATIONS; i++) {
+            Animation *anim = animationController.getAnimation(i);
+            if (anim != nullptr) {
+                JsonObject animObj = anims.add<JsonObject>();
+                animObj["id"] = i;
+                animObj["name"] = anim->getName();
+                animObj["enabled"] = anim->isEnabled();
+            }
+        }
+        
         serializeJson(doc, *response);
         request->send(response); });
 
@@ -105,6 +117,27 @@ void ChromanceWebServer::setupRoutes()
         JsonDocument doc;
         deserializeJson(doc, data);
         configuration.deserialize(doc.as<JsonObject>());
+
+        if (doc["animations"].is<JsonArray>()) {
+            JsonArray anims = doc["animations"];
+            for (JsonObject a : anims) {
+                if (a["id"].is<int>() && a["enabled"].is<bool>()) {
+                    int id = a["id"];
+                    bool enabled = a["enabled"];
+                    Animation* anim = animationController.getAnimation(id);
+                    if (anim) {
+                         // We can hack setConfig to set enabled, 
+                         // or ideally Animation class would have a setEnabled method.
+                         // But for now, let's use the JsonObject approach we have on Animation base class.
+                         // Wait, getConfig sets "enabled". setConfig checks for "enabled".
+                         // So we can just call setConfig with this object.
+                         anim->setConfig(a);
+                    }
+                }
+            }
+            animationController.recalculateAutoPulseTypes();
+        }
+
         this->broadcastStatus();
         request->send(200, "application/json", "{\"status\":\"ok\"}"); });
 
@@ -340,6 +373,7 @@ String ChromanceWebServer::getStatusJson()
             animObj["id"] = i;
             animObj["name"] = anim->getName();
             animObj["enabled"] = anim->isEnabled();
+            animObj["hasConfig"] = anim->hasConfig();
         }
     }
 

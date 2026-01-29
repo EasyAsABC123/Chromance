@@ -22,6 +22,7 @@ public:
   virtual bool isFinished() { return true; }
   bool isEnabled() const { return enabled; }
   virtual const char *getName() const = 0;
+  virtual bool hasConfig() const { return false; }
   virtual void getConfig(JsonObject &doc) {
       doc["enabled"] = enabled;
   }

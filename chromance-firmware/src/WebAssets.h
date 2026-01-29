@@ -26,22 +26,6 @@ const char index_html[] PROGMEM = R"html(
       </label>
     </div>
 
-    <div class="toggle-container">
-      <span>Allow Deep Sleep</span>
-      <label class="switch">
-        <input type="checkbox" id="sleepToggle" onchange="toggleSleep()">
-        <span class="slider"></span>
-      </label>
-    </div>
-
-    <div class="toggle-container">
-      <span>Show Emulator</span>
-      <label class="switch">
-        <input type="checkbox" id="emulatorToggle" onchange="toggleEmulator()" checked>
-        <span class="slider"></span>
-      </label>
-    </div>
-
     <div class="section">
         <h3>Animations</h3>
         <div id="animationsList">Loading...</div>
@@ -51,10 +35,33 @@ const char index_html[] PROGMEM = R"html(
     <div id="globalSettingsModal" style="display:none;" class="modal">
         <div class="modal-content">
             <h3>Global Settings</h3>
+            
+            <div class="toggle-container">
+              <span>Allow Deep Sleep</span>
+              <label class="switch">
+                <input type="checkbox" id="global_sleepToggle">
+                <span class="slider"></span>
+              </label>
+            </div>
+
+            <div class="toggle-container">
+              <span>Show Emulator</span>
+              <label class="switch">
+                <input type="checkbox" id="global_emulatorToggle">
+                <span class="slider"></span>
+              </label>
+            </div>
+
             <div class="config-field">
                 <label>Rainbow Brightness (0-255)</label>
                 <input type="number" id="global_rainbowBrightness" min="0" max="255">
             </div>
+            
+            <h4>Enabled Animations</h4>
+            <div id="global_animationsList" style="max-height: 200px; overflow-y: auto; border: 1px solid #555; padding: 5px; margin-bottom: 10px;">
+                Loading...
+            </div>
+
             <div style="display:flex; gap:10px; margin-top:15px;">
                 <button onclick="saveGlobalConfig()">Save</button>
                 <button onclick="closeGlobalSettings()" style="background-color:#666">Cancel</button>
@@ -145,7 +152,8 @@ const char script_js[] PROGMEM = R"js(
 
   function onLoad(event) {
     initWebSocket();
-    emulatorEnabled = document.getElementById('emulatorToggle').checked;
+    // Default emulator state until loaded from config/socket
+    emulatorEnabled = true; 
     toggleEmulator();
     // Pre-load global config so it's ready when the cog is clicked
     fetchGlobalConfig();
@@ -163,7 +171,6 @@ const char script_js[] PROGMEM = R"js(
   function onOpen(event) {
     console.log('Connection opened');
     startHeartbeat();
-    emulatorEnabled = document.getElementById('emulatorToggle').checked;
     websocket.send(JSON.stringify({emulator: emulatorEnabled}));
   }
 
@@ -229,7 +236,7 @@ const char script_js[] PROGMEM = R"js(
   }
 
   function toggleEmulator() {
-      emulatorEnabled = document.getElementById('emulatorToggle').checked;
+      // emulatorEnabled is set by checkbox in global settings or load
       if (websocket && websocket.readyState === WebSocket.OPEN) {
           websocket.send(JSON.stringify({emulator: emulatorEnabled}));
       }
@@ -291,9 +298,7 @@ const char script_js[] PROGMEM = R"js(
     if (data.autoSwitching !== undefined) {
         document.getElementById('autoSwitch').checked = data.autoSwitching;
     }
-    if (data.sleepEnabled !== undefined) {
-      document.getElementById('sleepToggle').checked = data.sleepEnabled;
-    }
+    // sleepEnabled is now in global modal, effectively read-only there until opened
 
     if (data.animations) {
         const list = document.getElementById('animationsList');
@@ -319,27 +324,14 @@ const char script_js[] PROGMEM = R"js(
             if (isActive) playBtn.style.backgroundColor = '#4CAF50';
             controls.appendChild(playBtn);
 
-            // Enabled Checkbox
-            const checkLabel = document.createElement('label');
-            checkLabel.style.display = 'flex';
-            checkLabel.style.alignItems = 'center';
-            checkLabel.style.margin = '0';
-            const check = document.createElement('input');
-            check.type = 'checkbox';
-            check.checked = anim.enabled;
-            check.style.width = 'auto';
-            check.style.marginRight = '5px';
-            check.onchange = (e) => toggleAnimEnabled(anim.id, e.target.checked);
-            checkLabel.appendChild(check);
-            checkLabel.appendChild(document.createTextNode('Auto'));
-            controls.appendChild(checkLabel);
-
             // Config Button
-            const configBtn = document.createElement('button');
-            configBtn.className = 'btn-small';
-            configBtn.innerText = '⚙';
-            configBtn.onclick = () => openAnimConfig(anim.id, anim.name);
-            controls.appendChild(configBtn);
+            if (anim.hasConfig) {
+                const configBtn = document.createElement('button');
+                configBtn.className = 'btn-small';
+                configBtn.innerText = '⚙';
+                configBtn.onclick = () => openAnimConfig(anim.id, anim.name);
+                controls.appendChild(configBtn);
+            }
 
             row.appendChild(controls);
             list.appendChild(row);
@@ -355,27 +347,11 @@ const char script_js[] PROGMEM = R"js(
     });
   }
 
-  function toggleSleep() {
-    fetch('/api/sleep', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ enabled: document.getElementById('sleepToggle').checked })
-    });
-  }
-
   function playAnimation(id) {
     fetch('/api/animation', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ id: id })
-    });
-  }
-
-  function toggleAnimEnabled(id, enabled) {
-    fetch('/api/config?id=' + id, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ enabled: enabled })
     });
   }
 
@@ -385,6 +361,39 @@ const char script_js[] PROGMEM = R"js(
       .then(data => {
           if (data.rainbowBrightness !== undefined) {
               document.getElementById('global_rainbowBrightness').value = data.rainbowBrightness;
+          }
+          if (data.sleepEnabled !== undefined) {
+              document.getElementById('global_sleepToggle').checked = data.sleepEnabled;
+          }
+          // Emulator state is local but we can reflect current state in modal
+          document.getElementById('global_emulatorToggle').checked = emulatorEnabled;
+
+          if (data.animations) {
+              const container = document.getElementById('global_animationsList');
+              container.innerHTML = '';
+              data.animations.forEach(anim => {
+                  const div = document.createElement('div');
+                  div.style.display = 'flex';
+                  div.style.alignItems = 'center';
+                  div.style.marginBottom = '5px';
+                  
+                  const check = document.createElement('input');
+                  check.type = 'checkbox';
+                  check.id = 'global_anim_' + anim.id;
+                  check.checked = anim.enabled;
+                  check.style.width = 'auto';
+                  check.style.marginRight = '10px';
+                  
+                  const label = document.createElement('label');
+                  label.htmlFor = 'global_anim_' + anim.id;
+                  label.innerText = anim.name;
+                  label.style.cursor = 'pointer';
+                  label.style.marginBottom = '0';
+                  
+                  div.appendChild(check);
+                  div.appendChild(label);
+                  container.appendChild(div);
+              });
           }
       });
   }
@@ -400,8 +409,28 @@ const char script_js[] PROGMEM = R"js(
 
   function saveGlobalConfig() {
       const config = {
-          rainbowBrightness: parseInt(document.getElementById('global_rainbowBrightness').value)
+          rainbowBrightness: parseInt(document.getElementById('global_rainbowBrightness').value),
+          sleepEnabled: document.getElementById('global_sleepToggle').checked,
+          animations: []
       };
+      
+      // Update local emulator state immediately
+      const newEmulatorState = document.getElementById('global_emulatorToggle').checked;
+      if (emulatorEnabled !== newEmulatorState) {
+          emulatorEnabled = newEmulatorState;
+          toggleEmulator();
+      }
+
+      const container = document.getElementById('global_animationsList');
+      const inputs = container.querySelectorAll('input[type=checkbox]');
+      inputs.forEach(input => {
+          const id = parseInt(input.id.replace('global_anim_', ''));
+          config.animations.push({
+              id: id,
+              enabled: input.checked
+          });
+      });
+
       fetch('/api/config/global', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },

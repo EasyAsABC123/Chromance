@@ -10,6 +10,7 @@ public:
   void run() override;
   void update() override;
   bool isFinished() override { return false; }
+  bool hasConfig() const override { return true; }
   const char *getName() const override { return "Rainbow Pinwheel"; }
   void getConfig(JsonObject &doc) override;
   void setConfig(const JsonObject &doc) override;
