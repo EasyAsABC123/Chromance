@@ -38,6 +38,7 @@ if check_recompile_needed "$BINARY" "$HASH_FILE"; then
       test/test_main.cpp \
       src/AnimationController.cpp \
       src/LedController.cpp \
+      src/Configuration.cpp \
       src/Topology.cpp \
       src/ripple.cpp \
       src/animations/CenterAnimation.cpp \

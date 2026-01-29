@@ -57,7 +57,7 @@ void RainbowPinwheelAnimation::update()
             uint16_t hue = (angleHue + (uint16_t)rotationOffset) % 65536;
 
             // Apply rainbow color to this pixel
-            uint32_t color = controller.getLedController().ColorHSV(hue, 255, brightness);
+            uint32_t color = controller.getLedController().ColorHSV(hue, 255, controller.getConfiguration().getRainbowBrightness());
             byte r = (uint8_t)(color >> 16);
             byte g = (uint8_t)(color >> 8);
             byte b = (uint8_t)(color);
@@ -69,16 +69,13 @@ void RainbowPinwheelAnimation::update()
 
 void RainbowPinwheelAnimation::getConfig(JsonObject &doc)
 {
-    doc["brightness"] = brightness;
+    Animation::getConfig(doc);
     doc["rotationDirection"] = rotationDirection;
 }
 
 void RainbowPinwheelAnimation::setConfig(const JsonObject &doc)
 {
-    if (doc["brightness"].is<int>())
-    {
-        brightness = doc["brightness"];
-    }
+    Animation::setConfig(doc);
     if (doc["rotationDirection"].is<int>())
     {
         rotationDirection = doc["rotationDirection"];

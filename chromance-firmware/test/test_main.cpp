@@ -11,6 +11,7 @@
 #include "animations/Animation.h"
 #include "LedController.h"
 #include "mocks/Arduino.h"
+#include "Configuration.h"
 #include "Topology.h"
 
 namespace ArduinoMock
@@ -315,8 +316,9 @@ int main(int argc, char *argv[])
   if (timeSpeed != 1.0f)
     std::cout << "Time multiplier: " << timeSpeed << "x" << std::endl;
 
+  Configuration configuration;
   LedController ledController;
-  AnimationController animationController(ledController);
+  AnimationController animationController(ledController, configuration);
 
   // Setup
   std::srand(std::time(0));

@@ -53,49 +53,37 @@ void RainbowRadiateAnimation::update()
         int node0 = Topology::segmentConnections[segment][0];
         int node1 = Topology::segmentConnections[segment][1];
 
-        // Calculate midpoint of the segment
+        // Get node positions
         const NodePosition &pos0 = Topology::nodePositions[node0];
         const NodePosition &pos1 = Topology::nodePositions[node1];
 
-        float midX = (pos0.x + pos1.x) / 2.0f;
-        float midY = (pos0.y + pos1.y) / 2.0f;
-
-        // Calculate distance from center to segment midpoint
-        float dx = midX - centerPos.x;
-        float dy = midY - centerPos.y;
-        float distance = sqrt(dx * dx + dy * dy);
-
-        // Normalize distance (0.0 to 1.0) and add phase offset for animation
-        // This creates a wave effect that radiates outward
-        float normalizedDistance = maxDistance > 0 ? (distance / maxDistance) : 0.0f;
-
-        // Map distance + phase to hue space
-        // The phaseOffset creates the radiating wave effect
-        float hueValue = (normalizedDistance * 65536.0f + phaseOffset);
-        uint16_t hue = (uint16_t)hueValue % 65536;
-
-        // Apply rainbow color to all LEDs in this segment
-        uint32_t color = controller.getLedController().ColorHSV(hue, 255, brightness);
-        byte r = (uint8_t)(color >> 16);
-        byte g = (uint8_t)(color >> 8);
-        byte b = (uint8_t)(color);
-
         for (int led = 0; led < Constants::LEDS_PER_SEGMENT; led++)
         {
+            // Interpolate position along the segment (0.0 to 1.0)
+            float t = (float)led / (Constants::LEDS_PER_SEGMENT - 1);
+            float ledX = pos0.x + (pos1.x - pos0.x) * t;
+            float ledY = pos0.y + (pos1.y - pos0.y) * t;
+
+            // Calculate distance from center to this LED
+            float dx = ledX - centerPos.x;
+            float dy = ledY - centerPos.y;
+            float distance = sqrt(dx * dx + dy * dy);
+
+            // Normalize distance (0.0 to 1.0) and add phase offset for animation
+            // This creates a wave that radiates outward
+            float normalizedDistance = maxDistance > 0 ? (distance / maxDistance) : 0.0f;
+
+            // Map distance + phase to hue space
+            float hueValue = (normalizedDistance * 65536.0f + phaseOffset);
+            uint16_t hue = (uint16_t)hueValue % 65536;
+
+            // Apply rainbow color to this pixel
+            uint32_t color = controller.getLedController().ColorHSV(hue, 255, controller.getConfiguration().getRainbowBrightness());
+            byte r = (uint8_t)(color >> 16);
+            byte g = (uint8_t)(color >> 8);
+            byte b = (uint8_t)(color);
+
             controller.getLedController().setPixelColor(segment, led, r, g, b);
         }
-    }
-}
-
-void RainbowRadiateAnimation::getConfig(JsonObject &doc)
-{
-    doc["brightness"] = brightness;
-}
-
-void RainbowRadiateAnimation::setConfig(const JsonObject &doc)
-{
-    if (doc["brightness"].is<int>())
-    {
-        brightness = doc["brightness"];
     }
 }

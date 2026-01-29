@@ -28,7 +28,7 @@ void ChromanceWebServer::setupRoutes()
 
     // Serve Static HTML
     server.on("/", HTTP_GET, [](AsyncWebServerRequest *request)
-              { request->send(200, "text/html", index_html); });
+              { request->send(200, "text/html; charset=utf-8", index_html); });
 
     server.on("/style.css", HTTP_GET, [](AsyncWebServerRequest *request)
               { request->send(200, "text/css", style_css); });

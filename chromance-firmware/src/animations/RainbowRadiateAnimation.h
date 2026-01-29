@@ -11,12 +11,9 @@ public:
   void update() override;
   bool isFinished() override { return false; }
   const char *getName() const override { return "Rainbow Radiate"; }
-  void getConfig(JsonObject &doc) override;
-  void setConfig(const JsonObject &doc) override;
 
 private:
   float animationPhase = 0.0f;
-  int brightness = Constants::RAINBOW_BRIGHTNESS;
   float radiateSpeed = 32.0f; // Units per ms (similar to RainbowAnimation)
   float maxDistance = 0.0f; // Will be calculated in run()
 };

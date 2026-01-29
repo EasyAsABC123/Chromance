@@ -16,7 +16,6 @@ public:
 
 private:
   uint16_t baseHue = 0;
-  int brightness = Constants::RAINBOW_BRIGHTNESS;
   int rotationDirection = 1; // 1 for clockwise, -1 for counterclockwise
   float rotationSpeed = 32.0f; // Units per ms (similar to RainbowAnimation)
 };
