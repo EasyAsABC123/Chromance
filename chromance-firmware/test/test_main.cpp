@@ -134,6 +134,16 @@ std::string getAnimationName(int id)
     return "Rainbow Pinwheel";
   case 8:
     return "Rainbow Radiate";
+  case 9:
+    return "Shooting Star";
+  case 10:
+    return "Meteor Shower";
+  case 11:
+    return "Searchlight";
+  case 12:
+    return "Bio Pulse";
+  case 13:
+    return "Glitch";
   case 255:
     return "None";
   default:

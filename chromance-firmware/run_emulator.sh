@@ -51,6 +51,10 @@ if check_recompile_needed "$BINARY" "$HASH_FILE"; then
       src/animations/RainbowPinwheelAnimation.cpp \
       src/animations/RainbowRadiateAnimation.cpp \
       src/animations/ShootingStarAnimation.cpp \
+      src/animations/MeteorShowerAnimation.cpp \
+      src/animations/SearchlightAnimation.cpp \
+      src/animations/BioPulseAnimation.cpp \
+      src/animations/GlitchAnimation.cpp \
       -o "$BINARY"
 
     echo "Compilation successful."

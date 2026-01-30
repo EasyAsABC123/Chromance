@@ -9,6 +9,10 @@
 #include "animations/RainbowPinwheelAnimation.h"
 #include "animations/RainbowRadiateAnimation.h"
 #include "animations/ShootingStarAnimation.h"
+#include "animations/MeteorShowerAnimation.h"
+#include "animations/SearchlightAnimation.h"
+#include "animations/BioPulseAnimation.h"
+#include "animations/GlitchAnimation.h"
 
 AnimationController::AnimationController(LedController &controller, Configuration &config)
     : ledController(controller), configuration(config)
@@ -62,6 +66,10 @@ void AnimationController::init()
     animations[7] = new RainbowPinwheelAnimation(*this);
     animations[8] = new RainbowRadiateAnimation(*this);
     animations[9] = new ShootingStarAnimation(*this);
+    animations[10] = new MeteorShowerAnimation(*this);
+    animations[11] = new SearchlightAnimation(*this);
+    animations[12] = new BioPulseAnimation(*this);
+    animations[13] = new GlitchAnimation(*this);
   }
 
   recalculateAutoPulseTypes();
