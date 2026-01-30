@@ -39,9 +39,10 @@ void RainbowPinwheelAnimation::update()
         for (int led = 0; led < Constants::LEDS_PER_SEGMENT; led++)
         {
             // Interpolate position along the segment (0.0 to 1.0)
+            // LedController maps index 0 to Floor (pos1) and index 13 to Ceiling (pos0)
             float t = (float)led / (Constants::LEDS_PER_SEGMENT - 1);
-            float ledX = pos0.x + (pos1.x - pos0.x) * t;
-            float ledY = pos0.y + (pos1.y - pos0.y) * t;
+            float ledX = pos1.x + (pos0.x - pos1.x) * t;
+            float ledY = pos1.y + (pos0.y - pos1.y) * t;
 
             // Calculate angle from center to this LED position
             float dx = ledX - centerPos.x;

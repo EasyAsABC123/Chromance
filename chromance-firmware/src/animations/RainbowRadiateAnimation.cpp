@@ -60,9 +60,10 @@ void RainbowRadiateAnimation::update()
         for (int led = 0; led < Constants::LEDS_PER_SEGMENT; led++)
         {
             // Interpolate position along the segment (0.0 to 1.0)
+            // LedController maps index 0 to Floor (pos1) and index 13 to Ceiling (pos0)
             float t = (float)led / (Constants::LEDS_PER_SEGMENT - 1);
-            float ledX = pos0.x + (pos1.x - pos0.x) * t;
-            float ledY = pos0.y + (pos1.y - pos0.y) * t;
+            float ledX = pos1.x + (pos0.x - pos1.x) * t;
+            float ledY = pos1.y + (pos0.y - pos1.y) * t;
 
             // Calculate distance from center to this LED
             float dx = ledX - centerPos.x;
@@ -78,7 +79,11 @@ void RainbowRadiateAnimation::update()
             uint16_t hue = (uint16_t)hueValue % 65536;
 
             // Apply rainbow color to this pixel
-            uint32_t color = controller.getLedController().ColorHSV(hue, 255, controller.getConfiguration().getRainbowBrightness());
+            // Brightness is reduced to prevent ESP32 crash due to high power draw from the LED wall
+            int brightness = controller.getConfiguration().getRainbowBrightness();
+            if (brightness > 40) brightness = 40; // Hard cap for safety
+            
+            uint32_t color = controller.getLedController().ColorHSV(hue, 255, brightness);
             byte r = (uint8_t)(color >> 16);
             byte g = (uint8_t)(color >> 8);
             byte b = (uint8_t)(color);

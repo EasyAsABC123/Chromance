@@ -144,6 +144,16 @@ std::string getAnimationName(int id)
     return "Bio Pulse";
   case 13:
     return "Glitch";
+  case 14:
+    return "Water Pour";
+  case 15:
+    return "Inferno";
+  case 16:
+    return "Bouncing Balls";
+  case 17:
+    return "Fireflies";
+  case 18:
+    return "Fireworks";
   case 255:
     return "None";
   default:

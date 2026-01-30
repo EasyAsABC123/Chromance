@@ -1,6 +1,6 @@
 #include "Configuration.h"
 
-Configuration::Configuration() : sleepEnabled(false), rainbowBrightness(50)
+Configuration::Configuration() : sleepEnabled(false), rainbowBrightness(30)
 {
 }
 

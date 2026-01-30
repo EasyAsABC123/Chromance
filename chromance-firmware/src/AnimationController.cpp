@@ -13,6 +13,11 @@
 #include "animations/SearchlightAnimation.h"
 #include "animations/BioPulseAnimation.h"
 #include "animations/GlitchAnimation.h"
+#include "animations/WaterAnimation.h"
+#include "animations/InfernoAnimation.h"
+#include "animations/BouncingBallsAnimation.h"
+#include "animations/FirefliesAnimation.h"
+#include "animations/FireworksAnimation.h"
 
 AnimationController::AnimationController(LedController &controller, Configuration &config)
     : ledController(controller), configuration(config)
@@ -70,6 +75,11 @@ void AnimationController::init()
     animations[11] = new SearchlightAnimation(*this);
     animations[12] = new BioPulseAnimation(*this);
     animations[13] = new GlitchAnimation(*this);
+    animations[14] = new WaterAnimation(*this);
+    animations[15] = new InfernoAnimation(*this);
+    animations[16] = new BouncingBallsAnimation(*this);
+    animations[17] = new FirefliesAnimation(*this);
+    animations[18] = new FireworksAnimation(*this);
   }
 
   recalculateAutoPulseTypes();
