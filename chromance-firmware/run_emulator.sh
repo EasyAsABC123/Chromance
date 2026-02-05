@@ -21,49 +21,12 @@ if [[ "$1" == "-h" || "$1" == "--help" ]]; then
     exit 0
 fi
 
-HASH_FILE=".emulator_build_hash"
 BINARY="emulator"
 
-source ./build_utils.sh
-
-if check_recompile_needed "$BINARY" "$HASH_FILE"; then
-    echo "Compiling Chromance Emulator..."
-
-    g++ -std=c++11 -D NATIVE_TEST -D DEBUG=1 -D USING_NEOPIXEL \
-      -I src \
-      -I test/mocks \
-      -I src/animations \
-      -I .pio/libdeps/esp-wrover-kit/ArduinoJson/src \
-      -I .pio/libdeps/esp-wrover-kit/ArduinoJson/src/src \
-      test/test_main.cpp \
-      src/AnimationController.cpp \
-      src/LedController.cpp \
-      src/Configuration.cpp \
-      src/Topology.cpp \
-      src/ripple.cpp \
-      src/animations/CenterAnimation.cpp \
-      src/animations/ChaseAnimation.cpp \
-      src/animations/CubeAnimation.cpp \
-      src/animations/RainbowAnimation.cpp \
-      src/animations/RandomAnimation.cpp \
-      src/animations/StarburstAnimation.cpp \
-      src/animations/HeartbeatAnimation.cpp \
-      src/animations/RainbowPinwheelAnimation.cpp \
-      src/animations/RainbowRadiateAnimation.cpp \
-      src/animations/ShootingStarAnimation.cpp \
-      src/animations/MeteorShowerAnimation.cpp \
-      src/animations/SearchlightAnimation.cpp \
-      src/animations/BioPulseAnimation.cpp \
-      src/animations/GlitchAnimation.cpp \
-      src/animations/WaterAnimation.cpp \
-      src/animations/InfernoAnimation.cpp \
-      src/animations/BouncingBallsAnimation.cpp \
-      src/animations/FirefliesAnimation.cpp \
-      src/animations/FireworksAnimation.cpp \
-      -o "$BINARY"
-
-    echo "Compilation successful."
-    update_build_hash "$HASH_FILE"
+echo "Building emulator..."
+if ! make emulator; then
+    echo "Build failed."
+    exit 1
 fi
 
 echo "Running emulator..."

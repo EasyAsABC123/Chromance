@@ -5,7 +5,9 @@
 #include "Arduino.h"
 #include "AnimationController.h"
 #include "LedController.h"
+#include "Configuration.h"
 #include "mocks/Arduino.h"
+#include "mocks/SPIFFS.h"
 #include "Topology.h"
 
 // Mock Definitions
@@ -14,6 +16,7 @@ namespace ArduinoMock
   unsigned long _millis = 0;
 }
 HardwareSerial Serial;
+SPIFFSFS SPIFFS;
 
 // Simple Test Framework
 int tests_passed = 0;
@@ -46,7 +49,8 @@ void test_random_animation()
   reset_mocks();
 
   LedController ledController;
-  AnimationController animController(ledController);
+  Configuration configuration;
+  AnimationController animController(ledController, configuration);
   ledController.begin();
   animController.init();
   animController.setAutoSwitching(false);
@@ -81,7 +85,8 @@ void test_cube_animation()
   reset_mocks();
 
   LedController ledController;
-  AnimationController animController(ledController);
+  Configuration configuration;
+  AnimationController animController(ledController, configuration);
   ledController.begin();
   animController.init();
   animController.setAutoSwitching(false);
@@ -107,7 +112,8 @@ void test_starburst_animation()
   reset_mocks();
 
   LedController ledController;
-  AnimationController animController(ledController);
+  Configuration configuration;
+  AnimationController animController(ledController, configuration);
   ledController.begin();
   animController.init();
   animController.setAutoSwitching(false);
@@ -127,7 +133,8 @@ void test_center_animation()
   reset_mocks();
 
   LedController ledController;
-  AnimationController animController(ledController);
+  Configuration configuration;
+  AnimationController animController(ledController, configuration);
   ledController.begin();
   animController.init();
   animController.setAutoSwitching(false);
@@ -146,7 +153,8 @@ void test_rainbow_animation()
   reset_mocks();
 
   LedController ledController;
-  AnimationController animController(ledController);
+  Configuration configuration;
+  AnimationController animController(ledController, configuration);
   ledController.begin();
   animController.init();
   animController.setAutoSwitching(false);
@@ -189,7 +197,8 @@ void test_chase_animation()
   reset_mocks();
 
   LedController ledController;
-  AnimationController animController(ledController);
+  Configuration configuration;
+  AnimationController animController(ledController, configuration);
   ledController.begin();
   animController.init();
   animController.setAutoSwitching(false);
@@ -228,7 +237,8 @@ void test_heartbeat_animation()
   reset_mocks();
 
   LedController ledController;
-  AnimationController animController(ledController);
+  Configuration configuration;
+  AnimationController animController(ledController, configuration);
   ledController.begin();
   animController.init();
   animController.setAutoSwitching(false);
@@ -262,6 +272,42 @@ void test_heartbeat_animation()
   TEST_ASSERT(anyLit);
 }
 
+void test_wave_animation()
+{
+  TEST_CASE("WaveAnimation");
+  reset_mocks();
+
+  LedController ledController;
+  Configuration configuration;
+  AnimationController animController(ledController, configuration);
+  ledController.begin();
+  animController.init();
+  animController.setAutoSwitching(false);
+
+  // WaveAnimation is index 19
+  animController.startAnimation(19);
+
+  // Run update
+  animController.update();
+  ledController.show();
+
+  bool anyLit = false;
+  auto strip = ledController.getStrip(0);
+  if (strip)
+  {
+    for (int i = 0; i < strip->numPixels(); i++)
+    {
+      if (strip->getPixelColor(i) != 0)
+      {
+        anyLit = true;
+        break;
+      }
+    }
+  }
+  std::cout << "WaveAnimation LEDs Lit: " << (anyLit ? "Yes" : "No") << std::endl;
+  TEST_ASSERT(anyLit);
+}
+
 int main()
 {
   std::cout << "Starting Animation Tests..." << std::endl;
@@ -273,6 +319,7 @@ int main()
   test_rainbow_animation();
   test_chase_animation();
   test_heartbeat_animation();
+  test_wave_animation();
 
   std::cout << "\nTest Summary:" << std::endl;
   std::cout << "Passed: " << tests_passed << std::endl;

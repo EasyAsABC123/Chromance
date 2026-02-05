@@ -11,6 +11,7 @@
 #include "animations/Animation.h"
 #include "LedController.h"
 #include "mocks/Arduino.h"
+#include "mocks/SPIFFS.h"
 #include "Configuration.h"
 #include "Topology.h"
 
@@ -20,6 +21,7 @@ namespace ArduinoMock
 }
 
 HardwareSerial Serial;
+SPIFFSFS SPIFFS;
 
 struct Point
 {
@@ -154,6 +156,8 @@ std::string getAnimationName(int id)
     return "Fireflies";
   case 18:
     return "Fireworks";
+  case 19:
+    return "Wave";
   case 255:
     return "None";
   default:

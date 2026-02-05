@@ -26,6 +26,7 @@ void Ripple::start(int node, int direction, unsigned long color, float speed, un
 
     Ripple::node = node;
     Ripple::direction = direction;
+    Ripple::targetNode = -1;
 
     justStarted = true;
 

@@ -1,126 +1,106 @@
-# Proposed New Animations
+# Proposed & Implemented Animations
 
-This document outlines new animation concepts for the Chromance firmware, derived from an analysis of the existing codebase and topology.
+This document outlines new animation concepts for the Chromance firmware.
 
-## 1. Meteor Shower (Digital Rain)
+## 1. Meteor Shower (Implemented)
+**Concept:** Bright "raindrops" trickling downwards.
+**Mechanics:** Spawns at top nodes, chases to bottom using `BEHAVIOR_CHASE`.
 
+## 2. Searchlight (Implemented)
+**Concept:** Rotating radar beam.
+**Mechanics:** Uses `atan2` to calculate angle of segments relative to center.
+
+## 3. Bio-Pulse (Implemented)
+**Concept:** Rhythmic breathing effect.
+**Mechanics:** Sine wave brightness based on distance from center.
+
+## 4. Glitch (Implemented)
+**Concept:** Random electrical sparks.
+**Mechanics:** Short-lived, high-speed ripples or direct segment flashes.
+
+## 5. Water Pour (Implemented)
+**Concept:** Water trickling down and filling up from the bottom.
+**Mechanics:**
+-   **Physics:** Drops fall, split at junctions, and accumulate in `segmentLevels`.
+-   **Visuals:** Blue water filling up, Cyan drops falling. Slosh effect on surface.
+
+## 6. Inferno (Fire)
 **Concept:**
-Bright "raindrops" or "meteors" spawn at the top of the structure and trickle downwards to the bottom node, simulating rain or a digital waterfall.
+Simulates a roaring fire starting from the bottom of the structure and rising upwards. Based on the classic "Fire2012" algorithm but adapted for the node/segment topology.
 
 **Mechanics:**
--   **Spawn Points:** Top nodes (Nodes 0, 1, 2).
--   **Target:** Bottom node (Node 24).
--   **Movement Logic:** Utilizes `BEHAVIOR_CHASE` in conjunction with the static `Ripple::runnerNode` target.
+-   **Heat Generation:** Bottom segments (connected to bottom nodes) randomly generate "heat".
+-   **Convection:** Heat moves from lower segments to upper connected segments.
+-   **Cooling:** All segments cool down over time.
+-   **Mapping:** Heat values (0-255) map to a Color Palette (Black -> Red -> Orange -> White).
 
 **Implementation Details:**
--   **Class Name:** `MeteorShowerAnimation`
+-   **Class Name:** `InfernoAnimation`
+-   **State:** float array `heat[Constants::NUMBER_OF_SEGMENTS]`.
 -   **Logic:**
-    -   In `run()` (or `update()` if continuously spawning):
-        -   Set `Ripple::runnerNode = 24`.
-        -   Randomly pick one of the top nodes (0, 1, 2).
-        -   Spawn a ripple:
-            -   **Color:** High brightness White, Cyan, or Blue.
-            -   **Behavior:** `BEHAVIOR_CHASE`.
-            -   **Speed:** Medium-fast.
-            -   **Lifespan:** Sufficient to reach the bottom (e.g., 2000-3000ms).
-
-**Code Snippet (Conceptual):**
-```cpp
-void MeteorShowerAnimation::run()
-{
-    Ripple::runnerNode = 24; // Target bottom
-    int startNode = random(3); // 0, 1, or 2
-    
-    // Find a valid direction downwards to start (optional, or just pick any connected segment)
-    // Actually, startRipple takes a 'direction' (path index). 
-    // We should pick a path that actually exists.
-    int direction = 0; 
-    // ... logic to find valid direction from startNode ...
-    
-    controller.startRipple(
-        startNode, 
-        direction, 
-        0xFFFFFF, // White
-        0.7f, 
-        3000, 
-        BEHAVIOR_CHASE
-    );
-}
-```
-
-## 2. Searchlight (Radar Scanner)
-
-**Concept:**
-A rotating beam of light sweeps around the center of the structure, illuminating segments as it passes over them.
-
-**Mechanics:**
--   **Math:** Uses `atan2(y, x)` to calculate the angle of each segment relative to the center of the display.
--   **Rendering:** Directly manipulates the `LedController` rather than using `Ripple` agents.
-
-**Implementation Details:**
--   **Class Name:** `SearchlightAnimation`
--   **Center Point:** Node 15 (`nodePositions[15]` is approx {40, 13}, which is roughly center of 80x26 grid).
--   **Logic:**
-    -   Maintain a `float currentAngle` state variable.
+    -   Identify "Bottom" segments (connected to floor nodes).
     -   In `update()`:
-        -   Increment `currentAngle`.
-        -   Clear all LEDs (fade out).
-        -   Iterate through all segments `s`.
-        -   Get position of `s` (average of its two connected nodes).
-        -   Calculate `segmentAngle = atan2(dy, dx)`.
-        -   If `abs(segmentAngle - currentAngle)` is small (within beam width), light up segment.
-        -   Color can be `baseColor` or a specific "radar green".
+        -   **Cooling:** `heat[s] = max(0.0f, heat[s] - randomCooling)`.
+        -   **Drift:** For each segment `s`, transfer some heat to segments *above* it (using `Topology` to find upward neighbors).
+        -   **Ignition:** Randomly add bursts of heat to bottom segments.
+        -   **Render:** Convert `heat[s]` to RGB using a fire palette and apply to all LEDs in segment (perhaps with some noise/variation per LED).
 
-## 3. Bio-Pulse (Breathing)
-
+## 7. Bouncing Balls
 **Concept:**
-The entire structure behaves like a living organism, pulsing with a rhythmic breath. This is a global effect rather than a traveling wave.
+Simulates multiple glowing balls falling under gravity and bouncing off the ground (bottom nodes).
 
 **Mechanics:**
--   **Waveform:** Sine wave based on `millis()`.
--   **Spatial Variation:** Phase shift based on distance from center (Node 15) to create an outward "breathing" motion.
+-   **Physics:** Gravity accelerates balls down. Impact with bottom nodes reverses velocity with a coefficient of restitution (energy loss).
+-   **Visuals:** Balls leave a short trail. Color changes on bounce or per ball.
 
 **Implementation Details:**
--   **Class Name:** `BioPulseAnimation`
+-   **Class Name:** `BouncingBallsAnimation`
+-   **Struct:** `Ball { int segment; float position; float velocity; uint32_t color; }`
 -   **Logic:**
-    -   In `update()`:
-        -   Calculate `time = millis()`.
-        -   Iterate through all Nodes or Segments.
-        -   For each entity:
-            -   Calculate `dist` from center (Node 15).
-            -   `brightness = sin(time * speed - dist * phase_factor)`.
-            -   Map `brightness` (-1 to 1) to (MinBrightness to MaxBrightness).
-            -   Set color.
-    -   Uses direct `ledController.setPixel` or `setSegment` (if available, otherwise loop pixels).
+    -   Similar pathfinding to `WaterAnimation` (falling down).
+    -   When `position >= 1.0` and node is "Bottom" (no lower neighbors):
+        -   `velocity = -velocity * restitution` (bounce).
+        -   If velocity is small, ball dies or re-spawns at top.
+    -   When `position <= 0.0` (moving up after bounce):
+        -   Move to upper segment if possible.
+        -   If `velocity` reaches 0, gravity pulls it back down.
+    -   Manage `std::vector<Ball>`.
 
-## 4. Glitch / Spark
-
+## 8. Fireflies (Twinkle)
 **Concept:**
-Simulates a malfunctioning or highly energetic system with random, brief, intense flashes of light on random segments.
+A calm, magical effect where random LEDs gently fade in and out like fireflies in a forest.
 
 **Mechanics:**
--   **Randomness:** Stochastic triggering.
--   **Duration:** Very short (1-3 frames).
+-   **Particles:** Invisible agents placed on random LEDs.
+-   **Lifecycle:** State machine: Hidden -> Fading In -> Lit -> Fading Out -> Hidden.
+-   **Colors:** Golden yellow, green, or random.
 
 **Implementation Details:**
--   **Class Name:** `GlitchAnimation`
+-   **Class Name:** `FirefliesAnimation`
+-   **Struct:** `Firefly { int segment; int led; float brightness; int state; float speed; }`
 -   **Logic:**
+    -   Maintain fixed number of fireflies (e.g., 20).
     -   In `update()`:
-        -   Small chance (e.g., 5%) to trigger a "spark".
-        -   Pick random segment.
-        -   Pick random color (usually White or erratic colors).
-        -   Set all LEDs in segment to color.
-        -   *Crucial:* These sparks need to clear themselves. Either use a `Ripple` with very short life (e.g., 100ms) and `BEHAVIOR_COUCH_POTATO` (stops immediately), or manage a list of active sparks.
-        -   Using `controller.startRipple(..., BEHAVIOR_COUCH_POTATO)` is the easiest way to leverage existing cleanup logic.
+        -   If state is Hidden: small chance to start Fading In at new random location.
+        -   Update brightness based on state.
+        -   Draw pixel using cubic easing for smooth pulse.
 
-```cpp
-// Spark using Ripple system
-controller.startRipple(
-    random(Topology::numberOfNodes),
-    random(Constants::MAX_PATHS_PER_NODE),
-    0xFFFFFF,
-    1.0f, // Fast
-    100,  // Die quickly
-    BEHAVIOR_COUCH_POTATO // Don't move
-);
-```
+## 9. Fireworks
+**Concept:**
+Rockets launch from the ground, travel up to a random height/node, and explode into a burst of particles.
+
+**Mechanics:**
+-   **Phase 1 (Launch):** A single bright ripple travels from bottom to a target node.
+-   **Phase 2 (Explosion):** Upon reaching target, spawn multiple ripples moving outward in all connected directions.
+-   **Phase 3 (Decay):** Explosion ripples have short life and fade out.
+
+**Implementation Details:**
+-   **Class Name:** `FireworksAnimation`
+-   **Logic:**
+    -   Utilize `AnimationController::startRipple`.
+    -   **Launch:** Start ripple at bottom node, targeting a random upper node (`BEHAVIOR_CHASE` or pathfinding).
+    -   **Trigger:** When launch ripple dies (or reaches destination), trigger explosion.
+    -   **Explosion:** Iterate all paths from target node. Start `Ripple` on each path:
+        -   `BEHAVIOR_ALWAYS_LEFT` / `RIGHT` or `EXPLODING`.
+        -   Color: Random saturated color.
+        -   Speed: Fast, decaying.

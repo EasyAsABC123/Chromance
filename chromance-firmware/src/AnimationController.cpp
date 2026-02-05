@@ -18,6 +18,7 @@
 #include "animations/BouncingBallsAnimation.h"
 #include "animations/FirefliesAnimation.h"
 #include "animations/FireworksAnimation.h"
+#include "animations/WaveAnimation.h"
 
 AnimationController::AnimationController(LedController &controller, Configuration &config)
     : ledController(controller), configuration(config)
@@ -80,6 +81,7 @@ void AnimationController::init()
     animations[16] = new BouncingBallsAnimation(*this);
     animations[17] = new FirefliesAnimation(*this);
     animations[18] = new FireworksAnimation(*this);
+    animations[19] = new WaveAnimation(*this);
   }
 
   recalculateAutoPulseTypes();

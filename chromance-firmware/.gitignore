@@ -6,3 +6,4 @@ tests
 tests.exe
 .emulator_build_hash
 .tests_build_hash
+**/*.o

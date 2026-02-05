@@ -7,11 +7,24 @@ void HeartbeatAnimation::run()
   startTime = millis();
 }
 
+bool HeartbeatAnimation::isFinished()
+{
+  return (millis() - startTime) >= 1500;
+}
+
+bool HeartbeatAnimation::canBePreempted()
+{
+  unsigned long t = (millis() - startTime);
+  // If we've finished at least one cycle, we can always be preempted
+  if (t >= 1500)
+    return true;
+  // During a cycle, only allow preemption after the beats (600ms)
+  return t > 600;
+}
+
 void HeartbeatAnimation::update()
 {
-  unsigned long time = millis() - startTime;
-  unsigned long cycleTime = 1500; // 1.5s per heartbeat cycle
-  unsigned long t = time % cycleTime;
+  unsigned long t = millis() - startTime;
 
   float brightness = 0.1f; // Base brightness (dim red)
 

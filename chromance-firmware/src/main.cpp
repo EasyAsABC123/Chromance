@@ -13,6 +13,7 @@
 #include <WiFiUdp.h>
 #include <ArduinoOTA.h>
 #include <WiFiManager.h> //https://github.com/tzapu/WiFiManager WiFi Configuration Magic
+#include <SPIFFS.h>
 
 #include "Constants.h"
 #include "LedController.h"
@@ -27,9 +28,8 @@ AnimationController animationController(ledController, configuration);
 ChromanceWebServer webServer(animationController, configuration);
 
 const char *ntpServer = "pool.ntp.org";
-const long gmtOffset_sec = -14400;
-const int daylightOffset_sec = 3600;
-const uint64_t TIME_TO_SLEEP = 36000;    /* Time ESP32 will go to sleep (in seconds) */
+const long gmtOffset_sec = -18000;       // EST is UTC-5 (-5 * 3600)
+const int daylightOffset_sec = 3600;     // Daylight saving offset is 1 hour
 const uint64_t uS_TO_S_FACTOR = 1000000; /* Conversion factor for micro seconds to seconds */
 
 // Task for running on Core 0
@@ -55,6 +55,7 @@ void Core0Task(void *pvParameters)
     webServer.broadcastLedData();
 
     static unsigned long lastTimeCheck = 0;
+    // Check the time every 2 seconds
     if (millis() - lastTimeCheck > 2000)
     {
       lastTimeCheck = millis();
@@ -62,30 +63,53 @@ void Core0Task(void *pvParameters)
       if (!getLocalTime(&timeinfo))
       {
         Serial.println("Failed to obtain time");
-        // delay(2000); // Handled by outer loop delay and timer
-        continue; // Don't exit the task, just skip this iteration
+        continue;
       }
 
-      if (timeinfo.tm_hour >= 22 || timeinfo.tm_hour <= 1)
+      // Sleep between 10pm and 8am
+      if (timeinfo.tm_hour >= 22 || timeinfo.tm_hour < 8)
       {
         if (!configuration.isSleepEnabled())
         {
           continue;
         }
 
-        // Acquire mutex to safely set activeOTAUpdate and wait for animation to stop
+        // Stop animations before sleeping
         activeOTAUpdate = true;
-
-        // Wait for animation to complete (check with mutex protection)
         bool stillAnimating = true;
         while (stillAnimating)
         {
           stillAnimating = animating;
           if (stillAnimating)
           {
-            delay(1000);
+            delay(100);
           }
         }
+
+        // Calculate sleep duration to wake up at 8am
+        time_t now = time(nullptr);
+        struct tm wakeup_time_info = timeinfo;
+        wakeup_time_info.tm_hour = 8;
+        wakeup_time_info.tm_min = 0;
+        wakeup_time_info.tm_sec = 0;
+
+        // If current time is past 8am, the wakeup is tomorrow
+        if (timeinfo.tm_hour >= 8)
+        {
+          wakeup_time_info.tm_mday += 1;
+        }
+
+        time_t wakeup_t = mktime(&wakeup_time_info);
+        double sleep_seconds = difftime(wakeup_t, now);
+        uint64_t sleep_us = (uint64_t)(sleep_seconds * uS_TO_S_FACTOR);
+
+        Serial.printf("Current time: %s", asctime(&timeinfo));
+        Serial.printf("Wakeup time:  %s", asctime(&wakeup_time_info));
+        Serial.printf("Going to sleep for %.f seconds.\n", sleep_seconds);
+
+        esp_sleep_enable_timer_wakeup(sleep_us);
+        // Enable wakeup from deep sleep on Button press (GPIO 0, Active Low)
+        esp_sleep_enable_ext0_wakeup(GPIO_NUM_0, 0); 
 
         ledController.clear();
         ledController.show();
@@ -100,7 +124,7 @@ void Core0Task(void *pvParameters)
       }
     }
 
-    delay(100); // Check time every second
+    delay(100);
   }
 }
 
@@ -173,10 +197,10 @@ void setup()
   Serial.begin(115200);
   Serial.println("*** LET'S GOOOOO ***");
 
-  if (esp_sleep_get_wakeup_cause() == ESP_SLEEP_WAKEUP_TIMER)
+  // Mount SPIFFS
+  if (!SPIFFS.begin(true))
   {
-    Serial.println("Woke up from deep sleep!");
-    configuration.setSleepEnabled(true);
+      Serial.println("An Error has occurred while mounting SPIFFS");
   }
 
   // Create mutex semaphore for protecting shared animation state
@@ -184,9 +208,28 @@ void setup()
 
   connectToWiFi();
   configTime(gmtOffset_sec, daylightOffset_sec, ntpServer);
-  esp_sleep_enable_timer_wakeup(TIME_TO_SLEEP * uS_TO_S_FACTOR);
 
   animationController.init();
+
+  // Load configuration from flash
+  configuration.setAnimationController(&animationController);
+  configuration.load();
+
+  // Check wakeup cause
+  esp_sleep_wakeup_cause_t wakeup_reason = esp_sleep_get_wakeup_cause();
+  if (wakeup_reason == ESP_SLEEP_WAKEUP_TIMER)
+  {
+    Serial.println("Woke up from deep sleep (Timer)!");
+    // Ensure sleep remains enabled
+    configuration.setSleepEnabled(true);
+  }
+  else if (wakeup_reason == ESP_SLEEP_WAKEUP_EXT0)
+  {
+      Serial.println("Woke up from button press!");
+      // Disable sleep
+      configuration.setSleepEnabled(false);
+  }
+
   webServer.begin();
 
   setupOTA();

@@ -60,7 +60,7 @@ void WaterAnimation::update()
     }
 
     // High spawn rate
-    if (random(100) < 50) { 
+    if (random(100) < 30) { 
         int paths[6];
         int count = getDownwardPaths(sourceNode, paths);
         
@@ -70,8 +70,8 @@ void WaterAnimation::update()
             WaterDrop drop;
             drop.segmentIndex = seg;
             drop.position = 0.0f;
-            drop.speed = 0.25f + (random(100)/1000.0f); 
-            drop.volume = 0.04f; 
+            drop.speed = 0.15f + (random(100)/2000.0f); 
+            drop.volume = 0.02f; 
             nextDrops.push_back(drop);
         }
     }
@@ -79,6 +79,15 @@ void WaterAnimation::update()
     // ----------------------------
     // 2. Physics Update
     // ----------------------------
+    
+    // Leakage / Evaporation
+    for(int i=0; i<Constants::NUMBER_OF_SEGMENTS; i++) {
+        if (segmentLevels[i] > 0.0f) {
+            segmentLevels[i] -= 0.005f;
+            if (segmentLevels[i] < 0.0f) segmentLevels[i] = 0.0f;
+        }
+    }
+
     for (const auto& d_const : drops) {
         WaterDrop d = d_const;
         
@@ -123,9 +132,20 @@ void WaterAnimation::update()
                  }
                  
                  if (validCount > 0) {
-                     // Split drop into valid paths
-                     float newVol = d.volume / validCount;
+                     // Decide how many ways to split (1 to validCount)
+                     int numToSplit = random(1, validCount + 1);
+
+                     // Shuffle the valid paths to ensure random selection
                      for(int k=0; k<validCount; k++) {
+                         int r = random(validCount);
+                         int temp = validPaths[k];
+                         validPaths[k] = validPaths[r];
+                         validPaths[r] = temp;
+                     }
+
+                     // Create new drops for the chosen number of paths
+                     float newVol = d.volume / numToSplit;
+                     for(int k=0; k<numToSplit; k++) {
                          WaterDrop newDrop;
                          newDrop.segmentIndex = validPaths[k];
                          newDrop.position = 0.0f; // Start at top of next segment
@@ -157,6 +177,13 @@ void WaterAnimation::update()
     // ----------------------------
     unsigned long time = millis();
 
+    // Clear everything first to ensure black background
+    for(int s=0; s<Constants::NUMBER_OF_SEGMENTS; s++) {
+        for(int i=0; i<Constants::LEDS_PER_SEGMENT; i++) {
+            leds.setPixelColor(s, i, 0, 0, 0);
+        }
+    }
+
     for(int s=0; s<Constants::NUMBER_OF_SEGMENTS; s++) {
         // Draw Accumulated Water (Blue)
         if (segmentLevels[s] > 0.001f) {
@@ -175,17 +202,18 @@ void WaterAnimation::update()
             for(int i=0; i<numLit; i++) {
                 // LED 0 is Bottom. LED 13 is Top.
                 // Fill from 0 up to numLit.
-                leds.addPixelColor(s, i, 0, 0, 255); 
+                // Brighter Blue (0, 0, 150)
+                leds.setPixelColor(s, i, 0, 0, 150); 
                 
-                // Surface foam (Cyan/White)
+                // Surface foam (Cyan/White) - Brighter (100, 100, 180)
                 if (i >= numLit - 2 && i < numLit) {
-                     leds.addPixelColor(s, i, 100, 100, 100);
+                     leds.setPixelColor(s, i, 100, 100, 180);
                 }
             }
         }
     }
 
-    // Draw Drops (Cyan/White)
+    // Draw Drops (Cyan/White) - Brighter (150, 220, 255)
     for (const auto& d : drops) {
         // d.position 0.0 -> Top (LED 13)
         // d.position 1.0 -> Bottom (LED 0)
@@ -194,11 +222,12 @@ void WaterAnimation::update()
         if (ledIndex < 0) ledIndex = 0;
         if (ledIndex >= Constants::LEDS_PER_SEGMENT) ledIndex = Constants::LEDS_PER_SEGMENT - 1;
         
-        leds.addPixelColor(d.segmentIndex, ledIndex, 200, 255, 255);
+        // Drop brightness: Brighter
+        leds.setPixelColor(d.segmentIndex, ledIndex, 150, 220, 255);
         
-        // Trail
+        // Trail brightness: Brighter (0, 100, 180)
         if (ledIndex + 1 < Constants::LEDS_PER_SEGMENT) {
-             leds.addPixelColor(d.segmentIndex, ledIndex + 1, 0, 100, 200);
+             leds.setPixelColor(d.segmentIndex, ledIndex + 1, 0, 100, 180);
         }
     }
 }

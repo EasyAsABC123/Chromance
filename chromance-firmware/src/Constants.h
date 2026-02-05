@@ -15,7 +15,7 @@ namespace Constants
 
   constexpr const char *HOSTNAME = "Chromance";
 
-  constexpr int NUMBER_OF_ANIMATIONS = 19;
+  constexpr int NUMBER_OF_ANIMATIONS = 20;
   constexpr int NUMBER_OF_RIPPLES = 30;
   constexpr int RIPPLE_TIMEOUT = NUMBER_OF_RIPPLES * 1000;
   constexpr int ANIMATION_TIME = 3000;

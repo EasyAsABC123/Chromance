@@ -25,25 +25,23 @@ uint32_t InfernoAnimation::getHeatColor(float h)
     
     uint8_t r = 0, g = 0, b = 0;
     
-    // Adjusted mapping to favor Red and Orange/Gold
-    if (h < 0.5f) {
-        // 0.0 - 0.5: Black to Bright Red
-        r = (uint8_t)((h / 0.5f) * 255);
+    // Expand Red zone to 0.0 - 0.6
+    // Use power function for smoother/darker fade to black
+    if (h < 0.6f) {
+        // Black to Red
+        float val = (h / 0.6f);
+        val = val * val; // Quadratic fade for better "black" feel
+        r = (uint8_t)(val * 255);
         g = 0;
         b = 0;
-    } else if (h < 0.85f) {
-        // 0.5 - 0.85: Red to Orange/Gold
-        // We cap Green at 160 here to stay in the Orange-Gold spectrum longer
-        r = 255;
-        float localH = (h - 0.5f) / 0.35f; 
-        g = (uint8_t)(localH * 160); 
-        b = 0;
     } else {
-        // 0.85 - 1.0: Gold to White
+        // Red to Yellow/Orange
+        // 0.6 - 1.0
         r = 255;
-        float localH = (h - 0.85f) / 0.15f;
-        g = 160 + (uint8_t)(localH * 95); // G goes 160 -> 255
-        b = (uint8_t)(localH * 255);      // B goes 0 -> 255
+        float localH = (h - 0.6f) / 0.4f;
+        // Map Green to 0-140 (keep it Orange-ish, don't go too Yellow)
+        g = (uint8_t)(localH * 140); 
+        b = 0;
     }
     
     return (uint32_t)((r << 16) | (g << 8) | b);
@@ -51,9 +49,9 @@ uint32_t InfernoAnimation::getHeatColor(float h)
 
 void InfernoAnimation::update()
 {
-    // 1. Cooling (Slower than before)
+    // 1. Cooling (Significantly increased to ensure "back to black")
     for(int i=0; i<Constants::NUMBER_OF_SEGMENTS; i++) {
-        heat[i] -= (random(5) / 1000.0f) + 0.002f; 
+        heat[i] -= (random(40) / 1000.0f) + 0.03f; 
         if(heat[i] < 0.0f) heat[i] = 0.0f;
     }
 
@@ -81,7 +79,7 @@ void InfernoAnimation::update()
                 if (Topology::nodePositions[neighborOther].y > Topology::nodePositions[bottomNode].y)
                 {
                     // Reduced transfer coefficient for slower "rising" fire
-                    nextHeat[s] += heat[neighborSeg] * 0.08f; 
+                    nextHeat[s] += heat[neighborSeg] * 0.4f; 
                 }
             }
         }
@@ -96,8 +94,8 @@ void InfernoAnimation::update()
         int n0 = Topology::segmentConnections[i][0];
         int n1 = Topology::segmentConnections[i][1];
         if (Topology::nodePositions[n0].y >= 22 || Topology::nodePositions[n1].y >= 22) {
-             if (random(100) < 10) { // Slightly lower ignition frequency
-                 heat[i] += (random(100) / 250.0f); 
+             if (random(100) < 3) { // Lower ignition frequency for distinct bursts
+                 heat[i] += (random(100) / 200.0f); 
                  if (heat[i] > 1.0f) heat[i] = 1.0f;
              }
         }
@@ -113,11 +111,15 @@ void InfernoAnimation::update()
         
         for(int i=0; i<Constants::LEDS_PER_SEGMENT; i++) {
              // Added more organic flickering
-             if (random(15) == 0) {
-                 float flicker = 0.7f + (random(30) / 100.0f); // 0.7 - 1.0
-                 lc.addPixelColor(s, i, (byte)(r * flicker), (byte)(g * flicker), (byte)(b * flicker));
+             if (c > 0) {
+                 if (random(15) == 0) {
+                     float flicker = 0.7f + (random(30) / 100.0f); // 0.7 - 1.0
+                     lc.setPixelColor(s, i, (byte)(r * flicker), (byte)(g * flicker), (byte)(b * flicker));
+                 } else {
+                     lc.setPixelColor(s, i, r, g, b);
+                 }
              } else {
-                 lc.addPixelColor(s, i, r, g, b);
+                 lc.setPixelColor(s, i, 0, 0, 0);
              }
         }
     }

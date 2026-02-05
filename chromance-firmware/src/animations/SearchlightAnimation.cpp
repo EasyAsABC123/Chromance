@@ -70,14 +70,8 @@ void SearchlightAnimation::update()
             // intensity = pow(intensity, 2); // Sharpen beam
 
             // Draw segment
-            // We can set all LEDs in segment
-            // Extract RGB from color
-             // Assuming controller.getBaseColor() returns hue 0-65535
-            uint32_t segColor = leds.ColorHSV(controller.getBaseColor(), 255, 255 * intensity);
-            
-            // Unpack for addPixelColor (which adds to existing, so we might want setPixelColor or just add)
-            // If we use addPixelColor, it might blow out if we don't clear.
-            // But fade() is called every frame.
+            // Reduced max brightness (80 instead of 255) to prevent brownout crashes
+            uint32_t segColor = leds.ColorHSV(controller.getBaseColor(), 255, 80 * intensity);
             
             byte r = (byte)((segColor >> 16) & 0xFF);
             byte g = (byte)((segColor >> 8) & 0xFF);
