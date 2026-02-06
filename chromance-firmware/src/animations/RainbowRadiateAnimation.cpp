@@ -92,3 +92,6 @@ void RainbowRadiateAnimation::update()
         }
     }
 }
+
+#include "../AnimationRegistry.h"
+REGISTER_ANIMATION(RainbowRadiateAnimation)

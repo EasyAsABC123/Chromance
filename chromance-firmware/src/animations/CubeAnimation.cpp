@@ -28,3 +28,6 @@ void CubeAnimation::run()
         }
     }
 }
+
+#include "../AnimationRegistry.h"
+REGISTER_ANIMATION(CubeAnimation)

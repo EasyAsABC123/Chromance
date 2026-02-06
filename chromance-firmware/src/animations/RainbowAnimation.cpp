@@ -56,3 +56,6 @@ void RainbowAnimation::update()
         }
     }
 }
+
+#include "../AnimationRegistry.h"
+REGISTER_ANIMATION(RainbowAnimation)

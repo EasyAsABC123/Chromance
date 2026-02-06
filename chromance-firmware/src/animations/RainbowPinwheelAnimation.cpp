@@ -86,3 +86,6 @@ void RainbowPinwheelAnimation::setConfig(const JsonObject &doc)
         }
     }
 }
+
+#include "../AnimationRegistry.h"
+REGISTER_ANIMATION(RainbowPinwheelAnimation)

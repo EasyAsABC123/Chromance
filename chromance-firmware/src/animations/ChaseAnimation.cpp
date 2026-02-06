@@ -186,3 +186,6 @@ bool ChaseAnimation::isFinished()
   }
   return true;
 }
+
+#include "../AnimationRegistry.h"
+REGISTER_ANIMATION(ChaseAnimation)

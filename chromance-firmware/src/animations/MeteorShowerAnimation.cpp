@@ -62,3 +62,6 @@ void MeteorShowerAnimation::run()
         BEHAVIOR_CHASE
     );
 }
+
+#include "../AnimationRegistry.h"
+REGISTER_ANIMATION(MeteorShowerAnimation)

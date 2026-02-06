@@ -169,3 +169,6 @@ void BouncingBallsAnimation::update()
         }
     }
 }
+
+#include "../AnimationRegistry.h"
+REGISTER_ANIMATION(BouncingBallsAnimation)

@@ -119,43 +119,43 @@ std::string getAnimationName(int id)
   switch (id)
   {
   case 0:
-    return "Random";
+    return "Bio Pulse";
   case 1:
-    return "Cube";
+    return "Bouncing Balls";
   case 2:
-    return "Starburst";
-  case 3:
     return "Center";
-  case 4:
-    return "Rainbow";
-  case 5:
+  case 3:
     return "Chase";
+  case 4:
+    return "Cube";
+  case 5:
+    return "Fireflies";
   case 6:
-    return "Heartbeat";
+    return "Fireworks";
   case 7:
-    return "Rainbow Pinwheel";
+    return "Glitch";
   case 8:
-    return "Rainbow Radiate";
+    return "Heartbeat";
   case 9:
-    return "Shooting Star";
+    return "Inferno";
   case 10:
     return "Meteor Shower";
   case 11:
-    return "Searchlight";
+    return "Rainbow";
   case 12:
-    return "Bio Pulse";
+    return "Rainbow Pinwheel";
   case 13:
-    return "Glitch";
+    return "Rainbow Radiate";
   case 14:
-    return "Water Pour";
+    return "Random";
   case 15:
-    return "Inferno";
+    return "Searchlight";
   case 16:
-    return "Bouncing Balls";
+    return "Shooting Star";
   case 17:
-    return "Fireflies";
+    return "Starburst";
   case 18:
-    return "Fireworks";
+    return "Water Pour";
   case 19:
     return "Wave";
   case 255:

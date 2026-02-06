@@ -79,3 +79,6 @@ void HeartbeatAnimation::update()
     }
   }
 }
+
+#include "../AnimationRegistry.h"
+REGISTER_ANIMATION(HeartbeatAnimation)

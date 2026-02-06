@@ -2,6 +2,7 @@
 #define ANIMATIONCONTROLLER_H
 
 #include <Arduino.h>
+#include <vector>
 #include "Constants.h"
 #include "LedController.h"
 #include "Configuration.h"
@@ -40,12 +41,14 @@ public:
   Animation *getAnimation(int index);
   void setStateChangeCallback(StateChangeCallback callback) { stateChangeCallback = callback; }
   void recalculateAutoPulseTypes();
+  
+  int getAnimationCount() const { return animations.size(); }
 
 private:
   LedController &ledController;
   Configuration &configuration;
   Ripple ripples[Constants::NUMBER_OF_RIPPLES];
-  class Animation *animations[Constants::NUMBER_OF_ANIMATIONS];
+  std::vector<Animation *> animations;
 
   unsigned int baseColor;
   unsigned long lastRandomPulse;

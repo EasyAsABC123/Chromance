@@ -98,7 +98,8 @@ void ChromanceWebServer::setupRoutes()
         configuration.serialize(obj);
         
         JsonArray anims = obj.createNestedArray("animations");
-        for (int i = 0; i < Constants::NUMBER_OF_ANIMATIONS; i++) {
+        int count = animationController.getAnimationCount();
+        for (int i = 0; i < count; i++) {
             Animation *anim = animationController.getAnimation(i);
             if (anim != nullptr) {
                 JsonObject animObj = anims.add<JsonObject>();
@@ -364,7 +365,8 @@ String ChromanceWebServer::getStatusJson()
     doc["sleepEnabled"] = configuration.isSleepEnabled();
 
     JsonArray anims = doc["animations"].to<JsonArray>();
-    for (int i = 0; i < Constants::NUMBER_OF_ANIMATIONS; i++)
+    int count = animationController.getAnimationCount();
+    for (int i = 0; i < count; i++)
     {
         Animation *anim = animationController.getAnimation(i);
         if (anim != nullptr)

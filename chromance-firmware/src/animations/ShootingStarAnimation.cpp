@@ -127,3 +127,6 @@ void ShootingStarAnimation::update()
     }
   }
 }
+
+#include "../AnimationRegistry.h"
+REGISTER_ANIMATION(ShootingStarAnimation)

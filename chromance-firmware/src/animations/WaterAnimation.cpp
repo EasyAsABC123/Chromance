@@ -231,3 +231,5 @@ void WaterAnimation::update()
         }
     }
 }
+#include "../AnimationRegistry.h"
+REGISTER_ANIMATION(WaterAnimation)

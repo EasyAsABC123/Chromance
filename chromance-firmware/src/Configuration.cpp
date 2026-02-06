@@ -32,7 +32,8 @@ void Configuration::serialize(JsonObject &doc)
 
     if (animationController) {
         JsonArray anims = doc.createNestedArray("animations");
-        for (int i = 0; i < Constants::NUMBER_OF_ANIMATIONS; i++) {
+        int count = animationController->getAnimationCount();
+        for (int i = 0; i < count; i++) {
             Animation* anim = animationController->getAnimation(i);
             if (anim) {
                 JsonObject a = anims.createNestedObject();

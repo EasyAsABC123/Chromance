@@ -55,9 +55,8 @@ void test_random_animation()
   animController.init();
   animController.setAutoSwitching(false);
 
-  // RandomAnimation is index 0
-  // It spawns a ripple randomly based on chance
-  animController.startAnimation(0);
+  // RandomAnimation is index 14 (Alphabetical order)
+  animController.startAnimation(14);
 
   // RandomAnimation::run() immediately starts ripples at a random node.
 
@@ -91,9 +90,8 @@ void test_cube_animation()
   animController.init();
   animController.setAutoSwitching(false);
 
-  // CubeAnimation is index 1
-  // It spawns ripples on the cube structure (nodes 0-21)
-  animController.startAnimation(1);
+  // CubeAnimation is index 4 (Alphabetical)
+  animController.startAnimation(4);
 
   // It should spawn ripples immediately or over time
   // CubeAnimation::run() iterates over nodes and starts ripples
@@ -118,8 +116,8 @@ void test_starburst_animation()
   animController.init();
   animController.setAutoSwitching(false);
 
-  // StarburstAnimation is index 2
-  animController.startAnimation(2);
+  // StarburstAnimation is index 17 (Alphabetical)
+  animController.startAnimation(17);
 
   // Starburst spawns multiple ripples from a central node
   int count = animController.getActiveRippleCount();
@@ -139,8 +137,8 @@ void test_center_animation()
   animController.init();
   animController.setAutoSwitching(false);
 
-  // CenterAnimation is index 3
-  animController.startAnimation(3);
+  // CenterAnimation is index 2 (Alphabetical)
+  animController.startAnimation(2);
 
   int count = animController.getActiveRippleCount();
   std::cout << "CenterAnimation Ripple Count: " << count << std::endl;
@@ -159,8 +157,8 @@ void test_rainbow_animation()
   animController.init();
   animController.setAutoSwitching(false);
 
-  // RainbowAnimation is index 4
-  animController.startAnimation(4);
+  // RainbowAnimation is index 11 (Alphabetical)
+  animController.startAnimation(11);
 
   // Force a show to update the strips from the internal buffer
   ledController.show();
@@ -203,8 +201,8 @@ void test_chase_animation()
   animController.init();
   animController.setAutoSwitching(false);
 
-  // ChaseAnimation is index 5
-  animController.startAnimation(5);
+  // ChaseAnimation is index 3 (Alphabetical)
+  animController.startAnimation(3);
 
   // Should have exactly 2 ripples initially (runner and chaser)
   int count = animController.getActiveRippleCount();
@@ -243,8 +241,8 @@ void test_heartbeat_animation()
   animController.init();
   animController.setAutoSwitching(false);
 
-  // HeartbeatAnimation is index 6
-  animController.startAnimation(6);
+  // HeartbeatAnimation is index 8 (Alphabetical)
+  animController.startAnimation(8);
 
   // Run update to set the LEDs
   animController.update();

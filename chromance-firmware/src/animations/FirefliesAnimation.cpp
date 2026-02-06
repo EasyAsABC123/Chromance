@@ -78,3 +78,6 @@ void FirefliesAnimation::update()
         }
     }
 }
+
+#include "../AnimationRegistry.h"
+REGISTER_ANIMATION(FirefliesAnimation)

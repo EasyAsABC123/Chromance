@@ -84,3 +84,6 @@ void SearchlightAnimation::update()
         }
     }
 }
+
+#include "../AnimationRegistry.h"
+REGISTER_ANIMATION(SearchlightAnimation)

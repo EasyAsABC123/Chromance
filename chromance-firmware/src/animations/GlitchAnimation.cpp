@@ -47,3 +47,6 @@ void GlitchAnimation::update()
         }
     }
 }
+
+#include "../AnimationRegistry.h"
+REGISTER_ANIMATION(GlitchAnimation)

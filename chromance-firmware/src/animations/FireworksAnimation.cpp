@@ -278,3 +278,6 @@ void FireworksAnimation::explodeFirework(int index)
         }
     }
 }
+
+#include "../AnimationRegistry.h"
+REGISTER_ANIMATION(FireworksAnimation)

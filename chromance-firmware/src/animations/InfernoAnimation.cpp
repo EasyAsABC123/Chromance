@@ -124,3 +124,5 @@ void InfernoAnimation::update()
         }
     }
 }
+#include "../AnimationRegistry.h"
+REGISTER_ANIMATION(InfernoAnimation)

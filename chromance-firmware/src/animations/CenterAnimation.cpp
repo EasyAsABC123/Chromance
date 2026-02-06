@@ -21,3 +21,6 @@ void CenterAnimation::run()
         }
     }
 }
+
+#include "../AnimationRegistry.h"
+REGISTER_ANIMATION(CenterAnimation)

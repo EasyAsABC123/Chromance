@@ -26,3 +26,6 @@ void RandomAnimation::run()
         }
     }
 }
+
+#include "../AnimationRegistry.h"
+REGISTER_ANIMATION(RandomAnimation)

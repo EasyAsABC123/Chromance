@@ -24,3 +24,6 @@ void StarburstAnimation::run()
         behavior);
   }
 }
+
+#include "../AnimationRegistry.h"
+REGISTER_ANIMATION(StarburstAnimation)

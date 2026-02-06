@@ -62,3 +62,6 @@ void BioPulseAnimation::update()
         }
     }
 }
+
+#include "../AnimationRegistry.h"
+REGISTER_ANIMATION(BioPulseAnimation)
