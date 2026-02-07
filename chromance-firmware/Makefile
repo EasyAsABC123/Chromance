@@ -9,32 +9,16 @@ INCLUDES = -I src \
 BUILD_DIR = build
 OBJ_DIR = $(BUILD_DIR)/obj
 
+# Find all animation source files dynamically
+ANIMATION_SRCS = $(wildcard src/animations/*.cpp)
+
 # Common source files
 COMMON_SRCS = src/AnimationController.cpp \
               src/LedController.cpp \
               src/Configuration.cpp \
               src/Topology.cpp \
               src/ripple.cpp \
-              src/animations/CenterAnimation.cpp \
-              src/animations/ChaseAnimation.cpp \
-              src/animations/CubeAnimation.cpp \
-              src/animations/RainbowAnimation.cpp \
-              src/animations/RandomAnimation.cpp \
-              src/animations/StarburstAnimation.cpp \
-              src/animations/HeartbeatAnimation.cpp \
-              src/animations/RainbowPinwheelAnimation.cpp \
-              src/animations/RainbowRadiateAnimation.cpp \
-              src/animations/ShootingStarAnimation.cpp \
-              src/animations/MeteorShowerAnimation.cpp \
-              src/animations/SearchlightAnimation.cpp \
-              src/animations/BioPulseAnimation.cpp \
-              src/animations/GlitchAnimation.cpp \
-              src/animations/WaterAnimation.cpp \
-              src/animations/InfernoAnimation.cpp \
-              src/animations/BouncingBallsAnimation.cpp \
-              src/animations/FirefliesAnimation.cpp \
-              src/animations/FireworksAnimation.cpp \
-              src/animations/WaveAnimation.cpp
+              $(ANIMATION_SRCS)
 
 # Source files for emulator
 EMULATOR_SRCS = test/test_main.cpp $(COMMON_SRCS)

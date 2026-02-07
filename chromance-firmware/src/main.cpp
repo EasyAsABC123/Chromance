@@ -109,7 +109,7 @@ void Core0Task(void *pvParameters)
 
         esp_sleep_enable_timer_wakeup(sleep_us);
         // Enable wakeup from deep sleep on Button press (GPIO 0, Active Low)
-        esp_sleep_enable_ext0_wakeup(GPIO_NUM_0, 0); 
+        esp_sleep_enable_ext0_wakeup(GPIO_NUM_0, 0);
 
         ledController.clear();
         ledController.show();
@@ -167,6 +167,9 @@ void setupOTA()
                       else if (error == OTA_END_ERROR)
                         Serial.println("End Failed"); });
 
+  ArduinoOTA.setMdnsEnabled(true);
+  ArduinoOTA.setRebootOnSuccess(true);
+  delay(500);
   ArduinoOTA.begin();
 
   // loop and setup are pinned to core 1
@@ -182,6 +185,7 @@ void setupOTA()
 
 void connectToWiFi()
 {
+  WiFi.mode(WIFI_STA);
   // Check if already connected (simple check, though WiFiManager handles auto-reconnect)
   if (WiFi.status() == WL_CONNECTED)
     return;
@@ -200,7 +204,7 @@ void setup()
   // Mount SPIFFS
   if (!SPIFFS.begin(true))
   {
-      Serial.println("An Error has occurred while mounting SPIFFS");
+    Serial.println("An Error has occurred while mounting SPIFFS");
   }
 
   // Create mutex semaphore for protecting shared animation state
@@ -225,9 +229,9 @@ void setup()
   }
   else if (wakeup_reason == ESP_SLEEP_WAKEUP_EXT0)
   {
-      Serial.println("Woke up from button press!");
-      // Disable sleep
-      configuration.setSleepEnabled(false);
+    Serial.println("Woke up from button press!");
+    // Disable sleep
+    configuration.setSleepEnabled(false);
   }
 
   webServer.begin();

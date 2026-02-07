@@ -13,7 +13,7 @@ public:
     const char *getName() const override { return "Inferno"; }
 
 private:
-    float heat[Constants::NUMBER_OF_SEGMENTS];
+    float heatPixels[Constants::NUM_OF_PIXELS];
     
     // Helper to map 0-255 heat to color
     uint32_t getHeatColor(float h);

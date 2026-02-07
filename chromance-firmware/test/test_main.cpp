@@ -114,57 +114,6 @@ struct Pixel
   uint8_t r, g, b;
 };
 
-std::string getAnimationName(int id)
-{
-  switch (id)
-  {
-  case 0:
-    return "Bio Pulse";
-  case 1:
-    return "Bouncing Balls";
-  case 2:
-    return "Center";
-  case 3:
-    return "Chase";
-  case 4:
-    return "Cube";
-  case 5:
-    return "Fireflies";
-  case 6:
-    return "Fireworks";
-  case 7:
-    return "Glitch";
-  case 8:
-    return "Heartbeat";
-  case 9:
-    return "Inferno";
-  case 10:
-    return "Meteor Shower";
-  case 11:
-    return "Rainbow";
-  case 12:
-    return "Rainbow Pinwheel";
-  case 13:
-    return "Rainbow Radiate";
-  case 14:
-    return "Random";
-  case 15:
-    return "Searchlight";
-  case 16:
-    return "Shooting Star";
-  case 17:
-    return "Starburst";
-  case 18:
-    return "Water Pour";
-  case 19:
-    return "Wave";
-  case 255:
-    return "None";
-  default:
-    return "Unknown (" + std::to_string(id) + ")";
-  }
-}
-
 void printDisplay(LedController &ledController, AnimationController &animController)
 {
   // Canvas size
@@ -348,6 +297,15 @@ int main(int argc, char *argv[])
   std::srand(std::time(0));
   ledController.begin();
   animationController.init();
+
+  // Print available animations
+  std::cout << "\nAvailable Animations:" << std::endl;
+  for (int i = 0; i < animationController.getAnimationCount(); i++)
+  {
+      Animation* anim = animationController.getAnimation(i);
+      std::cout << i << ": " << anim->getName() << std::endl;
+  }
+  std::cout << "----------------------\n" << std::endl;
 
   if (forceAnimation >= 0)
   {
