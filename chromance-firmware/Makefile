@@ -53,4 +53,8 @@ $(OBJ_DIR)/%.o: %.cpp
 clean:
 	rm -rf $(BUILD_DIR) emulator tests
 
-.PHONY: all clean run_tests
+list:
+	@echo "Registered Animations (Index: Name):"
+	@grep -rh "REGISTER_ANIMATION" src/animations | awk -F'(' '{print $$2}' | awk -F')' '{print $$1}' | sort | uniq | cat -n | awk '{print $$1-1 ": " $$2}'
+
+.PHONY: all clean run_tests list_animations

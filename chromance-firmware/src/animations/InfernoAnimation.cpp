@@ -2,16 +2,10 @@
 #include "../AnimationController.h"
 #include "../Topology.h"
 #include "../Constants.h"
-#include <cmath>
-
-#include "InfernoAnimation.h"
-#include "../AnimationController.h"
-#include "../Topology.h"
-#include "../Constants.h"
 #include "../AnimationRegistry.h"
 #include <cmath>
 
-InfernoAnimation::InfernoAnimation(AnimationController &controller) : Animation(controller)
+InfernoAnimation::InfernoAnimation(AnimationController &controller) : Animation(controller), finished(true)
 {
     for (int i = 0; i < Constants::NUM_OF_PIXELS; i++)
     {
@@ -25,6 +19,19 @@ void InfernoAnimation::run()
     {
         heatPixels[i] = 0.0f;
     }
+    startTime = millis();
+    duration = Constants::ANIMATION_TIME * 3; // Make it last longer than standard
+    finished = false;
+}
+
+bool InfernoAnimation::canBePreempted()
+{
+    return finished;
+}
+
+bool InfernoAnimation::isFinished()
+{
+    return finished;
 }
 
 uint32_t InfernoAnimation::getHeatColor(float h)
@@ -67,12 +74,29 @@ uint32_t InfernoAnimation::getHeatColor(float h)
 
 void InfernoAnimation::update()
 {
+    if (finished) return;
+
+    // Check if we should stop adding fuel (time up)
+    bool fuelEnabled = (millis() - startTime < duration);
+    
     // 1. Cooling
+    float maxHeat = 0.0f;
     for (int i = 0; i < Constants::NUM_OF_PIXELS; i++)
     {
-        heatPixels[i] -= (random(30) / 1000.0f) + 0.01f;
+        // Slightly more cooling to help the bottom go dark
+        heatPixels[i] -= (random(15) / 1000.0f) + 0.005f;
         if (heatPixels[i] < 0.0f)
             heatPixels[i] = 0.0f;
+        
+        if (heatPixels[i] > maxHeat) maxHeat = heatPixels[i];
+    }
+    
+    // Check finish condition: No fuel left and heat is low
+    if (!fuelEnabled && maxHeat < 0.05f) {
+        finished = true;
+        // Clear leds
+        controller.getLedController().clear();
+        return;
     }
 
     // 2. Convection (Heat rises)
@@ -91,8 +115,11 @@ void InfernoAnimation::update()
             int belowIdx = s * Constants::LEDS_PER_SEGMENT + (i - 1);
 
             // Move heat up (Advection/Diffusion blend)
-            // Mostly take from below to move the plume up, sum <= 1.0 to prevent runaway heat
-            nextHeat[currentIdx] = (heatPixels[currentIdx] * 0.1f) + (heatPixels[belowIdx] * 0.9f);
+            // Reduced the current pixel's retention (0.01) to make it more of a 'rising' fireball
+            nextHeat[currentIdx] = (heatPixels[currentIdx] * 0.01f) + (heatPixels[belowIdx] * 0.98f);
+            
+            // As heat moves up, the source below loses heat (cooling effect of moving fuel)
+            nextHeat[belowIdx] *= 0.95f; 
         }
 
         // Bottom LED (0) gets heat from lower segments
@@ -110,17 +137,16 @@ void InfernoAnimation::update()
                 {
                     // Heat flows from neighbor Top (LED 13) to current Bottom (LED 0)
                     int sourceIdx = neighborSeg * Constants::LEDS_PER_SEGMENT + (Constants::LEDS_PER_SEGMENT - 1);
-                    nextHeat[currentIdx] = (heatPixels[currentIdx] * 0.1f) + (heatPixels[sourceIdx] * 0.9f);
+                    nextHeat[currentIdx] = (heatPixels[currentIdx] * 0.01f) + (heatPixels[sourceIdx] * 0.98f);
+                    nextHeat[sourceIdx] *= 0.95f;
                 }
             }
         }
     }
 
     // Clamp
-
     for (int i = 0; i < Constants::NUM_OF_PIXELS; i++)
     {
-
         if (nextHeat[i] > 1.0f)
             nextHeat[i] = 1.0f;
 
@@ -128,34 +154,33 @@ void InfernoAnimation::update()
     }
 
     // 3. Ignition (Bottom segments)
-
-    for (int s = 0; s < Constants::NUMBER_OF_SEGMENTS; s++)
-    {
-
-        int n0 = Topology::segmentConnections[s][0];
-
-        int n1 = Topology::segmentConnections[s][1];
-
-        if (Topology::nodePositions[n0].y >= 22 || Topology::nodePositions[n1].y >= 22)
+    if (fuelEnabled) {
+        for (int s = 0; s < Constants::NUMBER_OF_SEGMENTS; s++)
         {
+            int n0 = Topology::segmentConnections[s][0];
+            int n1 = Topology::segmentConnections[s][1];
 
-            if (random(100) < 3)
+            // Only ignite the very bottom segments
+            if (Topology::nodePositions[n0].y >= 22 || Topology::nodePositions[n1].y >= 22)
             {
+                // Less frequent bursts to allow the previous fire to rise as a plume/ball
+                if (random(100) < 10)
+                {
+                    // Ignite bottom LED
+                    int idx = s * Constants::LEDS_PER_SEGMENT + 0;
+                    heatPixels[idx] += (random(80, 150) / 100.0f);
 
-                // Ignite bottom LED
-
-                int idx = s * Constants::LEDS_PER_SEGMENT + 0;
-
-                heatPixels[idx] += (random(150) / 100.0f);
-
-                if (heatPixels[idx] > 1.0f)
-                    heatPixels[idx] = 1.0f;
+                    if (heatPixels[idx] > 1.0f)
+                        heatPixels[idx] = 1.0f;
+                }
             }
         }
     }
 
     // 4. Render
     LedController &lc = controller.getLedController();
+    lc.clear(); // Important to clear for non-additive rendering or handle black yourself
+    
     for (int i = 0; i < Constants::NUM_OF_PIXELS; i++)
     {
         int s = i / Constants::LEDS_PER_SEGMENT;
@@ -180,11 +205,9 @@ void InfernoAnimation::update()
                 lc.setPixelColor(s, l, r, g, b);
             }
         }
-        else
-        {
-            lc.setPixelColor(s, l, 0, 0, 0);
-        }
+        // else black (already cleared)
     }
 }
+
 #include "../AnimationRegistry.h"
 REGISTER_ANIMATION(InfernoAnimation)

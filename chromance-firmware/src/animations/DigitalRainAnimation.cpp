@@ -8,23 +8,32 @@ REGISTER_ANIMATION(DigitalRainAnimation)
 
 bool DigitalRainAnimation::canBePreempted()
 {
-    return true;
+    return finished;
 }
 
 bool DigitalRainAnimation::isFinished()
 {
-    return false;
+    return finished;
 }
 
 void DigitalRainAnimation::run()
 {
     drops.clear();
+    finished = false;
+    stopping = false;
+    startTime = millis();
 }
 
 void DigitalRainAnimation::update()
 {
+    if (finished) return;
+
+    if (!stopping && millis() - startTime > 10000) {
+        stopping = true;
+    }
+
     // Spawn
-    if (random(100) < 40) {
+    if (!stopping && random(100) < 40) {
         // Pick top segment? Or segment connected to top node?
         // Top nodes: 0, 1, 2
         int startNode = random(3);
@@ -97,4 +106,8 @@ void DigitalRainAnimation::update()
         }
     }
     drops = nextDrops;
+
+    if (stopping && drops.empty()) {
+        finished = true;
+    }
 }

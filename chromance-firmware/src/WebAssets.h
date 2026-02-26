@@ -157,6 +157,7 @@ const char script_js[] PROGMEM = R"js(
     toggleEmulator();
     // Pre-load global config so it's ready when the cog is clicked
     fetchGlobalConfig();
+    fetchStatus();
   }
 
   function initWebSocket() {
@@ -396,6 +397,13 @@ const char script_js[] PROGMEM = R"js(
               });
           }
       });
+  }
+
+  function fetchStatus() {
+      fetch('/api/status')
+      .then(res => res.json())
+      .then(data => updateUI(data))
+      .catch(e => console.log(e));
   }
 
   function openGlobalSettings() {

@@ -13,7 +13,7 @@ struct RainDrop {
 class DigitalRainAnimation : public Animation
 {
 public:
-    DigitalRainAnimation(AnimationController &controller) : Animation(controller) {}
+    DigitalRainAnimation(AnimationController &controller) : Animation(controller), finished(false), startTime(0), stopping(false) {}
 
     void update() override;
     void run() override;
@@ -23,6 +23,9 @@ public:
 
 private:
     std::vector<RainDrop> drops;
+    bool finished;
+    unsigned long startTime;
+    bool stopping;
 };
 
 #endif
