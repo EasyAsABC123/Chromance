@@ -1,0 +1,13 @@
+{
+  "autodeskProduct": "Fusion",
+  "type": "script",
+  "id": "d7e4f9c2-3bc1-4eae-bf31-346c2454a88b",
+  "author": "Chromance",
+  "description": {
+    "": "Export the validated ESP32 enclosure STEP files to native F3D and check their read-back."
+  },
+  "version": "1.0.0",
+  "runOnStartup": false,
+  "supportedOS": "windows|mac",
+  "editEnabled": true
+}

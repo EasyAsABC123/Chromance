@@ -15,6 +15,11 @@ and the cartridges' separate 4 mm mounting inserts retain their previous design.
 
 ## Open or print
 
+For native `.f3d` files, use the included [Fusion export script](fusion/README.md)
+inside Fusion on Windows or Mac. It exports the assembly and each part and checks
+the archives after reopening. The native conversion is pending a Fusion run;
+the script does not recreate the Python model's feature history.
+
 - [Assembly STEP](revisions/004-heatsets/assembly.step): 15 printable solids in
   assembly position; open/import in Fusion 360 or FreeCAD. STEP preserves the
   solid geometry. The editable parametric master is Python, not a Fusion timeline.

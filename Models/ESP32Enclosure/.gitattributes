@@ -5,3 +5,5 @@
 *.3mf binary
 *.FCStd binary
 *.png binary
+*.f3d binary
+*.f3z binary
