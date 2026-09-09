@@ -1,0 +1,173 @@
+{
+  "status": "passed",
+  "states": [
+    {
+      "button": "en",
+      "stroke_mm": 0.6,
+      "travel_mm": 0,
+      "printed_overlaps": [],
+      "hardware_overlaps": [],
+      "tip_bottom_z_mm": 16.400000000000002
+    },
+    {
+      "button": "en",
+      "stroke_mm": 0.6,
+      "travel_mm": 0.3,
+      "printed_overlaps": [],
+      "hardware_overlaps": [],
+      "tip_bottom_z_mm": 16.1
+    },
+    {
+      "button": "en",
+      "stroke_mm": 0.6,
+      "travel_mm": 0.6,
+      "printed_overlaps": [],
+      "hardware_overlaps": [],
+      "tip_bottom_z_mm": 15.800000000000002
+    },
+    {
+      "button": "en",
+      "stroke_mm": 0.8,
+      "travel_mm": 0,
+      "printed_overlaps": [],
+      "hardware_overlaps": [],
+      "tip_bottom_z_mm": 16.6
+    },
+    {
+      "button": "en",
+      "stroke_mm": 0.8,
+      "travel_mm": 0.4,
+      "printed_overlaps": [],
+      "hardware_overlaps": [],
+      "tip_bottom_z_mm": 16.200000000000003
+    },
+    {
+      "button": "en",
+      "stroke_mm": 0.8,
+      "travel_mm": 0.8,
+      "printed_overlaps": [],
+      "hardware_overlaps": [],
+      "tip_bottom_z_mm": 15.8
+    },
+    {
+      "button": "en",
+      "stroke_mm": 1.0,
+      "travel_mm": 0,
+      "printed_overlaps": [],
+      "hardware_overlaps": [],
+      "tip_bottom_z_mm": 16.8
+    },
+    {
+      "button": "en",
+      "stroke_mm": 1.0,
+      "travel_mm": 0.5,
+      "printed_overlaps": [],
+      "hardware_overlaps": [],
+      "tip_bottom_z_mm": 16.3
+    },
+    {
+      "button": "en",
+      "stroke_mm": 1.0,
+      "travel_mm": 1.0,
+      "printed_overlaps": [],
+      "hardware_overlaps": [],
+      "tip_bottom_z_mm": 15.8
+    },
+    {
+      "button": "boot",
+      "stroke_mm": 0.6,
+      "travel_mm": 0,
+      "printed_overlaps": [],
+      "hardware_overlaps": [],
+      "tip_bottom_z_mm": 16.400000000000002
+    },
+    {
+      "button": "boot",
+      "stroke_mm": 0.6,
+      "travel_mm": 0.3,
+      "printed_overlaps": [],
+      "hardware_overlaps": [],
+      "tip_bottom_z_mm": 16.1
+    },
+    {
+      "button": "boot",
+      "stroke_mm": 0.6,
+      "travel_mm": 0.6,
+      "printed_overlaps": [],
+      "hardware_overlaps": [],
+      "tip_bottom_z_mm": 15.800000000000002
+    },
+    {
+      "button": "boot",
+      "stroke_mm": 0.8,
+      "travel_mm": 0,
+      "printed_overlaps": [],
+      "hardware_overlaps": [],
+      "tip_bottom_z_mm": 16.6
+    },
+    {
+      "button": "boot",
+      "stroke_mm": 0.8,
+      "travel_mm": 0.4,
+      "printed_overlaps": [],
+      "hardware_overlaps": [],
+      "tip_bottom_z_mm": 16.200000000000003
+    },
+    {
+      "button": "boot",
+      "stroke_mm": 0.8,
+      "travel_mm": 0.8,
+      "printed_overlaps": [],
+      "hardware_overlaps": [],
+      "tip_bottom_z_mm": 15.8
+    },
+    {
+      "button": "boot",
+      "stroke_mm": 1.0,
+      "travel_mm": 0,
+      "printed_overlaps": [],
+      "hardware_overlaps": [],
+      "tip_bottom_z_mm": 16.8
+    },
+    {
+      "button": "boot",
+      "stroke_mm": 1.0,
+      "travel_mm": 0.5,
+      "printed_overlaps": [],
+      "hardware_overlaps": [],
+      "tip_bottom_z_mm": 16.3
+    },
+    {
+      "button": "boot",
+      "stroke_mm": 1.0,
+      "travel_mm": 1.0,
+      "printed_overlaps": [],
+      "hardware_overlaps": [],
+      "tip_bottom_z_mm": 15.8
+    }
+  ],
+  "state_count": 18,
+  "stop_overtravel_checked_mm": 0.05,
+  "top_loading_lifts_checked_mm": [
+    0.0,
+    0.25,
+    0.5,
+    1.0,
+    2.0,
+    5.0,
+    10.0,
+    20.0,
+    35.0
+  ],
+  "usb_approach_width_y_mm": 11.0,
+  "usb_approach_upper_z_mm": 18.39,
+  "lower_switch_12mm_screw": {
+    "switch_top_z_mm": 15.0,
+    "screw_length_mm": 12.0,
+    "head_top_z_mm": 30.6,
+    "hardware_overlaps": [],
+    "downward_adjustment_margin_mm": 1.200000000000001
+  },
+  "physical_switch_travel_known": false,
+  "magnet_force_tested": false
+}

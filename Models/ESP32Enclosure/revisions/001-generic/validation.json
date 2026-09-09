@@ -1,0 +1,846 @@
+{
+  "status": "passed",
+  "units": "mm",
+  "parts": {
+    "body": {
+      "cad": {
+        "valid": true,
+        "solid_count": 1,
+        "volume_mm3": 47447.67663831671,
+        "bounds_mm": [
+          [
+            -48.4,
+            -46.4,
+            0.0
+          ],
+          [
+            48.400000000000006,
+            46.4,
+            32.0
+          ]
+        ],
+        "size_mm": [
+          96.80000000000001,
+          92.8,
+          32.0
+        ]
+      },
+      "step": {
+        "valid": true,
+        "solid_count": 1,
+        "volume_mm3": 47447.676638324025,
+        "bounds_mm": [
+          [
+            -48.400000000000006,
+            -46.4,
+            0.0
+          ],
+          [
+            48.400000000000006,
+            46.4,
+            32.0
+          ]
+        ],
+        "size_mm": [
+          96.80000000000001,
+          92.8,
+          32.0
+        ]
+      },
+      "mesh": {
+        "vertices": 6300,
+        "triangles": 12660,
+        "watertight": true,
+        "winding_consistent": true,
+        "positive_volume": true,
+        "volume_mm3": 47446.031350782425,
+        "size_mm": [
+          96.8,
+          92.8,
+          32.0
+        ],
+        "bounds_mm": [
+          [
+            -48.4,
+            -46.4,
+            0.0
+          ],
+          [
+            48.4,
+            46.4,
+            32.0
+          ]
+        ],
+        "connected_bodies": 1
+      }
+    },
+    "lid": {
+      "cad": {
+        "valid": true,
+        "solid_count": 1,
+        "volume_mm3": 15230.108642503401,
+        "bounds_mm": [
+          [
+            -36.4,
+            -46.400000000000006,
+            -2.0818995585505003e-16
+          ],
+          [
+            36.4,
+            46.39999999999999,
+            4.400000000000013
+          ]
+        ],
+        "size_mm": [
+          72.8,
+          92.8,
+          4.400000000000013
+        ]
+      },
+      "step": {
+        "valid": true,
+        "solid_count": 1,
+        "volume_mm3": 15230.10864250326,
+        "bounds_mm": [
+          [
+            -36.4,
+            -46.400000000000006,
+            -7.313617313455991e-15
+          ],
+          [
+            36.4,
+            46.39999999999999,
+            4.400000000000006
+          ]
+        ],
+        "size_mm": [
+          72.8,
+          92.8,
+          4.400000000000013
+        ]
+      },
+      "mesh": {
+        "vertices": 1248,
+        "triangles": 2528,
+        "watertight": true,
+        "winding_consistent": true,
+        "positive_volume": true,
+        "volume_mm3": 15230.174337464763,
+        "size_mm": [
+          72.8,
+          92.8,
+          4.4
+        ],
+        "bounds_mm": [
+          [
+            -36.4,
+            -46.4,
+            0.0
+          ],
+          [
+            36.4,
+            46.4,
+            4.4
+          ]
+        ],
+        "connected_bodies": 1
+      }
+    },
+    "desk_bracket": {
+      "cad": {
+        "valid": true,
+        "solid_count": 1,
+        "volume_mm3": 16613.453191155775,
+        "bounds_mm": [
+          [
+            -58.4,
+            -42.400000000000006,
+            -2.755455298081545e-16
+          ],
+          [
+            58.4,
+            42.39999999999999,
+            11.200000000000015
+          ]
+        ],
+        "size_mm": [
+          116.8,
+          84.8,
+          11.200000000000015
+        ]
+      },
+      "step": {
+        "valid": true,
+        "solid_count": 1,
+        "volume_mm3": 16613.45319115569,
+        "bounds_mm": [
+          [
+            -58.4,
+            -42.400000000000006,
+            -7.380972887409077e-15
+          ],
+          [
+            58.4,
+            42.39999999999999,
+            11.200000000000008
+          ]
+        ],
+        "size_mm": [
+          116.8,
+          84.8,
+          11.200000000000015
+        ]
+      },
+      "mesh": {
+        "vertices": 3120,
+        "triangles": 6284,
+        "watertight": true,
+        "winding_consistent": true,
+        "positive_volume": true,
+        "volume_mm3": 16613.66557220695,
+        "size_mm": [
+          116.8,
+          84.8,
+          11.2
+        ],
+        "bounds_mm": [
+          [
+            -58.4,
+            -42.4,
+            0.0
+          ],
+          [
+            58.4,
+            42.4,
+            11.2
+          ]
+        ],
+        "connected_bodies": 1
+      }
+    },
+    "pcb_clamp_left_front": {
+      "cad": {
+        "valid": true,
+        "solid_count": 1,
+        "volume_mm3": 122.64159446225099,
+        "bounds_mm": [
+          [
+            -34.0,
+            -21.0,
+            0.0
+          ],
+          [
+            -25.2,
+            -13.0,
+            2.0
+          ]
+        ],
+        "size_mm": [
+          8.8,
+          8.0,
+          2.0
+        ]
+      },
+      "step": {
+        "valid": true,
+        "solid_count": 1,
+        "volume_mm3": 122.64159446225072,
+        "bounds_mm": [
+          [
+            -34.0,
+            -21.0,
+            0.0
+          ],
+          [
+            -25.2,
+            -13.0,
+            2.0
+          ]
+        ],
+        "size_mm": [
+          8.8,
+          8.0,
+          2.0
+        ]
+      },
+      "mesh": {
+        "vertices": 260,
+        "triangles": 520,
+        "watertight": true,
+        "winding_consistent": true,
+        "positive_volume": true,
+        "volume_mm3": 122.649120185786,
+        "size_mm": [
+          8.8,
+          8.0,
+          2.0
+        ],
+        "bounds_mm": [
+          [
+            -34.0,
+            -21.0,
+            0.0
+          ],
+          [
+            -25.2,
+            -13.0,
+            2.0
+          ]
+        ],
+        "connected_bodies": 1
+      }
+    },
+    "pcb_clamp_left_rear": {
+      "cad": {
+        "valid": true,
+        "solid_count": 1,
+        "volume_mm3": 122.64159446225099,
+        "bounds_mm": [
+          [
+            -34.0,
+            13.0,
+            0.0
+          ],
+          [
+            -25.2,
+            21.0,
+            2.0
+          ]
+        ],
+        "size_mm": [
+          8.8,
+          8.0,
+          2.0
+        ]
+      },
+      "step": {
+        "valid": true,
+        "solid_count": 1,
+        "volume_mm3": 122.64159446225072,
+        "bounds_mm": [
+          [
+            -34.0,
+            13.0,
+            0.0
+          ],
+          [
+            -25.2,
+            21.0,
+            2.0
+          ]
+        ],
+        "size_mm": [
+          8.8,
+          8.0,
+          2.0
+        ]
+      },
+      "mesh": {
+        "vertices": 260,
+        "triangles": 520,
+        "watertight": true,
+        "winding_consistent": true,
+        "positive_volume": true,
+        "volume_mm3": 122.649120185786,
+        "size_mm": [
+          8.8,
+          8.0,
+          2.0
+        ],
+        "bounds_mm": [
+          [
+            -34.0,
+            13.0,
+            0.0
+          ],
+          [
+            -25.2,
+            21.0,
+            2.0
+          ]
+        ],
+        "connected_bodies": 1
+      }
+    },
+    "pcb_clamp_right_front": {
+      "cad": {
+        "valid": true,
+        "solid_count": 1,
+        "volume_mm3": 122.64159446225096,
+        "bounds_mm": [
+          [
+            25.200000000000003,
+            -21.0,
+            0.0
+          ],
+          [
+            34.0,
+            -13.0,
+            2.0
+          ]
+        ],
+        "size_mm": [
+          8.799999999999997,
+          8.0,
+          2.0
+        ]
+      },
+      "step": {
+        "valid": true,
+        "solid_count": 1,
+        "volume_mm3": 122.64159446225003,
+        "bounds_mm": [
+          [
+            25.2,
+            -21.0,
+            0.0
+          ],
+          [
+            34.0,
+            -13.0,
+            2.0
+          ]
+        ],
+        "size_mm": [
+          8.8,
+          8.0,
+          2.0
+        ]
+      },
+      "mesh": {
+        "vertices": 260,
+        "triangles": 520,
+        "watertight": true,
+        "winding_consistent": true,
+        "positive_volume": true,
+        "volume_mm3": 122.649120185786,
+        "size_mm": [
+          8.8,
+          8.0,
+          2.0
+        ],
+        "bounds_mm": [
+          [
+            25.2,
+            -21.0,
+            0.0
+          ],
+          [
+            34.0,
+            -13.0,
+            2.0
+          ]
+        ],
+        "connected_bodies": 1
+      }
+    },
+    "pcb_clamp_right_rear": {
+      "cad": {
+        "valid": true,
+        "solid_count": 1,
+        "volume_mm3": 122.64159446225096,
+        "bounds_mm": [
+          [
+            25.200000000000003,
+            13.0,
+            0.0
+          ],
+          [
+            34.0,
+            21.0,
+            2.0
+          ]
+        ],
+        "size_mm": [
+          8.799999999999997,
+          8.0,
+          2.0
+        ]
+      },
+      "step": {
+        "valid": true,
+        "solid_count": 1,
+        "volume_mm3": 122.64159446225003,
+        "bounds_mm": [
+          [
+            25.2,
+            13.0,
+            0.0
+          ],
+          [
+            34.0,
+            21.0,
+            2.0
+          ]
+        ],
+        "size_mm": [
+          8.8,
+          8.0,
+          2.0
+        ]
+      },
+      "mesh": {
+        "vertices": 260,
+        "triangles": 520,
+        "watertight": true,
+        "winding_consistent": true,
+        "positive_volume": true,
+        "volume_mm3": 122.649120185786,
+        "size_mm": [
+          8.8,
+          8.0,
+          2.0
+        ],
+        "bounds_mm": [
+          [
+            25.2,
+            13.0,
+            0.0
+          ],
+          [
+            34.0,
+            21.0,
+            2.0
+          ]
+        ],
+        "connected_bodies": 1
+      }
+    }
+  },
+  "measurements": {
+    "units": "mm",
+    "pcb_assumed": [
+      52.0,
+      70.0,
+      1.6
+    ],
+    "pcb_bottom_z": 8.4,
+    "pcb_top_z": 10.0,
+    "cavity_xy": [
+      68.0,
+      88.0
+    ],
+    "body_outer_without_ears": [
+      72.8,
+      92.8,
+      32.0
+    ],
+    "body_outer_with_ears": [
+      96.8,
+      92.8,
+      32.0
+    ],
+    "overall_assembled": [
+      116.8,
+      92.8,
+      43.2
+    ],
+    "lid_top_z": 34.4,
+    "desk_contact_z": 43.2,
+    "left_access_yz": [
+      60.0,
+      23.0
+    ],
+    "end_cable_access_xz": [
+      24.0,
+      16.0
+    ],
+    "desk_screw_centers_xy": [
+      [
+        -53.4,
+        -35.4
+      ],
+      [
+        -53.4,
+        35.4
+      ],
+      [
+        53.4,
+        -35.4
+      ],
+      [
+        53.4,
+        35.4
+      ]
+    ],
+    "body_mount_centers_xy": [
+      [
+        -42.4,
+        -35.4
+      ],
+      [
+        -42.4,
+        35.4
+      ],
+      [
+        42.4,
+        -35.4
+      ],
+      [
+        42.4,
+        35.4
+      ]
+    ],
+    "lid_screw_centers_xy": [
+      [
+        -30.0,
+        -40.0
+      ],
+      [
+        -30.0,
+        40.0
+      ],
+      [
+        30.0,
+        -40.0
+      ],
+      [
+        30.0,
+        40.0
+      ]
+    ],
+    "m3_nut_pocket_af": 5.8,
+    "m3_nut_pocket_height": 2.7,
+    "pcb_edge_overlap": 0.8,
+    "pcb_vertical_play": 0.2
+  },
+  "versions": {
+    "python": "3.13.15",
+    "build123d": "0.11.1",
+    "cadquery-ocp-novtk": "7.9.3.1.1",
+    "trimesh": "5.1.0",
+    "manifold3d": "3.5.3",
+    "lib3mf": "2.5.0"
+  },
+  "inputs": {
+    "model_sha256": "f265db30bd89d4b67505ea8b84d517a092907c354490124319b6434903c416ba",
+    "parameters_sha256": "3f08313c5d91b3ad5a7b4e722b5ff49a5c7172ce8bca296cbfaf6eba279cf386"
+  },
+  "thresholds": {
+    "step_dimension_mm": 0.001,
+    "step_volume_relative": 0.0001,
+    "mesh_dimension_mm": 0.05,
+    "mesh_volume_relative": 0.005,
+    "assembly_overlap_mm3": 0.001
+  },
+  "physical_fit_tested": false,
+  "physical_strength_tested": false,
+  "slicer_profile_applied": false,
+  "assembly_overlaps": [],
+  "assembly_step": {
+    "valid": true,
+    "solid_count": 7,
+    "volume_mm3": 79781.80484983197,
+    "bounds_mm": [
+      [
+        -58.4,
+        -46.4,
+        0.0
+      ],
+      [
+        58.4,
+        46.4,
+        43.2
+      ]
+    ],
+    "size_mm": [
+      116.8,
+      92.8,
+      43.2
+    ]
+  },
+  "print_layout": {
+    "path": "/home/justin/github/cad-models/models/esp32-desk-enclosure/revisions/.cad-build-pcedsogx/print-layout.3mf",
+    "normalized_units": "mm",
+    "instance_count": 7,
+    "size_mm": [
+      184.0,
+      185.6,
+      32.0
+    ],
+    "instances": {
+      "1": {
+        "vertices": 6300,
+        "triangles": 12660,
+        "watertight": true,
+        "winding_consistent": true,
+        "positive_volume": true,
+        "volume_mm3": 47446.03187898195,
+        "size_mm": [
+          96.8,
+          92.8,
+          32.0
+        ],
+        "bounds_mm": [
+          [
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            96.8,
+            92.8,
+            32.0
+          ]
+        ],
+        "connected_bodies": 1
+      },
+      "11": {
+        "vertices": 260,
+        "triangles": 520,
+        "watertight": true,
+        "winding_consistent": true,
+        "positive_volume": true,
+        "volume_mm3": 122.64911881638363,
+        "size_mm": [
+          8.799999999999983,
+          8.0,
+          2.0
+        ],
+        "bounds_mm": [
+          [
+            158.4,
+            100.8,
+            0.0
+          ],
+          [
+            167.2,
+            108.8,
+            2.0
+          ]
+        ],
+        "connected_bodies": 1
+      },
+      "13": {
+        "vertices": 260,
+        "triangles": 520,
+        "watertight": true,
+        "winding_consistent": true,
+        "positive_volume": true,
+        "volume_mm3": 122.64912943104052,
+        "size_mm": [
+          8.800000000000011,
+          8.0,
+          2.0
+        ],
+        "bounds_mm": [
+          [
+            175.2,
+            100.8,
+            0.0
+          ],
+          [
+            184.0,
+            108.8,
+            2.0
+          ]
+        ],
+        "connected_bodies": 1
+      },
+      "3": {
+        "vertices": 1248,
+        "triangles": 2528,
+        "watertight": true,
+        "winding_consistent": true,
+        "positive_volume": true,
+        "volume_mm3": 15230.175155322659,
+        "size_mm": [
+          72.8,
+          92.8,
+          4.4
+        ],
+        "bounds_mm": [
+          [
+            104.8,
+            0.0,
+            0.0
+          ],
+          [
+            177.6,
+            92.8,
+            4.4
+          ]
+        ],
+        "connected_bodies": 1
+      },
+      "5": {
+        "vertices": 3120,
+        "triangles": 6284,
+        "watertight": true,
+        "winding_consistent": true,
+        "positive_volume": true,
+        "volume_mm3": 16613.665602283232,
+        "size_mm": [
+          116.8,
+          84.8,
+          11.2
+        ],
+        "bounds_mm": [
+          [
+            0.0,
+            100.8,
+            0.0
+          ],
+          [
+            116.8,
+            185.6,
+            11.2
+          ]
+        ],
+        "connected_bodies": 1
+      },
+      "7": {
+        "vertices": 260,
+        "triangles": 520,
+        "watertight": true,
+        "winding_consistent": true,
+        "positive_volume": true,
+        "volume_mm3": 122.64923587443202,
+        "size_mm": [
+          8.800008000000005,
+          8.0,
+          2.0
+        ],
+        "bounds_mm": [
+          [
+            124.8,
+            100.8,
+            0.0
+          ],
+          [
+            133.600008,
+            108.8,
+            2.0
+          ]
+        ],
+        "connected_bodies": 1
+      },
+      "9": {
+        "vertices": 260,
+        "triangles": 520,
+        "watertight": true,
+        "winding_consistent": true,
+        "positive_volume": true,
+        "volume_mm3": 122.64909659366458,
+        "size_mm": [
+          8.800000000000011,
+          8.0,
+          2.0
+        ],
+        "bounds_mm": [
+          [
+            141.6,
+            100.8,
+            0.0
+          ],
+          [
+            150.4,
+            108.8,
+            2.0
+          ]
+        ],
+        "connected_bodies": 1
+      }
+    }
+  }
+}

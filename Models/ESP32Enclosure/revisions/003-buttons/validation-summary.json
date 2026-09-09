@@ -1,0 +1,19 @@
+{
+  "status": "passed",
+  "print_parts": 15,
+  "independent_configurations": 4,
+  "independent_checks": 768,
+  "freecad": "passed",
+  "source_snapshot_verified": true,
+  "physical_fit_tested": false,
+  "magnetic_return_force_tested": false,
+  "rf_tested": false,
+  "source_files": {
+    "model.py": "35cdf142937ab7cc3f77a5a9b807cbb3c9da1debd547f5a009bfc7000746d3f0",
+    "button_module.py": "6479b3ecf9167853382967381fa88e77b116b0767eae14fef92ef875766b57a3",
+    "mounting.py": "8463a93558364dcd69e2e21c629888b875f51906d5b5c2a1a1768cbdaa96cd8b",
+    "build-revision.py": "a65704df6054fb24a3cd8fb85db38116cc90dbf1377e47314df149c501fbcb8f",
+    "render-details.py": "3d7a479343e9ce484087b051da0700283266b62b78b337085bd0b72f68af17c9",
+    "parameters.json": "df60b2921e3c3d1addefa49b3c083a600e1499caf709b9763abd14c5b1746a12"
+  }
+}

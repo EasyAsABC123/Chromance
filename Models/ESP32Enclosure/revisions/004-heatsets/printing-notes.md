@@ -1,0 +1,45 @@
+# Printing and assembly notes
+
+Model geometry in millimeters; no slicer profile or physical testing applied.
+
+- Styling: R3 mm outer vertical corners; 0.8 mm bottom-body/top-lid 45-degree chamfers; 1.2 mm projecting lower belt with 45-degree transitions.
+- The cavity, PCB retention, lid skirt, all screw centers, bracket and assembly heights retain the generic interface. Belt adds 2.4 mm overall length at default settings.
+- Main walls remain 2.4 mm; outer corner rounding leaves 2.15 mm minimum diagonal shell above the base chamfer. Bevels locally narrow the bed-contact perimeter.
+- Nine diagonal lid slots and seven side slots are functional openings; thermal performance has not been measured.
+- Two 0.8 mm-wide decorative lid channels are recessed 0.4 mm and retain at least 2 mm lid thickness. Their short roof spans print above the exterior face on the bed.
+- Side-slot rounded roofs add approximately 3 mm local bridge spans. Review these and the existing nut-pocket bridges in the slicer; no additional modeled supports are included.
+- Initial material candidate: unfilled PETG for a room-temperature electronics housing and bracket; confirm actual board temperature and printer capabilities before choosing a print profile. No load rating is assigned.
+- PETG material reference: https://help.prusa3d.com/article/petg_2059 . Orientation/support design reference: https://help.prusa3d.com/article/modeling-with-3d-printing-in-mind_164135 .
+- Generic reference-image prototype; 52x70 mm PCB outline is provisional, not a calibrated measurement.
+- User estimates populated electronics at 52x70x15 mm; whether 15 mm is overall stack or above-board height is unconfirmed.
+- Current clearances: 6 mm below PCB and 22 mm above it; default 22 mm upper allowance uses estimated 15 mm plus 7 mm for wiring.
+- PCB thickness 1.6 mm and underside solder clearance remain conservative assumptions.
+- Assumption: enclosure contains only low-voltage board/wiring; existing external power supply is excluded.
+- Verify all board dimensions, solder protrusions, connector positions and edge-clamp clearances before printing.
+- No board-hole pattern is assumed. Four removable clamps overlap 0.8 mm of PCB edge at Y=+/-17 mm.
+- Side shoulders and low end stops allow 0.4 mm nominal board movement per direction; verify bare-edge clearance.
+- PCB clamp vertical play is 0.2 mm; lid locating clearance is 0.3 mm per side.
+- Open-edge left-side access and +Y cable notch admit prewired electronics; they are generous placeholders.
+- Default hardware: 8 M3x10 mm screws (4 lid, 4 bracket), 4 M3x8 mm screws (PCB clamps), 12 standard M3 hex nuts.
+- M3 nut nominal AF 5.5 mm/height 2.4 mm; current printable pockets AF 5.8 mm/height 2.7 mm.
+- Desk holes are 4.5 mm clearance. Choose desk screw type/length only after desk material and thickness are known.
+- Body prints floor-down. Lid exterior face and bracket desk-contact face print on the bed. Clamps print flat.
+- No modeled supports. Short bridges over nut pockets and mounting flanges need slicer review; support must not fill pockets.
+- Physical fit, strength, thermal behavior and RF performance remain unvalidated.
+- Revision 004 replaces each actuator's captive nylon nut with an M3x5 mm heat-set insert and uses an M3x12 nylon contact screw. Revisions 001, 002 and 003 are preserved.
+- The button locations and height are provisional photo/layout estimates, not measured fit. Adjust XY parameters and nylon tip height before fitting to the real electronics.
+- Button housings are offset to reserve an 11 mm USB corridor at default dimensions; actual USB plug, DC plug, wiring and switch envelopes remain unverified.
+- Two captive 4x2 mm axially magnetized discs per button face like poles together. A keyed guide and rigid travel stops constrain the paddle; return force and friction require physical testing.
+- Additional hardware: four M3x18 socket screws (head diameter<=5.5 mm), four short M3 mounting inserts (nominal length4 / OD4.6 mm), two M3x5 actuator inserts (provisional OD4.6 mm), four 4x2 mm magnets, one nylon M3x12 EN contact screw, one nylon M3x12 BOOT contact screw and two nylon M3 jam nuts. No mounting washers are assumed.
+- Provisional insert pilots: 4 mm diameter x 4.4 mm blind depth. Confirm with the insert drawing and a material-specific coupon; OD4.6 mm is not the pilot diameter.
+- The model's hardware proxies are excluded from printable parts and print-layout.3mf. They are simplified illustrations without threads or magnetic simulation.
+- Paddle stroke 0.8 mm; idle contact gap 0.6 mm; modeled switch depression 0.2 mm. Actual switch travel is unknown; calibrate the stop and tip so the switch is released at rest and never carries excess finger load.
+- The nylon contact tip is calibrated while the enclosure is accessible, then locked with its jam nut. The external pad is pressed toward the enclosure floor while mounted under the desk.
+- Install PCB clamps before attaching the cartridges. The BOOT arm overlaps the left-front clamp's screwdriver approach, so remove that cartridge for later clamp service.
+- Contact screw length is configurable; default12 mm screws suit the deeper heat-set boss. Recheck head-to-lid clearance and full insert engagement after changing switch height or screw length.
+- Actuator insert pilot: 4 mm diameter, 5.4 mm blind depth with M3 through-hole. The M3x5 designation does not specify outside diameter; OD and pilot remain provisional pending the actual insert dimensions.
+- Actuator heat-set inserts intentionally displace the undersized plastic pilot during installation. Only each named insert/slider overlap is expected; it is recorded separately from unintended interference.
+- Cartridge frames and rear keepers print on their outer sides; sliders need local removable support under their stepped arms. Keep support scars away from guide and magnet-fit faces. The small moving-magnet keepers print flat.
+- Magnets are placed outside the USB/button side, opposite the pictured antenna. Espressif recommends at least15 mm antenna clearance and final-product radio testing: https://docs.espressif.com/projects/esp-hardware-design-guidelines/en/latest/esp32/pcb-layout-design.html . Existing antenna/perfboard performance is not established by this model.
+- Magnet guidance: https://www.kjmagnetics.com/blog/repelling-magnets . Short insert reference: https://www.ruthex.de/products/ruthex-gewindeeinsatz-m3s-100stuck-rx-m3x4-0-short-messing-gewindebuchsen-fur-3d-druck .
+- Preserve button_module.py and mounting.py alongside model.py. Use build-revision.py for builds that snapshot all required source files.

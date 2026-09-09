@@ -1,0 +1,7 @@
+*.step text eol=lf -diff -whitespace linguist-generated=true
+*.json text eol=lf
+*.py text eol=lf
+*.md text eol=lf
+*.3mf binary
+*.FCStd binary
+*.png binary

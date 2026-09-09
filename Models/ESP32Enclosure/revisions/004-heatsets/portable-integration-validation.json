@@ -1,0 +1,1799 @@
+{
+  "status": "passed",
+  "inputs": {
+    "model.py": {
+      "path": "/tmp/chromance-models-publish/Models/ESP32Enclosure/revisions/004-heatsets/model.py",
+      "sha256": "103c8bf6fb460702b6b0b6804f771062cfd070c28802840ea654ce5da7ec811c"
+    },
+    "button_module.py": {
+      "path": "/tmp/chromance-models-publish/Models/ESP32Enclosure/revisions/004-heatsets/button_module.py",
+      "sha256": "f64435e11a52b5d1004753cd37919ed2377d5d5caea45a19ed3b80096518b596"
+    },
+    "mounting.py": {
+      "path": "/tmp/chromance-models-publish/Models/ESP32Enclosure/revisions/004-heatsets/mounting.py",
+      "sha256": "8463a93558364dcd69e2e21c629888b875f51906d5b5c2a1a1768cbdaa96cd8b"
+    },
+    "parameters.json": {
+      "path": "/tmp/chromance-models-publish/Models/ESP32Enclosure/revisions/004-heatsets/parameters.json",
+      "sha256": "17d61839e4c0f85990f62ac0af33205a46d06eceda85ef163d6c7452bd964916"
+    }
+  },
+  "review_sources": {
+    "checker": {
+      "path": "/tmp/chromance-models-publish/Models/ESP32Enclosure/scripts/check-heatsets.py",
+      "sha256": "912c03992ab8479c87e66f87c23d417560c5775bf1be39985cf4677ff9aded7c"
+    },
+    "baseline_model": {
+      "path": "/tmp/chromance-models-publish/Models/ESP32Enclosure/revisions/002-console/model.py",
+      "sha256": "4f41b3b709bead8b304e438cd03aad2f303f9f74623b2f4fac28b9c567ab7fbb"
+    },
+    "prior_module": {
+      "path": "/tmp/chromance-models-publish/Models/ESP32Enclosure/revisions/003-buttons/button_module.py",
+      "sha256": "6479b3ecf9167853382967381fa88e77b116b0767eae14fef92ef875766b57a3"
+    },
+    "prior_model": {
+      "path": "/tmp/chromance-models-publish/Models/ESP32Enclosure/revisions/003-buttons/model.py",
+      "sha256": "35cdf142937ab7cc3f77a5a9b807cbb3c9da1debd547f5a009bfc7000746d3f0"
+    }
+  },
+  "cases": [
+    {
+      "case": "default",
+      "passed": true,
+      "checks": [
+        {
+          "name": "exact revision003 unchanged part body",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "exact revision003 unchanged part lid",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "exact revision003 unchanged part desk_bracket",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "exact revision003 unchanged part pcb_clamp_left_front",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "exact revision003 unchanged part pcb_clamp_left_rear",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "exact revision003 unchanged part pcb_clamp_right_front",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "exact revision003 unchanged part pcb_clamp_right_rear",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "exact revision003 unchanged part reset_frame",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "exact revision003 unchanged part reset_rear_keeper",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "exact revision003 unchanged part reset_moving_magnet_keeper",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "exact revision003 unchanged part boot_frame",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "exact revision003 unchanged part boot_rear_keeper",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "exact revision003 unchanged part boot_moving_magnet_keeper",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "fifteen print parts",
+          "passed": true,
+          "measured": 0,
+          "tolerance": 0
+        },
+        {
+          "name": "body valid single solid",
+          "passed": true,
+          "measured": 0,
+          "tolerance": 0
+        },
+        {
+          "name": "body print minimum Z",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 1e-06
+        },
+        {
+          "name": "lid valid single solid",
+          "passed": true,
+          "measured": 0,
+          "tolerance": 0
+        },
+        {
+          "name": "lid print minimum Z",
+          "passed": true,
+          "measured": -2.886579864025407e-15,
+          "tolerance": 1e-06
+        },
+        {
+          "name": "desk_bracket valid single solid",
+          "passed": true,
+          "measured": 0,
+          "tolerance": 0
+        },
+        {
+          "name": "desk_bracket print minimum Z",
+          "passed": true,
+          "measured": -2.755455298081545e-16,
+          "tolerance": 1e-06
+        },
+        {
+          "name": "pcb_clamp_left_front valid single solid",
+          "passed": true,
+          "measured": 0,
+          "tolerance": 0
+        },
+        {
+          "name": "pcb_clamp_left_front print minimum Z",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 1e-06
+        },
+        {
+          "name": "pcb_clamp_left_rear valid single solid",
+          "passed": true,
+          "measured": 0,
+          "tolerance": 0
+        },
+        {
+          "name": "pcb_clamp_left_rear print minimum Z",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 1e-06
+        },
+        {
+          "name": "pcb_clamp_right_front valid single solid",
+          "passed": true,
+          "measured": 0,
+          "tolerance": 0
+        },
+        {
+          "name": "pcb_clamp_right_front print minimum Z",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 1e-06
+        },
+        {
+          "name": "pcb_clamp_right_rear valid single solid",
+          "passed": true,
+          "measured": 0,
+          "tolerance": 0
+        },
+        {
+          "name": "pcb_clamp_right_rear print minimum Z",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 1e-06
+        },
+        {
+          "name": "reset_frame valid single solid",
+          "passed": true,
+          "measured": 0,
+          "tolerance": 0
+        },
+        {
+          "name": "reset_frame print minimum Z",
+          "passed": true,
+          "measured": -2.220446049250313e-15,
+          "tolerance": 1e-06
+        },
+        {
+          "name": "reset_slider valid single solid",
+          "passed": true,
+          "measured": 0,
+          "tolerance": 0
+        },
+        {
+          "name": "reset_slider print minimum Z",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 1e-06
+        },
+        {
+          "name": "reset_rear_keeper valid single solid",
+          "passed": true,
+          "measured": 0,
+          "tolerance": 0
+        },
+        {
+          "name": "reset_rear_keeper print minimum Z",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 1e-06
+        },
+        {
+          "name": "reset_moving_magnet_keeper valid single solid",
+          "passed": true,
+          "measured": 0,
+          "tolerance": 0
+        },
+        {
+          "name": "reset_moving_magnet_keeper print minimum Z",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 1e-06
+        },
+        {
+          "name": "boot_frame valid single solid",
+          "passed": true,
+          "measured": 0,
+          "tolerance": 0
+        },
+        {
+          "name": "boot_frame print minimum Z",
+          "passed": true,
+          "measured": -2.220446049250313e-15,
+          "tolerance": 1e-06
+        },
+        {
+          "name": "boot_slider valid single solid",
+          "passed": true,
+          "measured": 0,
+          "tolerance": 0
+        },
+        {
+          "name": "boot_slider print minimum Z",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 1e-06
+        },
+        {
+          "name": "boot_rear_keeper valid single solid",
+          "passed": true,
+          "measured": 0,
+          "tolerance": 0
+        },
+        {
+          "name": "boot_rear_keeper print minimum Z",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 1e-06
+        },
+        {
+          "name": "boot_moving_magnet_keeper valid single solid",
+          "passed": true,
+          "measured": 0,
+          "tolerance": 0
+        },
+        {
+          "name": "boot_moving_magnet_keeper print minimum Z",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 1e-06
+        },
+        {
+          "name": "preserved styled part lid",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "preserved styled part desk_bracket",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "preserved styled part pcb_clamp_left_front",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "preserved styled part pcb_clamp_left_rear",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "preserved styled part pcb_clamp_right_front",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "preserved styled part pcb_clamp_right_rear",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "preserved interface pcb_assumed",
+          "passed": true,
+          "measured": 0,
+          "tolerance": 0
+        },
+        {
+          "name": "preserved interface pcb_bottom_z",
+          "passed": true,
+          "measured": 0,
+          "tolerance": 0
+        },
+        {
+          "name": "preserved interface pcb_top_z",
+          "passed": true,
+          "measured": 0,
+          "tolerance": 0
+        },
+        {
+          "name": "preserved interface cavity_xy",
+          "passed": true,
+          "measured": 0,
+          "tolerance": 0
+        },
+        {
+          "name": "preserved interface lid_top_z",
+          "passed": true,
+          "measured": 0,
+          "tolerance": 0
+        },
+        {
+          "name": "preserved interface desk_contact_z",
+          "passed": true,
+          "measured": 0,
+          "tolerance": 0
+        },
+        {
+          "name": "preserved interface desk_screw_centers_xy",
+          "passed": true,
+          "measured": 0,
+          "tolerance": 0
+        },
+        {
+          "name": "preserved interface body_mount_centers_xy",
+          "passed": true,
+          "measured": 0,
+          "tolerance": 0
+        },
+        {
+          "name": "preserved interface lid_screw_centers_xy",
+          "passed": true,
+          "measured": 0,
+          "tolerance": 0
+        },
+        {
+          "name": "preserved interface style",
+          "passed": true,
+          "measured": 0,
+          "tolerance": 0
+        },
+        {
+          "name": "exact body cavity, board retention, floor and end stops",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "style body unchanged outside attachment pads",
+          "passed": true,
+          "measured": -1.4551915228366852e-11,
+          "tolerance": 0.001
+        },
+        {
+          "name": "body mount driver -42.4,-35.4",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "body mount driver -42.4,35.4",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "body mount driver 42.4,-35.4",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "body mount driver 42.4,35.4",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "desk mounting driver -53.4,-35.4",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "desk mounting driver -53.4,35.4",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "desk mounting driver 53.4,-35.4",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "desk mounting driver 53.4,35.4",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "lid driver with bracket removed -30.0,-40.0",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "lid driver with bracket removed -30.0,40.0",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "lid driver with bracket removed 30.0,-40.0",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "lid driver with bracket removed 30.0,40.0",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "PCB clamp driver before cartridges/lid -30.5,-17.0",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "PCB clamp driver before cartridges/lid -30.5,17.0",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "PCB clamp driver before cartridges/lid 30.5,-17.0",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "PCB clamp driver before cartridges/lid 30.5,17.0",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "bracket nut path -42.4,-35.4",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "bracket nut path -42.4,35.4",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "bracket nut path 42.4,-35.4",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "bracket nut path 42.4,35.4",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "lid nut path -30.0,-40.0",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "lid nut path -30.0,40.0",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "lid nut path 30.0,-40.0",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "lid nut path 30.0,40.0",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "PCB clamp nut path -30.5,-17.0",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "PCB clamp nut path -30.5,17.0",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "PCB clamp nut path 30.5,-17.0",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "PCB clamp nut path 30.5,17.0",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "pose 0 printed assembly overlaps",
+          "passed": true,
+          "measured": 0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "pose 0 only insert and own host may displace polymer",
+          "passed": true,
+          "measured": 0,
+          "tolerance": 0
+        },
+        {
+          "name": "pose 0 reset_contact_heatset_insert exact displaced annulus volume",
+          "passed": true,
+          "measured": 7.105427357601002e-15,
+          "tolerance": 0.001
+        },
+        {
+          "name": "pose 0 boot_contact_heatset_insert exact displaced annulus volume",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "pose 0 hardware versus print solids",
+          "passed": true,
+          "measured": 0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "pose 0 hardware versus hardware",
+          "passed": true,
+          "measured": 0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "pose 0 nominal PCB keepout",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "pose 0 underside non-edge solder keepout",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "pose 0 clamp_head_-30.5_-17.0 clearance",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "pose 0 clamp_head_-30.5_17.0 clearance",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "pose 0 clamp_head_30.5_-17.0 clearance",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "pose 0 clamp_head_30.5_17.0 clearance",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "pose 0 reset rigid geometry clears switch",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "pose 0 reset calibrated tip Z",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 1e-06
+        },
+        {
+          "name": "pose 0 reset maximum switch depression",
+          "passed": true,
+          "measured": 0,
+          "tolerance": 1e-06
+        },
+        {
+          "name": "pose 0 cartridge driver reset/1.0",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "pose 0 cartridge driver reset/7.0",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "pose 0 reset contact adjustment driver with lid removed",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "pose 0 boot rigid geometry clears switch",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "pose 0 boot calibrated tip Z",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 1e-06
+        },
+        {
+          "name": "pose 0 boot maximum switch depression",
+          "passed": true,
+          "measured": 0,
+          "tolerance": 1e-06
+        },
+        {
+          "name": "pose 0 cartridge driver boot/-24.0",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "pose 0 cartridge driver boot/-18.0",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "pose 0 boot contact adjustment driver with lid removed",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "pose 0 full housing corridor outside mounting face",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "pose 0 provisional inner USB corridor 11x6 mm",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "pose 0.5 printed assembly overlaps",
+          "passed": true,
+          "measured": 0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "pose 0.5 only insert and own host may displace polymer",
+          "passed": true,
+          "measured": 0,
+          "tolerance": 0
+        },
+        {
+          "name": "pose 0.5 reset_contact_heatset_insert exact displaced annulus volume",
+          "passed": true,
+          "measured": 7.105427357601002e-15,
+          "tolerance": 0.001
+        },
+        {
+          "name": "pose 0.5 boot_contact_heatset_insert exact displaced annulus volume",
+          "passed": true,
+          "measured": 7.105427357601002e-15,
+          "tolerance": 0.001
+        },
+        {
+          "name": "pose 0.5 hardware versus print solids",
+          "passed": true,
+          "measured": 0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "pose 0.5 hardware versus hardware",
+          "passed": true,
+          "measured": 0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "pose 0.5 nominal PCB keepout",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "pose 0.5 underside non-edge solder keepout",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "pose 0.5 clamp_head_-30.5_-17.0 clearance",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "pose 0.5 clamp_head_-30.5_17.0 clearance",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "pose 0.5 clamp_head_30.5_-17.0 clearance",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "pose 0.5 clamp_head_30.5_17.0 clearance",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "pose 0.5 reset rigid geometry clears switch",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "pose 0.5 reset calibrated tip Z",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 1e-06
+        },
+        {
+          "name": "pose 0.5 reset maximum switch depression",
+          "passed": true,
+          "measured": 0,
+          "tolerance": 1e-06
+        },
+        {
+          "name": "pose 0.5 cartridge driver reset/1.0",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "pose 0.5 cartridge driver reset/7.0",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "pose 0.5 reset contact adjustment driver with lid removed",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "pose 0.5 boot rigid geometry clears switch",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "pose 0.5 boot calibrated tip Z",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 1e-06
+        },
+        {
+          "name": "pose 0.5 boot maximum switch depression",
+          "passed": true,
+          "measured": 0,
+          "tolerance": 1e-06
+        },
+        {
+          "name": "pose 0.5 cartridge driver boot/-24.0",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "pose 0.5 cartridge driver boot/-18.0",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "pose 0.5 boot contact adjustment driver with lid removed",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "pose 0.5 full housing corridor outside mounting face",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "pose 0.5 provisional inner USB corridor 11x6 mm",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "pose 1 printed assembly overlaps",
+          "passed": true,
+          "measured": 0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "pose 1 only insert and own host may displace polymer",
+          "passed": true,
+          "measured": 0,
+          "tolerance": 0
+        },
+        {
+          "name": "pose 1 reset_contact_heatset_insert exact displaced annulus volume",
+          "passed": true,
+          "measured": 1.4210854715202004e-14,
+          "tolerance": 0.001
+        },
+        {
+          "name": "pose 1 boot_contact_heatset_insert exact displaced annulus volume",
+          "passed": true,
+          "measured": 1.4210854715202004e-14,
+          "tolerance": 0.001
+        },
+        {
+          "name": "pose 1 hardware versus print solids",
+          "passed": true,
+          "measured": 0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "pose 1 hardware versus hardware",
+          "passed": true,
+          "measured": 0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "pose 1 nominal PCB keepout",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "pose 1 underside non-edge solder keepout",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "pose 1 clamp_head_-30.5_-17.0 clearance",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "pose 1 clamp_head_-30.5_17.0 clearance",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "pose 1 clamp_head_30.5_-17.0 clearance",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "pose 1 clamp_head_30.5_17.0 clearance",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "pose 1 reset rigid geometry clears switch",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "pose 1 reset calibrated tip Z",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 1e-06
+        },
+        {
+          "name": "pose 1 reset maximum switch depression",
+          "passed": true,
+          "measured": 0,
+          "tolerance": 1e-06
+        },
+        {
+          "name": "pose 1 cartridge driver reset/1.0",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "pose 1 cartridge driver reset/7.0",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "pose 1 reset contact adjustment driver with lid removed",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "pose 1 boot rigid geometry clears switch",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "pose 1 boot calibrated tip Z",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 1e-06
+        },
+        {
+          "name": "pose 1 boot maximum switch depression",
+          "passed": true,
+          "measured": 0,
+          "tolerance": 1e-06
+        },
+        {
+          "name": "pose 1 cartridge driver boot/-24.0",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "pose 1 cartridge driver boot/-18.0",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "pose 1 boot contact adjustment driver with lid removed",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "pose 1 full housing corridor outside mounting face",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "pose 1 provisional inner USB corridor 11x6 mm",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "insert pilot void 1.0",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "insert does not enter PCB cavity 1.0",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "blind bore remaining wall >=1.5mm 1.0",
+          "passed": true,
+          "measured": 0,
+          "tolerance": 1e-06
+        },
+        {
+          "name": "M3x18 nominal engagement3.8mm 1.0",
+          "passed": true,
+          "measured": 8.881784197001252e-16,
+          "tolerance": 1e-06
+        },
+        {
+          "name": "M3x18 blind tip clearance >=0.5mm 1.0",
+          "passed": true,
+          "measured": 0,
+          "tolerance": 1e-06
+        },
+        {
+          "name": "insert pilot void 7.0",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "insert does not enter PCB cavity 7.0",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "blind bore remaining wall >=1.5mm 7.0",
+          "passed": true,
+          "measured": 0,
+          "tolerance": 1e-06
+        },
+        {
+          "name": "M3x18 nominal engagement3.8mm 7.0",
+          "passed": true,
+          "measured": 8.881784197001252e-16,
+          "tolerance": 1e-06
+        },
+        {
+          "name": "M3x18 blind tip clearance >=0.5mm 7.0",
+          "passed": true,
+          "measured": 0,
+          "tolerance": 1e-06
+        },
+        {
+          "name": "insert pilot void -24.0",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "insert does not enter PCB cavity -24.0",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "blind bore remaining wall >=1.5mm -24.0",
+          "passed": true,
+          "measured": 0,
+          "tolerance": 1e-06
+        },
+        {
+          "name": "M3x18 nominal engagement3.8mm -24.0",
+          "passed": true,
+          "measured": 8.881784197001252e-16,
+          "tolerance": 1e-06
+        },
+        {
+          "name": "M3x18 blind tip clearance >=0.5mm -24.0",
+          "passed": true,
+          "measured": 0,
+          "tolerance": 1e-06
+        },
+        {
+          "name": "insert pilot void -18.0",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "insert does not enter PCB cavity -18.0",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "blind bore remaining wall >=1.5mm -18.0",
+          "passed": true,
+          "measured": 0,
+          "tolerance": 1e-06
+        },
+        {
+          "name": "M3x18 nominal engagement3.8mm -18.0",
+          "passed": true,
+          "measured": 8.881784197001252e-16,
+          "tolerance": 1e-06
+        },
+        {
+          "name": "M3x18 blind tip clearance >=0.5mm -18.0",
+          "passed": true,
+          "measured": 0,
+          "tolerance": 1e-06
+        },
+        {
+          "name": "reset positive upper stop exists",
+          "passed": true,
+          "measured": 0,
+          "tolerance": 0
+        },
+        {
+          "name": "reset positive lower stop exists",
+          "passed": true,
+          "measured": 0,
+          "tolerance": 0
+        },
+        {
+          "name": "reset vertical insertion/removal path with keeper removed",
+          "passed": true,
+          "measured": 0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "reset fixed_magnet rear capture",
+          "passed": true,
+          "measured": 0,
+          "tolerance": 0
+        },
+        {
+          "name": "reset fixed_magnet front capture",
+          "passed": true,
+          "measured": 0,
+          "tolerance": 0
+        },
+        {
+          "name": "reset fixed_magnet side capture",
+          "passed": true,
+          "measured": 0,
+          "tolerance": 0
+        },
+        {
+          "name": "reset fixed_magnet up capture",
+          "passed": true,
+          "measured": 0,
+          "tolerance": 0
+        },
+        {
+          "name": "reset fixed_magnet down capture",
+          "passed": true,
+          "measured": 0,
+          "tolerance": 0
+        },
+        {
+          "name": "reset moving_magnet rear capture",
+          "passed": true,
+          "measured": 0,
+          "tolerance": 0
+        },
+        {
+          "name": "reset moving_magnet front capture",
+          "passed": true,
+          "measured": 0,
+          "tolerance": 0
+        },
+        {
+          "name": "reset moving_magnet side capture",
+          "passed": true,
+          "measured": 0,
+          "tolerance": 0
+        },
+        {
+          "name": "reset moving_magnet up capture",
+          "passed": true,
+          "measured": 0,
+          "tolerance": 0
+        },
+        {
+          "name": "reset moving_magnet down capture",
+          "passed": true,
+          "measured": 0,
+          "tolerance": 0
+        },
+        {
+          "name": "boot positive upper stop exists",
+          "passed": true,
+          "measured": 0,
+          "tolerance": 0
+        },
+        {
+          "name": "boot positive lower stop exists",
+          "passed": true,
+          "measured": 0,
+          "tolerance": 0
+        },
+        {
+          "name": "boot vertical insertion/removal path with keeper removed",
+          "passed": true,
+          "measured": 0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "boot fixed_magnet rear capture",
+          "passed": true,
+          "measured": 0,
+          "tolerance": 0
+        },
+        {
+          "name": "boot fixed_magnet front capture",
+          "passed": true,
+          "measured": 0,
+          "tolerance": 0
+        },
+        {
+          "name": "boot fixed_magnet side capture",
+          "passed": true,
+          "measured": 0,
+          "tolerance": 0
+        },
+        {
+          "name": "boot fixed_magnet up capture",
+          "passed": true,
+          "measured": 0,
+          "tolerance": 0
+        },
+        {
+          "name": "boot fixed_magnet down capture",
+          "passed": true,
+          "measured": 0,
+          "tolerance": 0
+        },
+        {
+          "name": "boot moving_magnet rear capture",
+          "passed": true,
+          "measured": 0,
+          "tolerance": 0
+        },
+        {
+          "name": "boot moving_magnet front capture",
+          "passed": true,
+          "measured": 0,
+          "tolerance": 0
+        },
+        {
+          "name": "boot moving_magnet side capture",
+          "passed": true,
+          "measured": 0,
+          "tolerance": 0
+        },
+        {
+          "name": "boot moving_magnet up capture",
+          "passed": true,
+          "measured": 0,
+          "tolerance": 0
+        },
+        {
+          "name": "boot moving_magnet down capture",
+          "passed": true,
+          "measured": 0,
+          "tolerance": 0
+        },
+        {
+          "name": "reset exact unchanged frame",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "reset exact unchanged rear_keeper",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "reset exact unchanged moving_magnet_keeper",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "reset slider unchanged outside contact boss",
+          "passed": true,
+          "measured": -4.547473508864641e-13,
+          "tolerance": 0.001
+        },
+        {
+          "name": "reset exact unchanged hardware fixed_magnet",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "reset exact unchanged hardware moving_magnet",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "reset exact unchanged hardware mount_screw_1",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "reset exact unchanged hardware mount_screw_2",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "reset pocket depth equals insert length plus0.4",
+          "passed": true,
+          "measured": 3.3306690738754696e-16,
+          "tolerance": 1e-06
+        },
+        {
+          "name": "reset annular floor at least1mm",
+          "passed": true,
+          "measured": 0,
+          "tolerance": 1e-06
+        },
+        {
+          "name": "reset pilot bore clear",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "reset annular floor contains polymer",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "reset former lateral nut feed filled",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "reset no contact captive nut remains",
+          "passed": true,
+          "measured": 0,
+          "tolerance": 0
+        },
+        {
+          "name": "reset head clears nominal lid underside",
+          "passed": true,
+          "measured": 0,
+          "tolerance": 1e-06
+        },
+        {
+          "name": "reset adjustment margin at least0.19mm",
+          "passed": true,
+          "measured": 0,
+          "tolerance": 1e-06
+        },
+        {
+          "name": "reset inserted metal top-load path clear",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "boot exact unchanged frame",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "boot exact unchanged rear_keeper",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "boot exact unchanged moving_magnet_keeper",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "boot slider unchanged outside contact boss",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "boot exact unchanged hardware fixed_magnet",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "boot exact unchanged hardware moving_magnet",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "boot exact unchanged hardware mount_screw_1",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "boot exact unchanged hardware mount_screw_2",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "boot pocket depth equals insert length plus0.4",
+          "passed": true,
+          "measured": 3.3306690738754696e-16,
+          "tolerance": 1e-06
+        },
+        {
+          "name": "boot annular floor at least1mm",
+          "passed": true,
+          "measured": 0,
+          "tolerance": 1e-06
+        },
+        {
+          "name": "boot pilot bore clear",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "boot annular floor contains polymer",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "boot former lateral nut feed filled",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "boot no contact captive nut remains",
+          "passed": true,
+          "measured": 0,
+          "tolerance": 0
+        },
+        {
+          "name": "boot head clears nominal lid underside",
+          "passed": true,
+          "measured": 0,
+          "tolerance": 1e-06
+        },
+        {
+          "name": "boot adjustment margin at least0.19mm",
+          "passed": true,
+          "measured": 0,
+          "tolerance": 1e-06
+        },
+        {
+          "name": "boot inserted metal top-load path clear",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        }
+      ],
+      "observations": [
+        {
+          "service_access": "PCB clamp requires cartridge removal",
+          "xy": [
+            -30.5,
+            -17.0
+          ],
+          "blocking_parts": {
+            "boot_slider": 33.92920065876976
+          }
+        }
+      ],
+      "measurements": {
+        "units": "mm",
+        "pcb_assumed": [
+          52.0,
+          70.0,
+          1.6
+        ],
+        "pcb_bottom_z": 8.4,
+        "pcb_top_z": 10.0,
+        "cavity_xy": [
+          68.0,
+          88.0
+        ],
+        "body_outer_without_ears": [
+          77.6,
+          95.2,
+          32.0
+        ],
+        "main_shell_xy": [
+          72.8,
+          92.8
+        ],
+        "body_outer_with_ears": [
+          96.8,
+          95.2,
+          32.0
+        ],
+        "overall_assembled": [
+          116.8,
+          95.20000000000002,
+          43.200000000000024
+        ],
+        "style": {
+          "corner_fillet_radius": 3.0,
+          "external_edge_chamfer": 0.8,
+          "belt_projection": 1.2,
+          "belt_z_range": [
+            3.6,
+            8.4
+          ],
+          "corner_wall_min_above_base_bevel": 2.151471862576143,
+          "lid_vent_angle_degrees": 25.0,
+          "lid_vent_count": 9,
+          "side_vent_count": 7,
+          "accent_recess_depth": 0.4
+        },
+        "lid_top_z": 34.4,
+        "desk_contact_z": 43.2,
+        "left_access_yz": [
+          60.0,
+          23.0
+        ],
+        "end_cable_access_xz": [
+          24.0,
+          16.0
+        ],
+        "desk_screw_centers_xy": [
+          [
+            -53.4,
+            -35.4
+          ],
+          [
+            -53.4,
+            35.4
+          ],
+          [
+            53.4,
+            -35.4
+          ],
+          [
+            53.4,
+            35.4
+          ]
+        ],
+        "body_mount_centers_xy": [
+          [
+            -42.4,
+            -35.4
+          ],
+          [
+            -42.4,
+            35.4
+          ],
+          [
+            42.4,
+            -35.4
+          ],
+          [
+            42.4,
+            35.4
+          ]
+        ],
+        "lid_screw_centers_xy": [
+          [
+            -30.0,
+            -40.0
+          ],
+          [
+            -30.0,
+            40.0
+          ],
+          [
+            30.0,
+            -40.0
+          ],
+          [
+            30.0,
+            40.0
+          ]
+        ],
+        "m3_nut_pocket_af": 5.8,
+        "m3_nut_pocket_height": 2.7,
+        "pcb_edge_overlap": 0.8,
+        "pcb_vertical_play": 0.2,
+        "button_mount_centers_xyz": [
+          [
+            -40.0,
+            1.0,
+            5.0
+          ],
+          [
+            -40.0,
+            7.0,
+            5.0
+          ],
+          [
+            -40.0,
+            -24.0,
+            5.0
+          ],
+          [
+            -40.0,
+            -18.0,
+            5.0
+          ]
+        ],
+        "buttons": {
+          "reset": {
+            "mounting_face_x_mm": -40.0,
+            "rear_head_bearing_x_mm": -54.2,
+            "housing_y_mm": 4.0,
+            "housing_width_y_mm": 14.0,
+            "mount_screw_centers_xyz_mm": [
+              [
+                -40.0,
+                1.0,
+                5.0
+              ],
+              [
+                -40.0,
+                7.0,
+                5.0
+              ]
+            ],
+            "mount_screw_grip_mm": 14.2,
+            "m3x18_insert_engagement_mm": 3.8,
+            "guide_clearance_per_side_mm": 0.3,
+            "stroke_mm": 0.8,
+            "travel_mm": 0.0,
+            "tip_center_xy_mm": [
+              -23.0,
+              0.0
+            ],
+            "switch_top_z_provisional_mm": 16.0,
+            "idle_tip_gap_mm": 0.6000000000000001,
+            "contact_screw_length_mm": 12.0,
+            "contact_head_top_z_at_rest_mm": 31.6,
+            "minimum_contact_tip_z_with_jam_nut_at_rest_mm": 15.199999999999996,
+            "contact_downward_adjustment_margin_mm": 1.4000000000000057,
+            "full_insert_engagement_tip_z_range_at_rest_mm": [
+              15.199999999999996,
+              19.799999999999997
+            ],
+            "contact_insert_outer_diameter_provisional_mm": 4.6,
+            "contact_insert_pilot_diameter_provisional_mm": 4.0,
+            "contact_insert_length_mm": 5.0,
+            "contact_insert_pocket_depth_mm": 5.4,
+            "contact_boss_bottom_z_at_rest_mm": 18.4,
+            "contact_boss_top_z_at_rest_mm": 24.799999999999997,
+            "contact_boss_height_mm": 6.399999999999999,
+            "contact_boss_floor_mm": 1.0,
+            "contact_boss_radial_wall_to_insert_envelope_mm": 2.2,
+            "contact_lower_collar_clearance_to_usb_edge_mm": 0.1,
+            "contact_lower_collar_relief_direction_y": -1,
+            "contact_lower_collar_minimum_ligament_to_through_hole_mm": 1.2,
+            "jam_nut_thread_height_mm": 2.4,
+            "maximum_modeled_switch_depression_mm": 0.2,
+            "magnet_face_gap_at_rest_mm": 3.6000000000000014,
+            "magnet_face_gap_at_stop_mm": 2.8000000000000016
+          },
+          "boot": {
+            "mounting_face_x_mm": -40.0,
+            "rear_head_bearing_x_mm": -54.2,
+            "housing_y_mm": -21.0,
+            "housing_width_y_mm": 14.0,
+            "mount_screw_centers_xyz_mm": [
+              [
+                -40.0,
+                -24.0,
+                5.0
+              ],
+              [
+                -40.0,
+                -18.0,
+                5.0
+              ]
+            ],
+            "mount_screw_grip_mm": 14.2,
+            "m3x18_insert_engagement_mm": 3.8,
+            "guide_clearance_per_side_mm": 0.3,
+            "stroke_mm": 0.8,
+            "travel_mm": 0.0,
+            "tip_center_xy_mm": [
+              -23.0,
+              -17.0
+            ],
+            "switch_top_z_provisional_mm": 16.0,
+            "idle_tip_gap_mm": 0.6000000000000001,
+            "contact_screw_length_mm": 12.0,
+            "contact_head_top_z_at_rest_mm": 31.6,
+            "minimum_contact_tip_z_with_jam_nut_at_rest_mm": 15.199999999999996,
+            "contact_downward_adjustment_margin_mm": 1.4000000000000057,
+            "full_insert_engagement_tip_z_range_at_rest_mm": [
+              15.199999999999996,
+              19.799999999999997
+            ],
+            "contact_insert_outer_diameter_provisional_mm": 4.6,
+            "contact_insert_pilot_diameter_provisional_mm": 4.0,
+            "contact_insert_length_mm": 5.0,
+            "contact_insert_pocket_depth_mm": 5.4,
+            "contact_boss_bottom_z_at_rest_mm": 18.4,
+            "contact_boss_top_z_at_rest_mm": 24.799999999999997,
+            "contact_boss_height_mm": 6.399999999999999,
+            "contact_boss_floor_mm": 1.0,
+            "contact_boss_radial_wall_to_insert_envelope_mm": 2.2,
+            "contact_lower_collar_clearance_to_usb_edge_mm": 0.1,
+            "contact_lower_collar_relief_direction_y": 1,
+            "contact_lower_collar_minimum_ligament_to_through_hole_mm": 1.2,
+            "jam_nut_thread_height_mm": 2.4,
+            "maximum_modeled_switch_depression_mm": 0.2,
+            "magnet_face_gap_at_rest_mm": 3.6000000000000014,
+            "magnet_face_gap_at_stop_mm": 2.8000000000000016
+          }
+        }
+      },
+      "limitations": [
+        "Real switch/plug/wiring dimensions remain unverified.",
+        "Simplified hardware and geometric captures do not establish strength or magnetic return force.",
+        "PCB clamp service requires cartridge removal; contact adjustment requires lid access."
+      ]
+    }
+  ],
+  "inputs_unchanged": true,
+  "review_sources_unchanged": true
+}

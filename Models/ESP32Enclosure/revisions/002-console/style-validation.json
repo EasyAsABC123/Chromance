@@ -1,0 +1,2356 @@
+{
+  "status": "passed",
+  "inputs": {
+    "baseline": {
+      "path": "/home/justin/github/cad-models/models/esp32-desk-enclosure/model.py",
+      "sha256": "f265db30bd89d4b67505ea8b84d517a092907c354490124319b6434903c416ba"
+    },
+    "candidate": {
+      "path": "/tmp/esp32-console-work/model.py",
+      "sha256": "4f41b3b709bead8b304e438cd03aad2f303f9f74623b2f4fac28b9c567ab7fbb"
+    },
+    "parameters": {
+      "path": "/tmp/esp32-console-work/params.json",
+      "sha256": "86b6bfb00d1e0120a6e2b2400eda3d6a483b4d811bc2ae6de6acd7fa8142b3cf"
+    }
+  },
+  "cases": [
+    {
+      "case": "default",
+      "passed": true,
+      "checks": [
+        {
+          "name": "part names preserved",
+          "passed": true,
+          "measured": 0,
+          "tolerance": 0
+        },
+        {
+          "name": "body: valid single solid",
+          "passed": true,
+          "measured": 0,
+          "tolerance": 0
+        },
+        {
+          "name": "body: print minimum Z",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 1e-06
+        },
+        {
+          "name": "lid: valid single solid",
+          "passed": true,
+          "measured": 0,
+          "tolerance": 0
+        },
+        {
+          "name": "lid: print minimum Z",
+          "passed": true,
+          "measured": -2.886579864025407e-15,
+          "tolerance": 1e-06
+        },
+        {
+          "name": "desk_bracket: valid single solid",
+          "passed": true,
+          "measured": 0,
+          "tolerance": 0
+        },
+        {
+          "name": "desk_bracket: print minimum Z",
+          "passed": true,
+          "measured": -2.755455298081545e-16,
+          "tolerance": 1e-06
+        },
+        {
+          "name": "pcb_clamp_left_front: valid single solid",
+          "passed": true,
+          "measured": 0,
+          "tolerance": 0
+        },
+        {
+          "name": "pcb_clamp_left_front: print minimum Z",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 1e-06
+        },
+        {
+          "name": "pcb_clamp_left_rear: valid single solid",
+          "passed": true,
+          "measured": 0,
+          "tolerance": 0
+        },
+        {
+          "name": "pcb_clamp_left_rear: print minimum Z",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 1e-06
+        },
+        {
+          "name": "pcb_clamp_right_front: valid single solid",
+          "passed": true,
+          "measured": 0,
+          "tolerance": 0
+        },
+        {
+          "name": "pcb_clamp_right_front: print minimum Z",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 1e-06
+        },
+        {
+          "name": "pcb_clamp_right_rear: valid single solid",
+          "passed": true,
+          "measured": 0,
+          "tolerance": 0
+        },
+        {
+          "name": "pcb_clamp_right_rear: print minimum Z",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 1e-06
+        },
+        {
+          "name": "assembly overlap: body/lid",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "assembly overlap: body/desk_bracket",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "assembly overlap: body/pcb_clamp_left_front",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "assembly overlap: body/pcb_clamp_left_rear",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "assembly overlap: body/pcb_clamp_right_front",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "assembly overlap: body/pcb_clamp_right_rear",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "assembly overlap: lid/desk_bracket",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "assembly overlap: lid/pcb_clamp_left_front",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "assembly overlap: lid/pcb_clamp_left_rear",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "assembly overlap: lid/pcb_clamp_right_front",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "assembly overlap: lid/pcb_clamp_right_rear",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "assembly overlap: desk_bracket/pcb_clamp_left_front",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "assembly overlap: desk_bracket/pcb_clamp_left_rear",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "assembly overlap: desk_bracket/pcb_clamp_right_front",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "assembly overlap: desk_bracket/pcb_clamp_right_rear",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "assembly overlap: pcb_clamp_left_front/pcb_clamp_left_rear",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "assembly overlap: pcb_clamp_left_front/pcb_clamp_right_front",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "assembly overlap: pcb_clamp_left_front/pcb_clamp_right_rear",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "assembly overlap: pcb_clamp_left_rear/pcb_clamp_right_front",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "assembly overlap: pcb_clamp_left_rear/pcb_clamp_right_rear",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "assembly overlap: pcb_clamp_right_front/pcb_clamp_right_rear",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "interface measurement unchanged: pcb_assumed",
+          "passed": true,
+          "measured": 0,
+          "tolerance": 0
+        },
+        {
+          "name": "interface measurement unchanged: pcb_bottom_z",
+          "passed": true,
+          "measured": 0,
+          "tolerance": 0
+        },
+        {
+          "name": "interface measurement unchanged: pcb_top_z",
+          "passed": true,
+          "measured": 0,
+          "tolerance": 0
+        },
+        {
+          "name": "interface measurement unchanged: cavity_xy",
+          "passed": true,
+          "measured": 0,
+          "tolerance": 0
+        },
+        {
+          "name": "interface measurement unchanged: lid_top_z",
+          "passed": true,
+          "measured": 0,
+          "tolerance": 0
+        },
+        {
+          "name": "interface measurement unchanged: desk_contact_z",
+          "passed": true,
+          "measured": 0,
+          "tolerance": 0
+        },
+        {
+          "name": "interface measurement unchanged: left_access_yz",
+          "passed": true,
+          "measured": 0,
+          "tolerance": 0
+        },
+        {
+          "name": "interface measurement unchanged: end_cable_access_xz",
+          "passed": true,
+          "measured": 0,
+          "tolerance": 0
+        },
+        {
+          "name": "interface measurement unchanged: desk_screw_centers_xy",
+          "passed": true,
+          "measured": 0,
+          "tolerance": 0
+        },
+        {
+          "name": "interface measurement unchanged: body_mount_centers_xy",
+          "passed": true,
+          "measured": 0,
+          "tolerance": 0
+        },
+        {
+          "name": "interface measurement unchanged: lid_screw_centers_xy",
+          "passed": true,
+          "measured": 0,
+          "tolerance": 0
+        },
+        {
+          "name": "interface measurement unchanged: m3_nut_pocket_af",
+          "passed": true,
+          "measured": 0,
+          "tolerance": 0
+        },
+        {
+          "name": "interface measurement unchanged: m3_nut_pocket_height",
+          "passed": true,
+          "measured": 0,
+          "tolerance": 0
+        },
+        {
+          "name": "interface measurement unchanged: pcb_edge_overlap",
+          "passed": true,
+          "measured": 0,
+          "tolerance": 0
+        },
+        {
+          "name": "interface measurement unchanged: pcb_vertical_play",
+          "passed": true,
+          "measured": 0,
+          "tolerance": 0
+        },
+        {
+          "name": "exact unchanged part: desk_bracket",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "exact unchanged part: pcb_clamp_left_front",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "exact unchanged part: pcb_clamp_left_rear",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "exact unchanged part: pcb_clamp_right_front",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "exact unchanged part: pcb_clamp_right_rear",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "nominal PCB",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "underside solder keepout excluding support strips",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "above-PCB component/wiring keepout excluding clamp strips",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "PCB translation (-0.4,-0.4)",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "PCB translation (-0.4,0.4)",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "PCB translation (0.4,-0.4)",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "PCB translation (0.4,0.4)",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "exact body material inside cavity/floor/retention region",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "exact locating skirt below lid plane",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "lid post exact material -30.0,-40.0",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "lid screw bearing exact material -30.0,-40.0",
+          "passed": true,
+          "measured": 1.4210854715202004e-14,
+          "tolerance": 0.001
+        },
+        {
+          "name": "lid post exact material -30.0,40.0",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "lid screw bearing exact material -30.0,40.0",
+          "passed": true,
+          "measured": 1.4210854715202004e-14,
+          "tolerance": 0.001
+        },
+        {
+          "name": "lid post exact material 30.0,-40.0",
+          "passed": true,
+          "measured": 9.094947017729282e-13,
+          "tolerance": 0.001
+        },
+        {
+          "name": "lid screw bearing exact material 30.0,-40.0",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "lid post exact material 30.0,40.0",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "lid screw bearing exact material 30.0,40.0",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "mount ear and gussets exact material -42.4,-35.4",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "mount ear and gussets exact material -42.4,35.4",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "mount ear and gussets exact material 42.4,-35.4",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "mount ear and gussets exact material 42.4,35.4",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "left connector wall window",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "left cable approach outside enclosure between mounting ears",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "full left portal obstruction unchanged: body",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "full left portal obstruction unchanged: lid",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "full left portal obstruction unchanged: desk_bracket",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "full left portal obstruction unchanged: pcb_clamp_left_front",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "full left portal obstruction unchanged: pcb_clamp_left_rear",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "full left portal obstruction unchanged: pcb_clamp_right_front",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "full left portal obstruction unchanged: pcb_clamp_right_rear",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "terminal cable approach outside enclosure",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "2 mm inner shell preserved outside intentional right vents",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "corner wall analytical minimum at least 2 mm",
+          "passed": true,
+          "measured": 0,
+          "tolerance": 1e-09
+        },
+        {
+          "name": "body mounting screw/tool path -42.4,-35.4",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "bracket nut insertion sweep -42.4,-35.4",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "body mounting screw/tool path -42.4,35.4",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "bracket nut insertion sweep -42.4,35.4",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "body mounting screw/tool path 42.4,-35.4",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "bracket nut insertion sweep 42.4,-35.4",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "body mounting screw/tool path 42.4,35.4",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "bracket nut insertion sweep 42.4,35.4",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "desk screw/tool path -53.4,-35.4",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "desk screw/tool path -53.4,35.4",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "desk screw/tool path 53.4,-35.4",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "desk screw/tool path 53.4,35.4",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "lid nut insertion sweep -30.0,-40.0",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "lid nut insertion sweep -30.0,40.0",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "lid nut insertion sweep 30.0,-40.0",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "lid nut insertion sweep 30.0,40.0",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "clamp nut insertion sweep -30.5,-17.0",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "clamp nut insertion sweep -30.5,17.0",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "clamp nut insertion sweep 30.5,-17.0",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "clamp nut insertion sweep 30.5,17.0",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        }
+      ],
+      "measurements": {
+        "units": "mm",
+        "pcb_assumed": [
+          52.0,
+          70.0,
+          1.6
+        ],
+        "pcb_bottom_z": 8.4,
+        "pcb_top_z": 10.0,
+        "cavity_xy": [
+          68.0,
+          88.0
+        ],
+        "body_outer_without_ears": [
+          75.2,
+          95.2,
+          32.0
+        ],
+        "main_shell_xy": [
+          72.8,
+          92.8
+        ],
+        "body_outer_with_ears": [
+          96.8,
+          95.2,
+          32.0
+        ],
+        "overall_assembled": [
+          116.8,
+          95.2,
+          43.2
+        ],
+        "style": {
+          "corner_fillet_radius": 3.0,
+          "external_edge_chamfer": 0.8,
+          "belt_projection": 1.2,
+          "belt_z_range": [
+            3.6,
+            8.4
+          ],
+          "corner_wall_min_above_base_bevel": 2.151471862576143,
+          "lid_vent_angle_degrees": 25.0,
+          "lid_vent_count": 9,
+          "side_vent_count": 7,
+          "accent_recess_depth": 0.4
+        },
+        "lid_top_z": 34.4,
+        "desk_contact_z": 43.2,
+        "left_access_yz": [
+          60.0,
+          23.0
+        ],
+        "end_cable_access_xz": [
+          24.0,
+          16.0
+        ],
+        "desk_screw_centers_xy": [
+          [
+            -53.4,
+            -35.4
+          ],
+          [
+            -53.4,
+            35.4
+          ],
+          [
+            53.4,
+            -35.4
+          ],
+          [
+            53.4,
+            35.4
+          ]
+        ],
+        "body_mount_centers_xy": [
+          [
+            -42.4,
+            -35.4
+          ],
+          [
+            -42.4,
+            35.4
+          ],
+          [
+            42.4,
+            -35.4
+          ],
+          [
+            42.4,
+            35.4
+          ]
+        ],
+        "lid_screw_centers_xy": [
+          [
+            -30.0,
+            -40.0
+          ],
+          [
+            -30.0,
+            40.0
+          ],
+          [
+            30.0,
+            -40.0
+          ],
+          [
+            30.0,
+            40.0
+          ]
+        ],
+        "m3_nut_pocket_af": 5.8,
+        "m3_nut_pocket_height": 2.7,
+        "pcb_edge_overlap": 0.8,
+        "pcb_vertical_play": 0.2
+      },
+      "limits": [
+        "Board dimensions and edge contacts remain provisional.",
+        "Physical strength, fit, thermal behavior and printer settings are not validated."
+      ]
+    },
+    {
+      "case": "style_variant",
+      "passed": true,
+      "checks": [
+        {
+          "name": "part names preserved",
+          "passed": true,
+          "measured": 0,
+          "tolerance": 0
+        },
+        {
+          "name": "body: valid single solid",
+          "passed": true,
+          "measured": 0,
+          "tolerance": 0
+        },
+        {
+          "name": "body: print minimum Z",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 1e-06
+        },
+        {
+          "name": "lid: valid single solid",
+          "passed": true,
+          "measured": 0,
+          "tolerance": 0
+        },
+        {
+          "name": "lid: print minimum Z",
+          "passed": true,
+          "measured": -2.0818995585505003e-16,
+          "tolerance": 1e-06
+        },
+        {
+          "name": "desk_bracket: valid single solid",
+          "passed": true,
+          "measured": 0,
+          "tolerance": 0
+        },
+        {
+          "name": "desk_bracket: print minimum Z",
+          "passed": true,
+          "measured": -2.755455298081545e-16,
+          "tolerance": 1e-06
+        },
+        {
+          "name": "pcb_clamp_left_front: valid single solid",
+          "passed": true,
+          "measured": 0,
+          "tolerance": 0
+        },
+        {
+          "name": "pcb_clamp_left_front: print minimum Z",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 1e-06
+        },
+        {
+          "name": "pcb_clamp_left_rear: valid single solid",
+          "passed": true,
+          "measured": 0,
+          "tolerance": 0
+        },
+        {
+          "name": "pcb_clamp_left_rear: print minimum Z",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 1e-06
+        },
+        {
+          "name": "pcb_clamp_right_front: valid single solid",
+          "passed": true,
+          "measured": 0,
+          "tolerance": 0
+        },
+        {
+          "name": "pcb_clamp_right_front: print minimum Z",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 1e-06
+        },
+        {
+          "name": "pcb_clamp_right_rear: valid single solid",
+          "passed": true,
+          "measured": 0,
+          "tolerance": 0
+        },
+        {
+          "name": "pcb_clamp_right_rear: print minimum Z",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 1e-06
+        },
+        {
+          "name": "assembly overlap: body/lid",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "assembly overlap: body/desk_bracket",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "assembly overlap: body/pcb_clamp_left_front",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "assembly overlap: body/pcb_clamp_left_rear",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "assembly overlap: body/pcb_clamp_right_front",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "assembly overlap: body/pcb_clamp_right_rear",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "assembly overlap: lid/desk_bracket",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "assembly overlap: lid/pcb_clamp_left_front",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "assembly overlap: lid/pcb_clamp_left_rear",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "assembly overlap: lid/pcb_clamp_right_front",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "assembly overlap: lid/pcb_clamp_right_rear",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "assembly overlap: desk_bracket/pcb_clamp_left_front",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "assembly overlap: desk_bracket/pcb_clamp_left_rear",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "assembly overlap: desk_bracket/pcb_clamp_right_front",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "assembly overlap: desk_bracket/pcb_clamp_right_rear",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "assembly overlap: pcb_clamp_left_front/pcb_clamp_left_rear",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "assembly overlap: pcb_clamp_left_front/pcb_clamp_right_front",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "assembly overlap: pcb_clamp_left_front/pcb_clamp_right_rear",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "assembly overlap: pcb_clamp_left_rear/pcb_clamp_right_front",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "assembly overlap: pcb_clamp_left_rear/pcb_clamp_right_rear",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "assembly overlap: pcb_clamp_right_front/pcb_clamp_right_rear",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "interface measurement unchanged: pcb_assumed",
+          "passed": true,
+          "measured": 0,
+          "tolerance": 0
+        },
+        {
+          "name": "interface measurement unchanged: pcb_bottom_z",
+          "passed": true,
+          "measured": 0,
+          "tolerance": 0
+        },
+        {
+          "name": "interface measurement unchanged: pcb_top_z",
+          "passed": true,
+          "measured": 0,
+          "tolerance": 0
+        },
+        {
+          "name": "interface measurement unchanged: cavity_xy",
+          "passed": true,
+          "measured": 0,
+          "tolerance": 0
+        },
+        {
+          "name": "interface measurement unchanged: lid_top_z",
+          "passed": true,
+          "measured": 0,
+          "tolerance": 0
+        },
+        {
+          "name": "interface measurement unchanged: desk_contact_z",
+          "passed": true,
+          "measured": 0,
+          "tolerance": 0
+        },
+        {
+          "name": "interface measurement unchanged: left_access_yz",
+          "passed": true,
+          "measured": 0,
+          "tolerance": 0
+        },
+        {
+          "name": "interface measurement unchanged: end_cable_access_xz",
+          "passed": true,
+          "measured": 0,
+          "tolerance": 0
+        },
+        {
+          "name": "interface measurement unchanged: desk_screw_centers_xy",
+          "passed": true,
+          "measured": 0,
+          "tolerance": 0
+        },
+        {
+          "name": "interface measurement unchanged: body_mount_centers_xy",
+          "passed": true,
+          "measured": 0,
+          "tolerance": 0
+        },
+        {
+          "name": "interface measurement unchanged: lid_screw_centers_xy",
+          "passed": true,
+          "measured": 0,
+          "tolerance": 0
+        },
+        {
+          "name": "interface measurement unchanged: m3_nut_pocket_af",
+          "passed": true,
+          "measured": 0,
+          "tolerance": 0
+        },
+        {
+          "name": "interface measurement unchanged: m3_nut_pocket_height",
+          "passed": true,
+          "measured": 0,
+          "tolerance": 0
+        },
+        {
+          "name": "interface measurement unchanged: pcb_edge_overlap",
+          "passed": true,
+          "measured": 0,
+          "tolerance": 0
+        },
+        {
+          "name": "interface measurement unchanged: pcb_vertical_play",
+          "passed": true,
+          "measured": 0,
+          "tolerance": 0
+        },
+        {
+          "name": "exact unchanged part: desk_bracket",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "exact unchanged part: pcb_clamp_left_front",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "exact unchanged part: pcb_clamp_left_rear",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "exact unchanged part: pcb_clamp_right_front",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "exact unchanged part: pcb_clamp_right_rear",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "nominal PCB",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "underside solder keepout excluding support strips",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "above-PCB component/wiring keepout excluding clamp strips",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "PCB translation (-0.4,-0.4)",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "PCB translation (-0.4,0.4)",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "PCB translation (0.4,-0.4)",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "PCB translation (0.4,0.4)",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "exact body material inside cavity/floor/retention region",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "exact locating skirt below lid plane",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "lid post exact material -30.0,-40.0",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "lid screw bearing exact material -30.0,-40.0",
+          "passed": true,
+          "measured": 1.4210854715202004e-14,
+          "tolerance": 0.001
+        },
+        {
+          "name": "lid post exact material -30.0,40.0",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "lid screw bearing exact material -30.0,40.0",
+          "passed": true,
+          "measured": 1.4210854715202004e-14,
+          "tolerance": 0.001
+        },
+        {
+          "name": "lid post exact material 30.0,-40.0",
+          "passed": true,
+          "measured": 9.094947017729282e-13,
+          "tolerance": 0.001
+        },
+        {
+          "name": "lid screw bearing exact material 30.0,-40.0",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "lid post exact material 30.0,40.0",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "lid screw bearing exact material 30.0,40.0",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "mount ear and gussets exact material -42.4,-35.4",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "mount ear and gussets exact material -42.4,35.4",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "mount ear and gussets exact material 42.4,-35.4",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "mount ear and gussets exact material 42.4,35.4",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "left connector wall window",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "left cable approach outside enclosure between mounting ears",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "full left portal obstruction unchanged: body",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "full left portal obstruction unchanged: lid",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "full left portal obstruction unchanged: desk_bracket",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "full left portal obstruction unchanged: pcb_clamp_left_front",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "full left portal obstruction unchanged: pcb_clamp_left_rear",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "full left portal obstruction unchanged: pcb_clamp_right_front",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "full left portal obstruction unchanged: pcb_clamp_right_rear",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "terminal cable approach outside enclosure",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "2 mm inner shell preserved outside intentional right vents",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "corner wall analytical minimum at least 2 mm",
+          "passed": true,
+          "measured": 0,
+          "tolerance": 1e-09
+        },
+        {
+          "name": "body mounting screw/tool path -42.4,-35.4",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "bracket nut insertion sweep -42.4,-35.4",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "body mounting screw/tool path -42.4,35.4",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "bracket nut insertion sweep -42.4,35.4",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "body mounting screw/tool path 42.4,-35.4",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "bracket nut insertion sweep 42.4,-35.4",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "body mounting screw/tool path 42.4,35.4",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "bracket nut insertion sweep 42.4,35.4",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "desk screw/tool path -53.4,-35.4",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "desk screw/tool path -53.4,35.4",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "desk screw/tool path 53.4,-35.4",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "desk screw/tool path 53.4,35.4",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "lid nut insertion sweep -30.0,-40.0",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "lid nut insertion sweep -30.0,40.0",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "lid nut insertion sweep 30.0,-40.0",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "lid nut insertion sweep 30.0,40.0",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "clamp nut insertion sweep -30.5,-17.0",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "clamp nut insertion sweep -30.5,17.0",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "clamp nut insertion sweep 30.5,-17.0",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "clamp nut insertion sweep 30.5,17.0",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        }
+      ],
+      "measurements": {
+        "units": "mm",
+        "pcb_assumed": [
+          52.0,
+          70.0,
+          1.6
+        ],
+        "pcb_bottom_z": 8.4,
+        "pcb_top_z": 10.0,
+        "cavity_xy": [
+          68.0,
+          88.0
+        ],
+        "body_outer_without_ears": [
+          74.8,
+          94.8,
+          32.0
+        ],
+        "main_shell_xy": [
+          72.8,
+          92.8
+        ],
+        "body_outer_with_ears": [
+          96.8,
+          94.8,
+          32.0
+        ],
+        "overall_assembled": [
+          116.8,
+          94.8,
+          43.2
+        ],
+        "style": {
+          "corner_fillet_radius": 2.0,
+          "external_edge_chamfer": 0.6,
+          "belt_projection": 1.0,
+          "belt_z_range": [
+            3.6,
+            8.4
+          ],
+          "corner_wall_min_above_base_bevel": 2.565685424949238,
+          "lid_vent_angle_degrees": 30.0,
+          "lid_vent_count": 9,
+          "side_vent_count": 7,
+          "accent_recess_depth": 0.4
+        },
+        "lid_top_z": 34.4,
+        "desk_contact_z": 43.2,
+        "left_access_yz": [
+          60.0,
+          23.0
+        ],
+        "end_cable_access_xz": [
+          24.0,
+          16.0
+        ],
+        "desk_screw_centers_xy": [
+          [
+            -53.4,
+            -35.4
+          ],
+          [
+            -53.4,
+            35.4
+          ],
+          [
+            53.4,
+            -35.4
+          ],
+          [
+            53.4,
+            35.4
+          ]
+        ],
+        "body_mount_centers_xy": [
+          [
+            -42.4,
+            -35.4
+          ],
+          [
+            -42.4,
+            35.4
+          ],
+          [
+            42.4,
+            -35.4
+          ],
+          [
+            42.4,
+            35.4
+          ]
+        ],
+        "lid_screw_centers_xy": [
+          [
+            -30.0,
+            -40.0
+          ],
+          [
+            -30.0,
+            40.0
+          ],
+          [
+            30.0,
+            -40.0
+          ],
+          [
+            30.0,
+            40.0
+          ]
+        ],
+        "m3_nut_pocket_af": 5.8,
+        "m3_nut_pocket_height": 2.7,
+        "pcb_edge_overlap": 0.8,
+        "pcb_vertical_play": 0.2
+      },
+      "limits": [
+        "Board dimensions and edge contacts remain provisional.",
+        "Physical strength, fit, thermal behavior and printer settings are not validated."
+      ]
+    },
+    {
+      "case": "larger_board",
+      "passed": true,
+      "checks": [
+        {
+          "name": "part names preserved",
+          "passed": true,
+          "measured": 0,
+          "tolerance": 0
+        },
+        {
+          "name": "body: valid single solid",
+          "passed": true,
+          "measured": 0,
+          "tolerance": 0
+        },
+        {
+          "name": "body: print minimum Z",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 1e-06
+        },
+        {
+          "name": "lid: valid single solid",
+          "passed": true,
+          "measured": 0,
+          "tolerance": 0
+        },
+        {
+          "name": "lid: print minimum Z",
+          "passed": true,
+          "measured": -2.886579864025407e-15,
+          "tolerance": 1e-06
+        },
+        {
+          "name": "desk_bracket: valid single solid",
+          "passed": true,
+          "measured": 0,
+          "tolerance": 0
+        },
+        {
+          "name": "desk_bracket: print minimum Z",
+          "passed": true,
+          "measured": -2.755455298081545e-16,
+          "tolerance": 1e-06
+        },
+        {
+          "name": "pcb_clamp_left_front: valid single solid",
+          "passed": true,
+          "measured": 0,
+          "tolerance": 0
+        },
+        {
+          "name": "pcb_clamp_left_front: print minimum Z",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 1e-06
+        },
+        {
+          "name": "pcb_clamp_left_rear: valid single solid",
+          "passed": true,
+          "measured": 0,
+          "tolerance": 0
+        },
+        {
+          "name": "pcb_clamp_left_rear: print minimum Z",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 1e-06
+        },
+        {
+          "name": "pcb_clamp_right_front: valid single solid",
+          "passed": true,
+          "measured": 0,
+          "tolerance": 0
+        },
+        {
+          "name": "pcb_clamp_right_front: print minimum Z",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 1e-06
+        },
+        {
+          "name": "pcb_clamp_right_rear: valid single solid",
+          "passed": true,
+          "measured": 0,
+          "tolerance": 0
+        },
+        {
+          "name": "pcb_clamp_right_rear: print minimum Z",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 1e-06
+        },
+        {
+          "name": "assembly overlap: body/lid",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "assembly overlap: body/desk_bracket",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "assembly overlap: body/pcb_clamp_left_front",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "assembly overlap: body/pcb_clamp_left_rear",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "assembly overlap: body/pcb_clamp_right_front",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "assembly overlap: body/pcb_clamp_right_rear",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "assembly overlap: lid/desk_bracket",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "assembly overlap: lid/pcb_clamp_left_front",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "assembly overlap: lid/pcb_clamp_left_rear",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "assembly overlap: lid/pcb_clamp_right_front",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "assembly overlap: lid/pcb_clamp_right_rear",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "assembly overlap: desk_bracket/pcb_clamp_left_front",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "assembly overlap: desk_bracket/pcb_clamp_left_rear",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "assembly overlap: desk_bracket/pcb_clamp_right_front",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "assembly overlap: desk_bracket/pcb_clamp_right_rear",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "assembly overlap: pcb_clamp_left_front/pcb_clamp_left_rear",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "assembly overlap: pcb_clamp_left_front/pcb_clamp_right_front",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "assembly overlap: pcb_clamp_left_front/pcb_clamp_right_rear",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "assembly overlap: pcb_clamp_left_rear/pcb_clamp_right_front",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "assembly overlap: pcb_clamp_left_rear/pcb_clamp_right_rear",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "assembly overlap: pcb_clamp_right_front/pcb_clamp_right_rear",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "interface measurement unchanged: pcb_assumed",
+          "passed": true,
+          "measured": 0,
+          "tolerance": 0
+        },
+        {
+          "name": "interface measurement unchanged: pcb_bottom_z",
+          "passed": true,
+          "measured": 0,
+          "tolerance": 0
+        },
+        {
+          "name": "interface measurement unchanged: pcb_top_z",
+          "passed": true,
+          "measured": 0,
+          "tolerance": 0
+        },
+        {
+          "name": "interface measurement unchanged: cavity_xy",
+          "passed": true,
+          "measured": 0,
+          "tolerance": 0
+        },
+        {
+          "name": "interface measurement unchanged: lid_top_z",
+          "passed": true,
+          "measured": 0,
+          "tolerance": 0
+        },
+        {
+          "name": "interface measurement unchanged: desk_contact_z",
+          "passed": true,
+          "measured": 0,
+          "tolerance": 0
+        },
+        {
+          "name": "interface measurement unchanged: left_access_yz",
+          "passed": true,
+          "measured": 0,
+          "tolerance": 0
+        },
+        {
+          "name": "interface measurement unchanged: end_cable_access_xz",
+          "passed": true,
+          "measured": 0,
+          "tolerance": 0
+        },
+        {
+          "name": "interface measurement unchanged: desk_screw_centers_xy",
+          "passed": true,
+          "measured": 0,
+          "tolerance": 0
+        },
+        {
+          "name": "interface measurement unchanged: body_mount_centers_xy",
+          "passed": true,
+          "measured": 0,
+          "tolerance": 0
+        },
+        {
+          "name": "interface measurement unchanged: lid_screw_centers_xy",
+          "passed": true,
+          "measured": 0,
+          "tolerance": 0
+        },
+        {
+          "name": "interface measurement unchanged: m3_nut_pocket_af",
+          "passed": true,
+          "measured": 0,
+          "tolerance": 0
+        },
+        {
+          "name": "interface measurement unchanged: m3_nut_pocket_height",
+          "passed": true,
+          "measured": 0,
+          "tolerance": 0
+        },
+        {
+          "name": "interface measurement unchanged: pcb_edge_overlap",
+          "passed": true,
+          "measured": 0,
+          "tolerance": 0
+        },
+        {
+          "name": "interface measurement unchanged: pcb_vertical_play",
+          "passed": true,
+          "measured": 0,
+          "tolerance": 0
+        },
+        {
+          "name": "exact unchanged part: desk_bracket",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "exact unchanged part: pcb_clamp_left_front",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "exact unchanged part: pcb_clamp_left_rear",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "exact unchanged part: pcb_clamp_right_front",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "exact unchanged part: pcb_clamp_right_rear",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "nominal PCB",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "underside solder keepout excluding support strips",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "above-PCB component/wiring keepout excluding clamp strips",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "PCB translation (-0.4,-0.4)",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "PCB translation (-0.4,0.4)",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "PCB translation (0.4,-0.4)",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "PCB translation (0.4,0.4)",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "exact body material inside cavity/floor/retention region",
+          "passed": true,
+          "measured": -7.275957614183426e-12,
+          "tolerance": 0.001
+        },
+        {
+          "name": "exact locating skirt below lid plane",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "lid post exact material -34.0,-45.0",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "lid screw bearing exact material -34.0,-45.0",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "lid post exact material -34.0,45.0",
+          "passed": true,
+          "measured": 4.547473508864641e-13,
+          "tolerance": 0.001
+        },
+        {
+          "name": "lid screw bearing exact material -34.0,45.0",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "lid post exact material 34.0,-45.0",
+          "passed": true,
+          "measured": 9.094947017729282e-13,
+          "tolerance": 0.001
+        },
+        {
+          "name": "lid screw bearing exact material 34.0,-45.0",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "lid post exact material 34.0,45.0",
+          "passed": true,
+          "measured": 4.547473508864641e-13,
+          "tolerance": 0.001
+        },
+        {
+          "name": "lid screw bearing exact material 34.0,45.0",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "mount ear and gussets exact material -46.4,-40.4",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "mount ear and gussets exact material -46.4,40.4",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "mount ear and gussets exact material 46.4,-40.4",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "mount ear and gussets exact material 46.4,40.4",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "left connector wall window",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "left cable approach outside enclosure between mounting ears",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "full left portal obstruction unchanged: body",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "full left portal obstruction unchanged: lid",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "full left portal obstruction unchanged: desk_bracket",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "full left portal obstruction unchanged: pcb_clamp_left_front",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "full left portal obstruction unchanged: pcb_clamp_left_rear",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "full left portal obstruction unchanged: pcb_clamp_right_front",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "full left portal obstruction unchanged: pcb_clamp_right_rear",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "terminal cable approach outside enclosure",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "2 mm inner shell preserved outside intentional right vents",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "corner wall analytical minimum at least 2 mm",
+          "passed": true,
+          "measured": 0,
+          "tolerance": 1e-09
+        },
+        {
+          "name": "body mounting screw/tool path -46.4,-40.4",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "bracket nut insertion sweep -46.4,-40.4",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "body mounting screw/tool path -46.4,40.4",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "bracket nut insertion sweep -46.4,40.4",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "body mounting screw/tool path 46.4,-40.4",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "bracket nut insertion sweep 46.4,-40.4",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "body mounting screw/tool path 46.4,40.4",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "bracket nut insertion sweep 46.4,40.4",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "desk screw/tool path -57.4,-40.4",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "desk screw/tool path -57.4,40.4",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "desk screw/tool path 57.4,-40.4",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "desk screw/tool path 57.4,40.4",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "lid nut insertion sweep -34.0,-45.0",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "lid nut insertion sweep -34.0,45.0",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "lid nut insertion sweep 34.0,-45.0",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "lid nut insertion sweep 34.0,45.0",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "clamp nut insertion sweep -34.5,-17.0",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "clamp nut insertion sweep -34.5,17.0",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "clamp nut insertion sweep 34.5,-17.0",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        },
+        {
+          "name": "clamp nut insertion sweep 34.5,17.0",
+          "passed": true,
+          "measured": 0.0,
+          "tolerance": 0.001
+        }
+      ],
+      "measurements": {
+        "units": "mm",
+        "pcb_assumed": [
+          60.0,
+          80.0,
+          1.6
+        ],
+        "pcb_bottom_z": 8.4,
+        "pcb_top_z": 10.0,
+        "cavity_xy": [
+          76.0,
+          98.0
+        ],
+        "body_outer_without_ears": [
+          83.2,
+          105.2,
+          32.0
+        ],
+        "main_shell_xy": [
+          80.8,
+          102.8
+        ],
+        "body_outer_with_ears": [
+          104.8,
+          105.2,
+          32.0
+        ],
+        "overall_assembled": [
+          124.8,
+          105.2,
+          43.2
+        ],
+        "style": {
+          "corner_fillet_radius": 3.0,
+          "external_edge_chamfer": 0.8,
+          "belt_projection": 1.2,
+          "belt_z_range": [
+            3.6,
+            8.4
+          ],
+          "corner_wall_min_above_base_bevel": 2.151471862576143,
+          "lid_vent_angle_degrees": 25.0,
+          "lid_vent_count": 9,
+          "side_vent_count": 7,
+          "accent_recess_depth": 0.4
+        },
+        "lid_top_z": 34.4,
+        "desk_contact_z": 43.2,
+        "left_access_yz": [
+          60.0,
+          23.0
+        ],
+        "end_cable_access_xz": [
+          24.0,
+          16.0
+        ],
+        "desk_screw_centers_xy": [
+          [
+            -57.4,
+            -40.4
+          ],
+          [
+            -57.4,
+            40.4
+          ],
+          [
+            57.4,
+            -40.4
+          ],
+          [
+            57.4,
+            40.4
+          ]
+        ],
+        "body_mount_centers_xy": [
+          [
+            -46.4,
+            -40.4
+          ],
+          [
+            -46.4,
+            40.4
+          ],
+          [
+            46.4,
+            -40.4
+          ],
+          [
+            46.4,
+            40.4
+          ]
+        ],
+        "lid_screw_centers_xy": [
+          [
+            -34.0,
+            -45.0
+          ],
+          [
+            -34.0,
+            45.0
+          ],
+          [
+            34.0,
+            -45.0
+          ],
+          [
+            34.0,
+            45.0
+          ]
+        ],
+        "m3_nut_pocket_af": 5.8,
+        "m3_nut_pocket_height": 2.7,
+        "pcb_edge_overlap": 0.8,
+        "pcb_vertical_play": 0.2
+      },
+      "limits": [
+        "Board dimensions and edge contacts remain provisional.",
+        "Physical strength, fit, thermal behavior and printer settings are not validated."
+      ]
+    }
+  ]
+}

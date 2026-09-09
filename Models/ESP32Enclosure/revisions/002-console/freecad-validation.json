@@ -1,0 +1,86 @@
+{
+  "freecad_version": "1.1.3",
+  "parts": {
+    "body": {
+      "valid": true,
+      "solid_count": 1,
+      "volume_mm3": 48177.55276086331,
+      "size_mm": [
+        96.80000000000001,
+        95.2,
+        32.0
+      ]
+    },
+    "lid": {
+      "valid": true,
+      "solid_count": 1,
+      "volume_mm3": 14777.77252898659,
+      "size_mm": [
+        72.8,
+        92.8,
+        4.400000000000016
+      ]
+    },
+    "desk_bracket": {
+      "valid": true,
+      "solid_count": 1,
+      "volume_mm3": 16613.45319115569,
+      "size_mm": [
+        116.8,
+        84.8,
+        11.200000000000015
+      ]
+    },
+    "pcb_clamp_left_front": {
+      "valid": true,
+      "solid_count": 1,
+      "volume_mm3": 122.64159446225072,
+      "size_mm": [
+        8.8,
+        8.0,
+        2.0
+      ]
+    },
+    "pcb_clamp_left_rear": {
+      "valid": true,
+      "solid_count": 1,
+      "volume_mm3": 122.64159446225072,
+      "size_mm": [
+        8.8,
+        8.0,
+        2.0
+      ]
+    },
+    "pcb_clamp_right_front": {
+      "valid": true,
+      "solid_count": 1,
+      "volume_mm3": 122.64159446225003,
+      "size_mm": [
+        8.8,
+        8.0,
+        2.0
+      ]
+    },
+    "pcb_clamp_right_rear": {
+      "valid": true,
+      "solid_count": 1,
+      "volume_mm3": 122.64159446225003,
+      "size_mm": [
+        8.8,
+        8.0,
+        2.0
+      ]
+    }
+  },
+  "assembly": {
+    "valid": true,
+    "solid_count": 7,
+    "volume_mm3": 80059.34485885488,
+    "size_mm": [
+      116.8,
+      95.2,
+      43.2
+    ]
+  },
+  "status": "passed"
+}
