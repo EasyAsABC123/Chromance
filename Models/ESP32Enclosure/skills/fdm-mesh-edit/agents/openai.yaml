@@ -1,0 +1,4 @@
+interface:
+  display_name: "FDM Mesh Editing"
+  short_description: "Inspect and modify printable meshes repeatably"
+  default_prompt: "Use $fdm-mesh-edit to inspect this mesh, make the requested modifications, and validate the resulting print geometry."

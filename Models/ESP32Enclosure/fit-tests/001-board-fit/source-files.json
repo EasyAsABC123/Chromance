@@ -1,0 +1,11 @@
+{
+  "model.py": "9105653d72f07a9dd9216dca9829a3e0ac33b16c6bff1a1b439795bf3e8c9c21",
+  "build-test.py": "86e4a1c6c5b1d875ccd0bddec05465de35edb83c6197a407244a3bcaab696c05",
+  "check-fit.py": "f4eea716fa145e03be3c044ac51dbbfbab037a9f67d041979d6e33f2d00ecdc7",
+  "enclosure/model.py": "d014751c877f4266e37f541724088d6e7d8b51c62771a9241c02c0fddb25c369",
+  "enclosure/base_model.py": "103c8bf6fb460702b6b0b6804f771062cfd070c28802840ea654ce5da7ec811c",
+  "enclosure/button_module.py": "f64435e11a52b5d1004753cd37919ed2377d5d5caea45a19ed3b80096518b596",
+  "enclosure/mounting.py": "8463a93558364dcd69e2e21c629888b875f51906d5b5c2a1a1768cbdaa96cd8b",
+  "enclosure/parameters.json": "f738c74836a056fa529ffd1e8df8c59a7d48fbaf13c5211c067bb2c8a567ba39",
+  "parameters.json": "cc0f3d6b2dc2a55134e6b83baf423fe14f36046fbbc14c3692f272d7ed0b11dc"
+}

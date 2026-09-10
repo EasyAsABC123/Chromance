@@ -19,6 +19,18 @@ attachment uses M3×10 screws. The four cartridge mounting inserts remain 4 mm l
 
 ## Open or print
 
+For the first physical fit check, use the **[small board-fit test](fit-tests/001-board-fit/)**:
+a 12.2 mm-high production-derived tray and four unchanged PCB clamps.
+[Download its five-part 3MF](fit-tests/001-board-fit/print-layout.3mf) and follow
+the fit guide before printing the full enclosure. It checks board retention,
+underside solder space and lower connector obstructions; upper geometry is omitted.
+
+The fit review identified two unresolved physical-fit concerns: narrow board-edge
+support and 0.2 mm vertical PCB play. In the inverted enclosure that play can
+reduce the default button idle gap from 0.6 to 0.4 mm. Set and verify the contacts
+with the actual board seated against its clamps in the mounted orientation;
+the idealized switch-depression value is not a measured travel limit.
+
 For native `.f3d` files, use the included [Fusion export script](fusion/README.md)
 inside Fusion on Windows or Mac. It exports the assembly and each part and checks
 the archives after reopening. The native conversion is pending a Fusion run;
@@ -57,6 +69,10 @@ to ZIP bundles; use the portable commands below. ZIP duplicates and reference
 photos are not required to regenerate this numerical model and are omitted.
 
 ## Rebuild
+
+The **[published skills and workflow overview](skills/README.md)** includes portable
+copies of the FDM CAD and mesh-editing skills used with this workbench, plus links
+to the shared builder, mesh checks, FreeCAD inspection and Fusion export helper.
 
 The package uses build123d/OpenCascade for CAD, Trimesh for mesh checks and CPU
 rendering for previews. It includes the source utilities and `uv.lock`; no

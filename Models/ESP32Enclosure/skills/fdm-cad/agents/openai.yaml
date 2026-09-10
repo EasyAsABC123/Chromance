@@ -1,0 +1,4 @@
+interface:
+  display_name: "FDM Engineering CAD"
+  short_description: "Build repeatable CAD parts for FDM printing"
+  default_prompt: "Use $fdm-cad to create a parametric engineering part with validated exports and FDM design notes."
