@@ -16,7 +16,7 @@ here; successful native export and reopening must be confirmed inside Fusion.
    folder `Models/ESP32Enclosure/fusion/ExportEnclosure` and run **ExportEnclosure**.
    In versions with the green **+** button, use it to locate the script folder.
 3. Fusion imports and exports each file. A final message gives the output folder
-   under `fusion/exports/004-heatsets-<timestamp>-<suffix>/`.
+   under `fusion/exports/005-downward-buttons-<timestamp>-<suffix>/`.
 4. Check `fusion-validation.json` has `"status": "passed"`. The bundle contains
    one assembly `.f3d` plus 15 individual part `.f3d` files. Open the assembly
    archive in Fusion to inspect it. A failed run retains a failure report and
@@ -28,7 +28,7 @@ Save As or modify the source STEP files. Fusion still requires its normal
 installation, account and runtime access.
 
 For another preserved version, edit `REVISION` near the top of the script to
-`001-generic`, `002-console` or `003-buttons`. The exported part count follows
+`001-generic`, `002-console`, `003-buttons` or `004-heatsets`. The exported part count follows
 that revision's report. Output folders are Git-ignored while conversion is being
 checked; a passed bundle can be copied into a versioned `fusion/native/` folder.
 

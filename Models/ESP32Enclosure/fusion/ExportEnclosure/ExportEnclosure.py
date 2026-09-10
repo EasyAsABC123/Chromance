@@ -12,7 +12,7 @@ import re
 import traceback
 import uuid
 
-REVISION = "004-heatsets"
+REVISION = "005-downward-buttons"
 PACKAGE = Path(__file__).resolve().parents[2]
 BOUNDS_TOLERANCE_MM = 0.05
 VOLUME_RELATIVE_TOLERANCE = 0.001

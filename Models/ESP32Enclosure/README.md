@@ -6,12 +6,16 @@ paddles. The board envelope is provisionally **52 × 70 mm**; the user's estimat
 15 mm electronics height and the photo-derived connector/button positions still
 need measurement.
 
-**Current revision: [004 — heat-set button contacts](revisions/004-heatsets/).**
-Each paddle now uses an **M3×5 mm heat-set insert and an M3×12 nylon contact screw**
-with a nylon jam nut. This replaces the actuator's embedded nut. The shell nuts
-and the cartridges' separate 4 mm mounting inserts retain their previous design.
+**Current revision: [005 — downward-facing buttons](revisions/005-downward-buttons/).**
+The enclosure mounts with its lid facing the floor. **Press the exposed pads upward.**
+The pads extend 7 mm to clear the mounting ears; a new bracket lets the case slide
+upward into place. Only the bracket and two sliders change from revision 004.
 
-![Current enclosure](revisions/004-heatsets/console-buttons.png)
+Six **M3×5 mm heat-set inserts** are used: four in the desk bracket and two in the
+actuator contacts. The contacts retain **M3×12 nylon screws and jam nuts**; bracket
+attachment uses M3×10 screws. The four cartridge mounting inserts remain 4 mm long.
+
+![Mounted enclosure and button access](revisions/005-downward-buttons/under-desk.png)
 
 ## Open or print
 
@@ -20,23 +24,22 @@ inside Fusion on Windows or Mac. It exports the assembly and each part and check
 the archives after reopening. The native conversion is pending a Fusion run;
 the script does not recreate the Python model's feature history.
 
-- [Assembly STEP](revisions/004-heatsets/assembly.step): 15 printable solids in
+- [Assembly STEP](revisions/005-downward-buttons/assembly.step): 15 printable solids in
   assembly position; open/import in Fusion 360 or FreeCAD. STEP preserves the
   solid geometry. The editable parametric master is Python, not a Fusion timeline.
-- [Individual STEP and 3MF parts](revisions/004-heatsets/parts/): editable solids
+- [Individual STEP and 3MF parts](revisions/005-downward-buttons/parts/): editable solids
   and meshes, oriented for printing.
-- [Print-layout 3MF](revisions/004-heatsets/print-layout.3mf): geometry in
+- [Print-layout 3MF](revisions/005-downward-buttons/print-layout.3mf): geometry in
   millimeters, without a printer or filament profile. Arrange parts for your bed.
-- [Button cutaway](revisions/004-heatsets/button-mechanism.png),
-  [interior](revisions/004-heatsets/interior.png),
-  [exploded view](revisions/004-heatsets/exploded.png), and
-  [hardware STEP](revisions/004-heatsets/hardware-reference.step).
-- [Assembly, hardware and design notes](revisions/004-heatsets/design-notes.md).
+- [Button cutaway](revisions/005-downward-buttons/button-mechanism.png),
+  [interior](revisions/005-downward-buttons/interior.png),
+  [exploded view](revisions/005-downward-buttons/exploded.png), and
+  [hardware STEP](revisions/005-downward-buttons/hardware-reference.step).
+- [Assembly, hardware and design notes](revisions/005-downward-buttons/design-notes.md).
 
-The assembled envelope is **116.8 × 95.2 × 43.2 mm**. Hardware and illustrative
-electronics are excluded from the printable files. The hardware STEP contains
-simplified cartridge hardware only; its threads and the original shell hardware
-are not modeled.
+The printed assembly is **116.8 × 95.2 × 39.6 mm**. Hardware, the desk and direction
+arrows are excluded from the printable files. The hardware STEP contains simplified
+cartridge hardware and bracket inserts; threads and other shell hardware are omitted.
 
 ## Preserved revisions
 
@@ -46,8 +49,9 @@ are not modeled.
 | [002-console](revisions/002-console/) | Approved rounded/chamfered shell, diagonal vents and recessed lid detail |
 | [003-buttons](revisions/003-buttons/) | External magnetic-return paddles with captive nylon contact nuts |
 | [004-heatsets](revisions/004-heatsets/) | M3×5 contact inserts, M3×12 contact screws and local USB-clearance relief |
+| [005-downward-buttons](revisions/005-downward-buttons/) | Inverted case, extended finger pads and straight bracket legs with M3×5 inserts |
 
-Revisions 001–003 are byte-for-byte copies of the prior workbench artifacts.
+Revisions 001–004 are preserved byte-for-byte; the checksum manifest covers 171 files.
 Their archived notes/reports contain historical workstation paths and references
 to ZIP bundles; use the portable commands below. ZIP duplicates and reference
 photos are not required to regenerate this numerical model and are omitted.
@@ -62,11 +66,10 @@ From this directory, with `uv` installed:
 
 ```bash
 uv sync --locked
-uv run --locked python revisions/004-heatsets/build-revision.py --output builds/check
+uv run --locked python revisions/005-downward-buttons/build-revision.py --output builds/check
 uv run --locked python builds/check/render-details.py builds/check
-uv run --locked python scripts/check-heatsets.py --model-dir builds/check \
-  --baseline revisions/002-console/model.py \
-  --prior-module revisions/003-buttons/button_module.py \
+uv run --locked python scripts/check-flipped-mount.py --source builds/check \
+  --baseline revisions/004-heatsets \
   --output builds/check/integration-validation.json
 uv run --locked python -m pytest -q
 uv run --locked python scripts/verify-archives.py
@@ -74,22 +77,21 @@ uv run --locked python scripts/verify-archives.py
 
 The lockfile selects Python 3.13 and pinned CAD/mesh dependencies. The builder
 requires a **new output directory** so it cannot overwrite an archived revision.
-To change dimensions, copy `revisions/004-heatsets/parameters.json`, edit it, and
+To change dimensions, copy `revisions/005-downward-buttons/parameters.json`, edit it, and
 pass `--params your-parameters.json` with a new `--output` directory. Keep
-`model.py`, `button_module.py`, `mounting.py` and the build/render helpers together;
+`model.py`, `base_model.py`, `button_module.py`, `mounting.py` and the build/render helpers together;
 the builder snapshots their source and hashes into every build.
 
 `validation.json` records solid validity, STEP and 3MF read-back, mesh checks,
 dimensions, print orientation and assembly interference. Validation reports in
 the revision directory document the additional mechanism checks.
 
-Revision 004 passed 992 integration checks across four parameter configurations,
-all 15 parts passed STEP/3MF validation and independent FreeCAD reopening, and
-a fresh build from this package reproduced the archived CAD dimensions/volumes.
-The retained integration report records the checked source hashes and the
-original temporary test paths; the command above uses package-relative inputs.
-The five shared workflow tests also pass. Portability was exercised on Linux
-x86_64; other platforms have not been tested.
+The revision's reports cover STEP/3MF read-back, independent FreeCAD inspection,
+button travel, centered fingertip clearance, bracket hardware and vertical case
+installation. Archived integration reports record source hashes and original test
+paths; the command above uses package-relative inputs. The shared workflow tests
+also pass. Portability has been exercised on Linux x86_64; other platforms and
+native Fusion conversion have not been tested here.
 
 For optional independent STEP inspection, run
 `scripts/check-freecad.py <fresh-build-directory>` with a Python interpreter that
@@ -103,10 +105,11 @@ sketch/feature histories. No local FreeCAD launcher or binary is bundled.
 Unfilled PETG is the initial material candidate. Print the body floor-down, the
 lid exterior-down and the bracket desk-contact-face down. Cartridge frames and
 rear keepers print on their outer sides; sliders need local removable support
-under their stepped arms. Keep guide and magnet seats free of support scars.
+under their stepped arms. The extended pads increase the needed support height.
+Keep guide and magnet seats free of support scars.
 Review the short shell bridges in the slicer. No supports are modeled.
 
-The two actuator inserts are modeled as **5 mm long, 4.6 mm outside diameter**
+The six bracket/contact inserts are modeled as **5 mm long, 4.6 mm outside diameter**
 with a **4.0 mm pilot**. M3×5 specifies thread and length, not outside diameter;
 the diameter/pilot are provisional parameters until the actual insert is known.
 Check a material-specific insert and guide-fit coupon before printing the full
