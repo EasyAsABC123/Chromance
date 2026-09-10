@@ -1,0 +1,66 @@
+{
+  "freecad_version": "1.1.3",
+  "parts": {
+    "board_fit_tray": {
+      "valid": true,
+      "solid_count": 1,
+      "volume_mm3": 29307.228511713904,
+      "size_mm": [
+        77.60000004048,
+        95.2,
+        11.6
+      ]
+    },
+    "pcb_clamp_left_front": {
+      "valid": true,
+      "solid_count": 1,
+      "volume_mm3": 141.84159446225078,
+      "size_mm": [
+        10.000000000000004,
+        8.0,
+        2.0
+      ]
+    },
+    "pcb_clamp_left_rear": {
+      "valid": true,
+      "solid_count": 1,
+      "volume_mm3": 141.84159446225078,
+      "size_mm": [
+        10.000000000000004,
+        8.0,
+        2.0
+      ]
+    },
+    "pcb_clamp_right_front": {
+      "valid": true,
+      "solid_count": 1,
+      "volume_mm3": 141.84159446225007,
+      "size_mm": [
+        10.000000000000004,
+        8.0,
+        2.0
+      ]
+    },
+    "pcb_clamp_right_rear": {
+      "valid": true,
+      "solid_count": 1,
+      "volume_mm3": 141.84159446225007,
+      "size_mm": [
+        10.000000000000004,
+        8.0,
+        2.0
+      ]
+    }
+  },
+  "assembly": {
+    "valid": true,
+    "solid_count": 5,
+    "volume_mm3": 29874.594889563145,
+    "size_mm": [
+      77.60000004048,
+      95.2,
+      11.6
+    ]
+  },
+  "status": "passed"
+}

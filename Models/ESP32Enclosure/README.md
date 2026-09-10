@@ -2,16 +2,23 @@
 
 Parametric enclosure for the pictured ESP32/perfboard controller, with console-inspired
 curves, chamfers, ventilation, an under-desk bracket and external EN/RESET and BOOT
-paddles. The board envelope is provisionally **52 × 70 mm**; the user's estimated
-15 mm electronics height and the photo-derived connector/button positions still
-need measurement.
+paddles. The user's [latest measurements](measurements/) separate the
+**49 × 70 × 1 mm perfboard** from the **52 mm ESP32 span**. Confirmed button centers
+are 30 and 16 mm from the bottom edge, each 3.3 mm from the left edge.
 
-**Current revision: [005 — downward-facing buttons](revisions/005-downward-buttons/).**
+**Current fit test: [002 — PCB clamps with heat-set inserts](fit-tests/002-board-fit-heatsets/).**
+It corrects the board retention dimensions and keeps all screws outside the PCB.
+The user ruled out direct fastening through the small PCB holes.
+
+**Latest full enclosure: [005 — downward-facing buttons](revisions/005-downward-buttons/).**
+This archived full model still uses the earlier 52 mm board-retention assumption.
+Its clamps cannot capture the corrected 49 mm substrate; the measured button
+spacing also needs an actuator layout revision. Use the new fit test for this board.
 The enclosure mounts with its lid facing the floor. **Press the exposed pads upward.**
 The pads extend 7 mm to clear the mounting ears; a new bracket lets the case slide
 upward into place. Only the bracket and two sliders change from revision 004.
 
-Six **M3×5 mm heat-set inserts** are used: four in the desk bracket and two in the
+Revision 005 uses six **M3×5 mm heat-set inserts**: four in the desk bracket and two in the
 actuator contacts. The contacts retain **M3×12 nylon screws and jam nuts**; bracket
 attachment uses M3×10 screws. The four cartridge mounting inserts remain 4 mm long.
 
@@ -19,11 +26,15 @@ attachment uses M3×10 screws. The four cartridge mounting inserts remain 4 mm l
 
 ## Open or print
 
-For the first physical fit check, use the **[small board-fit test](fit-tests/001-board-fit/)**:
-a 12.2 mm-high production-derived tray and four unchanged PCB clamps.
-[Download its five-part 3MF](fit-tests/001-board-fit/print-layout.3mf) and follow
-the fit guide before printing the full enclosure. It checks board retention,
-underside solder space and lower connector obstructions; upper geometry is omitted.
+Use the **[corrected board-fit test](fit-tests/002-board-fit-heatsets/)** and its
+[five-part 3MF](fit-tests/002-board-fit-heatsets/print-layout.3mf) to check the
+49 × 70 × 1 mm board. Its four clamps use **M3×5 heat-set inserts and M3×6 screws**.
+Follow its guide for insert dimensions, print orientation and physical checks.
+It checks retention, underside space and lower obstructions; upper components
+and the button mechanisms are outside the test.
+
+The [first clamp fit test](fit-tests/001-board-fit/) is preserved with its original
+52 mm substrate assumption and M3 nuts. It is superseded for the measured board.
 
 The fit review identified two unresolved physical-fit concerns: narrow board-edge
 support and 0.2 mm vertical PCB play. In the inverted enclosure that play can

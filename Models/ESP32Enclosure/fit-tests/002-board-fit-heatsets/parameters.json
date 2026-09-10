@@ -1,0 +1,59 @@
+{
+  "enclosure": {
+    "pcb_width": 49.0,
+    "pcb_length": 70.0,
+    "pcb_thickness": 1.0,
+    "component_reference_width": 52.0,
+    "shell_reference_pcb_thickness": 1.6,
+    "clamp_boss_diameter": 9.2,
+    "clamp_screw_offset_from_pcb_edge": 5.1,
+    "clamp_insert_outer_diameter": 4.6,
+    "clamp_insert_length": 5.0,
+    "clamp_insert_pilot_diameter": 4.0,
+    "clamp_insert_bore_depth": 6.0,
+    "clamp_screw_length": 6.0,
+    "clamp_thickness": 2.0,
+    "board_lateral_play": 0.4,
+    "solder_clearance": 6.0,
+    "component_clearance": 22.0,
+    "side_margin": 8.0,
+    "end_margin": 9.0,
+    "wall": 2.4,
+    "floor": 2.4,
+    "lid_thickness": 2.4,
+    "lid_fit_clearance": 0.3,
+    "lid_skirt_depth": 2.0,
+    "left_access_length": 60.0,
+    "left_access_start_above_pcb": -1.0,
+    "end_cable_width": 24.0,
+    "end_cable_height": 16.0,
+    "clamp_y": 17.0,
+    "board_edge_overlap": 0.8,
+    "board_vertical_play": 0.2,
+    "m3_clearance": 3.4,
+    "m3_nut_across_flats": 5.8,
+    "m3_nut_pocket_height": 2.7,
+    "desk_screw_clearance": 4.5,
+    "bracket_plate_thickness": 3.2,
+    "bracket_clearance_above_body": 8.0,
+    "corner_radius": 3.0,
+    "edge_bevel": 0.8,
+    "belt_projection": 1.2,
+    "belt_bottom": 3.6,
+    "belt_height": 4.8,
+    "vent_angle": 25.0,
+    "lid_vent_width": 2.6,
+    "accent_depth": 0.4
+  },
+  "extra_height_above_clamps": 0.0,
+  "button_centers_from_edges": {
+    "upper_reset": {
+      "from_left": 3.3,
+      "from_bottom": 30.0
+    },
+    "lower_boot": {
+      "from_left": 3.3,
+      "from_bottom": 16.0
+    }
+  }
+}

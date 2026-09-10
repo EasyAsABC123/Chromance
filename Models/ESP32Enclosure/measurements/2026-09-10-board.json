@@ -1,0 +1,56 @@
+{
+  "units": "mm",
+  "source": {
+    "kind": "user_dimensioned_sketch_and_text_confirmation",
+    "date": "2026-09-10",
+    "attachment_sha256": "18537ed5a1f3e37fe95655df1f26d04007629f96d39feaec5bbf2baae9ad3f5d"
+  },
+  "previous_physical_test": {
+    "artifact": "fit-tests/001-board-fit",
+    "user_report": "Printed and test-fitted; dimensions were somewhat off.",
+    "measured_printed_dimensions": null,
+    "fit_accepted": false
+  },
+  "pcb": {
+    "width": 49.0,
+    "length": 70.0,
+    "thickness": 1.0,
+    "status": "user_supplied"
+  },
+  "esp32_span": {
+    "width": 52.0,
+    "status": "read_from_sketch",
+    "alignment": "Sketch suggests overhang on the right; exact left/right overhang split remains unmeasured."
+  },
+  "button_centers": {
+    "datum": "Perfboard left and bottom edges, viewed component-side up with terminals at the top",
+    "upper": {"from_left": 3.3, "from_bottom": 30.0},
+    "lower": {"from_left": 3.3, "from_bottom": 16.0},
+    "status": "user_confirmed_center_dimensions",
+    "identification": "Upper EN/RESET and lower BOOT follow the original board photograph."
+  },
+  "side_view": {
+    "label_12_mm": {"value": 12.0, "status": "vertical_endpoints_need_clarification"},
+    "label_1_mm": {"value": 1.0, "meaning": "PCB thickness", "status": "user_confirmed"},
+    "switch_top_height": null,
+    "maximum_underside_protrusion": null
+  },
+  "mounting": {
+    "use_pcb_mounting_holes": false,
+    "reason": "User reports the holes are too small and abandons direct fastening through them.",
+    "selected_implementation": "Edge clamps fastened to M3x5 heat-set inserts in the printed tray; screws remain outside the PCB."
+  },
+  "cad_coordinate_mapping": {
+    "assumption": "Perfboard centered in the existing enclosure cavity; this is a design placement, not a measured alignment.",
+    "pcb_bounds_xy": [[-24.5, -35.0], [24.5, 35.0]],
+    "upper_button_center_xy": [-21.2, -5.0],
+    "lower_button_center_xy": [-21.2, -19.0],
+    "button_spacing": 14.0
+  },
+  "consequences": [
+    "The earlier 52 mm-wide board retention cannot capture this 49 mm substrate: the old inner ledge faces at X +/-25.2 leave 0.7 mm gaps to the centered PCB edges.",
+    "Board substrate width and populated ESP32 span must remain separate parameters.",
+    "The measured 14 mm button spacing does not fit the archived actuator placement without a layout change. Simply entering the new coordinates violates the housing separation and BOOT-to-gusset constraints.",
+    "The new fit test verifies board retention; actual switch height/travel, upper connectors and the complete actuator layout remain separate checks."
+  ]
+}

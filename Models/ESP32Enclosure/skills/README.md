@@ -17,7 +17,8 @@ the Python runtime is a separate dependency.
 | [FreeCAD inspection script](../scripts/check-freecad.py) | Independent STEP read-back and imported `.FCStd` inspection documents |
 | [Fusion export helper](../fusion/README.md) | Run inside Fusion to convert the STEP assembly and parts to native `.f3d` archives and reopen them for checks; conversion has not yet been run here |
 | [Latest enclosure source](../revisions/005-downward-buttons/model.py) and [parameters](../revisions/005-downward-buttons/parameters.json) | Editable revision 005 model, with earlier revisions retained |
-| [Board-fit test](../fit-tests/001-board-fit/) | Short production-derived tray, original clamps, printable 3MF and a physical-fit checklist |
+| [Corrected board-fit test](../fit-tests/002-board-fit-heatsets/) | 49 × 70 × 1 mm PCB retention, heat-set clamp fasteners, printable 3MF and physical-fit checks |
+| [Recorded measurements](../measurements/) | User measurements, datum definitions and distinctions between confirmed dimensions and remaining assumptions |
 | [Mount and button integration checks](../scripts/check-flipped-mount.py) | Clearances, button travel, hardware engagement and sampled enclosure installation/removal positions |
 
 The enclosure itself is authored with the FDM CAD skill. The mesh skill supports
