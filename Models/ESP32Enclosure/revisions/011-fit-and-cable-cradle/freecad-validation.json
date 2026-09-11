@@ -1,0 +1,166 @@
+{
+  "freecad_version": "1.1.3",
+  "parts": {
+    "body": {
+      "valid": true,
+      "solid_count": 1,
+      "volume_mm3": 46132.63866808928,
+      "size_mm": [
+        93.80000000000001,
+        95.2,
+        32.0
+      ]
+    },
+    "lid": {
+      "valid": true,
+      "solid_count": 1,
+      "volume_mm3": 14075.159539902117,
+      "size_mm": [
+        69.8,
+        92.8,
+        4.400000000000016
+      ]
+    },
+    "desk_bracket": {
+      "valid": true,
+      "solid_count": 1,
+      "volume_mm3": 22117.554153737557,
+      "size_mm": [
+        113.8,
+        84.8,
+        32.20000000000002
+      ]
+    },
+    "pcb_clamp_left_front": {
+      "valid": true,
+      "solid_count": 1,
+      "volume_mm3": 122.64159446225088,
+      "size_mm": [
+        8.8,
+        8.0,
+        2.0
+      ]
+    },
+    "pcb_clamp_left_rear": {
+      "valid": true,
+      "solid_count": 1,
+      "volume_mm3": 122.64159446225088,
+      "size_mm": [
+        8.8,
+        8.0,
+        2.0
+      ]
+    },
+    "pcb_clamp_right_front": {
+      "valid": true,
+      "solid_count": 1,
+      "volume_mm3": 122.6415944622499,
+      "size_mm": [
+        8.8,
+        8.0,
+        2.0
+      ]
+    },
+    "pcb_clamp_right_rear": {
+      "valid": true,
+      "solid_count": 1,
+      "volume_mm3": 122.6415944622499,
+      "size_mm": [
+        8.8,
+        8.0,
+        2.0
+      ]
+    },
+    "reset_frame": {
+      "valid": true,
+      "solid_count": 1,
+      "volume_mm3": 1957.747814654494,
+      "size_mm": [
+        23.200000000000003,
+        14.0,
+        11.800000000000006
+      ]
+    },
+    "reset_slider": {
+      "valid": true,
+      "solid_count": 1,
+      "volume_mm3": 2788.859006136523,
+      "size_mm": [
+        35.5,
+        14.500000000000998,
+        21.000000000001
+      ]
+    },
+    "reset_rear_keeper": {
+      "valid": true,
+      "solid_count": 1,
+      "volume_mm3": 631.0378267093934,
+      "size_mm": [
+        20.800000000000004,
+        14.0,
+        4.850000000000001
+      ]
+    },
+    "reset_moving_magnet_keeper": {
+      "valid": true,
+      "solid_count": 1,
+      "volume_mm3": 16.809999999999988,
+      "size_mm": [
+        2.049999999999997,
+        4.1,
+        2.0
+      ]
+    },
+    "boot_frame": {
+      "valid": true,
+      "solid_count": 1,
+      "volume_mm3": 1957.747814654495,
+      "size_mm": [
+        23.200000000000003,
+        14.0,
+        11.800000000000006
+      ]
+    },
+    "boot_slider": {
+      "valid": true,
+      "solid_count": 1,
+      "volume_mm3": 2788.859006136577,
+      "size_mm": [
+        35.5,
+        14.5,
+        21.000000000002
+      ]
+    },
+    "boot_rear_keeper": {
+      "valid": true,
+      "solid_count": 1,
+      "volume_mm3": 631.0378267093934,
+      "size_mm": [
+        20.800000000000004,
+        14.0,
+        4.850000000000001
+      ]
+    },
+    "boot_moving_magnet_keeper": {
+      "valid": true,
+      "solid_count": 1,
+      "volume_mm3": 16.80999999999999,
+      "size_mm": [
+        2.049999999999997,
+        4.100000000000001,
+        2.0
+      ]
+    }
+  },
+  "assembly": {
+    "valid": true,
+    "solid_count": 15,
+    "volume_mm3": 93604.82803457463,
+    "size_mm": [
+      113.8,
+      95.2,
+      39.60000000000001
+    ]
+  },
+  "status": "passed"
+}

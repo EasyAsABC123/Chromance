@@ -1,0 +1,46 @@
+{
+  "status": "passed",
+  "kind": "Source identity and independent STEP crop comparison",
+  "source_revision": "011-fit-and-cable-cradle",
+  "matched_source_hashes": {
+    "enclosure_model.py": "10d1e669e10a3c8f3e1c065fb0af5a53230cb54c68f1cf59dd86305c811e0df8",
+    "base_model.py": "3354352217c3040538c0fe7b7836c206ea171a1994de4a1c94b4608884bd87db",
+    "button_module.py": "f64435e11a52b5d1004753cd37919ed2377d5d5caea45a19ed3b80096518b596",
+    "mounting.py": "8463a93558364dcd69e2e21c629888b875f51906d5b5c2a1a1768cbdaa96cd8b"
+  },
+  "parameters_sha256": "312700a7f4727c0579b0ecfa28a4961f94b4321c01326001a870e6dde9afe954",
+  "checker_sha256": "f943a894577c71b583a3236468b83b4a4abf8a8d5b8328921744cb99202afd06",
+  "full_step_hashes": {
+    "body": "ea20b5b7e60bc337749577255bbcd2cce3c6940d1c90849df97169cc45a4c49e",
+    "lid": "47afb15b0e74429bf21ff1e3fccdef463bfdf538c0a81b70400f26667e9efdd8"
+  },
+  "parts": {
+    "cable_fit_body": {
+      "added_vs_full_step_crop_mm3": 0,
+      "missing_vs_full_step_crop_mm3": 0,
+      "size_mm": [
+        34.0,
+        11.600000000000001,
+        32.0
+      ],
+      "volume_mm3": 3379.1692223626933,
+      "step_sha256": "755ea861a2a4e05f6b6292cb1dc59a50a40a937b1da70b3550cbd5481ed9b5a9"
+    },
+    "cable_fit_lid": {
+      "added_vs_full_step_crop_mm3": 0,
+      "missing_vs_full_step_crop_mm3": 0,
+      "size_mm": [
+        34.0,
+        10.400000000000002,
+        4.4
+      ],
+      "volume_mm3": 860.319999999999,
+      "step_sha256": "f7f01fe9aa1b097b4f193f1db07227ec44cd934d5bb42b6c6f0dd4a6091867fb"
+    }
+  },
+  "full_anchor_region_preserved": true,
+  "print_orientation_matches_full_parts": true,
+  "physical_fit_tested": false,
+  "physical_strength_tested": false,
+  "scope": "Local threading, seating and lid-clearance coupon; full-shell stiffness and wiring/board fit remain outside this crop."
+}

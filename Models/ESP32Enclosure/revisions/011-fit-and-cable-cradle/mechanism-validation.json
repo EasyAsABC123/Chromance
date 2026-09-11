@@ -1,0 +1,526 @@
+{
+  "status": "passed",
+  "source_hashes": {
+    "model.py": "10d1e669e10a3c8f3e1c065fb0af5a53230cb54c68f1cf59dd86305c811e0df8",
+    "base_model.py": "3354352217c3040538c0fe7b7836c206ea171a1994de4a1c94b4608884bd87db",
+    "button_module.py": "f64435e11a52b5d1004753cd37919ed2377d5d5caea45a19ed3b80096518b596",
+    "mounting.py": "8463a93558364dcd69e2e21c629888b875f51906d5b5c2a1a1768cbdaa96cd8b",
+    "parameters.json": "312700a7f4727c0579b0ecfa28a4961f94b4321c01326001a870e6dde9afe954"
+  },
+  "checker_sha256": "3a5c78708d7625c01c0bcf207b796148e19b40c6560289a4e3521cd5f5dc5aa1",
+  "helper_checker_sha256": "99576fa1906d039570994c7c71d0c3c424e6600dac539889013835b3a4e63453",
+  "printed_part_count": 15,
+  "exported_hardware_count": 34,
+  "additional_independent_bracket_screws": 4,
+  "mounting_access": [
+    {
+      "axis_world_xy_mm": [
+        -40.9,
+        35.4
+      ],
+      "insert": "bracket_mount_insert_1",
+      "screw_length_mm": 10,
+      "ear_thickness_mm": 5,
+      "insert_engagement_mm": 5.0,
+      "blind_tip_relief_mm": 0.4,
+      "minimum_insert_envelope_wall_mm": 1.899999999999996,
+      "driver_diameter_mm": 6,
+      "driver_approach_length_mm": 30,
+      "status": "clear"
+    },
+    {
+      "axis_world_xy_mm": [
+        -40.9,
+        -35.4
+      ],
+      "insert": "bracket_mount_insert_2",
+      "screw_length_mm": 10,
+      "ear_thickness_mm": 5,
+      "insert_engagement_mm": 5.0,
+      "blind_tip_relief_mm": 0.4,
+      "minimum_insert_envelope_wall_mm": 1.899999999999996,
+      "driver_diameter_mm": 6,
+      "driver_approach_length_mm": 30,
+      "status": "clear"
+    },
+    {
+      "axis_world_xy_mm": [
+        40.9,
+        35.4
+      ],
+      "insert": "bracket_mount_insert_3",
+      "screw_length_mm": 10,
+      "ear_thickness_mm": 5,
+      "insert_engagement_mm": 5.0,
+      "blind_tip_relief_mm": 0.4,
+      "minimum_insert_envelope_wall_mm": 1.899999999999996,
+      "driver_diameter_mm": 6,
+      "driver_approach_length_mm": 30,
+      "status": "clear"
+    },
+    {
+      "axis_world_xy_mm": [
+        40.9,
+        -35.4
+      ],
+      "insert": "bracket_mount_insert_4",
+      "screw_length_mm": 10,
+      "ear_thickness_mm": 5,
+      "insert_engagement_mm": 5.0,
+      "blind_tip_relief_mm": 0.4,
+      "minimum_insert_envelope_wall_mm": 1.899999999999996,
+      "driver_diameter_mm": 6,
+      "driver_approach_length_mm": 30,
+      "status": "clear"
+    }
+  ],
+  "desk_screw_axis_access": [
+    {
+      "axis_world_xy_mm": [
+        -51.9,
+        -35.4
+      ],
+      "probe_diameter_mm": 4.4,
+      "status": "clear"
+    },
+    {
+      "axis_world_xy_mm": [
+        -51.9,
+        35.4
+      ],
+      "probe_diameter_mm": 4.4,
+      "status": "clear"
+    },
+    {
+      "axis_world_xy_mm": [
+        51.9,
+        -35.4
+      ],
+      "probe_diameter_mm": 4.4,
+      "status": "clear"
+    },
+    {
+      "axis_world_xy_mm": [
+        51.9,
+        35.4
+      ],
+      "probe_diameter_mm": 4.4,
+      "status": "clear"
+    }
+  ],
+  "sampled_case_installation": [
+    {
+      "case_offset_world_z_mm": 0,
+      "status": "clear"
+    },
+    {
+      "case_offset_world_z_mm": -0.25,
+      "status": "clear"
+    },
+    {
+      "case_offset_world_z_mm": -1,
+      "status": "clear"
+    },
+    {
+      "case_offset_world_z_mm": -2,
+      "status": "clear"
+    },
+    {
+      "case_offset_world_z_mm": -4,
+      "status": "clear"
+    },
+    {
+      "case_offset_world_z_mm": -6,
+      "status": "clear"
+    },
+    {
+      "case_offset_world_z_mm": -8,
+      "status": "clear"
+    },
+    {
+      "case_offset_world_z_mm": -10,
+      "status": "clear"
+    },
+    {
+      "case_offset_world_z_mm": -12,
+      "status": "clear"
+    },
+    {
+      "case_offset_world_z_mm": -16,
+      "status": "clear"
+    },
+    {
+      "case_offset_world_z_mm": -20,
+      "status": "clear"
+    },
+    {
+      "case_offset_world_z_mm": -25,
+      "status": "clear"
+    },
+    {
+      "case_offset_world_z_mm": -30,
+      "status": "clear"
+    },
+    {
+      "case_offset_world_z_mm": -40,
+      "status": "clear"
+    },
+    {
+      "case_offset_world_z_mm": -50,
+      "status": "clear"
+    }
+  ],
+  "button_states": [
+    {
+      "travel_mm": 0,
+      "buttons": {
+        "reset": {
+          "pad_surface_world_xyz_mm": [
+            -45.6,
+            -4.0,
+            4.0
+          ],
+          "press_direction_world": [
+            0,
+            0,
+            1
+          ],
+          "clear_centered_finger_diameters_mm": [
+            12,
+            20
+          ],
+          "magnet_face_gap_mm": 3.6000000000000014,
+          "modeled_switch_contact_gap_mm": 0.6000000000000014
+        },
+        "boot": {
+          "pad_surface_world_xyz_mm": [
+            -45.6,
+            21.0,
+            4.0
+          ],
+          "press_direction_world": [
+            0,
+            0,
+            1
+          ],
+          "clear_centered_finger_diameters_mm": [
+            12,
+            20
+          ],
+          "magnet_face_gap_mm": 3.6000000000000014,
+          "modeled_switch_contact_gap_mm": 0.600000000000005
+        }
+      },
+      "expected_heatset_interactions": [
+        {
+          "hardware": "reset_contact_heatset_insert",
+          "printed": "reset_slider",
+          "expected_displacement_mm3": 20.26327261565416
+        },
+        {
+          "hardware": "boot_contact_heatset_insert",
+          "printed": "boot_slider",
+          "expected_displacement_mm3": 20.26327261565416
+        },
+        {
+          "hardware": "bracket_mount_insert_1",
+          "printed": "desk_bracket",
+          "expected_displacement_mm3": 20.263272615654152
+        },
+        {
+          "hardware": "bracket_mount_insert_2",
+          "printed": "desk_bracket",
+          "expected_displacement_mm3": 20.263272615654152
+        },
+        {
+          "hardware": "bracket_mount_insert_3",
+          "printed": "desk_bracket",
+          "expected_displacement_mm3": 20.263272615654152
+        },
+        {
+          "hardware": "bracket_mount_insert_4",
+          "printed": "desk_bracket",
+          "expected_displacement_mm3": 20.263272615654152
+        },
+        {
+          "hardware": "lid_insert_1",
+          "printed": "body",
+          "expected_displacement_mm3": 20.263272615654138
+        },
+        {
+          "hardware": "lid_insert_2",
+          "printed": "body",
+          "expected_displacement_mm3": 20.263272615654166
+        },
+        {
+          "hardware": "lid_insert_3",
+          "printed": "body",
+          "expected_displacement_mm3": 20.263272615654095
+        },
+        {
+          "hardware": "lid_insert_4",
+          "printed": "body",
+          "expected_displacement_mm3": 20.263272615654195
+        },
+        {
+          "hardware": "pcb_clamp_left_front_insert",
+          "printed": "body",
+          "expected_displacement_mm3": 20.263272615654152
+        },
+        {
+          "hardware": "pcb_clamp_left_rear_insert",
+          "printed": "body",
+          "expected_displacement_mm3": 20.26327261565416
+        },
+        {
+          "hardware": "pcb_clamp_right_front_insert",
+          "printed": "body",
+          "expected_displacement_mm3": 20.263272615654166
+        },
+        {
+          "hardware": "pcb_clamp_right_rear_insert",
+          "printed": "body",
+          "expected_displacement_mm3": 20.263272615654174
+        }
+      ],
+      "unexpected_collisions": []
+    },
+    {
+      "travel_mm": 0.4,
+      "buttons": {
+        "reset": {
+          "pad_surface_world_xyz_mm": [
+            -45.6,
+            -4.0,
+            4.399999999999999
+          ],
+          "press_direction_world": [
+            0,
+            0,
+            1
+          ],
+          "clear_centered_finger_diameters_mm": [
+            12,
+            20
+          ],
+          "magnet_face_gap_mm": 3.200000000000003,
+          "modeled_switch_contact_gap_mm": 0.20000000000000284
+        },
+        "boot": {
+          "pad_surface_world_xyz_mm": [
+            -45.6,
+            21.0,
+            4.399999999999999
+          ],
+          "press_direction_world": [
+            0,
+            0,
+            1
+          ],
+          "clear_centered_finger_diameters_mm": [
+            12,
+            20
+          ],
+          "magnet_face_gap_mm": 3.200000000000003,
+          "modeled_switch_contact_gap_mm": 0.2000000000000064
+        }
+      },
+      "expected_heatset_interactions": [
+        {
+          "hardware": "reset_contact_heatset_insert",
+          "printed": "reset_slider",
+          "expected_displacement_mm3": 20.263272615654152
+        },
+        {
+          "hardware": "boot_contact_heatset_insert",
+          "printed": "boot_slider",
+          "expected_displacement_mm3": 20.263272615654166
+        },
+        {
+          "hardware": "bracket_mount_insert_1",
+          "printed": "desk_bracket",
+          "expected_displacement_mm3": 20.263272615654152
+        },
+        {
+          "hardware": "bracket_mount_insert_2",
+          "printed": "desk_bracket",
+          "expected_displacement_mm3": 20.263272615654152
+        },
+        {
+          "hardware": "bracket_mount_insert_3",
+          "printed": "desk_bracket",
+          "expected_displacement_mm3": 20.263272615654152
+        },
+        {
+          "hardware": "bracket_mount_insert_4",
+          "printed": "desk_bracket",
+          "expected_displacement_mm3": 20.263272615654152
+        },
+        {
+          "hardware": "lid_insert_1",
+          "printed": "body",
+          "expected_displacement_mm3": 20.263272615654138
+        },
+        {
+          "hardware": "lid_insert_2",
+          "printed": "body",
+          "expected_displacement_mm3": 20.263272615654166
+        },
+        {
+          "hardware": "lid_insert_3",
+          "printed": "body",
+          "expected_displacement_mm3": 20.263272615654095
+        },
+        {
+          "hardware": "lid_insert_4",
+          "printed": "body",
+          "expected_displacement_mm3": 20.263272615654195
+        },
+        {
+          "hardware": "pcb_clamp_left_front_insert",
+          "printed": "body",
+          "expected_displacement_mm3": 20.263272615654152
+        },
+        {
+          "hardware": "pcb_clamp_left_rear_insert",
+          "printed": "body",
+          "expected_displacement_mm3": 20.26327261565416
+        },
+        {
+          "hardware": "pcb_clamp_right_front_insert",
+          "printed": "body",
+          "expected_displacement_mm3": 20.263272615654166
+        },
+        {
+          "hardware": "pcb_clamp_right_rear_insert",
+          "printed": "body",
+          "expected_displacement_mm3": 20.263272615654174
+        }
+      ],
+      "unexpected_collisions": []
+    },
+    {
+      "travel_mm": 0.8,
+      "buttons": {
+        "reset": {
+          "pad_surface_world_xyz_mm": [
+            -45.6,
+            -4.0,
+            4.799999999999997
+          ],
+          "press_direction_world": [
+            0,
+            0,
+            1
+          ],
+          "clear_centered_finger_diameters_mm": [
+            12,
+            20
+          ],
+          "magnet_face_gap_mm": 2.8000000000000043,
+          "modeled_switch_contact_gap_mm": -0.19999999999999574
+        },
+        "boot": {
+          "pad_surface_world_xyz_mm": [
+            -45.6,
+            21.0,
+            4.799999999999997
+          ],
+          "press_direction_world": [
+            0,
+            0,
+            1
+          ],
+          "clear_centered_finger_diameters_mm": [
+            12,
+            20
+          ],
+          "magnet_face_gap_mm": 2.8000000000000043,
+          "modeled_switch_contact_gap_mm": -0.19999999999999218
+        }
+      },
+      "expected_heatset_interactions": [
+        {
+          "hardware": "reset_contact_heatset_insert",
+          "printed": "reset_slider",
+          "expected_displacement_mm3": 20.263272615654166
+        },
+        {
+          "hardware": "boot_contact_heatset_insert",
+          "printed": "boot_slider",
+          "expected_displacement_mm3": 20.263272615654174
+        },
+        {
+          "hardware": "bracket_mount_insert_1",
+          "printed": "desk_bracket",
+          "expected_displacement_mm3": 20.263272615654152
+        },
+        {
+          "hardware": "bracket_mount_insert_2",
+          "printed": "desk_bracket",
+          "expected_displacement_mm3": 20.263272615654152
+        },
+        {
+          "hardware": "bracket_mount_insert_3",
+          "printed": "desk_bracket",
+          "expected_displacement_mm3": 20.263272615654152
+        },
+        {
+          "hardware": "bracket_mount_insert_4",
+          "printed": "desk_bracket",
+          "expected_displacement_mm3": 20.263272615654152
+        },
+        {
+          "hardware": "lid_insert_1",
+          "printed": "body",
+          "expected_displacement_mm3": 20.263272615654138
+        },
+        {
+          "hardware": "lid_insert_2",
+          "printed": "body",
+          "expected_displacement_mm3": 20.263272615654166
+        },
+        {
+          "hardware": "lid_insert_3",
+          "printed": "body",
+          "expected_displacement_mm3": 20.263272615654095
+        },
+        {
+          "hardware": "lid_insert_4",
+          "printed": "body",
+          "expected_displacement_mm3": 20.263272615654195
+        },
+        {
+          "hardware": "pcb_clamp_left_front_insert",
+          "printed": "body",
+          "expected_displacement_mm3": 20.263272615654152
+        },
+        {
+          "hardware": "pcb_clamp_left_rear_insert",
+          "printed": "body",
+          "expected_displacement_mm3": 20.26327261565416
+        },
+        {
+          "hardware": "pcb_clamp_right_front_insert",
+          "printed": "body",
+          "expected_displacement_mm3": 20.263272615654166
+        },
+        {
+          "hardware": "pcb_clamp_right_rear_insert",
+          "printed": "body",
+          "expected_displacement_mm3": 20.263272615654174
+        }
+      ],
+      "unexpected_collisions": []
+    }
+  ],
+  "scope": "Finite digital samples for the final narrowed enclosure; no comparison to older printed geometry.",
+  "limitations": [
+    "Installation is sampled at the listed offsets, not a continuous swept-volume proof.",
+    "Both buttons are sampled at0,0.4,0.8 mm travel; intermediate physical motion is untested.",
+    "Physical switch alignment remains unresolved: measured14 mm spacing has not been integrated.",
+    "Centered finger cylinders are clearance probes, not validated ergonomics.",
+    "No load rating, magnetic return force, real tool fit, insert installation or printer verification.",
+    "Cartridge mounting screws are included in the34 proxies; four cartridge insert proxies and actual desk screws are omitted."
+  ]
+}

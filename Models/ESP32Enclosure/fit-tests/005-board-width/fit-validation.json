@@ -1,0 +1,406 @@
+{
+  "status": "passed",
+  "checker_sha256": "93fcf776707d46b8b492b0e17166221abc3da21708e8a30b1f5f051f549a3f1b",
+  "geometry_helper_sha256": "11016e291dc57040f170896841ba55e69b695b3712034283cc0a5cfa6bf44ba6",
+  "source_revision": "011-fit-and-cable-cradle",
+  "baseline_revision": "010-8mm-cable",
+  "source_hashes": {
+    "model.py": "10d1e669e10a3c8f3e1c065fb0af5a53230cb54c68f1cf59dd86305c811e0df8",
+    "base_model.py": "3354352217c3040538c0fe7b7836c206ea171a1994de4a1c94b4608884bd87db",
+    "button_module.py": "f64435e11a52b5d1004753cd37919ed2377d5d5caea45a19ed3b80096518b596",
+    "mounting.py": "8463a93558364dcd69e2e21c629888b875f51906d5b5c2a1a1768cbdaa96cd8b",
+    "parameters.json": "312700a7f4727c0579b0ecfa28a4961f94b4321c01326001a870e6dde9afe954"
+  },
+  "full_export_hashes": {
+    "body": "ea20b5b7e60bc337749577255bbcd2cce3c6940d1c90849df97169cc45a4c49e",
+    "lid": "47afb15b0e74429bf21ff1e3fccdef463bfdf538c0a81b70400f26667e9efdd8",
+    "desk_bracket": "d44ce1dc1a7b11024dfdc13a3d1c4334c065d5d4bd922219fcb2f30c50fe238d",
+    "pcb_clamp_left_front": "f85d67dcde114682a4ca69955539d035a085a808ff8b96ae01c1279c7c18d498",
+    "pcb_clamp_left_rear": "f5c95bd84e4948d45a8262021e7c62856f7cd1fe1b6eb4b06b0a3c744b8a6ba0",
+    "pcb_clamp_right_front": "302b79e02e9d8ff8c16f27b28fb6c0cfebfbb226c1f21b4f844e2e76b4a0d169",
+    "pcb_clamp_right_rear": "60e468ee3f07355061a851d7ba72cfddd36a3d41747958ab90f6438c1a460c34",
+    "reset_frame": "0a080f7f5c83d71f115de39010de1083466c19264bfa227c599e7d1d28a12f28",
+    "reset_slider": "5c247227c0291873bbd2c64af0b1757343940884153d4f558e75d97b601449db",
+    "reset_rear_keeper": "3a380ea0324122e2353a2376c78fa8f531c16efa3598e279710164eb17c0402e",
+    "reset_moving_magnet_keeper": "e4bf233431b11e4f2fbf89bf925efc44daca60b9d03dd5b8775c483ff2744280",
+    "boot_frame": "61307b62ae776427316a705fa4d6ed24b099eda6eb9f41d0ef4ef20a69398865",
+    "boot_slider": "7aa96cdb5752ccfbe135df472862352c6472bbec48a33939f45c413aa2d72a18",
+    "boot_rear_keeper": "fcc8adfbb659fdf7d0e770a3890848d3be644ac9c5b7ca4921fb1d563cca126b",
+    "boot_moving_magnet_keeper": "8f52fdbd2abaa4f7834f51de3984dc92177eefe6f46230c32048e51f0f945f72"
+  },
+  "baseline_export_hashes": {
+    "body": "528b0c840854ca8f74c455509288841da6165425bbe1ecc09d76aa6efb36d4c1",
+    "lid": "9af184c8e39a8640be60e981e68b43f6c91ee8eebd6c950e0feefba71f5b0a1d",
+    "desk_bracket": "2e4978d2dc50ce758ac3829489cf6a4da4eb899222ed1feafa7ca0bbbb1f8554",
+    "pcb_clamp_left_front": "f98cac7c371398c996e386ffa63876b73b68da011dbcba524acae93f9b9e8052",
+    "pcb_clamp_left_rear": "90df51b2638fafe2c061dfeefc286ddb877a3f085488da41a3f1e5d503352b62",
+    "pcb_clamp_right_front": "2f53205008c252a2712701e7b0abc6a794fdf489feea546f97308f592dc571fd",
+    "pcb_clamp_right_rear": "3efc2bf83e909d4d22c55f339449087da58adb35147c7d9f522edac5792f3a35",
+    "reset_frame": "abcdeb32e591241e5cf21d0ac43a6e5b6dcabf5f4c541cb04a377332ebc7b4f5",
+    "reset_slider": "2a69af7a210a76e7f6afab249d1c218150d58e339881563e7841ae31e2475bac",
+    "reset_rear_keeper": "7c3f865ffc3e94ab768b377e73a1f2dc0e05f2d9c99c7003e9238ffa59c4b35f",
+    "reset_moving_magnet_keeper": "c68af21b43dbbc51fbc7ff820410330f8088f2dd41248a2c0c5141694ad6a29b",
+    "boot_frame": "1facd3265620836a4fff60d8bebd7a463749b190aff5d325d9c2ddee72d71bdd",
+    "boot_slider": "d117a049ac067a6f49170f5b47424fbd3fe2921cfa18f98079cd746e58b71d16",
+    "boot_rear_keeper": "b77a5d473c970dde5cb52e46645fc91f01f520236685da43058213dd104712ba",
+    "boot_moving_magnet_keeper": "3d5a5ae718a10f3414dde02ea821991fe33a70f4193f0095c8237851e0b23d88"
+  },
+  "replacement_parts": {
+    "body": {
+      "old_size_mm": [
+        96.80000000000001,
+        95.2,
+        32.0
+      ],
+      "new_size_mm": [
+        93.80000000000001,
+        95.2,
+        32.0
+      ],
+      "reduction_xyz_mm": [
+        3.0,
+        0.0,
+        0.0
+      ]
+    },
+    "lid": {
+      "old_size_mm": [
+        72.8,
+        92.8,
+        4.400000000000013
+      ],
+      "new_size_mm": [
+        69.8,
+        92.8,
+        4.400000000000013
+      ],
+      "reduction_xyz_mm": [
+        3.0,
+        0.0,
+        0.0
+      ]
+    },
+    "desk_bracket": {
+      "old_size_mm": [
+        116.8,
+        84.8,
+        32.20000000000002
+      ],
+      "new_size_mm": [
+        113.8,
+        84.8,
+        32.20000000000002
+      ],
+      "reduction_xyz_mm": [
+        3.0,
+        0.0,
+        0.0
+      ]
+    }
+  },
+  "physically_reusable_print_geometry_after_translation": [
+    "pcb_clamp_left_front",
+    "pcb_clamp_left_rear",
+    "pcb_clamp_right_front",
+    "pcb_clamp_right_rear",
+    "reset_frame",
+    "reset_slider",
+    "reset_rear_keeper",
+    "reset_moving_magnet_keeper",
+    "boot_frame",
+    "boot_slider",
+    "boot_rear_keeper",
+    "boot_moving_magnet_keeper"
+  ],
+  "fastener_center_changes": {
+    "desk_screw_centers_xy": {
+      "before": [
+        [
+          -53.4,
+          -35.4
+        ],
+        [
+          -53.4,
+          35.4
+        ],
+        [
+          53.4,
+          -35.4
+        ],
+        [
+          53.4,
+          35.4
+        ]
+      ],
+      "after": [
+        [
+          -51.9,
+          -35.4
+        ],
+        [
+          -51.9,
+          35.4
+        ],
+        [
+          51.9,
+          -35.4
+        ],
+        [
+          51.9,
+          35.4
+        ]
+      ]
+    },
+    "body_mount_centers_xy": {
+      "before": [
+        [
+          -42.4,
+          -35.4
+        ],
+        [
+          -42.4,
+          35.4
+        ],
+        [
+          42.4,
+          -35.4
+        ],
+        [
+          42.4,
+          35.4
+        ]
+      ],
+      "after": [
+        [
+          -40.9,
+          -35.4
+        ],
+        [
+          -40.9,
+          35.4
+        ],
+        [
+          40.9,
+          -35.4
+        ],
+        [
+          40.9,
+          35.4
+        ]
+      ]
+    },
+    "lid_screw_centers_xy": {
+      "before": [
+        [
+          -30.0,
+          -40.0
+        ],
+        [
+          -30.0,
+          40.0
+        ],
+        [
+          30.0,
+          -40.0
+        ],
+        [
+          30.0,
+          40.0
+        ]
+      ],
+      "after": [
+        [
+          -28.5,
+          -40.0
+        ],
+        [
+          -28.5,
+          40.0
+        ],
+        [
+          28.5,
+          -40.0
+        ],
+        [
+          28.5,
+          40.0
+        ]
+      ]
+    },
+    "pcb_clamp_centers_local_xy_mm": {
+      "before": [
+        [
+          -30.9,
+          -17.0
+        ],
+        [
+          -30.9,
+          17.0
+        ],
+        [
+          30.9,
+          -17.0
+        ],
+        [
+          30.9,
+          17.0
+        ]
+      ],
+      "after": [
+        [
+          -29.4,
+          -17.0
+        ],
+        [
+          -29.4,
+          17.0
+        ],
+        [
+          29.4,
+          -17.0
+        ],
+        [
+          29.4,
+          17.0
+        ]
+      ]
+    }
+  },
+  "overall_size_mm": [
+    113.8,
+    95.20000000000002,
+    39.60000000000001
+  ],
+  "main_shell_width_mm": 69.8,
+  "cavity_width_mm": 65,
+  "pcb_xyz_mm": [
+    49,
+    70,
+    1
+  ],
+  "capture": {
+    "ledge_inner_gap_mm": 47.4,
+    "locating_gap_mm": 49.8,
+    "slot_height_mm": 1.2,
+    "minimum_edge_overlap_mm": 0.4,
+    "bare_pcb_collision_free_poses_xyz_mm": [
+      [
+        -0.4,
+        -0.4,
+        9
+      ],
+      [
+        -0.4,
+        -0.4,
+        9.2
+      ],
+      [
+        -0.4,
+        0,
+        9
+      ],
+      [
+        -0.4,
+        0,
+        9.2
+      ],
+      [
+        -0.4,
+        0.4,
+        9
+      ],
+      [
+        -0.4,
+        0.4,
+        9.2
+      ],
+      [
+        0,
+        -0.4,
+        9
+      ],
+      [
+        0,
+        -0.4,
+        9.2
+      ],
+      [
+        0,
+        0,
+        9
+      ],
+      [
+        0,
+        0,
+        9.2
+      ],
+      [
+        0,
+        0.4,
+        9
+      ],
+      [
+        0,
+        0.4,
+        9.2
+      ],
+      [
+        0.4,
+        -0.4,
+        9
+      ],
+      [
+        0.4,
+        -0.4,
+        9.2
+      ],
+      [
+        0.4,
+        0,
+        9
+      ],
+      [
+        0.4,
+        0,
+        9.2
+      ],
+      [
+        0.4,
+        0.4,
+        9
+      ],
+      [
+        0.4,
+        0.4,
+        9.2
+      ]
+    ]
+  },
+  "coupon": {
+    "test": "005-board-width",
+    "matched_sources": {
+      "enclosure_model.py": "10d1e669e10a3c8f3e1c065fb0af5a53230cb54c68f1cf59dd86305c811e0df8",
+      "base_model.py": "3354352217c3040538c0fe7b7836c206ea171a1994de4a1c94b4608884bd87db",
+      "button_module.py": "f64435e11a52b5d1004753cd37919ed2377d5d5caea45a19ed3b80096518b596",
+      "mounting.py": "8463a93558364dcd69e2e21c629888b875f51906d5b5c2a1a1768cbdaa96cd8b"
+    },
+    "model_sha256": "e1ad86125d50254d949514174f66055e4e81d3a32e2b3f315069f56d43c37636",
+    "frame_step_sha256": "570f411c385aa730b4b8bfa5e2731e5efdeea91357c669994ec87a616f1e442c",
+    "exact_crop_differences_mm3": [
+      0.0,
+      0.0
+    ],
+    "frame_size_mm": [
+      74.60000004048,
+      95.2,
+      12.200000000000001
+    ],
+    "all_four_full_clamps_preserved": true
+  },
+  "physical_fit_tested": false,
+  "limitations": [
+    "Sampled bare-board poses do not check components/solder or bowed PCB.",
+    "Measured 14 mm button spacing and 3.3 mm inset still need a separate actuator layout; current button alignment is provisional.",
+    "Open low frame omits upper shell and central underside collision, full stiffness/warping, full-height tool access and strength."
+  ]
+}

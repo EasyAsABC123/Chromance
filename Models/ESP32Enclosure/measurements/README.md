@@ -30,10 +30,21 @@ For a PCB centered in the cavity, its edges are X ±24.5 and Y ±35. Button cent
 then map to X−21.2, Y−5 and Y−19 in the case's printing coordinates. This centering
 is a design placement; it is not an additional measurement from the sketch.
 
-The archived 52 mm retention has inner ledge faces at X ±25.2. It therefore leaves
-0.7 mm gaps to the corrected substrate edges and cannot capture the centered board.
-The existing 68 mm-wide main cavity can still reserve the 52 mm populated span;
-shrinking the outer case is unnecessary for this retention correction.
+Revision 011 integrates the 49 × 70 × 1 mm substrate into the full enclosure.
+The user reported the locking shelves 3 mm too far apart and explicitly requested
+**3 mm total reduction of the full enclosure width**; see
+[the physical-feedback record](2026-09-11-retention-fit.json). The source print
+was not identified and no absolute printed gap was measured, so printer
+compensation has not been inferred.
+
+The shell width reduces from 72.8 to 69.8 mm and the cavity from 68 to 65 mm.
+Each retention side moves inward 1.5 mm, giving a 49.8 mm locating gap and 47.4 mm
+inner ledge gap. The PCB top stays Z10, with the 1 mm substrate bottom at Z9 and
+a 1.2 mm capture slot. The chosen 6.6 mm underside allowance preserves the top
+datum and overall height; it is not a measured solder protrusion. New
+[test 005](../fit-tests/005-board-width/README.md) checks the revised retention
+using exact full-model geometry. The 52 mm populated span still needs physical
+clearance checks at the clamp locations.
 
 The measured button spacing also needs a later actuator layout change: the current
 4 mm housing offsets produce only 22 mm housing separation, below the 24 mm guard,
@@ -52,3 +63,9 @@ The existing revision 009 support can accommodate this cable in the model. The
 new measurement changes the clearance assessment without requiring a different
 printed support. The legacy `cable_diameter_provisional` input name is retained
 for compatibility; its default value is now the user-supplied 8 mm measurement.
+
+Revision 011 replaces the raised support with an actual **Ø8.4 mm cylindrical
+cutout** in a block, as requested. The measured 8 mm cable seats in this concave
+groove. Radial allowance 0.2 mm and zip-tie dimensions remain provisional. Use
+[test 006](../fit-tests/006-cable-cradle/README.md) for the changed cable geometry;
+old tests 003/004 represent the superseded convex support.

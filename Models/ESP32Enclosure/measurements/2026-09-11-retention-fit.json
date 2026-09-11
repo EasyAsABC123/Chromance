@@ -1,0 +1,24 @@
+{
+  "date": "2026-09-11",
+  "source": "User physical test report and follow-up answer",
+  "reported_result": "The distance for the locking shelf is 3 mm too wide.",
+  "tested_artifact": "Not identified: user answered either board-fit002 or full enclosure.",
+  "requested_correction": "Shrink the full enclosure 3 mm total.",
+  "applied_width_reduction_mm": 3.0,
+  "movement_inward_each_side_mm": 1.5,
+  "full_revision": "011-fit-and-cable-cradle",
+  "board_test": "005-board-width",
+  "pcb_measured_xyz_mm": [
+    49,
+    70,
+    1
+  ],
+  "original_print_measured_gap_mm": null,
+  "printer": null,
+  "material": null,
+  "slicer_settings": null,
+  "printer_compensation_inferred": false,
+  "corrected_revision_physical_fit_tested": false,
+  "cable_request": "Replace raised cylinder with cylindrical cutout so the 8 mm cable sits in a concave block; retained by zip tie.",
+  "cable_test": "006-cable-cradle"
+}
