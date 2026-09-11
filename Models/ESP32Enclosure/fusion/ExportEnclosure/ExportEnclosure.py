@@ -12,7 +12,7 @@ import re
 import traceback
 import uuid
 
-REVISION = "009-cable-retention"
+REVISION = "010-8mm-cable"
 PACKAGE = Path(__file__).resolve().parents[2]
 BOUNDS_TOLERANCE_MM = 0.05
 VOLUME_RELATIVE_TOLERANCE = 0.001

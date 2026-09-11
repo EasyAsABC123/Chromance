@@ -1,4 +1,4 @@
-# Board measurements
+# Board and cable measurements
 
 [2026-09-10-board.json](2026-09-10-board.json) transcribes the user's dimensioned
 sketch and follow-up answers. The numeric record is self-contained; the original
@@ -40,3 +40,15 @@ The measured button spacing also needs a later actuator layout change: the curre
 and place BOOT too close to a mounting gusset. Those guards must remain in place
 until a revised mechanism is modeled and checked. The board-fit coupon omits the
 actuators and cannot validate their positions or travel.
+
+## Cable at the end opening
+
+[2026-09-11-cable.json](2026-09-11-cable.json) records the user's **8 mm outside
+diameter** measurement. Revision 010 and fit test 004 use this value for the cable
+reference and lid-clearance check. The tie's width, thickness and head dimensions
+remain provisional; physical retention and bend clearance have not been tested.
+
+The existing revision 009 support can accommodate this cable in the model. The
+new measurement changes the clearance assessment without requiring a different
+printed support. The legacy `cable_diameter_provisional` input name is retained
+for compatibility; its default value is now the user-supplied 8 mm measurement.

@@ -10,21 +10,24 @@ are 30 and 16 mm from the bottom edge, each 3.3 mm from the left edge.
 It corrects the board retention dimensions and keeps all screws outside the PCB.
 The user ruled out direct fastening through the small PCB holes.
 
-**Latest full enclosure: [009 — cable retention](revisions/009-cable-retention/README.md).**
-A rounded support at the cable exit holds the cable against a solid surface while
-one zip tie passes underneath it and around the cable. The support joins the end
-wall with a 45° underside; its tie passage also has a 45° roof.
+**Latest full enclosure: [010 — measured 8 mm cable](revisions/010-8mm-cable/README.md).**
+The user measured the cable at **8 mm outside diameter**. It fits the existing
+rounded support digitally, with **2.7 mm between the loose tie envelope and the
+lid plane**. All fifteen printed parts match revision 009; no replacement print
+is needed for this measurement update.
 
-**Print the [small cable-fit test](fit-tests/003-cable-retention/print-layout.3mf)
-first.** It contains a section of the actual body and matching lid so you can
-check tie threading, cable seating and closure. Cable and tie sizes are provisional;
-record the physical results before committing to a full body print.
+**[Quick 8 mm cable-fit test](fit-tests/004-8mm-cable/print-layout.3mf)** ·
+[test instructions](fit-tests/004-8mm-cable/README.md) ·
+[measurement record](measurements/2026-09-11-cable.json).
+The two test pieces are unchanged from test 003; reuse them if already printed.
+The updated source, preview and checks use the measured cable diameter. Tie
+width/thickness/head size and physical retention remain unverified.
 
-Only the **body** changes from revision 008. Reuse its lid and all thirteen other
-parts. The lid retains M3×5 heat-set inserts and M3×8 screws; PCB clamps retain
-M3×5 inserts and M3×6 screws. Existing mounting and button hardware are unchanged.
-Use revision 007-or-later PCB clamps with their matching screw positions.
-Do not use M3×10 lid screws: they bottom in the blind pilots.
+The support introduced in revision 009 follows the cable direction and has a
+transverse zip-tie passage, with 45° underside and roof. The lid retains M3×5
+inserts and M3×8 screws; PCB clamps retain M3×5 inserts and M3×6 screws. Mounting
+and button hardware are unchanged. Use revision 007-or-later PCB clamps with
+matching screw positions; M3×10 lid screws are too long for the blind pilots.
 
 This compatibility revision still uses the earlier **52 × 70 × 1.6 mm PCB** assumption.
 Its clamps cannot capture the corrected 49 mm substrate; the measured button
@@ -33,16 +36,16 @@ The enclosure mounts with its lid facing the floor. **Press the exposed pads upw
 The pads extend 7 mm to clear the mounting ears; the revision 005 bracket lets the
 case slide upward into place. Its button layout and mounting geometry are retained.
 
-Revision 009 uses fourteen **M3×5 mm heat-set inserts**: four for the PCB clamps,
+Revision 010 uses fourteen **M3×5 mm heat-set inserts**: four for the PCB clamps,
 four for the lid, four in the desk bracket and two in the actuator contacts.
 The contacts retain **M3×12 nylon screws and separate jam nuts** for adjustment;
 bracket attachment uses M3×10 screws. The four cartridge mounting inserts remain
 **M3×4 mm**, with M3×18 screws. The exported printed parts contain no captive
 hex-nut pockets.
 
-![Cable retention and provisional tie route](revisions/009-cable-retention/cable-routing.png)
+![Measured 8 mm cable and provisional tie route](revisions/010-8mm-cable/cable-routing.png)
 
-[Mounted enclosure and button access](revisions/009-cable-retention/under-desk.png)
+[Mounted enclosure and button access](revisions/010-8mm-cable/under-desk.png)
 
 ## Open or print
 
@@ -67,23 +70,23 @@ inside Fusion on Windows or Mac. It exports the assembly and each part and check
 the archives after reopening. The native conversion is pending a Fusion run;
 the script does not recreate the Python model's feature history.
 
-- [Quick cable-fit print — two-part 3MF](fit-tests/003-cable-retention/print-layout.3mf)
-  and [test instructions](fit-tests/003-cable-retention/README.md).
-- [Replacement body — 3MF](revisions/009-cable-retention/parts/body.3mf).
-- [Assembly STEP](revisions/009-cable-retention/assembly.step): 15 printable solids
+- [Quick 8 mm cable-fit print — two-part 3MF](fit-tests/004-8mm-cable/print-layout.3mf)
+  and [test instructions](fit-tests/004-8mm-cable/README.md).
+- [Body — 3MF, same geometry as revision 009](revisions/010-8mm-cable/parts/body.3mf).
+- [Assembly STEP](revisions/010-8mm-cable/assembly.step): 15 printable solids
   in assembly position; open/import in Fusion 360 or FreeCAD. The editable
   parametric master is Python, not a Fusion timeline.
-- [Individual STEP and 3MF parts](revisions/009-cable-retention/parts/), oriented
-  for printing, and [full print-layout 3MF](revisions/009-cable-retention/print-layout.3mf).
+- [Individual STEP and 3MF parts](revisions/010-8mm-cable/parts/), oriented
+  for printing, and [full print-layout 3MF](revisions/010-8mm-cable/print-layout.3mf).
   These carry model geometry in millimeters without a printer or filament profile.
-- [Cable anchor](revisions/009-cable-retention/cable-anchor.png),
-  [cable/tie routing](revisions/009-cable-retention/cable-routing.png),
-  [lid clearance](revisions/009-cable-retention/cable-closure.png),
-  [interior](revisions/009-cable-retention/interior.png),
-  [exploded view](revisions/009-cable-retention/exploded.png), and
-  [hardware STEP](revisions/009-cable-retention/hardware-reference.step).
-- [Revision guide](revisions/009-cable-retention/README.md) and
-  [design and validation notes](revisions/009-cable-retention/design-notes.md).
+- [Cable anchor](revisions/010-8mm-cable/cable-anchor.png),
+  [cable/tie routing](revisions/010-8mm-cable/cable-routing.png),
+  [lid clearance](revisions/010-8mm-cable/cable-closure.png),
+  [interior](revisions/010-8mm-cable/interior.png),
+  [exploded view](revisions/010-8mm-cable/exploded.png), and
+  [hardware STEP](revisions/010-8mm-cable/hardware-reference.step).
+- [Revision guide](revisions/010-8mm-cable/README.md) and
+  [design and validation notes](revisions/010-8mm-cable/design-notes.md).
 
 The printed assembly is **116.8 × 95.2 × 39.6 mm**. Hardware, the desk and direction
 arrows are excluded from the printable files. The hardware STEP contains **34
@@ -104,11 +107,13 @@ not a complete hardware assembly.
 | [007-pcb-heatsets](revisions/007-pcb-heatsets/) | Four PCB-clamp nut pockets replaced by M3×5 inserts and M3×6 screws; body and four clamps change, retaining compatibility with the other ten revision 006 parts |
 | [008-corner-bosses](revisions/008-corner-bosses/) | Full-height lid posts replaced by short corner pads and 45° wall ribs, with matching lid-skirt clearance; body and lid change, retaining compatibility with the other thirteen revision 007 parts |
 | [009-cable-retention](revisions/009-cable-retention/) | Rounded cable support with a zip-tie passage at the end opening; only the body changes from revision 008, accompanied by a small exact-geometry fit test |
+| [010-8mm-cable](revisions/010-8mm-cable/) | Records the measured 8 mm cable, updates clearance references and the quick test; all fifteen printed parts remain unchanged from revision 009 |
 
-Revisions 001–008 are preserved unchanged. The original checksum manifest covers
+Revisions 001–009 are preserved unchanged. The original checksum manifest covers
 171 files in revisions 001–004; the lid-joint checks compare revision 006 with 005.
 The PCB-clamp checks compare revision 007 with 006; the corner-boss checks compare
-revision 008 with 007. The cable-retention checks compare revision 009 with 008.
+revision 008 with 007. The cable-retention checks compare revision 009 with 008; the measured-cable
+checks confirm unchanged printed geometry and the 8 mm clearance in revision 010.
 Their archived notes/reports contain historical workstation paths and references
 to ZIP bundles; use the portable commands below. ZIP duplicates and reference
 photos are not required to regenerate this numerical model and are omitted.

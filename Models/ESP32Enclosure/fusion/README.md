@@ -3,9 +3,9 @@
 The `ExportEnclosure` script imports the preserved STEP files into Autodesk
 Fusion, writes native `.f3d` archives, reopens them, and compares solid counts,
 volumes and bounding coordinates with the CAD validation report.
-The default is **009-cable-retention**, which adds a rounded cable support and
-zip-tie passage to the body. All fourteen other printed parts and existing
-fasteners remain unchanged from revision 008.
+The default is **010-8mm-cable**, which records the measured 8 mm cable and updates
+its clearance assessment. All fifteen printed parts and existing fasteners remain
+unchanged from revision 009.
 It retains the earlier PCB/button layout; the corrected 49 mm board and measured
 button spacing are documented in the separate [fit test](../fit-tests/002-board-fit-heatsets/).
 
@@ -21,7 +21,7 @@ here; successful native export and reopening must be confirmed inside Fusion.
    folder `Models/ESP32Enclosure/fusion/ExportEnclosure` and run **ExportEnclosure**.
    In versions with the green **+** button, use it to locate the script folder.
 3. Fusion imports and exports each file. A final message gives the output folder
-   under `fusion/exports/009-cable-retention-<timestamp>-<suffix>/`.
+   under `fusion/exports/010-8mm-cable-<timestamp>-<suffix>/`.
 4. Check `fusion-validation.json` has `"status": "passed"`. The bundle contains
    one assembly `.f3d` plus 15 individual part `.f3d` files. Open the assembly
    archive in Fusion to inspect it. A failed run retains a failure report and
@@ -35,7 +35,7 @@ installation, account and runtime access.
 For another preserved version, edit `REVISION` near the top of the script to
 `001-generic`, `002-console`, `003-buttons`, `004-heatsets`,
 `005-downward-buttons`, `006-lid-heatsets`, `007-pcb-heatsets` or
-`008-corner-bosses`. The exported part count follows
+`008-corner-bosses` or `009-cable-retention`. The exported part count follows
 that revision's report. Output folders are Git-ignored while conversion is being
 checked; a passed bundle can be copied into a versioned `fusion/native/` folder.
 

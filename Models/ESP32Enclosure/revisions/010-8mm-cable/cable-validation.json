@@ -1,0 +1,176 @@
+{
+  "status": "passed",
+  "source_hashes": {
+    "model.py": "fa555f378822e53f88835288ac44b825eab1495d3deeeed8c2d086d06d46110e",
+    "base_model.py": "6433929fad926abe18b1ea019f12a56a18b7487d82528a6de1c2e55da5dbc92f",
+    "button_module.py": "f64435e11a52b5d1004753cd37919ed2377d5d5caea45a19ed3b80096518b596",
+    "mounting.py": "8463a93558364dcd69e2e21c629888b875f51906d5b5c2a1a1768cbdaa96cd8b",
+    "parameters.json": "17e2e9ad48e977f1f281f92a3b99a482655e60b114e75f14b3ed4f528fd8b4d8"
+  },
+  "baseline_hashes": {
+    "model.py": "54d74c7b9c865ce003f3ef22d84cff02ba22ca55254cf87064240cfa814d8768",
+    "base_model.py": "6433929fad926abe18b1ea019f12a56a18b7487d82528a6de1c2e55da5dbc92f",
+    "button_module.py": "f64435e11a52b5d1004753cd37919ed2377d5d5caea45a19ed3b80096518b596",
+    "mounting.py": "8463a93558364dcd69e2e21c629888b875f51906d5b5c2a1a1768cbdaa96cd8b",
+    "parameters.json": "64919dcbfbb249b02be09884c109b864ba1bf5f28dad1c38b048cd43298d6e35"
+  },
+  "checker_sha256": "955be9c00bf7204261d5e81c5bf5650b0ee1a13d677525c0c46d31b932f67be9",
+  "helper_checker_sha256": "99576fa1906d039570994c7c71d0c3c424e6600dac539889013835b3a4e63453",
+  "parameter_changes": {
+    "cable_diameter_provisional": [
+      6.0,
+      8.0
+    ]
+  },
+  "unchanged_print_count": 15,
+  "unchanged_hardware_count": 34,
+  "printed_geometry_envelope_unchanged": true,
+  "saddle_geometry_unchanged": true,
+  "cable_diameter_user_measured_mm": 8,
+  "cable_axis_local_z_mm": 24.0,
+  "cable_crown_contact_local_z_mm": 20.0,
+  "cable_top_local_z_mm": 28.000000000000004,
+  "minimum_cable_tie_head_to_lid_mm": 2.6999999999999993,
+  "routing_intersections_mm3": {
+    "cable": {
+      "body": 0.0,
+      "lid": 0.0,
+      "desk_bracket": 0.0,
+      "pcb_clamp_left_front": 0.0,
+      "pcb_clamp_left_rear": 0.0,
+      "pcb_clamp_right_front": 0.0,
+      "pcb_clamp_right_rear": 0.0,
+      "reset_frame": 0.0,
+      "reset_slider": 0.0,
+      "reset_rear_keeper": 0.0,
+      "reset_moving_magnet_keeper": 0.0,
+      "boot_frame": 0.0,
+      "boot_slider": 0.0,
+      "boot_rear_keeper": 0.0,
+      "boot_moving_magnet_keeper": 0.0
+    },
+    "zip_tie_route": {
+      "body": 0.0,
+      "lid": 0.0,
+      "desk_bracket": 0.0,
+      "pcb_clamp_left_front": 0.0,
+      "pcb_clamp_left_rear": 0.0,
+      "pcb_clamp_right_front": 0.0,
+      "pcb_clamp_right_rear": 0.0,
+      "reset_frame": 0.0,
+      "reset_slider": 0.0,
+      "reset_rear_keeper": 0.0,
+      "reset_moving_magnet_keeper": 0.0,
+      "boot_frame": 0.0,
+      "boot_slider": 0.0,
+      "boot_rear_keeper": 0.0,
+      "boot_moving_magnet_keeper": 0.0
+    },
+    "zip_tie_head": {
+      "body": 0.0,
+      "lid": 0.0,
+      "desk_bracket": 0.0,
+      "pcb_clamp_left_front": 0.0,
+      "pcb_clamp_left_rear": 0.0,
+      "pcb_clamp_right_front": 0.0,
+      "pcb_clamp_right_rear": 0.0,
+      "reset_frame": 0.0,
+      "reset_slider": 0.0,
+      "reset_rear_keeper": 0.0,
+      "reset_moving_magnet_keeper": 0.0,
+      "boot_frame": 0.0,
+      "boot_slider": 0.0,
+      "boot_rear_keeper": 0.0,
+      "boot_moving_magnet_keeper": 0.0
+    },
+    "zip_tie_straight_threading_segment": {
+      "body": 0.0,
+      "lid": 0.0,
+      "desk_bracket": 0.0,
+      "pcb_clamp_left_front": 0.0,
+      "pcb_clamp_left_rear": 0.0,
+      "pcb_clamp_right_front": 0.0,
+      "pcb_clamp_right_rear": 0.0,
+      "reset_frame": 0.0,
+      "reset_slider": 0.0,
+      "reset_rear_keeper": 0.0,
+      "reset_moving_magnet_keeper": 0.0,
+      "boot_frame": 0.0,
+      "boot_slider": 0.0,
+      "boot_rear_keeper": 0.0,
+      "boot_moving_magnet_keeper": 0.0
+    }
+  },
+  "threading_intersections_mm3": {
+    "body": 0.0,
+    "lid": 0.0,
+    "desk_bracket": 0.0,
+    "pcb_clamp_left_front": 0.0,
+    "pcb_clamp_left_rear": 0.0,
+    "pcb_clamp_right_front": 0.0,
+    "pcb_clamp_right_rear": 0.0,
+    "reset_frame": 0.0,
+    "reset_slider": 0.0,
+    "reset_rear_keeper": 0.0,
+    "reset_moving_magnet_keeper": 0.0,
+    "boot_frame": 0.0,
+    "boot_slider": 0.0,
+    "boot_rear_keeper": 0.0,
+    "boot_moving_magnet_keeper": 0.0
+  },
+  "cable_insertion_intersections_mm3": {
+    "body": 0.0,
+    "desk_bracket": 0.0,
+    "pcb_clamp_left_front": 0.0,
+    "pcb_clamp_left_rear": 0.0,
+    "pcb_clamp_right_front": 0.0,
+    "pcb_clamp_right_rear": 0.0,
+    "reset_frame": 0.0,
+    "reset_slider": 0.0,
+    "reset_rear_keeper": 0.0,
+    "reset_moving_magnet_keeper": 0.0,
+    "boot_frame": 0.0,
+    "boot_slider": 0.0,
+    "boot_rear_keeper": 0.0,
+    "boot_moving_magnet_keeper": 0.0
+  },
+  "head_access_intersections_mm3": {
+    "body": 0.0,
+    "desk_bracket": 0.0,
+    "pcb_clamp_left_front": 0.0,
+    "pcb_clamp_left_rear": 0.0,
+    "pcb_clamp_right_front": 0.0,
+    "pcb_clamp_right_rear": 0.0,
+    "reset_frame": 0.0,
+    "reset_slider": 0.0,
+    "reset_rear_keeper": 0.0,
+    "reset_moving_magnet_keeper": 0.0,
+    "boot_frame": 0.0,
+    "boot_slider": 0.0,
+    "boot_rear_keeper": 0.0,
+    "boot_moving_magnet_keeper": 0.0
+  },
+  "component_envelope_intersections_mm3": {
+    "cable": 0.0,
+    "zip_tie_route": 0.0,
+    "zip_tie_head": 0.0,
+    "zip_tie_straight_threading_segment": 0.0
+  },
+  "negative_controls_mm3": {
+    "cable_lowered_0_2mm": 1.9009398732163398,
+    "tie_path_lowered_into_floor": 6.000000000000014
+  },
+  "retained_layer_proof": {
+    "report_sha256": "0782a2c4d63f0e869a3b503fc8c40944b238a96ec065dfd7d8c0d96b8a9cd9ed",
+    "nominal_layer_count": 57,
+    "layer_height_mm": 0.2,
+    "maximum_excess_area_mm2": 0.0,
+    "reason": "All printed geometry and print orientations match baseline009 exactly."
+  },
+  "limitations": [
+    "User measured cable diameter8 mm; no physical coupon result is yet recorded.",
+    "Tie dimensions, flexibility, tightening, jacket safety and pull retention remain unverified.",
+    "Loose rectangular tie loop is a clearance reference, not exact bent hardware.",
+    "Existing nominal52x70 board model is retained; measured49 mm layout remains separate."
+  ]
+}

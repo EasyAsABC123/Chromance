@@ -1,0 +1,358 @@
+{
+  "status": "passed",
+  "units": "mm",
+  "parts": {
+    "cable_fit_body": {
+      "cad": {
+        "valid": true,
+        "solid_count": 1,
+        "volume_mm3": 2707.281435194598,
+        "bounds_mm": [
+          [
+            -16.0,
+            -5.799999999999997,
+            0.0
+          ],
+          [
+            16.0,
+            5.800000000000004,
+            32.0
+          ]
+        ],
+        "size_mm": [
+          32.0,
+          11.600000000000001,
+          32.0
+        ]
+      },
+      "step": {
+        "valid": true,
+        "solid_count": 1,
+        "volume_mm3": 2707.2814352322066,
+        "bounds_mm": [
+          [
+            -16.0,
+            -5.799999999999997,
+            0.0
+          ],
+          [
+            16.0,
+            5.800000000000005,
+            32.0
+          ]
+        ],
+        "size_mm": [
+          32.0,
+          11.600000000000001,
+          32.0
+        ]
+      },
+      "mesh": {
+        "vertices": 234,
+        "triangles": 468,
+        "watertight": true,
+        "winding_consistent": true,
+        "positive_volume": true,
+        "volume_mm3": 2707.2029733963677,
+        "size_mm": [
+          32.0,
+          11.6,
+          32.0
+        ],
+        "bounds_mm": [
+          [
+            -16.0,
+            -5.8,
+            0.0
+          ],
+          [
+            16.0,
+            5.8,
+            32.0
+          ]
+        ],
+        "connected_bodies": 1
+      }
+    },
+    "cable_fit_lid": {
+      "cad": {
+        "valid": true,
+        "solid_count": 1,
+        "volume_mm3": 806.2399999999986,
+        "bounds_mm": [
+          [
+            -16.0,
+            -4.6000000000000085,
+            -2.6645352591003757e-15
+          ],
+          [
+            16.000000000000007,
+            5.799999999999994,
+            4.399999999999999
+          ]
+        ],
+        "size_mm": [
+          32.00000000000001,
+          10.400000000000002,
+          4.400000000000001
+        ]
+      },
+      "step": {
+        "valid": true,
+        "solid_count": 1,
+        "volume_mm3": 806.2399999999992,
+        "bounds_mm": [
+          [
+            -16.0,
+            -4.6000000000000085,
+            5.329070518200751e-15
+          ],
+          [
+            16.000000000000004,
+            5.799999999999994,
+            4.400000000000006
+          ]
+        ],
+        "size_mm": [
+          32.0,
+          10.400000000000002,
+          4.4
+        ]
+      },
+      "mesh": {
+        "vertices": 26,
+        "triangles": 48,
+        "watertight": true,
+        "winding_consistent": true,
+        "positive_volume": true,
+        "volume_mm3": 806.2399999999999,
+        "size_mm": [
+          32.0,
+          10.399999999999999,
+          4.4
+        ],
+        "bounds_mm": [
+          [
+            -16.0,
+            -4.6,
+            0.0
+          ],
+          [
+            16.0,
+            5.8,
+            4.4
+          ]
+        ],
+        "connected_bodies": 1
+      }
+    }
+  },
+  "measurements": {
+    "source_revision": "010-8mm-cable",
+    "crop_bounds_in_enclosure_local_mm": [
+      [
+        -16.0,
+        36.0,
+        0
+      ],
+      [
+        16.0,
+        47.6,
+        34.4
+      ]
+    ],
+    "cable_retention": {
+      "status": "Cable diameter supplied by user; physical cable/tie coupon fit pending",
+      "cable_diameter_mm": 8.0,
+      "cable_diameter_status": "user_supplied",
+      "cable_measurement_record": "measurements/2026-09-11-cable.json",
+      "legacy_parameter_note": "cable_diameter_provisional is retained as an input key; default8 mm is measured, tie/head values remain provisional.",
+      "saddle_radius_mm": 4.0,
+      "saddle_length_y_mm": 8.0,
+      "saddle_x_range_mm": [
+        -4.0,
+        4.0
+      ],
+      "saddle_y_range_mm": [
+        37.0,
+        45.0
+      ],
+      "saddle_crown_local_z_mm": 20.0,
+      "saddle_wall_root_local_z_mm": 9.0,
+      "saddle_underside_angle_degrees": 45.0,
+      "saddle_wall_overlap_mm": 1.0,
+      "cable_axis": "local+Y, world-Y",
+      "cable_diameter_provisional_mm": 8.0,
+      "cable_axis_local_xz_mm": [
+        0.0,
+        24.0
+      ],
+      "tie_band_width_provisional_mm": 2.5,
+      "tie_band_thickness_provisional_mm": 1.0,
+      "tie_slot_width_y_mm": 3.2,
+      "tie_slot_floor_local_z_mm": 15.0,
+      "tie_slot_eave_local_z_mm": 16.4,
+      "tie_slot_apex_local_z_mm": 18.0,
+      "tie_slot_roof_angle_degrees": 45.0,
+      "tie_center_local_y_mm": 40.5,
+      "tie_slot_side_clearance_each_mm": 0.35,
+      "tie_slot_vertical_clearance_each_mm": 0.2,
+      "crown_material_above_tunnel_apex_mm": 2.0,
+      "minimum_tunnel_floor_above_wedge_mm": 0.9000000000000004,
+      "tie_head_envelope_xyz_mm": [
+        5.0,
+        5.0,
+        4.0
+      ],
+      "tie_head_center_local_xyz_mm": [
+        7.35,
+        40.5,
+        24.0
+      ],
+      "tie_and_head_top_to_lid_plane_mm": 2.6999999999999993,
+      "saddle_to_nominal_pcb_end_mm": 2.0,
+      "raw_support_volume_mm3": 397.42543507909323,
+      "local_change_bounds_mm": [
+        [
+          -4.1,
+          36.9,
+          8.9
+        ],
+        [
+          4.1,
+          45.099999999999994,
+          20.1
+        ]
+      ],
+      "coupon_bounds_local_mm": [
+        [
+          -16.0,
+          36.0,
+          0
+        ],
+        [
+          16.0,
+          47.6,
+          34.4
+        ]
+      ],
+      "installation": "With lid open, feed tie along X through the saddle tunnel, lay insulated cable along+Y on the rounded crown, and close tie with its head beside the cable. Tighten only enough to retain the jacket; leave internal slack before the electrical termination.",
+      "reference_geometry": "Cable and loose rectangular tie route/head are fit/clearance envelopes, not printable parts or exact cable bends. Bend radius, grip force and pull rating are unverified.",
+      "body_before_volume_mm3": 46405.32544572585,
+      "body_after_volume_mm3": 46746.75088086353,
+      "net_added_volume_mm3": 341.4254351376803
+    },
+    "physical_fit_tested": false,
+    "physical_load_tested": false,
+    "scope": "Exact end-wall/body crop and matching lid crop; cable/tie threading, seating and closure only. Full shell stiffness, electronics fit and pull strength are not established."
+  },
+  "versions": {
+    "python": "3.13.15",
+    "build123d": "0.11.1",
+    "cadquery-ocp-novtk": "7.9.3.1.1",
+    "trimesh": "5.1.0",
+    "manifold3d": "3.5.3",
+    "lib3mf": "2.5.0"
+  },
+  "inputs": {
+    "model_sha256": "b8a687d026b7dd859100c42a8a6155020c483667be48570061b78ca3f58894ee",
+    "parameters_sha256": "17e2e9ad48e977f1f281f92a3b99a482655e60b114e75f14b3ed4f528fd8b4d8"
+  },
+  "thresholds": {
+    "step_dimension_mm": 0.001,
+    "step_volume_relative": 0.0001,
+    "mesh_dimension_mm": 0.05,
+    "mesh_volume_relative": 0.005,
+    "assembly_overlap_mm3": 0.001
+  },
+  "physical_fit_tested": false,
+  "physical_strength_tested": false,
+  "slicer_profile_applied": false,
+  "assembly_overlaps": [],
+  "assembly_step": {
+    "valid": true,
+    "solid_count": 2,
+    "volume_mm3": 3513.521435232206,
+    "bounds_mm": [
+      [
+        -16.0,
+        -5.799999999999997,
+        0.0
+      ],
+      [
+        16.000000000000004,
+        5.800000000000005,
+        34.4
+      ]
+    ],
+    "size_mm": [
+      32.0,
+      11.600000000000001,
+      34.4
+    ]
+  },
+  "print_layout": {
+    "path": "/tmp/chromance-models-publish/Models/ESP32Enclosure/fit-tests/.cad-build-m7711ryp/print-layout.3mf",
+    "normalized_units": "mm",
+    "instance_count": 2,
+    "size_mm": [
+      72.0,
+      11.6,
+      32.0
+    ],
+    "instances": {
+      "1": {
+        "vertices": 234,
+        "triangles": 468,
+        "watertight": true,
+        "winding_consistent": true,
+        "positive_volume": true,
+        "volume_mm3": 2707.202974159986,
+        "size_mm": [
+          32.0,
+          11.6,
+          32.0
+        ],
+        "bounds_mm": [
+          [
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            32.0,
+            11.6,
+            32.0
+          ]
+        ],
+        "connected_bodies": 1
+      },
+      "3": {
+        "vertices": 26,
+        "triangles": 48,
+        "watertight": true,
+        "winding_consistent": true,
+        "positive_volume": true,
+        "volume_mm3": 806.2400000000001,
+        "size_mm": [
+          32.0,
+          10.4,
+          4.4
+        ],
+        "bounds_mm": [
+          [
+            40.0,
+            0.0,
+            0.0
+          ],
+          [
+            72.0,
+            10.4,
+            4.4
+          ]
+        ],
+        "connected_bodies": 1
+      }
+    }
+  }
+}

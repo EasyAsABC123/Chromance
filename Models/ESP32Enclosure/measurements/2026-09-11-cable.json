@@ -1,0 +1,31 @@
+{
+  "units": "mm",
+  "source": {
+    "kind": "user_text_measurement",
+    "date": "2026-09-11",
+    "statement": "8mm diameter"
+  },
+  "cable": {
+    "outside_diameter": 8.0,
+    "status": "user_supplied",
+    "location": "Cable at the enclosure end opening shown in the retention request",
+    "measurement_uncertainty": null
+  },
+  "zip_tie": {
+    "width": null,
+    "thickness": null,
+    "head_xyz": null,
+    "status": "not_measured"
+  },
+  "model_assumptions": {
+    "zip_tie_width": 2.5,
+    "zip_tie_thickness": 1.0,
+    "zip_tie_head_xyz": [
+      5.0,
+      5.0,
+      4.0
+    ]
+  },
+  "physical_fit_tested": false,
+  "consequence": "Use8 mm for the cable reference and clearance checks. Diameter measurement does not establish grip, bend radius or tie fit; verify with the quick cable coupon."
+}
