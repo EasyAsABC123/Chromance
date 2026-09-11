@@ -1,5 +1,6 @@
 """Regenerate source models, export manufacturing geometry, and check read-back."""
 
+from collections import deque
 from contextlib import redirect_stdout
 import hashlib
 import importlib.metadata
@@ -85,6 +86,56 @@ def intersection_volumes(parts):
     return findings
 
 
+def match_layout_bounds(expected_bounds, actual_bounds, tolerance=0.05):
+    """Match every CAD bound to one distinct mesh bound within absolute tolerance.
+
+    Sorting raw floating-point minima is unstable when different print rows share
+    X=0: negligible CAD/mesh rounding can exchange entire rows. A complete
+    bipartite matching compares all six coordinates and also rejects duplicated
+    or missing instances. Alternating paths handle ambiguous near-equal bounds;
+    taking the first candidate greedily would reject some valid permutations.
+    """
+    expected = np.asarray(expected_bounds, dtype=float)
+    actual = np.asarray(actual_bounds, dtype=float)
+    if (expected.shape != actual.shape or expected.ndim != 3 or
+            expected.shape[1:] != (2, 3) or
+            not np.isfinite(expected).all() or not np.isfinite(actual).all()):
+        raise ValueError("3MF print layout transforms or dimensions differ: invalid bounds or instance count")
+    if not math.isfinite(tolerance) or tolerance < 0:
+        raise ValueError("Layout bounds tolerance must be finite and nonnegative")
+    candidates = [np.flatnonzero(np.all(np.abs(actual-bound) <= tolerance, axis=(1, 2))).tolist()
+                  for bound in expected]
+    expected_to_actual = [None] * len(expected)
+    actual_to_expected = [None] * len(actual)
+    for start in range(len(expected)):
+        queue = deque([start])
+        parent = {}
+        matched = False
+        while queue and not matched:
+            expected_index = queue.popleft()
+            for actual_index in candidates[expected_index]:
+                if actual_index in parent:
+                    continue
+                parent[actual_index] = expected_index
+                owner = actual_to_expected[actual_index]
+                if owner is not None:
+                    queue.append(owner)
+                    continue
+                # Walk the alternating path backward, relocating prior matches.
+                while actual_index is not None:
+                    expected_index = parent[actual_index]
+                    previous = expected_to_actual[expected_index]
+                    expected_to_actual[expected_index] = actual_index
+                    actual_to_expected[actual_index] = expected_index
+                    actual_index = previous
+                matched = True
+                break
+        if not matched:
+            raise ValueError("3MF print layout transforms or dimensions differ: "
+                             f"no one-to-one bounds match within {tolerance:g} mm")
+    return expected_to_actual
+
+
 def build_project(model_path, params_path, output, previews=True):
     model_path, params_path = Path(model_path).resolve(), Path(params_path).resolve()
     output = Path(output).resolve()
@@ -143,11 +194,21 @@ def build_project(model_path, params_path, output, previews=True):
         layout_report = mesh_inspect(temp / "print-layout.3mf")
         if layout_report["instance_count"] != len(layout):
             raise ValueError("3MF print layout did not preserve separate parts")
-        # Compare transformed positions as well as local part extents.
-        expected_bounds = sorted([solid_properties(s)["bounds_mm"] for s in layout.values()], key=lambda x: x[0])
-        actual_bounds = sorted([m.bounds.tolist() for _, m in load_mesh_instances(temp / "print-layout.3mf")], key=lambda x: x[0])
-        if not np.allclose(actual_bounds, expected_bounds, atol=0.05, rtol=0):
-            raise ValueError("3MF print layout transforms or dimensions differ")
+        # Compare complete transformed bounds with one-to-one matching. Neither
+        # object order nor floating-point sorting may define instance identity.
+        expected_names = list(layout)
+        expected_bounds = [solid_properties(s)["bounds_mm"] for s in layout.values()]
+        actual_instances = load_mesh_instances(temp / "print-layout.3mf")
+        actual_bounds = [m.bounds.tolist() for _, m in actual_instances]
+        matching = match_layout_bounds(expected_bounds, actual_bounds, tolerance=0.05)
+        layout_report["bounds_comparison"] = {
+            "absolute_tolerance_mm": 0.05, "relative_tolerance": 0.0,
+            "one_to_one": True,
+            "matches": [{"part": expected_names[i], "mesh_instance": actual_instances[j][0],
+                         "maximum_absolute_error_mm": float(np.max(np.abs(
+                             np.asarray(expected_bounds[i])-np.asarray(actual_bounds[j]))))}
+                        for i, j in enumerate(matching)],
+        }
         report["print_layout"] = layout_report
         report["status"] = "passed"
         (temp / "model.py").write_bytes(model_source)
