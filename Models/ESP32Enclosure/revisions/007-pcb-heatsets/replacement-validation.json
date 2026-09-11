@@ -1,0 +1,153 @@
+{
+  "path": "/tmp/chromance-models-publish/Models/ESP32Enclosure/revisions/007-pcb-heatsets/replacement-parts.3mf",
+  "normalized_units": "mm",
+  "instance_count": 5,
+  "size_mm": [
+    164.0,
+    95.2,
+    32.0
+  ],
+  "instances": {
+    "1": {
+      "vertices": 9204,
+      "triangles": 18464,
+      "watertight": true,
+      "winding_consistent": true,
+      "positive_volume": true,
+      "volume_mm3": 49532.05036134263,
+      "size_mm": [
+        96.8,
+        95.2,
+        32.0
+      ],
+      "bounds_mm": [
+        [
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          96.8,
+          95.2,
+          32.0
+        ]
+      ],
+      "connected_bodies": 1
+    },
+    "3": {
+      "vertices": 260,
+      "triangles": 520,
+      "watertight": true,
+      "winding_consistent": true,
+      "positive_volume": true,
+      "volume_mm3": 122.64912369588001,
+      "size_mm": [
+        8.799999999999997,
+        8.0,
+        2.0
+      ],
+      "bounds_mm": [
+        [
+          104.8,
+          0.0,
+          0.0
+        ],
+        [
+          113.6,
+          8.0,
+          2.0
+        ]
+      ],
+      "connected_bodies": 1
+    },
+    "5": {
+      "vertices": 260,
+      "triangles": 520,
+      "watertight": true,
+      "winding_consistent": true,
+      "positive_volume": true,
+      "volume_mm3": 122.6489902919681,
+      "size_mm": [
+        8.799992000000003,
+        8.0,
+        2.0
+      ],
+      "bounds_mm": [
+        [
+          121.6,
+          0.0,
+          0.0
+        ],
+        [
+          130.399992,
+          8.0,
+          2.0
+        ]
+      ],
+      "connected_bodies": 1
+    },
+    "7": {
+      "vertices": 260,
+      "triangles": 520,
+      "watertight": true,
+      "winding_consistent": true,
+      "positive_volume": true,
+      "volume_mm3": 122.64910436716825,
+      "size_mm": [
+        8.799999999999983,
+        8.0,
+        2.0
+      ],
+      "bounds_mm": [
+        [
+          138.4,
+          0.0,
+          0.0
+        ],
+        [
+          147.2,
+          8.0,
+          2.0
+        ]
+      ],
+      "connected_bodies": 1
+    },
+    "9": {
+      "vertices": 260,
+      "triangles": 520,
+      "watertight": true,
+      "winding_consistent": true,
+      "positive_volume": true,
+      "volume_mm3": 122.64910436716825,
+      "size_mm": [
+        8.800000000000011,
+        8.0,
+        2.0
+      ],
+      "bounds_mm": [
+        [
+          155.2,
+          0.0,
+          0.0
+        ],
+        [
+          164.0,
+          8.0,
+          2.0
+        ]
+      ],
+      "connected_bodies": 1
+    }
+  },
+  "status": "passed",
+  "printed_parts": [
+    "body",
+    "pcb_clamp_left_front",
+    "pcb_clamp_left_rear",
+    "pcb_clamp_right_front",
+    "pcb_clamp_right_rear"
+  ],
+  "physical_fit_tested": false,
+  "slicer_profile_applied": false,
+  "note": "Body plus four matching PCB clamps only; other ten revision006 parts are reusable."
+}

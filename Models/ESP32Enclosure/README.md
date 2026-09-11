@@ -10,28 +10,31 @@ are 30 and 16 mm from the bottom edge, each 3.3 mm from the left edge.
 It corrects the board retention dimensions and keeps all screws outside the PCB.
 The user ruled out direct fastening through the small PCB holes.
 
-**Latest full enclosure: [006 — heat-set lid joints](revisions/006-lid-heatsets/README.md).**
-The four lid nut pockets are replaced by **M3×5 heat-set inserts and M3×8 lid screws**.
-Only the body changes from revision 005. The other fourteen printed parts,
-including the lid, remain unchanged and compatible. **Do not reuse the old
-M3×10 lid screws:** they bottom in the new blind pilots.
+**Latest full enclosure: [007 — heat-set PCB clamps](revisions/007-pcb-heatsets/README.md).**
+The four remaining PCB-clamp nut pockets are replaced by **M3×5 heat-set inserts
+and M3×6 clamp screws**. Reprint the body and all four PCB clamps together; the
+other ten printed parts remain unchanged from revision 006. The clamp screw axes
+move outward by 0.4 mm, so do not mix the new body with earlier clamps.
+The lid retains revision 006's **M3×5 inserts and M3×8 screws**. **Do not reuse the
+old M3×10 lid screws:** they bottom in the blind pilots.
 
-This compatibility revision still uses the earlier 52 mm board-retention assumption.
+This compatibility revision still uses the earlier **52 × 70 × 1.6 mm PCB** assumption.
 Its clamps cannot capture the corrected 49 mm substrate; the measured button
 spacing also needs an actuator layout revision. Use the new fit test for this board.
 The enclosure mounts with its lid facing the floor. **Press the exposed pads upward.**
 The pads extend 7 mm to clear the mounting ears; the revision 005 bracket lets the
 case slide upward into place. Its button layout and mounting geometry are retained.
 
-Revision 006 uses ten **M3×5 mm heat-set inserts**: four for the lid, four in the
-desk bracket and two in the actuator contacts. The contacts retain **M3×12 nylon
-screws and jam nuts**; bracket attachment uses M3×10 screws. The four cartridge
-mounting inserts remain **M3×4 mm**. The four PCB-clamp hex nuts remain in this
-archived board layout; the separate corrected fit test uses heat-set edge clamps.
+Revision 007 uses fourteen **M3×5 mm heat-set inserts**: four for the PCB clamps,
+four for the lid, four in the desk bracket and two in the actuator contacts.
+The contacts retain **M3×12 nylon screws and separate jam nuts** for adjustment;
+bracket attachment uses M3×10 screws. The four cartridge mounting inserts remain
+**M3×4 mm**, with M3×18 screws. The exported printed parts contain no captive
+hex-nut pockets.
 
-![Lid screw and heat-set insert joint](revisions/006-lid-heatsets/lid-joint.png)
+![PCB clamp screw and heat-set insert joint](revisions/007-pcb-heatsets/pcb-joint.png)
 
-[Mounted enclosure and button access](revisions/006-lid-heatsets/under-desk.png)
+[Mounted enclosure and button access](revisions/007-pcb-heatsets/under-desk.png)
 
 ## Open or print
 
@@ -56,26 +59,30 @@ inside Fusion on Windows or Mac. It exports the assembly and each part and check
 the archives after reopening. The native conversion is pending a Fusion run;
 the script does not recreate the Python model's feature history.
 
-- [Assembly STEP](revisions/006-lid-heatsets/assembly.step): 15 printable solids in
+- [Assembly STEP](revisions/007-pcb-heatsets/assembly.step): 15 printable solids in
   assembly position; open/import in Fusion 360 or FreeCAD. STEP preserves the
   solid geometry. The editable parametric master is Python, not a Fusion timeline.
-- [Individual STEP and 3MF parts](revisions/006-lid-heatsets/parts/): editable solids
+- [Individual STEP and 3MF parts](revisions/007-pcb-heatsets/parts/): editable solids
   and meshes, oriented for printing.
-- [Print-layout 3MF](revisions/006-lid-heatsets/print-layout.3mf): geometry in
+- [Replacement-parts 3MF](revisions/007-pcb-heatsets/replacement-parts.3mf): the new
+  body and four matching PCB clamps for upgrading revision 006.
+  [See the five-part layout](revisions/007-pcb-heatsets/replacement-parts.png).
+- [Print-layout 3MF](revisions/007-pcb-heatsets/print-layout.3mf): geometry in
   millimeters, without a printer or filament profile. Arrange parts for your bed.
-- [Lid-joint detail](revisions/006-lid-heatsets/lid-joint.png),
-  [button cutaway](revisions/006-lid-heatsets/button-mechanism.png),
-  [interior](revisions/006-lid-heatsets/interior.png),
-  [exploded view](revisions/006-lid-heatsets/exploded.png), and
-  [hardware STEP](revisions/006-lid-heatsets/hardware-reference.step).
-- [Revision guide](revisions/006-lid-heatsets/README.md) and
-  [assembly, hardware and design notes](revisions/006-lid-heatsets/design-notes.md).
+- [PCB-joint detail](revisions/007-pcb-heatsets/pcb-joint.png),
+  [lid-joint detail](revisions/007-pcb-heatsets/lid-joint.png),
+  [button cutaway](revisions/007-pcb-heatsets/button-mechanism.png),
+  [interior](revisions/007-pcb-heatsets/interior.png),
+  [exploded view](revisions/007-pcb-heatsets/exploded.png), and
+  [hardware STEP](revisions/007-pcb-heatsets/hardware-reference.step).
+- [Revision guide](revisions/007-pcb-heatsets/README.md) and
+  [assembly, hardware and design notes](revisions/007-pcb-heatsets/design-notes.md).
 
 The printed assembly is **116.8 × 95.2 × 39.6 mm**. Hardware, the desk and direction
-arrows are excluded from the printable files. The hardware STEP contains **26
-simplified proxies**: the existing cartridge hardware and bracket inserts, plus
-four new lid inserts and four lid screws. Threads and the remaining shell fasteners
-are omitted; this is not a complete hardware assembly.
+arrows are excluded from the printable files. The hardware STEP contains **34
+simplified proxies**: cartridge hardware, bracket inserts, lid inserts and screws,
+and PCB-clamp inserts and screws. Threads and some fasteners are omitted; this is
+not a complete hardware assembly.
 
 ## Preserved revisions
 
@@ -87,9 +94,11 @@ are omitted; this is not a complete hardware assembly.
 | [004-heatsets](revisions/004-heatsets/) | M3×5 contact inserts, M3×12 contact screws and local USB-clearance relief |
 | [005-downward-buttons](revisions/005-downward-buttons/) | Inverted case, extended finger pads and straight bracket legs with M3×5 inserts |
 | [006-lid-heatsets](revisions/006-lid-heatsets/) | Four lid nut pockets replaced by M3×5 inserts and M3×8 screws; only the body changes, retaining compatibility with the other revision 005 parts |
+| [007-pcb-heatsets](revisions/007-pcb-heatsets/) | Four PCB-clamp nut pockets replaced by M3×5 inserts and M3×6 screws; body and four clamps change, retaining compatibility with the other ten revision 006 parts |
 
-Revisions 001–005 are preserved unchanged. The original checksum manifest covers
+Revisions 001–006 are preserved unchanged. The original checksum manifest covers
 171 files in revisions 001–004; the lid-joint checks compare revision 006 with 005.
+The PCB-clamp checks compare revision 007 with 006.
 Their archived notes/reports contain historical workstation paths and references
 to ZIP bundles; use the portable commands below. ZIP duplicates and reference
 photos are not required to regenerate this numerical model and are omitted.
@@ -108,18 +117,18 @@ From this directory, with `uv` installed:
 
 ```bash
 uv sync --locked
-uv run --locked python revisions/006-lid-heatsets/build-revision.py --output builds/check
+uv run --locked python revisions/007-pcb-heatsets/build-revision.py --output builds/check
 uv run --locked python builds/check/render-details.py builds/check
-uv run --locked python scripts/check-lid-heatsets.py --source builds/check \
-  --baseline revisions/005-downward-buttons \
-  --output builds/check/lid-validation.json
+uv run --locked python scripts/check-pcb-heatsets.py --source builds/check \
+  --baseline revisions/006-lid-heatsets \
+  --output builds/check/pcb-validation.json
 uv run --locked python -m pytest -q
 uv run --locked python scripts/verify-archives.py
 ```
 
 The lockfile selects Python 3.13 and pinned CAD/mesh dependencies. The builder
 requires a **new output directory** so it cannot overwrite an archived revision.
-To change dimensions, copy `revisions/006-lid-heatsets/parameters.json`, edit it, and
+To change dimensions, copy `revisions/007-pcb-heatsets/parameters.json`, edit it, and
 pass `--params your-parameters.json` with a new `--output` directory. Keep
 `model.py`, `base_model.py`, `button_module.py`, `mounting.py` and the build/render helpers together;
 the builder snapshots their source and hashes into every build.
@@ -128,9 +137,10 @@ the builder snapshots their source and hashes into every build.
 dimensions, print orientation and assembly interference. Validation reports in
 the revision directory document the additional mechanism checks.
 
-The revision 006 reports cover STEP/3MF read-back, independent FreeCAD inspection,
-lid-post changes, screw engagement, hardware clearance and preservation of the
-other fourteen printed parts. Revision 005 retains its button-travel, fingertip,
+The revision 007 reports cover STEP/3MF read-back, independent FreeCAD inspection,
+PCB-post changes, screw engagement, hardware clearance and preservation of the
+other ten printed parts. Revision 006 retains its lid-joint checks. Revision 005
+retains its button-travel, fingertip,
 bracket and case-installation checks. Archived reports record source hashes and
 original test paths; the command above uses package-relative inputs. The shared workflow tests
 also pass. Portability has been exercised on Linux x86_64; other platforms and
@@ -152,14 +162,18 @@ under their stepped arms. The extended pads increase the needed support height.
 Keep guide and magnet seats free of support scars.
 Review the short shell bridges in the slicer. No supports are modeled.
 
-The ten lid/bracket/contact inserts are modeled as **5 mm long, 4.6 mm outside diameter**
+The fourteen PCB/lid/bracket/contact inserts are modeled as **5 mm long, 4.6 mm outside diameter**
 with a **4.0 mm pilot**. M3×5 specifies thread and length, not outside diameter;
 the diameter/pilot are provisional parameters until the actual insert is known.
 Check a material-specific insert and guide-fit coupon before printing the full
 set. The four cartridge mounting inserts are a different, **4 mm-long** part.
-The new lid pilots are **6 mm deep**. M3×8 screws through the unchanged 2.4 mm lid
+The lid pilots are **6 mm deep**. M3×8 screws through the unchanged 2.4 mm lid
 give 5 mm nominal insert engagement and 0.4 mm blind-tip clearance. Install these
 four inserts flush from the open body rim before fitting the lid.
+The four PCB-clamp pilots are also **6 mm deep**. Their M3×6 screws give 4 mm
+nominal engagement and 2 mm blind-tip clearance. Install the inserts flush with
+the boss tops before placing the PCB and clamps. These screws capture the board
+edges without passing through the PCB.
 
 The magnet return uses two captive Ø4 × 2 mm magnets per paddle, with like poles
 facing. Return force, physical switch travel, connector fit, thermal behavior,
