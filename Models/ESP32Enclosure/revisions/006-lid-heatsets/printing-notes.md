@@ -1,0 +1,25 @@
+# Printing and assembly notes
+
+Model geometry in millimeters; no slicer profile or physical testing applied.
+
+- Revision006 changes only revision005 body lid-post drilling: four M3x5 heat-set pilots replace the four lid hex pockets and side entries. The other fourteen printed parts are unchanged, including the existing lid. All older revisions and board-fit tests remain preserved.
+- The enclosure and its hardware rotate 180 degrees about X, then translate by Z=38 mm. The USB/button side stays -X; the cable end changes from +Y to -Y. World +Z points toward the desk.
+- The floor faces the desk with 2 mm clearance below the bracket plate. The lid and extended paddle faces point downward: reach from below and press upward through 0.8 mm nominal travel.
+- Each existing finger pad is extended 7 mm in its original local +Z direction, with 0.6 mm overlap and a new 0.5 mm top chamfer. Guide, magnets, contact insert, nylon tip and positive stops are unchanged; motion remains rigid 1:1.
+- All button parameters and their original measurement fields remain in the source frame. Use mount_transform for world placement and slider_pad_extensions for the added pads; buttons[name].pad_world gives the new exposed faces and press direction.
+- Desk contact remains at Z=43.2 mm and all four desk screw positions are unchanged. Straight bracket legs leave 0.6 mm belt clearance along the full insertion path and 0.3 mm clearance to the existing ear gussets.
+- The existing bracket uses four M3x5 heat-set inserts. Its M3x10 screws pass upward through the flipped 5 mm ears for 5 mm nominal insert engagement and 0.4 mm blind-tip clearance. The four archived PCB-clamp nuts remain unchanged; lid nuts are removed in this revision.
+- Lid hardware: four M3x5 heat-set inserts, provisional OD4.6 mm, and four M3x8 socket screws. The pilot is diameter4 x6 mm deep; the existing diameter8.8 mm post retains 2.1 mm radial polymer.
+- Each lid screw passes through 2.4 mm of lid and projects 5.6 mm, engaging the full 5 mm insert with 0.4 mm blind-tip clearance. Do not reuse revision005 M3x10 lid screws: they bottom in these blind pilots. No washers are assumed.
+- Install the four lid inserts flush from the open body rim before closing the lid. Actual insert outside diameter and the pilot fit remain provisional; verify the purchased insert and the intended filament with a fit coupon.
+- Bracket insert OD 4.6 mm and pilot 4 mm remain provisional. Blind pilot depth is 5.4 mm; the printed legs retain 1.9 mm inboard and 2 mm Y material to the insert envelope. Verify the actual insert drawing and a printed fit coupon.
+- Install the bracket inserts from the lower leg faces on the bench. Fix the bracket to the desk, raise the enclosure vertically between its legs, and fit the four M3x10 screws from below. Select desk screw penetration after measuring desk material and thickness.
+- Each bracket insert intentionally displaces its own pilot. The exact insert/desk_bracket host pairs are declared separately from unexpected interference; hardware proxies are excluded from printed exports.
+- The original ears and their ribs carry enclosure weight through the four M3 screws into the bracket posts and crossbars. Top gussets distribute post load. No strength or creep load rating is assigned.
+- With the PCB inverted, its four removable edge clamps support board weight. Confirm the provisional 0.8 mm bare-edge overlap and retention; secure heavy cables independently.
+- Print the new bracket with its desk-contact face on the bed. Print the extended sliders with their new finger-pad faces on the bed, matching the original slider rotation; the longer extensions raise the arms and guides farther from the bed, so local removable supports are needed. Protect guide and magnet fits from support scars.
+- All remaining parts retain revision004 print orientation. The M3x5 contact inserts, nylon M3x12 adjusters, short M3x4 body inserts, magnets and travel stops remain unchanged at default settings. Contact adjustment requires lid access; the BOOT-side PCB clamp requires cartridge removal.
+- Support the electronics when opening the downward-facing lid. Remove the enclosure for initial wiring, slider service and calibration. Do not substitute metal contact tips over the PCB.
+- Current board outline 52x70 mm, PCB 1.6 mm, solder clearance 6 mm and component/wire clearance 22 mm remain provisional. Actual connectors, switch positions, magnetic force, printed fit, strength, temperature and RF behavior require physical validation.
+- The separate fit-tests/002-board-fit-heatsets experiment uses the measured49x70x1 mm PCB and heat-set edge clamps. Those new measurements and fourteen-millimeter button spacing are not integrated into this compatibility revision; the archived revision005 PCB/button layout is retained here.
+- Retain base_model.py, button_module.py and mounting.py beside this wrapper. The copied base source changes only lid fastener features and validation; button_module.py and mounting.py remain byte-identical to revision005.

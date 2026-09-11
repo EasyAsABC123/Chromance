@@ -1,0 +1,726 @@
+{
+  "status": "pass",
+  "checker_sha256": "7a90df0aa60849bd0ca9c30282db619acab42111f6b216b7ff9cf779a59fe228",
+  "source": "/tmp/esp32-lid-heatsets-work",
+  "baseline": "/tmp/chromance-models-publish/Models/ESP32Enclosure/revisions/005-downward-buttons",
+  "source_hashes": {
+    "model.py": "03e5b1001a3a4100137949f4cc96232b60d9bb7ef91f32e32cad6f8048f9ec2c",
+    "base_model.py": "8e1ff52cadd53f0b4730a55822b1ea0c2d7eee9bbfe8af2e35d49daf43d6edbd",
+    "button_module.py": "f64435e11a52b5d1004753cd37919ed2377d5d5caea45a19ed3b80096518b596",
+    "mounting.py": "8463a93558364dcd69e2e21c629888b875f51906d5b5c2a1a1768cbdaa96cd8b",
+    "parameters.json": "3f9d9f419a53f3fcb80c2aeb70d9b1ee361271d286670f4d8b44c1d9d71a393d"
+  },
+  "baseline_hashes": {
+    "model.py": "d014751c877f4266e37f541724088d6e7d8b51c62771a9241c02c0fddb25c369",
+    "base_model.py": "103c8bf6fb460702b6b0b6804f771062cfd070c28802840ea654ce5da7ec811c",
+    "button_module.py": "f64435e11a52b5d1004753cd37919ed2377d5d5caea45a19ed3b80096518b596",
+    "mounting.py": "8463a93558364dcd69e2e21c629888b875f51906d5b5c2a1a1768cbdaa96cd8b",
+    "parameters.json": "f738c74836a056fa529ffd1e8df8c59a7d48fbaf13c5211c067bb2c8a567ba39"
+  },
+  "scenarios": {
+    "nominal": {
+      "status": "pass",
+      "part_count": 15,
+      "unchanged_print_parts": [
+        "lid",
+        "desk_bracket",
+        "pcb_clamp_left_front",
+        "pcb_clamp_left_rear",
+        "pcb_clamp_right_front",
+        "pcb_clamp_right_rear",
+        "reset_frame",
+        "reset_slider",
+        "reset_rear_keeper",
+        "reset_moving_magnet_keeper",
+        "boot_frame",
+        "boot_slider",
+        "boot_rear_keeper",
+        "boot_moving_magnet_keeper"
+      ],
+      "existing_hardware_count": 18,
+      "total_hardware_count": 26,
+      "body_reconstruction_differences_mm3": [
+        0.0,
+        0.0
+      ],
+      "body_outside_four_posts_differences_mm3": [
+        0.0,
+        0.0
+      ],
+      "restored_post_probes": [
+        {
+          "center_xy_mm": [
+            -30.0,
+            -40.0
+          ],
+          "restored_polymer_probes": {
+            "old_side_entry": [
+              -30.0,
+              -36.0,
+              27.6
+            ],
+            "old_hex_wing": [
+              -27.5,
+              -40.0,
+              27.6
+            ],
+            "old_deep_screw_bore": [
+              -30.0,
+              -40.0,
+              23.0
+            ],
+            "blind_bottom": [
+              -30.0,
+              -40.0,
+              25.95
+            ]
+          },
+          "pilot_bottom_z_mm": 26.0,
+          "radial_wall_to_insert_mm": 2.1000000000000005
+        },
+        {
+          "center_xy_mm": [
+            -30.0,
+            40.0
+          ],
+          "restored_polymer_probes": {
+            "old_side_entry": [
+              -30.0,
+              36.0,
+              27.6
+            ],
+            "old_hex_wing": [
+              -27.5,
+              40.0,
+              27.6
+            ],
+            "old_deep_screw_bore": [
+              -30.0,
+              40.0,
+              23.0
+            ],
+            "blind_bottom": [
+              -30.0,
+              40.0,
+              25.95
+            ]
+          },
+          "pilot_bottom_z_mm": 26.0,
+          "radial_wall_to_insert_mm": 2.1000000000000005
+        },
+        {
+          "center_xy_mm": [
+            30.0,
+            -40.0
+          ],
+          "restored_polymer_probes": {
+            "old_side_entry": [
+              30.0,
+              -36.0,
+              27.6
+            ],
+            "old_hex_wing": [
+              32.5,
+              -40.0,
+              27.6
+            ],
+            "old_deep_screw_bore": [
+              30.0,
+              -40.0,
+              23.0
+            ],
+            "blind_bottom": [
+              30.0,
+              -40.0,
+              25.95
+            ]
+          },
+          "pilot_bottom_z_mm": 26.0,
+          "radial_wall_to_insert_mm": 2.1000000000000005
+        },
+        {
+          "center_xy_mm": [
+            30.0,
+            40.0
+          ],
+          "restored_polymer_probes": {
+            "old_side_entry": [
+              30.0,
+              36.0,
+              27.6
+            ],
+            "old_hex_wing": [
+              32.5,
+              40.0,
+              27.6
+            ],
+            "old_deep_screw_bore": [
+              30.0,
+              40.0,
+              23.0
+            ],
+            "blind_bottom": [
+              30.0,
+              40.0,
+              25.95
+            ]
+          },
+          "pilot_bottom_z_mm": 26.0,
+          "radial_wall_to_insert_mm": 2.1000000000000005
+        }
+      ],
+      "lid_mounts": [
+        {
+          "center_local_xy_mm": [
+            -30.0,
+            -40.0
+          ],
+          "insert_z_mm": [
+            27.0,
+            32.0
+          ],
+          "pilot_bottom_z_mm": 26.0,
+          "screw_tip_z_mm": 26.4,
+          "thread_engagement_mm": 5.0,
+          "bottom_margin_mm": 0.3999999999999986,
+          "head_bearing_world_xyz_mm": [
+            -30.0,
+            39.99999999999999,
+            3.5999999999999943
+          ],
+          "driver_max_overlap_mm3": 0.0,
+          "iron_max_overlap_mm3": 0.0
+        },
+        {
+          "center_local_xy_mm": [
+            -30.0,
+            40.0
+          ],
+          "insert_z_mm": [
+            27.0,
+            32.0
+          ],
+          "pilot_bottom_z_mm": 26.0,
+          "screw_tip_z_mm": 26.4,
+          "thread_engagement_mm": 5.0,
+          "bottom_margin_mm": 0.3999999999999986,
+          "head_bearing_world_xyz_mm": [
+            -30.0,
+            -40.00000000000001,
+            3.6000000000000085
+          ],
+          "driver_max_overlap_mm3": 0.0,
+          "iron_max_overlap_mm3": 0.0
+        },
+        {
+          "center_local_xy_mm": [
+            30.0,
+            -40.0
+          ],
+          "insert_z_mm": [
+            27.0,
+            32.0
+          ],
+          "pilot_bottom_z_mm": 26.0,
+          "screw_tip_z_mm": 26.4,
+          "thread_engagement_mm": 5.0,
+          "bottom_margin_mm": 0.3999999999999986,
+          "head_bearing_world_xyz_mm": [
+            30.0,
+            39.99999999999999,
+            3.5999999999999943
+          ],
+          "driver_max_overlap_mm3": 0.0,
+          "iron_max_overlap_mm3": 0.0
+        },
+        {
+          "center_local_xy_mm": [
+            30.0,
+            40.0
+          ],
+          "insert_z_mm": [
+            27.0,
+            32.0
+          ],
+          "pilot_bottom_z_mm": 26.0,
+          "screw_tip_z_mm": 26.4,
+          "thread_engagement_mm": 5.0,
+          "bottom_margin_mm": 0.3999999999999986,
+          "head_bearing_world_xyz_mm": [
+            30.0,
+            -40.00000000000001,
+            3.6000000000000085
+          ],
+          "driver_max_overlap_mm3": 0.0,
+          "iron_max_overlap_mm3": 0.0
+        }
+      ],
+      "intentional_new_overlap_each_mm3": 20.263272615654152,
+      "observed_hardware_print_overlaps": [
+        {
+          "hardware": "lid_insert_1",
+          "printed": "body",
+          "volume_mm3": 20.263272615654174
+        },
+        {
+          "hardware": "lid_insert_2",
+          "printed": "body",
+          "volume_mm3": 20.263272615654166
+        },
+        {
+          "hardware": "lid_insert_3",
+          "printed": "body",
+          "volume_mm3": 20.263272615654174
+        },
+        {
+          "hardware": "lid_insert_4",
+          "printed": "body",
+          "volume_mm3": 20.263272615654166
+        }
+      ],
+      "lid_fastener_measurements": {
+        "insert_specification": "M3x5 heat-set, actual OD/pilot provisional",
+        "insert_outer_diameter_mm": 4.6,
+        "insert_length_mm": 5.0,
+        "pilot_diameter_mm": 4.0,
+        "pilot_depth_mm": 6.0,
+        "screw_length_mm": 8.0,
+        "lid_thickness_mm": 2.4,
+        "screw_projection_into_post_mm": 5.6,
+        "nominal_insert_engagement_mm": 5.0,
+        "screw_tip_to_bore_bottom_mm": 0.40000000000000036,
+        "post_diameter_mm": 8.8,
+        "minimum_radial_polymer_mm": 2.1000000000000005,
+        "post_rim_local_z_mm": 32.0,
+        "insert_bottom_local_z_mm": 27.0,
+        "pilot_bottom_local_z_mm": 26.0,
+        "screw_tip_local_z_mm": 26.4,
+        "head_bearing_local_z_mm": 34.4,
+        "screw_head_diameter_mm": 5.5,
+        "screw_head_height_mm": 3.0,
+        "centers_local_xy_mm": [
+          [
+            -30.0,
+            -40.0
+          ],
+          [
+            -30.0,
+            40.0
+          ],
+          [
+            30.0,
+            -40.0
+          ],
+          [
+            30.0,
+            40.0
+          ]
+        ],
+        "rim_centers_world_xyz_mm": [
+          [
+            -30.0,
+            40.0,
+            6.0
+          ],
+          [
+            -30.0,
+            -40.0,
+            6.0
+          ],
+          [
+            30.0,
+            40.0,
+            6.0
+          ],
+          [
+            30.0,
+            -40.0,
+            6.0
+          ]
+        ],
+        "head_bearing_centers_world_xyz_mm": [
+          [
+            -30.0,
+            40.0,
+            3.6000000000000014
+          ],
+          [
+            -30.0,
+            -40.0,
+            3.6000000000000014
+          ],
+          [
+            30.0,
+            40.0,
+            3.6000000000000014
+          ],
+          [
+            30.0,
+            -40.0,
+            3.6000000000000014
+          ]
+        ],
+        "nominal_displacement_each_mm3": 20.263272615654152,
+        "installation": "Heat-set from the open rim with lid removed; installed screws approach upward from below in the desk orientation",
+        "old_lid_hex_pockets_and_side_entries_removed": true
+      }
+    },
+    "pilot_4_1": {
+      "status": "pass",
+      "part_count": 15,
+      "unchanged_print_parts": [
+        "lid",
+        "desk_bracket",
+        "pcb_clamp_left_front",
+        "pcb_clamp_left_rear",
+        "pcb_clamp_right_front",
+        "pcb_clamp_right_rear",
+        "reset_frame",
+        "reset_slider",
+        "reset_rear_keeper",
+        "reset_moving_magnet_keeper",
+        "boot_frame",
+        "boot_slider",
+        "boot_rear_keeper",
+        "boot_moving_magnet_keeper"
+      ],
+      "existing_hardware_count": 18,
+      "total_hardware_count": 26,
+      "body_reconstruction_differences_mm3": [
+        0.0,
+        0.0
+      ],
+      "body_outside_four_posts_differences_mm3": [
+        0.0,
+        0.0
+      ],
+      "restored_post_probes": [
+        {
+          "center_xy_mm": [
+            -30.0,
+            -40.0
+          ],
+          "restored_polymer_probes": {
+            "old_side_entry": [
+              -30.0,
+              -36.0,
+              27.6
+            ],
+            "old_hex_wing": [
+              -27.5,
+              -40.0,
+              27.6
+            ],
+            "old_deep_screw_bore": [
+              -30.0,
+              -40.0,
+              23.0
+            ],
+            "blind_bottom": [
+              -30.0,
+              -40.0,
+              25.95
+            ]
+          },
+          "pilot_bottom_z_mm": 26.0,
+          "radial_wall_to_insert_mm": 2.1000000000000005
+        },
+        {
+          "center_xy_mm": [
+            -30.0,
+            40.0
+          ],
+          "restored_polymer_probes": {
+            "old_side_entry": [
+              -30.0,
+              36.0,
+              27.6
+            ],
+            "old_hex_wing": [
+              -27.5,
+              40.0,
+              27.6
+            ],
+            "old_deep_screw_bore": [
+              -30.0,
+              40.0,
+              23.0
+            ],
+            "blind_bottom": [
+              -30.0,
+              40.0,
+              25.95
+            ]
+          },
+          "pilot_bottom_z_mm": 26.0,
+          "radial_wall_to_insert_mm": 2.1000000000000005
+        },
+        {
+          "center_xy_mm": [
+            30.0,
+            -40.0
+          ],
+          "restored_polymer_probes": {
+            "old_side_entry": [
+              30.0,
+              -36.0,
+              27.6
+            ],
+            "old_hex_wing": [
+              32.5,
+              -40.0,
+              27.6
+            ],
+            "old_deep_screw_bore": [
+              30.0,
+              -40.0,
+              23.0
+            ],
+            "blind_bottom": [
+              30.0,
+              -40.0,
+              25.95
+            ]
+          },
+          "pilot_bottom_z_mm": 26.0,
+          "radial_wall_to_insert_mm": 2.1000000000000005
+        },
+        {
+          "center_xy_mm": [
+            30.0,
+            40.0
+          ],
+          "restored_polymer_probes": {
+            "old_side_entry": [
+              30.0,
+              36.0,
+              27.6
+            ],
+            "old_hex_wing": [
+              32.5,
+              40.0,
+              27.6
+            ],
+            "old_deep_screw_bore": [
+              30.0,
+              40.0,
+              23.0
+            ],
+            "blind_bottom": [
+              30.0,
+              40.0,
+              25.95
+            ]
+          },
+          "pilot_bottom_z_mm": 26.0,
+          "radial_wall_to_insert_mm": 2.1000000000000005
+        }
+      ],
+      "lid_mounts": [
+        {
+          "center_local_xy_mm": [
+            -30.0,
+            -40.0
+          ],
+          "insert_z_mm": [
+            27.0,
+            32.0
+          ],
+          "pilot_bottom_z_mm": 26.0,
+          "screw_tip_z_mm": 26.4,
+          "thread_engagement_mm": 5.0,
+          "bottom_margin_mm": 0.3999999999999986,
+          "head_bearing_world_xyz_mm": [
+            -30.0,
+            39.99999999999999,
+            3.5999999999999943
+          ],
+          "driver_max_overlap_mm3": 0.0,
+          "iron_max_overlap_mm3": 0.0
+        },
+        {
+          "center_local_xy_mm": [
+            -30.0,
+            40.0
+          ],
+          "insert_z_mm": [
+            27.0,
+            32.0
+          ],
+          "pilot_bottom_z_mm": 26.0,
+          "screw_tip_z_mm": 26.4,
+          "thread_engagement_mm": 5.0,
+          "bottom_margin_mm": 0.3999999999999986,
+          "head_bearing_world_xyz_mm": [
+            -30.0,
+            -40.00000000000001,
+            3.6000000000000085
+          ],
+          "driver_max_overlap_mm3": 0.0,
+          "iron_max_overlap_mm3": 0.0
+        },
+        {
+          "center_local_xy_mm": [
+            30.0,
+            -40.0
+          ],
+          "insert_z_mm": [
+            27.0,
+            32.0
+          ],
+          "pilot_bottom_z_mm": 26.0,
+          "screw_tip_z_mm": 26.4,
+          "thread_engagement_mm": 5.0,
+          "bottom_margin_mm": 0.3999999999999986,
+          "head_bearing_world_xyz_mm": [
+            30.0,
+            39.99999999999999,
+            3.5999999999999943
+          ],
+          "driver_max_overlap_mm3": 0.0,
+          "iron_max_overlap_mm3": 0.0
+        },
+        {
+          "center_local_xy_mm": [
+            30.0,
+            40.0
+          ],
+          "insert_z_mm": [
+            27.0,
+            32.0
+          ],
+          "pilot_bottom_z_mm": 26.0,
+          "screw_tip_z_mm": 26.4,
+          "thread_engagement_mm": 5.0,
+          "bottom_margin_mm": 0.3999999999999986,
+          "head_bearing_world_xyz_mm": [
+            30.0,
+            -40.00000000000001,
+            3.6000000000000085
+          ],
+          "driver_max_overlap_mm3": 0.0,
+          "iron_max_overlap_mm3": 0.0
+        }
+      ],
+      "intentional_new_overlap_each_mm3": 17.082410053894492,
+      "observed_hardware_print_overlaps": [
+        {
+          "hardware": "lid_insert_1",
+          "printed": "body",
+          "volume_mm3": 17.082410053894478
+        },
+        {
+          "hardware": "lid_insert_2",
+          "printed": "body",
+          "volume_mm3": 17.082410053894478
+        },
+        {
+          "hardware": "lid_insert_3",
+          "printed": "body",
+          "volume_mm3": 17.082410053894485
+        },
+        {
+          "hardware": "lid_insert_4",
+          "printed": "body",
+          "volume_mm3": 17.082410053894478
+        }
+      ],
+      "lid_fastener_measurements": {
+        "insert_specification": "M3x5 heat-set, actual OD/pilot provisional",
+        "insert_outer_diameter_mm": 4.6,
+        "insert_length_mm": 5.0,
+        "pilot_diameter_mm": 4.1,
+        "pilot_depth_mm": 6.0,
+        "screw_length_mm": 8.0,
+        "lid_thickness_mm": 2.4,
+        "screw_projection_into_post_mm": 5.6,
+        "nominal_insert_engagement_mm": 5.0,
+        "screw_tip_to_bore_bottom_mm": 0.40000000000000036,
+        "post_diameter_mm": 8.8,
+        "minimum_radial_polymer_mm": 2.1000000000000005,
+        "post_rim_local_z_mm": 32.0,
+        "insert_bottom_local_z_mm": 27.0,
+        "pilot_bottom_local_z_mm": 26.0,
+        "screw_tip_local_z_mm": 26.4,
+        "head_bearing_local_z_mm": 34.4,
+        "screw_head_diameter_mm": 5.5,
+        "screw_head_height_mm": 3.0,
+        "centers_local_xy_mm": [
+          [
+            -30.0,
+            -40.0
+          ],
+          [
+            -30.0,
+            40.0
+          ],
+          [
+            30.0,
+            -40.0
+          ],
+          [
+            30.0,
+            40.0
+          ]
+        ],
+        "rim_centers_world_xyz_mm": [
+          [
+            -30.0,
+            40.0,
+            6.0
+          ],
+          [
+            -30.0,
+            -40.0,
+            6.0
+          ],
+          [
+            30.0,
+            40.0,
+            6.0
+          ],
+          [
+            30.0,
+            -40.0,
+            6.0
+          ]
+        ],
+        "head_bearing_centers_world_xyz_mm": [
+          [
+            -30.0,
+            40.0,
+            3.6000000000000014
+          ],
+          [
+            -30.0,
+            -40.0,
+            3.6000000000000014
+          ],
+          [
+            30.0,
+            40.0,
+            3.6000000000000014
+          ],
+          [
+            30.0,
+            -40.0,
+            3.6000000000000014
+          ]
+        ],
+        "nominal_displacement_each_mm3": 17.082410053894492,
+        "installation": "Heat-set from the open rim with lid removed; installed screws approach upward from below in the desk orientation",
+        "old_lid_hex_pockets_and_side_entries_removed": true
+      }
+    }
+  },
+  "limits": [
+    "This compatibility revision retains the archived PCB and button geometry; measured49x70x1 board-fit changes are separate.",
+    "Tools are straight6 mm driver and8 mm insert-tool envelopes, not a model of the user's exact tools.",
+    "Threads, insert retention strength, printer tolerances and actual screw length tolerances are not physically validated.",
+    "No button-motion or desk-installation sweep was repeated: fourteen print parts and all existing hardware were compared with005."
+  ],
+  "m3x10_negative_control": {
+    "status": "rejected",
+    "reason": "Lid screw bottoms or leaves less than 0.4 mm blind-tip clearance; use M3x8 at default dimensions"
+  }
+}

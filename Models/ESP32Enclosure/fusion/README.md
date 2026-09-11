@@ -3,6 +3,9 @@
 The `ExportEnclosure` script imports the preserved STEP files into Autodesk
 Fusion, writes native `.f3d` archives, reopens them, and compares solid counts,
 volumes and bounding coordinates with the CAD validation report.
+The default is **006-lid-heatsets**, the revision 005-compatible lid-joint update.
+It retains the earlier PCB/button layout; the corrected 49 mm board and measured
+button spacing are documented in the separate [fit test](../fit-tests/002-board-fit-heatsets/).
 
 **Native conversion has not been run yet.** The development host is Linux with
 no Fusion runtime available. Python syntax and input planning can be checked
@@ -16,7 +19,7 @@ here; successful native export and reopening must be confirmed inside Fusion.
    folder `Models/ESP32Enclosure/fusion/ExportEnclosure` and run **ExportEnclosure**.
    In versions with the green **+** button, use it to locate the script folder.
 3. Fusion imports and exports each file. A final message gives the output folder
-   under `fusion/exports/005-downward-buttons-<timestamp>-<suffix>/`.
+   under `fusion/exports/006-lid-heatsets-<timestamp>-<suffix>/`.
 4. Check `fusion-validation.json` has `"status": "passed"`. The bundle contains
    one assembly `.f3d` plus 15 individual part `.f3d` files. Open the assembly
    archive in Fusion to inspect it. A failed run retains a failure report and
@@ -28,7 +31,8 @@ Save As or modify the source STEP files. Fusion still requires its normal
 installation, account and runtime access.
 
 For another preserved version, edit `REVISION` near the top of the script to
-`001-generic`, `002-console`, `003-buttons` or `004-heatsets`. The exported part count follows
+`001-generic`, `002-console`, `003-buttons`, `004-heatsets` or
+`005-downward-buttons`. The exported part count follows
 that revision's report. Output folders are Git-ignored while conversion is being
 checked; a passed bundle can be copied into a versioned `fusion/native/` folder.
 
