@@ -1,0 +1,10 @@
+{
+  "model.py": "1784cbc1ec47aff9e4c7de8b9b76aa1628de9108599f212cff765c4e543baf47",
+  "enclosure_model.py": "54d74c7b9c865ce003f3ef22d84cff02ba22ca55254cf87064240cfa814d8768",
+  "base_model.py": "6433929fad926abe18b1ea019f12a56a18b7487d82528a6de1c2e55da5dbc92f",
+  "button_module.py": "f64435e11a52b5d1004753cd37919ed2377d5d5caea45a19ed3b80096518b596",
+  "mounting.py": "8463a93558364dcd69e2e21c629888b875f51906d5b5c2a1a1768cbdaa96cd8b",
+  "build-test.py": "5b97dbca4df6c42b3b90d719bfd4f7d67c448a2d4ce7a58200e207506f0a5f0a",
+  "render-test.py": "e27a55a3d5b094d10e7687c31d0faa8d975d84cf91d493a4a57fd63f821c25e2",
+  "parameters.json": "64919dcbfbb249b02be09884c109b864ba1bf5f28dad1c38b048cd43298d6e35"
+}

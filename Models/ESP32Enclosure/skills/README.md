@@ -20,8 +20,10 @@ feeding back into the full model.
 | [Mesh inspection and validation helpers](../src/fdm_cad/geometry.py) | Units, mesh scene handling, dimensions, topology and geometric comparisons |
 | [FreeCAD inspection script](../scripts/check-freecad.py) | Independent STEP read-back and imported `.FCStd` inspection documents |
 | [Fusion export helper](../fusion/README.md) | Run inside Fusion to convert the STEP assembly and parts to native `.f3d` archives and reopen them for checks; conversion has not yet been run here |
-| [Latest enclosure source](../revisions/008-corner-bosses/model.py) and [parameters](../revisions/008-corner-bosses/parameters.json) | Revision 008 replaces the full-height lid posts with compact corner pads and wall ribs, with matching lid-skirt clearance; only the body and lid change from revision 007 |
+| [Latest enclosure source](../revisions/009-cable-retention/model.py) and [parameters](../revisions/009-cable-retention/parameters.json) | Revision 009 adds a rounded cable support and zip-tie passage; only the body changes from revision 008 |
 | [Corrected board-fit test](../fit-tests/002-board-fit-heatsets/) | 49 × 70 × 1 mm PCB retention, heat-set clamp fasteners, printable 3MF and physical-fit checks |
+| [Quick cable-fit test](../fit-tests/003-cable-retention/) | Actual cable-anchor/body and lid sections for iterative cable, zip-tie and closure checks |
+| [Cable-retention checks](../scripts/check-cable-retention.py) | Change-region preservation, cable/tie access, assembly clearances and layer support |
 | [Recorded measurements](../measurements/) | User measurements, datum definitions and distinctions between confirmed dimensions and remaining assumptions |
 | [Mount and button integration checks](../scripts/check-flipped-mount.py) | Clearances, button travel, hardware engagement and sampled enclosure installation/removal positions |
 | [Lid heat-set checks](../scripts/check-lid-heatsets.py) | Lid-post changes, removal of old nut entries, insert/screw fit and preservation of the fourteen other printed parts against revision 005 |

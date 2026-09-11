@@ -10,36 +10,39 @@ are 30 and 16 mm from the bottom edge, each 3.3 mm from the left edge.
 It corrects the board retention dimensions and keeps all screws outside the PCB.
 The user ruled out direct fastening through the small PCB holes.
 
-**Latest full enclosure: [008 — compact lid corner bosses](revisions/008-corner-bosses/README.md).**
-Short corner pads and paired 45° wall ribs replace the four full-height lid posts
-and close their gaps to the walls. Reprint the **body and lid together**; small
-corner sections of the lid skirt are trimmed to clear the new pads. The lid's
-exterior and screw positions stay the same, and the other thirteen printed parts
-remain unchanged from revision 007. The lid still uses **M3×5 heat-set inserts and
-M3×8 screws**; the PCB clamps retain **M3×5 inserts and M3×6 screws**.
-Use revision 007 or 008 PCB clamps with the new body: earlier clamp screw positions
-do not match. **Do not use M3×10 lid screws:** they bottom in the blind pilots.
-Body CAD volume is **6.32% lower** than revision 007; see the
-[corner comparison](revisions/008-corner-bosses/corner-comparison.png). This is a
-solid-volume comparison, not a filament-consumption or print-time estimate.
+**Latest full enclosure: [009 — cable retention](revisions/009-cable-retention/README.md).**
+A rounded support at the cable exit holds the cable against a solid surface while
+one zip tie passes underneath it and around the cable. The support joins the end
+wall with a 45° underside; its tie passage also has a 45° roof.
+
+**Print the [small cable-fit test](fit-tests/003-cable-retention/print-layout.3mf)
+first.** It contains a section of the actual body and matching lid so you can
+check tie threading, cable seating and closure. Cable and tie sizes are provisional;
+record the physical results before committing to a full body print.
+
+Only the **body** changes from revision 008. Reuse its lid and all thirteen other
+parts. The lid retains M3×5 heat-set inserts and M3×8 screws; PCB clamps retain
+M3×5 inserts and M3×6 screws. Existing mounting and button hardware are unchanged.
+Use revision 007-or-later PCB clamps with their matching screw positions.
+Do not use M3×10 lid screws: they bottom in the blind pilots.
 
 This compatibility revision still uses the earlier **52 × 70 × 1.6 mm PCB** assumption.
 Its clamps cannot capture the corrected 49 mm substrate; the measured button
-spacing also needs an actuator layout revision. Use the new fit test for this board.
+spacing also needs an actuator layout revision. Use the corrected board-fit test for this board.
 The enclosure mounts with its lid facing the floor. **Press the exposed pads upward.**
 The pads extend 7 mm to clear the mounting ears; the revision 005 bracket lets the
 case slide upward into place. Its button layout and mounting geometry are retained.
 
-Revision 008 uses fourteen **M3×5 mm heat-set inserts**: four for the PCB clamps,
+Revision 009 uses fourteen **M3×5 mm heat-set inserts**: four for the PCB clamps,
 four for the lid, four in the desk bracket and two in the actuator contacts.
 The contacts retain **M3×12 nylon screws and separate jam nuts** for adjustment;
 bracket attachment uses M3×10 screws. The four cartridge mounting inserts remain
 **M3×4 mm**, with M3×18 screws. The exported printed parts contain no captive
 hex-nut pockets.
 
-![Compact lid corner boss and wall ribs](revisions/008-corner-bosses/corner-boss.png)
+![Cable retention and provisional tie route](revisions/009-cable-retention/cable-routing.png)
 
-[Mounted enclosure and button access](revisions/008-corner-bosses/under-desk.png)
+[Mounted enclosure and button access](revisions/009-cable-retention/under-desk.png)
 
 ## Open or print
 
@@ -64,25 +67,23 @@ inside Fusion on Windows or Mac. It exports the assembly and each part and check
 the archives after reopening. The native conversion is pending a Fusion run;
 the script does not recreate the Python model's feature history.
 
-- [Assembly STEP](revisions/008-corner-bosses/assembly.step): 15 printable solids in
-  assembly position; open/import in Fusion 360 or FreeCAD. STEP preserves the
-  solid geometry. The editable parametric master is Python, not a Fusion timeline.
-- [Individual STEP and 3MF parts](revisions/008-corner-bosses/parts/): editable solids
-  and meshes, oriented for printing.
-- [Replacement-parts 3MF](revisions/008-corner-bosses/replacement-parts.3mf): the new
-  body and matching lid for upgrading revision 007.
-  [See the two-part layout](revisions/008-corner-bosses/replacement-parts.png).
-- [Print-layout 3MF](revisions/008-corner-bosses/print-layout.3mf): geometry in
-  millimeters, without a printer or filament profile. Arrange parts for your bed.
-- [Corner-boss detail](revisions/008-corner-bosses/corner-boss.png),
-  [PCB-joint detail](revisions/008-corner-bosses/pcb-joint.png),
-  [lid-joint detail](revisions/008-corner-bosses/lid-joint.png),
-  [button cutaway](revisions/008-corner-bosses/button-mechanism.png),
-  [interior](revisions/008-corner-bosses/interior.png),
-  [exploded view](revisions/008-corner-bosses/exploded.png), and
-  [hardware STEP](revisions/008-corner-bosses/hardware-reference.step).
-- [Revision guide](revisions/008-corner-bosses/README.md) and
-  [assembly, hardware and design notes](revisions/008-corner-bosses/design-notes.md).
+- [Quick cable-fit print — two-part 3MF](fit-tests/003-cable-retention/print-layout.3mf)
+  and [test instructions](fit-tests/003-cable-retention/README.md).
+- [Replacement body — 3MF](revisions/009-cable-retention/parts/body.3mf).
+- [Assembly STEP](revisions/009-cable-retention/assembly.step): 15 printable solids
+  in assembly position; open/import in Fusion 360 or FreeCAD. The editable
+  parametric master is Python, not a Fusion timeline.
+- [Individual STEP and 3MF parts](revisions/009-cable-retention/parts/), oriented
+  for printing, and [full print-layout 3MF](revisions/009-cable-retention/print-layout.3mf).
+  These carry model geometry in millimeters without a printer or filament profile.
+- [Cable anchor](revisions/009-cable-retention/cable-anchor.png),
+  [cable/tie routing](revisions/009-cable-retention/cable-routing.png),
+  [lid clearance](revisions/009-cable-retention/cable-closure.png),
+  [interior](revisions/009-cable-retention/interior.png),
+  [exploded view](revisions/009-cable-retention/exploded.png), and
+  [hardware STEP](revisions/009-cable-retention/hardware-reference.step).
+- [Revision guide](revisions/009-cable-retention/README.md) and
+  [design and validation notes](revisions/009-cable-retention/design-notes.md).
 
 The printed assembly is **116.8 × 95.2 × 39.6 mm**. Hardware, the desk and direction
 arrows are excluded from the printable files. The hardware STEP contains **34
@@ -102,11 +103,12 @@ not a complete hardware assembly.
 | [006-lid-heatsets](revisions/006-lid-heatsets/) | Four lid nut pockets replaced by M3×5 inserts and M3×8 screws; only the body changes, retaining compatibility with the other revision 005 parts |
 | [007-pcb-heatsets](revisions/007-pcb-heatsets/) | Four PCB-clamp nut pockets replaced by M3×5 inserts and M3×6 screws; body and four clamps change, retaining compatibility with the other ten revision 006 parts |
 | [008-corner-bosses](revisions/008-corner-bosses/) | Full-height lid posts replaced by short corner pads and 45° wall ribs, with matching lid-skirt clearance; body and lid change, retaining compatibility with the other thirteen revision 007 parts |
+| [009-cable-retention](revisions/009-cable-retention/) | Rounded cable support with a zip-tie passage at the end opening; only the body changes from revision 008, accompanied by a small exact-geometry fit test |
 
-Revisions 001–007 are preserved unchanged. The original checksum manifest covers
+Revisions 001–008 are preserved unchanged. The original checksum manifest covers
 171 files in revisions 001–004; the lid-joint checks compare revision 006 with 005.
 The PCB-clamp checks compare revision 007 with 006; the corner-boss checks compare
-revision 008 with 007.
+revision 008 with 007. The cable-retention checks compare revision 009 with 008.
 Their archived notes/reports contain historical workstation paths and references
 to ZIP bundles; use the portable commands below. ZIP duplicates and reference
 photos are not required to regenerate this numerical model and are omitted.

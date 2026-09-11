@@ -1,0 +1,817 @@
+{
+  "status": "passed",
+  "source_hashes": {
+    "model.py": "54d74c7b9c865ce003f3ef22d84cff02ba22ca55254cf87064240cfa814d8768",
+    "base_model.py": "6433929fad926abe18b1ea019f12a56a18b7487d82528a6de1c2e55da5dbc92f",
+    "button_module.py": "f64435e11a52b5d1004753cd37919ed2377d5d5caea45a19ed3b80096518b596",
+    "mounting.py": "8463a93558364dcd69e2e21c629888b875f51906d5b5c2a1a1768cbdaa96cd8b",
+    "parameters.json": "64919dcbfbb249b02be09884c109b864ba1bf5f28dad1c38b048cd43298d6e35"
+  },
+  "baseline_hashes": {
+    "model.py": "6253742a3f250ea4465d54e69c06299bb3bd40d88eb53fcb160ff68d18db70c8",
+    "base_model.py": "6433929fad926abe18b1ea019f12a56a18b7487d82528a6de1c2e55da5dbc92f",
+    "button_module.py": "f64435e11a52b5d1004753cd37919ed2377d5d5caea45a19ed3b80096518b596",
+    "mounting.py": "8463a93558364dcd69e2e21c629888b875f51906d5b5c2a1a1768cbdaa96cd8b",
+    "parameters.json": "3b96e41ebcb8c36e72c71a1a7ec9268a63899f9aea11b25825b5065ab970619d"
+  },
+  "checker_sha256": "99576fa1906d039570994c7c71d0c3c424e6600dac539889013835b3a4e63453",
+  "scenarios": [
+    {
+      "scenario": "nominal_6mm_cable_2_5mm_tie",
+      "status": "passed",
+      "preserved_print_parts": [
+        "lid",
+        "desk_bracket",
+        "pcb_clamp_left_front",
+        "pcb_clamp_left_rear",
+        "pcb_clamp_right_front",
+        "pcb_clamp_right_rear",
+        "reset_frame",
+        "reset_slider",
+        "reset_rear_keeper",
+        "reset_moving_magnet_keeper",
+        "boot_frame",
+        "boot_slider",
+        "boot_rear_keeper",
+        "boot_moving_magnet_keeper"
+      ],
+      "preserved_hardware_count": 34,
+      "independent_body_difference_mm3": [
+        0.0,
+        0.0
+      ],
+      "removed_body_volume_mm3": 0.0,
+      "added_body_volume_mm3": 341.4254350625301,
+      "wall_stock_bond_mm3": 56.00000000000001,
+      "cable_diameter_mm": 6.0,
+      "tie_band_width_mm": 2.5,
+      "tie_band_thickness_mm": 1.0,
+      "tunnel_width_mm": 3.2,
+      "tunnel_center_roof_material_mm": 2.0,
+      "minimum_tunnel_inboard_floor_mm": 0.9000000000000004,
+      "envelope_to_lid_mm": 4.699999999999999,
+      "low_thread_negative_control_overlap_mm3": 6.000000000000014,
+      "new_material_hardware_overlaps_mm3": {
+        "reset_fixed_magnet": 0.0,
+        "reset_moving_magnet": 0.0,
+        "reset_nylon_adjuster": 0.0,
+        "reset_contact_heatset_insert": 0.0,
+        "reset_nylon_jam_nut": 0.0,
+        "reset_mount_screw_1": 0.0,
+        "reset_mount_screw_2": 0.0,
+        "boot_fixed_magnet": 0.0,
+        "boot_moving_magnet": 0.0,
+        "boot_nylon_adjuster": 0.0,
+        "boot_contact_heatset_insert": 0.0,
+        "boot_nylon_jam_nut": 0.0,
+        "boot_mount_screw_1": 0.0,
+        "boot_mount_screw_2": 0.0,
+        "bracket_mount_insert_1": 0.0,
+        "bracket_mount_insert_2": 0.0,
+        "bracket_mount_insert_3": 0.0,
+        "bracket_mount_insert_4": 0.0,
+        "lid_insert_1": 0.0,
+        "lid_screw_1": 0.0,
+        "lid_insert_2": 0.0,
+        "lid_screw_2": 0.0,
+        "lid_insert_3": 0.0,
+        "lid_screw_3": 0.0,
+        "lid_insert_4": 0.0,
+        "lid_screw_4": 0.0,
+        "pcb_clamp_left_front_insert": 0.0,
+        "pcb_clamp_left_front_screw": 0.0,
+        "pcb_clamp_left_rear_insert": 0.0,
+        "pcb_clamp_left_rear_screw": 0.0,
+        "pcb_clamp_right_front_insert": 0.0,
+        "pcb_clamp_right_front_screw": 0.0,
+        "pcb_clamp_right_rear_insert": 0.0,
+        "pcb_clamp_right_rear_screw": 0.0
+      },
+      "button_stroke_overlaps_mm3": {
+        "reset_0": 0.0,
+        "reset_0.4": 0.0,
+        "reset_0.8": 0.0,
+        "boot_0": 0.0,
+        "boot_0.4": 0.0,
+        "boot_0.8": 0.0
+      },
+      "layer_review": {
+        "layer_height_mm": 0.2,
+        "allowed_horizontal_advance_mm": 0.2,
+        "tessellation_allowance_mm": 0.004,
+        "layer_count": 57,
+        "maximum_excess_area_mm2": 0.0,
+        "floating_patch_negative_control_mm2": 1.0,
+        "slices": [
+          {
+            "z_mm": 8.7,
+            "excess_area_mm2": 0.0,
+            "connected_regions": 2
+          },
+          {
+            "z_mm": 8.899999999999999,
+            "excess_area_mm2": 0.0,
+            "connected_regions": 2
+          },
+          {
+            "z_mm": 9.099999999999998,
+            "excess_area_mm2": 0.0,
+            "connected_regions": 2
+          },
+          {
+            "z_mm": 9.299999999999997,
+            "excess_area_mm2": 0.0,
+            "connected_regions": 1
+          },
+          {
+            "z_mm": 9.499999999999996,
+            "excess_area_mm2": 0.0,
+            "connected_regions": 1
+          },
+          {
+            "z_mm": 9.699999999999996,
+            "excess_area_mm2": 0.0,
+            "connected_regions": 1
+          },
+          {
+            "z_mm": 9.899999999999995,
+            "excess_area_mm2": 0.0,
+            "connected_regions": 1
+          },
+          {
+            "z_mm": 10.099999999999994,
+            "excess_area_mm2": 0.0,
+            "connected_regions": 1
+          },
+          {
+            "z_mm": 10.299999999999994,
+            "excess_area_mm2": 0.0,
+            "connected_regions": 1
+          },
+          {
+            "z_mm": 10.499999999999993,
+            "excess_area_mm2": 0.0,
+            "connected_regions": 1
+          },
+          {
+            "z_mm": 10.699999999999992,
+            "excess_area_mm2": 0.0,
+            "connected_regions": 1
+          },
+          {
+            "z_mm": 10.899999999999991,
+            "excess_area_mm2": 0.0,
+            "connected_regions": 1
+          },
+          {
+            "z_mm": 11.09999999999999,
+            "excess_area_mm2": 0.0,
+            "connected_regions": 1
+          },
+          {
+            "z_mm": 11.29999999999999,
+            "excess_area_mm2": 0.0,
+            "connected_regions": 1
+          },
+          {
+            "z_mm": 11.49999999999999,
+            "excess_area_mm2": 0.0,
+            "connected_regions": 1
+          },
+          {
+            "z_mm": 11.699999999999989,
+            "excess_area_mm2": 0.0,
+            "connected_regions": 1
+          },
+          {
+            "z_mm": 11.899999999999988,
+            "excess_area_mm2": 0.0,
+            "connected_regions": 1
+          },
+          {
+            "z_mm": 12.099999999999987,
+            "excess_area_mm2": 0.0,
+            "connected_regions": 1
+          },
+          {
+            "z_mm": 12.299999999999986,
+            "excess_area_mm2": 0.0,
+            "connected_regions": 1
+          },
+          {
+            "z_mm": 12.499999999999986,
+            "excess_area_mm2": 0.0,
+            "connected_regions": 1
+          },
+          {
+            "z_mm": 12.699999999999985,
+            "excess_area_mm2": 0.0,
+            "connected_regions": 1
+          },
+          {
+            "z_mm": 12.899999999999984,
+            "excess_area_mm2": 0.0,
+            "connected_regions": 1
+          },
+          {
+            "z_mm": 13.099999999999984,
+            "excess_area_mm2": 0.0,
+            "connected_regions": 1
+          },
+          {
+            "z_mm": 13.299999999999983,
+            "excess_area_mm2": 0.0,
+            "connected_regions": 1
+          },
+          {
+            "z_mm": 13.499999999999982,
+            "excess_area_mm2": 0.0,
+            "connected_regions": 1
+          },
+          {
+            "z_mm": 13.699999999999982,
+            "excess_area_mm2": 0.0,
+            "connected_regions": 1
+          },
+          {
+            "z_mm": 13.89999999999998,
+            "excess_area_mm2": 0.0,
+            "connected_regions": 1
+          },
+          {
+            "z_mm": 14.09999999999998,
+            "excess_area_mm2": 0.0,
+            "connected_regions": 1
+          },
+          {
+            "z_mm": 14.29999999999998,
+            "excess_area_mm2": 0.0,
+            "connected_regions": 1
+          },
+          {
+            "z_mm": 14.499999999999979,
+            "excess_area_mm2": 0.0,
+            "connected_regions": 1
+          },
+          {
+            "z_mm": 14.699999999999978,
+            "excess_area_mm2": 0.0,
+            "connected_regions": 1
+          },
+          {
+            "z_mm": 14.899999999999977,
+            "excess_area_mm2": 0.0,
+            "connected_regions": 1
+          },
+          {
+            "z_mm": 15.099999999999977,
+            "excess_area_mm2": 0.0,
+            "connected_regions": 2
+          },
+          {
+            "z_mm": 15.299999999999976,
+            "excess_area_mm2": 0.0,
+            "connected_regions": 2
+          },
+          {
+            "z_mm": 15.499999999999975,
+            "excess_area_mm2": 0.0,
+            "connected_regions": 2
+          },
+          {
+            "z_mm": 15.699999999999974,
+            "excess_area_mm2": 0.0,
+            "connected_regions": 2
+          },
+          {
+            "z_mm": 15.899999999999974,
+            "excess_area_mm2": 0.0,
+            "connected_regions": 2
+          },
+          {
+            "z_mm": 16.099999999999973,
+            "excess_area_mm2": 0.0,
+            "connected_regions": 2
+          },
+          {
+            "z_mm": 16.299999999999972,
+            "excess_area_mm2": 0.0,
+            "connected_regions": 2
+          },
+          {
+            "z_mm": 16.49999999999997,
+            "excess_area_mm2": 0.0,
+            "connected_regions": 2
+          },
+          {
+            "z_mm": 16.69999999999997,
+            "excess_area_mm2": 0.0,
+            "connected_regions": 2
+          },
+          {
+            "z_mm": 16.89999999999997,
+            "excess_area_mm2": 0.0,
+            "connected_regions": 2
+          },
+          {
+            "z_mm": 17.09999999999997,
+            "excess_area_mm2": 0.0,
+            "connected_regions": 2
+          },
+          {
+            "z_mm": 17.29999999999997,
+            "excess_area_mm2": 0.0,
+            "connected_regions": 2
+          },
+          {
+            "z_mm": 17.499999999999968,
+            "excess_area_mm2": 0.0,
+            "connected_regions": 2
+          },
+          {
+            "z_mm": 17.699999999999967,
+            "excess_area_mm2": 0.0,
+            "connected_regions": 2
+          },
+          {
+            "z_mm": 17.899999999999967,
+            "excess_area_mm2": 0.0,
+            "connected_regions": 2
+          },
+          {
+            "z_mm": 18.099999999999966,
+            "excess_area_mm2": 0.0,
+            "connected_regions": 1
+          },
+          {
+            "z_mm": 18.299999999999965,
+            "excess_area_mm2": 0.0,
+            "connected_regions": 1
+          },
+          {
+            "z_mm": 18.499999999999964,
+            "excess_area_mm2": 0.0,
+            "connected_regions": 1
+          },
+          {
+            "z_mm": 18.699999999999964,
+            "excess_area_mm2": 0.0,
+            "connected_regions": 1
+          },
+          {
+            "z_mm": 18.899999999999963,
+            "excess_area_mm2": 0.0,
+            "connected_regions": 1
+          },
+          {
+            "z_mm": 19.099999999999962,
+            "excess_area_mm2": 0.0,
+            "connected_regions": 1
+          },
+          {
+            "z_mm": 19.29999999999996,
+            "excess_area_mm2": 0.0,
+            "connected_regions": 1
+          },
+          {
+            "z_mm": 19.49999999999996,
+            "excess_area_mm2": 0.0,
+            "connected_regions": 1
+          },
+          {
+            "z_mm": 19.69999999999996,
+            "excess_area_mm2": 0.0,
+            "connected_regions": 1
+          },
+          {
+            "z_mm": 19.89999999999996,
+            "excess_area_mm2": 0.0,
+            "connected_regions": 1
+          }
+        ]
+      },
+      "limitations": [
+        "Digital geometry only; physical cable/tie fit pending.",
+        "Tie loop is a loose assembly envelope, not a bent hardware model.",
+        "No pull rating, jacket damage limit, material strength, or print-time claim.",
+        "Existing nominal52x70 board model retained; measured49 mm layout not integrated."
+      ]
+    },
+    {
+      "scenario": "variant_8mm_cable_3mm_tie_radius4_5_projection7_5",
+      "status": "passed",
+      "preserved_print_parts": [
+        "lid",
+        "desk_bracket",
+        "pcb_clamp_left_front",
+        "pcb_clamp_left_rear",
+        "pcb_clamp_right_front",
+        "pcb_clamp_right_rear",
+        "reset_frame",
+        "reset_slider",
+        "reset_rear_keeper",
+        "reset_moving_magnet_keeper",
+        "boot_frame",
+        "boot_slider",
+        "boot_rear_keeper",
+        "boot_moving_magnet_keeper"
+      ],
+      "preserved_hardware_count": 34,
+      "independent_body_difference_mm3": [
+        0.0,
+        0.0
+      ],
+      "removed_body_volume_mm3": 0.0,
+      "added_body_volume_mm3": 447.0495831053127,
+      "wall_stock_bond_mm3": 67.5,
+      "cable_diameter_mm": 8.0,
+      "tie_band_width_mm": 3.0,
+      "tie_band_thickness_mm": 1.0,
+      "tunnel_width_mm": 3.7,
+      "tunnel_center_roof_material_mm": 2.25,
+      "minimum_tunnel_inboard_floor_mm": 0.9000000000000004,
+      "envelope_to_lid_mm": 2.1999999999999993,
+      "low_thread_negative_control_overlap_mm3": 8.10000000000002,
+      "new_material_hardware_overlaps_mm3": {
+        "reset_fixed_magnet": 0.0,
+        "reset_moving_magnet": 0.0,
+        "reset_nylon_adjuster": 0.0,
+        "reset_contact_heatset_insert": 0.0,
+        "reset_nylon_jam_nut": 0.0,
+        "reset_mount_screw_1": 0.0,
+        "reset_mount_screw_2": 0.0,
+        "boot_fixed_magnet": 0.0,
+        "boot_moving_magnet": 0.0,
+        "boot_nylon_adjuster": 0.0,
+        "boot_contact_heatset_insert": 0.0,
+        "boot_nylon_jam_nut": 0.0,
+        "boot_mount_screw_1": 0.0,
+        "boot_mount_screw_2": 0.0,
+        "bracket_mount_insert_1": 0.0,
+        "bracket_mount_insert_2": 0.0,
+        "bracket_mount_insert_3": 0.0,
+        "bracket_mount_insert_4": 0.0,
+        "lid_insert_1": 0.0,
+        "lid_screw_1": 0.0,
+        "lid_insert_2": 0.0,
+        "lid_screw_2": 0.0,
+        "lid_insert_3": 0.0,
+        "lid_screw_3": 0.0,
+        "lid_insert_4": 0.0,
+        "lid_screw_4": 0.0,
+        "pcb_clamp_left_front_insert": 0.0,
+        "pcb_clamp_left_front_screw": 0.0,
+        "pcb_clamp_left_rear_insert": 0.0,
+        "pcb_clamp_left_rear_screw": 0.0,
+        "pcb_clamp_right_front_insert": 0.0,
+        "pcb_clamp_right_front_screw": 0.0,
+        "pcb_clamp_right_rear_insert": 0.0,
+        "pcb_clamp_right_rear_screw": 0.0
+      },
+      "button_stroke_overlaps_mm3": {
+        "reset_0": 0.0,
+        "reset_0.4": 0.0,
+        "reset_0.8": 0.0,
+        "boot_0": 0.0,
+        "boot_0.4": 0.0,
+        "boot_0.8": 0.0
+      },
+      "layer_review": {
+        "layer_height_mm": 0.2,
+        "allowed_horizontal_advance_mm": 0.2,
+        "tessellation_allowance_mm": 0.004,
+        "layer_count": 63,
+        "maximum_excess_area_mm2": 0.0,
+        "floating_patch_negative_control_mm2": 1.0,
+        "slices": [
+          {
+            "z_mm": 8.1,
+            "excess_area_mm2": 0.0,
+            "connected_regions": 2
+          },
+          {
+            "z_mm": 8.299999999999999,
+            "excess_area_mm2": 0.0,
+            "connected_regions": 2
+          },
+          {
+            "z_mm": 8.499999999999998,
+            "excess_area_mm2": 0.0,
+            "connected_regions": 2
+          },
+          {
+            "z_mm": 8.699999999999998,
+            "excess_area_mm2": 0.0,
+            "connected_regions": 2
+          },
+          {
+            "z_mm": 8.899999999999997,
+            "excess_area_mm2": 0.0,
+            "connected_regions": 2
+          },
+          {
+            "z_mm": 9.099999999999996,
+            "excess_area_mm2": 0.0,
+            "connected_regions": 2
+          },
+          {
+            "z_mm": 9.299999999999995,
+            "excess_area_mm2": 0.0,
+            "connected_regions": 1
+          },
+          {
+            "z_mm": 9.499999999999995,
+            "excess_area_mm2": 0.0,
+            "connected_regions": 1
+          },
+          {
+            "z_mm": 9.699999999999994,
+            "excess_area_mm2": 0.0,
+            "connected_regions": 1
+          },
+          {
+            "z_mm": 9.899999999999993,
+            "excess_area_mm2": 0.0,
+            "connected_regions": 1
+          },
+          {
+            "z_mm": 10.099999999999993,
+            "excess_area_mm2": 0.0,
+            "connected_regions": 1
+          },
+          {
+            "z_mm": 10.299999999999992,
+            "excess_area_mm2": 0.0,
+            "connected_regions": 1
+          },
+          {
+            "z_mm": 10.499999999999991,
+            "excess_area_mm2": 0.0,
+            "connected_regions": 1
+          },
+          {
+            "z_mm": 10.69999999999999,
+            "excess_area_mm2": 0.0,
+            "connected_regions": 1
+          },
+          {
+            "z_mm": 10.89999999999999,
+            "excess_area_mm2": 0.0,
+            "connected_regions": 1
+          },
+          {
+            "z_mm": 11.099999999999989,
+            "excess_area_mm2": 0.0,
+            "connected_regions": 1
+          },
+          {
+            "z_mm": 11.299999999999988,
+            "excess_area_mm2": 0.0,
+            "connected_regions": 1
+          },
+          {
+            "z_mm": 11.499999999999988,
+            "excess_area_mm2": 0.0,
+            "connected_regions": 1
+          },
+          {
+            "z_mm": 11.699999999999987,
+            "excess_area_mm2": 0.0,
+            "connected_regions": 1
+          },
+          {
+            "z_mm": 11.899999999999986,
+            "excess_area_mm2": 0.0,
+            "connected_regions": 1
+          },
+          {
+            "z_mm": 12.099999999999985,
+            "excess_area_mm2": 0.0,
+            "connected_regions": 1
+          },
+          {
+            "z_mm": 12.299999999999985,
+            "excess_area_mm2": 0.0,
+            "connected_regions": 1
+          },
+          {
+            "z_mm": 12.499999999999984,
+            "excess_area_mm2": 0.0,
+            "connected_regions": 1
+          },
+          {
+            "z_mm": 12.699999999999983,
+            "excess_area_mm2": 0.0,
+            "connected_regions": 1
+          },
+          {
+            "z_mm": 12.899999999999983,
+            "excess_area_mm2": 0.0,
+            "connected_regions": 1
+          },
+          {
+            "z_mm": 13.099999999999982,
+            "excess_area_mm2": 0.0,
+            "connected_regions": 1
+          },
+          {
+            "z_mm": 13.299999999999981,
+            "excess_area_mm2": 0.0,
+            "connected_regions": 1
+          },
+          {
+            "z_mm": 13.49999999999998,
+            "excess_area_mm2": 0.0,
+            "connected_regions": 1
+          },
+          {
+            "z_mm": 13.69999999999998,
+            "excess_area_mm2": 0.0,
+            "connected_regions": 1
+          },
+          {
+            "z_mm": 13.899999999999979,
+            "excess_area_mm2": 0.0,
+            "connected_regions": 1
+          },
+          {
+            "z_mm": 14.099999999999978,
+            "excess_area_mm2": 0.0,
+            "connected_regions": 1
+          },
+          {
+            "z_mm": 14.299999999999978,
+            "excess_area_mm2": 0.0,
+            "connected_regions": 1
+          },
+          {
+            "z_mm": 14.499999999999977,
+            "excess_area_mm2": 0.0,
+            "connected_regions": 1
+          },
+          {
+            "z_mm": 14.699999999999976,
+            "excess_area_mm2": 0.0,
+            "connected_regions": 1
+          },
+          {
+            "z_mm": 14.899999999999975,
+            "excess_area_mm2": 0.0,
+            "connected_regions": 1
+          },
+          {
+            "z_mm": 15.099999999999975,
+            "excess_area_mm2": 0.0,
+            "connected_regions": 2
+          },
+          {
+            "z_mm": 15.299999999999974,
+            "excess_area_mm2": 0.0,
+            "connected_regions": 2
+          },
+          {
+            "z_mm": 15.499999999999973,
+            "excess_area_mm2": 0.0,
+            "connected_regions": 2
+          },
+          {
+            "z_mm": 15.699999999999973,
+            "excess_area_mm2": 0.0,
+            "connected_regions": 2
+          },
+          {
+            "z_mm": 15.899999999999972,
+            "excess_area_mm2": 0.0,
+            "connected_regions": 2
+          },
+          {
+            "z_mm": 16.099999999999973,
+            "excess_area_mm2": 0.0,
+            "connected_regions": 2
+          },
+          {
+            "z_mm": 16.29999999999997,
+            "excess_area_mm2": 0.0,
+            "connected_regions": 2
+          },
+          {
+            "z_mm": 16.49999999999997,
+            "excess_area_mm2": 0.0,
+            "connected_regions": 2
+          },
+          {
+            "z_mm": 16.699999999999967,
+            "excess_area_mm2": 0.0,
+            "connected_regions": 2
+          },
+          {
+            "z_mm": 16.89999999999997,
+            "excess_area_mm2": 0.0,
+            "connected_regions": 2
+          },
+          {
+            "z_mm": 17.099999999999966,
+            "excess_area_mm2": 0.0,
+            "connected_regions": 2
+          },
+          {
+            "z_mm": 17.29999999999997,
+            "excess_area_mm2": 0.0,
+            "connected_regions": 2
+          },
+          {
+            "z_mm": 17.499999999999964,
+            "excess_area_mm2": 0.0,
+            "connected_regions": 2
+          },
+          {
+            "z_mm": 17.699999999999967,
+            "excess_area_mm2": 0.0,
+            "connected_regions": 2
+          },
+          {
+            "z_mm": 17.899999999999963,
+            "excess_area_mm2": 0.0,
+            "connected_regions": 2
+          },
+          {
+            "z_mm": 18.099999999999966,
+            "excess_area_mm2": 0.0,
+            "connected_regions": 2
+          },
+          {
+            "z_mm": 18.29999999999996,
+            "excess_area_mm2": 0.0,
+            "connected_regions": 1
+          },
+          {
+            "z_mm": 18.499999999999964,
+            "excess_area_mm2": 0.0,
+            "connected_regions": 1
+          },
+          {
+            "z_mm": 18.69999999999996,
+            "excess_area_mm2": 0.0,
+            "connected_regions": 1
+          },
+          {
+            "z_mm": 18.899999999999963,
+            "excess_area_mm2": 0.0,
+            "connected_regions": 1
+          },
+          {
+            "z_mm": 19.09999999999996,
+            "excess_area_mm2": 0.0,
+            "connected_regions": 1
+          },
+          {
+            "z_mm": 19.29999999999996,
+            "excess_area_mm2": 0.0,
+            "connected_regions": 1
+          },
+          {
+            "z_mm": 19.499999999999957,
+            "excess_area_mm2": 0.0,
+            "connected_regions": 1
+          },
+          {
+            "z_mm": 19.69999999999996,
+            "excess_area_mm2": 0.0,
+            "connected_regions": 1
+          },
+          {
+            "z_mm": 19.899999999999956,
+            "excess_area_mm2": 0.0,
+            "connected_regions": 1
+          },
+          {
+            "z_mm": 20.09999999999996,
+            "excess_area_mm2": 0.0,
+            "connected_regions": 1
+          },
+          {
+            "z_mm": 20.299999999999955,
+            "excess_area_mm2": 0.0,
+            "connected_regions": 1
+          },
+          {
+            "z_mm": 20.499999999999957,
+            "excess_area_mm2": 0.0,
+            "connected_regions": 1
+          }
+        ]
+      },
+      "limitations": [
+        "Digital geometry only; physical cable/tie fit pending.",
+        "Tie loop is a loose assembly envelope, not a bent hardware model.",
+        "No pull rating, jacket damage limit, material strength, or print-time claim.",
+        "Existing nominal52x70 board model retained; measured49 mm layout not integrated."
+      ]
+    }
+  ],
+  "invalid_parameter_checks": {
+    "oversize_cable": "Provisional cable diameter must be4..8 mm for this exit",
+    "thin_tunnel_roof": "Saddle must retain2 mm over the tunnel roof apex at its crown",
+    "head_exceeds_exit": "Tie head must remain inside the cable-exit width with0.5 mm margin"
+  }
+}
