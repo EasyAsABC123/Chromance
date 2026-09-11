@@ -4,12 +4,13 @@
   "changes": [
     "Replaced the workstation-specific runtime path and discovery instructions with the packaged Chromance runtime.",
     "Added guidance to use archived enclosure build helpers when model source spans several modules.",
-    "Retained the original design, validation and mesh-editing guidance and UI metadata."
+    "Retained the shared design, validation and mesh-editing guidance and UI metadata, including the required quick iterative test-print workflow."
   ],
   "source_files": {
-    "fdm-cad/SKILL.md": "27e6c80984bbe17d78ac252ab4e18b3ba3a7bb0ab75a1120241191bf2ca62e08",
+    "fdm-cad/SKILL.md": "2ad884ba9887811befbe167dc830380d86dc607bb0dddd92ea40f0cae0d65c6e",
     "fdm-cad/agents/openai.yaml": "9791cb88b699f7a27d6a37ddb0d432e978c03217dc2bdaf77fe7a2faf6254bf9",
-    "fdm-mesh-edit/SKILL.md": "4321bcb6f4ab0de8219796bad8a6c3a85483c7ee3708f5544ae186df2ab24ea6",
+    "fdm-mesh-edit/SKILL.md": "bc7f53c1e113d46149c2329ce432c98f2307ee7f955141520a85999c55405296",
     "fdm-mesh-edit/agents/openai.yaml": "27e03711ecf87a666c9d63ea02f187c8153edb00b4537e0856d86bd09bfe752a"
-  }
+  },
+  "source_files_note": "SHA256 of the maintained local skill sources used by the current portable adaptations; portable runtime instructions differ."
 }

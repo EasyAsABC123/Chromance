@@ -3,9 +3,13 @@
 These are portable adaptations of the two local skills used for this CAD workflow.
 The engineering and validation instructions are retained; runtime discovery and
 commands now point to the copy of the workbench included in this repository.
-The original skill hashes and the small set of adaptations are recorded in
+The maintained source skill hashes and the portable adaptations are recorded in
 [provenance.json](provenance.json). Installing a skill supplies instructions;
 the Python runtime is a separate dependency.
+
+Both skills require quick, versioned test-print artifacts for every new design or
+geometry revision, with measurement/pass criteria and recorded physical results
+feeding back into the full model.
 
 | Resource | Purpose |
 | --- | --- |

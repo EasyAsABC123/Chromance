@@ -45,7 +45,18 @@ Choose the design around its load path and manufacturing conditions:
 - Evaluate the proposed print orientation against layer adhesion, mounting loads, surface quality, accuracy, and support removal. Strength is affected by geometry, material, orientation, and slicing; infill percentage alone is not a design justification.
 - Choose wall thickness, ribs, fillets, fasteners/inserts, and part splits deliberately. For desk mounts consider pullout, bending at bracket roots, access to screws, desk clearance, and positive retention of the enclosure.
 - Prefer support-free geometry when it suits the part. Otherwise name the support strategy: slicer-generated, modeled sacrificial, or a separate printed support. Verify removal access and protect mating/visible surfaces. Keep modeled supports separately identifiable.
-- Make mating clearance and hole compensation adjustable. Identify critical fits for later test coupons; do not present printer-dependent allowances as measured facts.
+- Make mating clearance and hole compensation adjustable. Identify critical fits for the quick iterative test prints; do not present printer-dependent allowances as measured facts.
+
+## Quick iterative test prints
+
+Always create a small, quick test-print artifact for each new design or geometry revision to check assumptions and fits before recommending a full print. Include it in the deliverables instead of merely suggesting a future coupon.
+
+Derive the test from the same model parameters and interface geometry as the full part. For an enclosure, select the relevant board-retention frame, connector/button section, lid joint, insert boss, or desk-mount interface; include mating pieces when needed.
+
+- Minimize print time and material with local sections, open frames, or partial-height parts. Preserve true scale, interface spacing, critical wall thickness/stiffness, insertion paths, and tool access so the simplification still tests the intended behavior. Use clearly labeled clearance variants when a fit allowance is uncertain.
+- Match the intended final print orientation, material, nozzle, layer height, and support strategy where established; record provisional settings otherwise. A coupon cannot establish whole-part strength, warping, or interfaces it omits. Only report time/material estimates from an actual slicer profile, with its settings identified.
+- Save versioned test files under `fit-tests/<revision>/` with their source/parameters or operation script, printable 3MF (STL when appropriate), and an actual geometry preview. Include a short checklist of assumptions tested, nominal dimensions, what to measure or try, and pass/fail criteria. Link directly to the test print in the handoff.
+- Record reported measurements, fit problems, and printer/material/settings with the tested revision. Apply corrections to both the full model and test geometry, then generate the next small test. Mark each assumption as provisional, physically tested, or unresolved; geometry checks alone do not verify physical fit. Digital work can finish with the test files delivered and physical results pending.
 
 ## Validation and handoff
 
@@ -55,4 +66,4 @@ Regenerate a meaningful parameter variant when establishing or changing a parame
 
 Deliver editable Python source, parameters, required inputs, STEP, model 3MF, actual geometry previews, and a concise report. A model 3MF carries printable geometry; it is not a slicer project with verified printer, filament, support, or process settings. Create a slicer-specific project only when those settings are established.
 
-State intended material, printing orientation, support strategy, assembly hardware, critical fits, and unverified dimensions. Geometry validation is not physical strength or fit validation. No physical printing is required to complete digital modeling; describe later fit coupons or load tests when they would resolve a real uncertainty.
+State intended material, printing orientation, support strategy, assembly hardware, critical fits, and unverified dimensions. Geometry validation is not physical strength or fit validation. Deliver the quick test prints with their physical validation status; describe additional load tests when they would resolve a real uncertainty.

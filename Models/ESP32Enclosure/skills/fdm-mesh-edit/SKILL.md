@@ -44,6 +44,17 @@ Check preconditions and report failed or empty results. Do not automatically cap
 
 For scaling, distinguish unit conversion from design changes: uniform scaling also changes holes, walls, fits, and mounting dimensions. For cuts and unions, verify the result where the operands meet and identify new overhangs, thin walls, or support needs. For load-bearing edits, use the same material, orientation, and load-path reasoning as `fdm-cad`; mesh validity alone says nothing about strength.
 
+## Quick iterative test prints
+
+Always create a small, quick test-print artifact for each new design or geometry revision to check assumptions and fits before recommending a full print. Include it in the deliverables instead of merely suggesting a future coupon.
+
+Derive the test from the edited mesh with a retained crop/extraction script and the same edit parameters. Keep coupon-only cuts separate from the production output and place crop boundaries away from the interface so they do not alter its fit or stiffness.
+
+- Minimize print time and material with local sections, open frames, or partial-height parts. Preserve true scale, interface spacing, critical wall thickness/stiffness, insertion paths, and tool access so the simplification still tests the intended behavior. Use clearly labeled clearance variants when a fit allowance is uncertain.
+- Match the intended final print orientation, material, nozzle, layer height, and support strategy where established; record provisional settings otherwise. A coupon cannot establish whole-part strength, warping, or interfaces it omits. Only report time/material estimates from an actual slicer profile, with its settings identified.
+- Save versioned test files under `fit-tests/<revision>/` with their source/parameters or operation script, printable 3MF (STL when appropriate), and an actual geometry preview. Include a short checklist of assumptions tested, nominal dimensions, what to measure or try, and pass/fail criteria. Link directly to the test print in the handoff.
+- Record reported measurements, fit problems, and printer/material/settings with the tested revision. Apply corrections to both the full model and test geometry, then generate the next small test. Mark each assumption as provisional, physically tested, or unresolved; geometry checks alone do not verify physical fit. Digital work can finish with the test files delivered and physical results pending.
+
 ## Validation and deliverables
 
 Compare original and edited bounding dimensions, expected object/connected-component count, watertightness, winding, and volume where defined. Verify requested measurements and preserve intentional openings. Reopen the exported result and inspect actual mesh previews; apply tolerances appropriate to tessellation rather than requiring exact CAD-volume equality.
