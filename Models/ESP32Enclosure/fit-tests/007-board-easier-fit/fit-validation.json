@@ -1,0 +1,777 @@
+{
+  "status": "passed",
+  "checker_sha256": "77502cbae18d99aec5abe0aede7df8f9ee5d9dc63083d93c7d565525f59b58db",
+  "geometry_helper_sha256": "11016e291dc57040f170896841ba55e69b695b3712034283cc0a5cfa6bf44ba6",
+  "source_revision": "012-easier-board-fit",
+  "baseline_revision": "011-fit-and-cable-cradle",
+  "source_hashes": {
+    "model.py": "39fec78be303c8952c7e52a3c824fd12734d0a5eb9a070541583a9d567e23fe2",
+    "base_model.py": "fa5b24c8c12ec48720fd6b2636690181a2e95d44e9f57815783359b23986bfa6",
+    "button_module.py": "f64435e11a52b5d1004753cd37919ed2377d5d5caea45a19ed3b80096518b596",
+    "mounting.py": "8463a93558364dcd69e2e21c629888b875f51906d5b5c2a1a1768cbdaa96cd8b",
+    "parameters.json": "8f6f0836cfcb5bcd7d352b36d4d3eb8b7e15463ffb86e0f304a482492bc12d82"
+  },
+  "full_export_hashes": {
+    "body": "dc9b8a36d639275191a684236bb6aafe4fb48ade76b5aee00d09f5bccae64bd8",
+    "lid": "4d42a9a07962961133f80e0e35767a4792a1853366e42ae4b2ca6feb16b29207",
+    "desk_bracket": "6174b63202bfbc92aeaa92dc6fde949f7b43899bcb9d8579164ae989854f9ec1",
+    "pcb_clamp_left_front": "16378edfe0b7e7b3bbd90bac122564cb46dc2ccef80642e21e2ccb870bdefbca",
+    "pcb_clamp_left_rear": "15d0e5a56f5f351ac955826d146faf9ac9372f19f8c9e5647de5b7ca5bd56e11",
+    "pcb_clamp_right_front": "3fbe678d7cc3f988bb1dde251cab2522e55512301958a57d9a4b83580d99a630",
+    "pcb_clamp_right_rear": "feb7c74b17d04163ffc44f28ea8e0a78dff6dacca7329564bc5815fc6bd42bc4",
+    "reset_frame": "f80c00f3bb833f5488c1b13532c24d8bd0d5680603b550778d8a0494511231d7",
+    "reset_slider": "c6b46337fb20cfe9b7679ead38f9f64e9d38bc53945215c89860554adcfecce5",
+    "reset_rear_keeper": "096bd9cdec3c4df1e17187098fe89ceda79cacf4b6cadeca67f636ffbc3f7402",
+    "reset_moving_magnet_keeper": "e18ba5bf7671d6340135d532b13ba1f85b494885c87855ef533b5bf097800f30",
+    "boot_frame": "e259bada9967a3f5819c3a9dee337bea474b451328640e0e35cc1634888a3598",
+    "boot_slider": "6ea6ff30a0bbfc0538d5c4b8199226a457d2495e71e44ae69a36cb159d70963e",
+    "boot_rear_keeper": "07efeebffc67eea6ff4da892b109859c3cfa5161d926cbf33e7ff803daa412d0",
+    "boot_moving_magnet_keeper": "442c7b9968f1930c4861ccf549f6fb029d933d0808eb2c885a7ae922da8c2ed1"
+  },
+  "baseline_export_hashes": {
+    "body": "ea20b5b7e60bc337749577255bbcd2cce3c6940d1c90849df97169cc45a4c49e",
+    "lid": "47afb15b0e74429bf21ff1e3fccdef463bfdf538c0a81b70400f26667e9efdd8",
+    "desk_bracket": "d44ce1dc1a7b11024dfdc13a3d1c4334c065d5d4bd922219fcb2f30c50fe238d",
+    "pcb_clamp_left_front": "f85d67dcde114682a4ca69955539d035a085a808ff8b96ae01c1279c7c18d498",
+    "pcb_clamp_left_rear": "f5c95bd84e4948d45a8262021e7c62856f7cd1fe1b6eb4b06b0a3c744b8a6ba0",
+    "pcb_clamp_right_front": "302b79e02e9d8ff8c16f27b28fb6c0cfebfbb226c1f21b4f844e2e76b4a0d169",
+    "pcb_clamp_right_rear": "60e468ee3f07355061a851d7ba72cfddd36a3d41747958ab90f6438c1a460c34",
+    "reset_frame": "0a080f7f5c83d71f115de39010de1083466c19264bfa227c599e7d1d28a12f28",
+    "reset_slider": "5c247227c0291873bbd2c64af0b1757343940884153d4f558e75d97b601449db",
+    "reset_rear_keeper": "3a380ea0324122e2353a2376c78fa8f531c16efa3598e279710164eb17c0402e",
+    "reset_moving_magnet_keeper": "e4bf233431b11e4f2fbf89bf925efc44daca60b9d03dd5b8775c483ff2744280",
+    "boot_frame": "61307b62ae776427316a705fa4d6ed24b099eda6eb9f41d0ef4ef20a69398865",
+    "boot_slider": "7aa96cdb5752ccfbe135df472862352c6472bbec48a33939f45c413aa2d72a18",
+    "boot_rear_keeper": "fcc8adfbb659fdf7d0e770a3890848d3be644ac9c5b7ca4921fb1d563cca126b",
+    "boot_moving_magnet_keeper": "8f52fdbd2abaa4f7834f51de3984dc92177eefe6f46230c32048e51f0f945f72"
+  },
+  "width_changes": {
+    "body": {
+      "old_size_mm": [
+        93.80000000000001,
+        95.2,
+        32.0
+      ],
+      "new_size_mm": [
+        94.30000000000001,
+        95.2,
+        32.0
+      ],
+      "increase_xyz_mm": [
+        0.5,
+        0.0,
+        0.0
+      ]
+    },
+    "lid": {
+      "old_size_mm": [
+        69.8,
+        92.8,
+        4.400000000000013
+      ],
+      "new_size_mm": [
+        70.3,
+        92.8,
+        4.400000000000013
+      ],
+      "increase_xyz_mm": [
+        0.5,
+        0.0,
+        0.0
+      ]
+    },
+    "desk_bracket": {
+      "old_size_mm": [
+        113.8,
+        84.8,
+        32.20000000000002
+      ],
+      "new_size_mm": [
+        114.3,
+        84.8,
+        32.20000000000002
+      ],
+      "increase_xyz_mm": [
+        0.5,
+        0.0,
+        0.0
+      ]
+    }
+  },
+  "other_changed_parts": {
+    "pcb_clamp_left_front": {
+      "width_increase_mm": 0.75,
+      "volume_increase_mm3": 12.000000000000114,
+      "reason": "0.25 mm outward datum shift plus 0.5 mm deeper coverage; screw moves with datum"
+    },
+    "pcb_clamp_left_rear": {
+      "width_increase_mm": 0.75,
+      "volume_increase_mm3": 12.000000000000114,
+      "reason": "0.25 mm outward datum shift plus 0.5 mm deeper coverage; screw moves with datum"
+    },
+    "pcb_clamp_right_front": {
+      "width_increase_mm": 0.75,
+      "volume_increase_mm3": 11.999999999999815,
+      "reason": "0.25 mm outward datum shift plus 0.5 mm deeper coverage; screw moves with datum"
+    },
+    "pcb_clamp_right_rear": {
+      "width_increase_mm": 0.75,
+      "volume_increase_mm3": 11.999999999999815,
+      "reason": "0.25 mm outward datum shift plus 0.5 mm deeper coverage; screw moves with datum"
+    },
+    "reset_slider": {
+      "volume_change_mm3": 9.89303097631182,
+      "reason": "Guide shifts outward 0.25 mm; contact tip keeps its board-relative X position"
+    },
+    "boot_slider": {
+      "volume_change_mm3": 9.89303097620541,
+      "reason": "Guide shifts outward 0.25 mm; contact tip keeps its board-relative X position"
+    }
+  },
+  "physically_reusable_geometry_after_translation": [
+    "reset_frame",
+    "reset_rear_keeper",
+    "reset_moving_magnet_keeper",
+    "boot_frame",
+    "boot_rear_keeper",
+    "boot_moving_magnet_keeper"
+  ],
+  "fastener_center_changes": {
+    "desk_screw_centers_xy": {
+      "before": [
+        [
+          -51.9,
+          -35.4
+        ],
+        [
+          -51.9,
+          35.4
+        ],
+        [
+          51.9,
+          -35.4
+        ],
+        [
+          51.9,
+          35.4
+        ]
+      ],
+      "after": [
+        [
+          -52.15,
+          -35.4
+        ],
+        [
+          -52.15,
+          35.4
+        ],
+        [
+          52.15,
+          -35.4
+        ],
+        [
+          52.15,
+          35.4
+        ]
+      ]
+    },
+    "body_mount_centers_xy": {
+      "before": [
+        [
+          -40.9,
+          -35.4
+        ],
+        [
+          -40.9,
+          35.4
+        ],
+        [
+          40.9,
+          -35.4
+        ],
+        [
+          40.9,
+          35.4
+        ]
+      ],
+      "after": [
+        [
+          -41.15,
+          -35.4
+        ],
+        [
+          -41.15,
+          35.4
+        ],
+        [
+          41.15,
+          -35.4
+        ],
+        [
+          41.15,
+          35.4
+        ]
+      ]
+    },
+    "lid_screw_centers_xy": {
+      "before": [
+        [
+          -28.5,
+          -40.0
+        ],
+        [
+          -28.5,
+          40.0
+        ],
+        [
+          28.5,
+          -40.0
+        ],
+        [
+          28.5,
+          40.0
+        ]
+      ],
+      "after": [
+        [
+          -28.75,
+          -40.0
+        ],
+        [
+          -28.75,
+          40.0
+        ],
+        [
+          28.75,
+          -40.0
+        ],
+        [
+          28.75,
+          40.0
+        ]
+      ]
+    },
+    "pcb_clamp_centers_local_xy_mm": {
+      "before": [
+        [
+          -29.4,
+          -17.0
+        ],
+        [
+          -29.4,
+          17.0
+        ],
+        [
+          29.4,
+          -17.0
+        ],
+        [
+          29.4,
+          17.0
+        ]
+      ],
+      "after": [
+        [
+          -29.65,
+          -17.0
+        ],
+        [
+          -29.65,
+          17.0
+        ],
+        [
+          29.65,
+          -17.0
+        ],
+        [
+          29.65,
+          17.0
+        ]
+      ]
+    }
+  },
+  "overall_size_mm": [
+    114.3,
+    95.20000000000002,
+    39.60000000000001
+  ],
+  "nominal_capture": {
+    "actual_pcb_xyz_mm": [
+      49.0,
+      70.0,
+      1.0
+    ],
+    "fit_width_extra_total_mm": 0.5,
+    "locating_gap_mm": 50.3,
+    "shelf_inner_gap_mm": 46.4,
+    "centered_edge_overlap_mm": 1.3,
+    "minimum_edge_overlap_mm": 0.65,
+    "slot_height_mm": 1.1999999999999993,
+    "x_play_each_direction_mm": 0.65,
+    "y_play_each_direction_mm": 0.4,
+    "board_top_local_z_mm": 10.0,
+    "probes": [
+      {
+        "side": -1,
+        "y_mm": -17.0,
+        "shelf_inner_abs_x_mm": 23.2,
+        "shoulder_abs_x_mm": 25.15
+      },
+      {
+        "side": -1,
+        "y_mm": 17.0,
+        "shelf_inner_abs_x_mm": 23.2,
+        "shoulder_abs_x_mm": 25.15
+      },
+      {
+        "side": 1,
+        "y_mm": -17.0,
+        "shelf_inner_abs_x_mm": 23.2,
+        "shoulder_abs_x_mm": 25.15
+      },
+      {
+        "side": 1,
+        "y_mm": 17.0,
+        "shelf_inner_abs_x_mm": 23.2,
+        "shoulder_abs_x_mm": 25.15
+      }
+    ],
+    "clear_bare_board_poses_xyz_mm": [
+      [
+        -0.65,
+        -0.4,
+        9.0
+      ],
+      [
+        -0.65,
+        -0.4,
+        9.2
+      ],
+      [
+        -0.65,
+        0,
+        9.0
+      ],
+      [
+        -0.65,
+        0,
+        9.2
+      ],
+      [
+        -0.65,
+        0.4,
+        9.0
+      ],
+      [
+        -0.65,
+        0.4,
+        9.2
+      ],
+      [
+        0,
+        -0.4,
+        9.0
+      ],
+      [
+        0,
+        -0.4,
+        9.2
+      ],
+      [
+        0,
+        0,
+        9.0
+      ],
+      [
+        0,
+        0,
+        9.2
+      ],
+      [
+        0,
+        0.4,
+        9.0
+      ],
+      [
+        0,
+        0.4,
+        9.2
+      ],
+      [
+        0.65,
+        -0.4,
+        9.0
+      ],
+      [
+        0.65,
+        -0.4,
+        9.2
+      ],
+      [
+        0.65,
+        0,
+        9.0
+      ],
+      [
+        0.65,
+        0,
+        9.2
+      ],
+      [
+        0.65,
+        0.4,
+        9.0
+      ],
+      [
+        0.65,
+        0.4,
+        9.2
+      ]
+    ]
+  },
+  "variant_capture": {
+    "actual_pcb_xyz_mm": [
+      49.0,
+      70.0,
+      1.0
+    ],
+    "fit_width_extra_total_mm": 0.8,
+    "locating_gap_mm": 50.6,
+    "shelf_inner_gap_mm": 46.2,
+    "centered_edge_overlap_mm": 1.4,
+    "minimum_edge_overlap_mm": 0.5999999999999999,
+    "slot_height_mm": 1.1999999999999993,
+    "x_play_each_direction_mm": 0.8,
+    "y_play_each_direction_mm": 0.4,
+    "board_top_local_z_mm": 10.0,
+    "probes": [
+      {
+        "side": -1,
+        "y_mm": -17.0,
+        "shelf_inner_abs_x_mm": 23.1,
+        "shoulder_abs_x_mm": 25.3
+      },
+      {
+        "side": -1,
+        "y_mm": 17.0,
+        "shelf_inner_abs_x_mm": 23.1,
+        "shoulder_abs_x_mm": 25.3
+      },
+      {
+        "side": 1,
+        "y_mm": -17.0,
+        "shelf_inner_abs_x_mm": 23.1,
+        "shoulder_abs_x_mm": 25.3
+      },
+      {
+        "side": 1,
+        "y_mm": 17.0,
+        "shelf_inner_abs_x_mm": 23.1,
+        "shoulder_abs_x_mm": 25.3
+      }
+    ],
+    "clear_bare_board_poses_xyz_mm": [
+      [
+        -0.8,
+        -0.4,
+        9.0
+      ],
+      [
+        -0.8,
+        -0.4,
+        9.2
+      ],
+      [
+        -0.8,
+        0,
+        9.0
+      ],
+      [
+        -0.8,
+        0,
+        9.2
+      ],
+      [
+        -0.8,
+        0.4,
+        9.0
+      ],
+      [
+        -0.8,
+        0.4,
+        9.2
+      ],
+      [
+        0,
+        -0.4,
+        9.0
+      ],
+      [
+        0,
+        -0.4,
+        9.2
+      ],
+      [
+        0,
+        0,
+        9.0
+      ],
+      [
+        0,
+        0,
+        9.2
+      ],
+      [
+        0,
+        0.4,
+        9.0
+      ],
+      [
+        0,
+        0.4,
+        9.2
+      ],
+      [
+        0.8,
+        -0.4,
+        9.0
+      ],
+      [
+        0.8,
+        -0.4,
+        9.2
+      ],
+      [
+        0.8,
+        0,
+        9.0
+      ],
+      [
+        0.8,
+        0,
+        9.2
+      ],
+      [
+        0.8,
+        0.4,
+        9.0
+      ],
+      [
+        0.8,
+        0.4,
+        9.2
+      ]
+    ]
+  },
+  "zero_extra_width_capture": {
+    "actual_pcb_xyz_mm": [
+      49.0,
+      70.0,
+      1.0
+    ],
+    "fit_width_extra_total_mm": 0.0,
+    "locating_gap_mm": 49.8,
+    "shelf_inner_gap_mm": 47.4,
+    "centered_edge_overlap_mm": 0.8,
+    "minimum_edge_overlap_mm": 0.4,
+    "slot_height_mm": 1.1999999999999993,
+    "x_play_each_direction_mm": 0.4,
+    "y_play_each_direction_mm": 0.4,
+    "board_top_local_z_mm": 10.0,
+    "probes": [
+      {
+        "side": -1,
+        "y_mm": -17.0,
+        "shelf_inner_abs_x_mm": 23.7,
+        "shoulder_abs_x_mm": 24.9
+      },
+      {
+        "side": -1,
+        "y_mm": 17.0,
+        "shelf_inner_abs_x_mm": 23.7,
+        "shoulder_abs_x_mm": 24.9
+      },
+      {
+        "side": 1,
+        "y_mm": -17.0,
+        "shelf_inner_abs_x_mm": 23.7,
+        "shoulder_abs_x_mm": 24.9
+      },
+      {
+        "side": 1,
+        "y_mm": 17.0,
+        "shelf_inner_abs_x_mm": 23.7,
+        "shoulder_abs_x_mm": 24.9
+      }
+    ],
+    "clear_bare_board_poses_xyz_mm": [
+      [
+        -0.4,
+        -0.4,
+        9.0
+      ],
+      [
+        -0.4,
+        -0.4,
+        9.2
+      ],
+      [
+        -0.4,
+        0,
+        9.0
+      ],
+      [
+        -0.4,
+        0,
+        9.2
+      ],
+      [
+        -0.4,
+        0.4,
+        9.0
+      ],
+      [
+        -0.4,
+        0.4,
+        9.2
+      ],
+      [
+        0,
+        -0.4,
+        9.0
+      ],
+      [
+        0,
+        -0.4,
+        9.2
+      ],
+      [
+        0,
+        0,
+        9.0
+      ],
+      [
+        0,
+        0,
+        9.2
+      ],
+      [
+        0,
+        0.4,
+        9.0
+      ],
+      [
+        0,
+        0.4,
+        9.2
+      ],
+      [
+        0.4,
+        -0.4,
+        9.0
+      ],
+      [
+        0.4,
+        -0.4,
+        9.2
+      ],
+      [
+        0.4,
+        0,
+        9.0
+      ],
+      [
+        0.4,
+        0,
+        9.2
+      ],
+      [
+        0.4,
+        0.4,
+        9.0
+      ],
+      [
+        0.4,
+        0.4,
+        9.2
+      ]
+    ]
+  },
+  "rejected_parameter_cases": [
+    {
+      "case": "negative_fit_width",
+      "overrides": {
+        "board_fit_width_extra": -0.01
+      },
+      "error": "Additional total board-fit width must be0..1 mm"
+    },
+    {
+      "case": "excess_fit_width",
+      "overrides": {
+        "board_fit_width_extra": 1.01
+      },
+      "error": "Additional total board-fit width must be0..1 mm"
+    },
+    {
+      "case": "excess_edge_coverage",
+      "overrides": {
+        "board_edge_overlap": 1.51
+      },
+      "error": "PCB retention overlap must be0.4..1.5 mm"
+    },
+    {
+      "case": "zero_retained_edge",
+      "overrides": {
+        "board_fit_width_extra": 1.0,
+        "board_edge_overlap": 0.9
+      },
+      "error": "PCB shelves and clamps must retain positive overlap after all lateral play"
+    }
+  ],
+  "coupon": {
+    "test": "007-board-easier-fit",
+    "matched_sources": {
+      "enclosure_model.py": "39fec78be303c8952c7e52a3c824fd12734d0a5eb9a070541583a9d567e23fe2",
+      "base_model.py": "fa5b24c8c12ec48720fd6b2636690181a2e95d44e9f57815783359b23986bfa6",
+      "button_module.py": "f64435e11a52b5d1004753cd37919ed2377d5d5caea45a19ed3b80096518b596",
+      "mounting.py": "8463a93558364dcd69e2e21c629888b875f51906d5b5c2a1a1768cbdaa96cd8b"
+    },
+    "model_sha256": "0a730deb8a3c68ac96ef2545f74ac51fa21b5b3f9e23d58ec849bdbb228788e0",
+    "frame_step_sha256": "168cb530e20ce73e5fa1bce8259d5b521dd85dd87c586645186c84cf17d2b87b",
+    "exact_crop_differences_mm3": [
+      0.0,
+      0.0
+    ],
+    "frame_size_mm": [
+      75.10000004048,
+      95.2,
+      12.200000000000001
+    ],
+    "all_four_full_clamps_preserved": true
+  },
+  "existing_cable_coupon_reuse": {
+    "test": "006-cable-cradle",
+    "exact_production_crop_comparison": {
+      "cable_fit_body": {
+        "differences_mm3": [
+          0.0,
+          0.0
+        ],
+        "saved_step_sha256": "755ea861a2a4e05f6b6292cb1dc59a50a40a937b1da70b3550cbd5481ed9b5a9"
+      },
+      "cable_fit_lid": {
+        "differences_mm3": [
+          0.0,
+          0.0
+        ],
+        "saved_step_sha256": "f7f01fe9aa1b097b4f193f1db07227ec44cd934d5bb42b6c6f0dd4a6091867fb"
+      }
+    }
+  },
+  "physical_fit_tested": false,
+  "limitations": [
+    "Bare-board poses do not check components/solder or bowed PCB; deeper top/bottom capture needs actual bare board.",
+    "Measured button Y spacing and 3.3 mm inset remain a separate actuator layout task.",
+    "Open low frame omits central underside collision, upper shell, full stiffness/warping, full-height tool access and strength."
+  ]
+}

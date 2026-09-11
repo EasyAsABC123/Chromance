@@ -6,33 +6,35 @@ paddles. The user's [latest measurements](measurements/) separate the
 **49 × 70 × 1 mm perfboard** from the **52 mm ESP32 span**. Confirmed button centers
 are 30 and 16 mm from the bottom edge, each 3.3 mm from the left edge.
 
-**Latest full enclosure: [011 — 3 mm narrower, with a concave cable cradle](revisions/011-fit-and-cable-cradle/README.md).**
-The body, lid and desk bracket are each 3 mm narrower. The retention now uses the
-measured 49 × 70 × 1 mm substrate. A block with an Ø8.4 mm cylindrical cutout seats
-the measured 8 mm cable, with a zip-tie passage underneath.
+**Latest full enclosure: [012 — easier PCB fit and deeper shelves](revisions/012-easier-board-fit/README.md).**
+The body, lid and bracket are 0.5 mm wider than revision 011. The measured board
+stays 49 mm wide; a separate fit allowance increases the locating gap to
+**50.3 mm**. Shelves and matching top clamps reach **0.5 mm farther** under/over
+each edge, giving **1.3 mm coverage** with the board centered. The vertical slot
+stays 1.2 mm high.
 
-**Quick iterative prints:**
+**[Print test 007 first — five-part board-fit 3MF](fit-tests/007-board-easier-fit/print-layout.3mf)**,
+with [fit instructions](fit-tests/007-board-easier-fit/README.md). The full-width
+low frame and new clamps use this revision's exact interfaces. Check that both
+deeper contact strips land on bare PCB. Physical fit results remain pending;
+[the request record](measurements/2026-09-11-easier-fit.json) separates the new
+allowance from measured board size.
 
-- [005 — board retention, five-part 3MF](fit-tests/005-board-width/print-layout.3mf)
-  and [fit instructions](fit-tests/005-board-width/README.md).
-- [006 — concave cable cradle and lid section, two-part 3MF](fit-tests/006-cable-cradle/print-layout.3mf)
-  and [fit instructions](fit-tests/006-cable-cradle/README.md).
+Use matching **body, lid, bracket, four PCB clamps and two button sliders**.
+The six other cartridge frame/keeper pieces retain their shapes and can be
+reused. Fastener centers move outward 0.25 mm per side, including the desk
+mounting pattern. Slider arms extend to the wider shell while tips stay in their
+board-relative X positions. Overall size is **114.3 × 95.2 × 39.6 mm**.
 
-Both are derived from revision 011's exact CAD inputs. Print these before a full
-replacement. The user reported the earlier shelves 3 mm too far apart and asked
-to shrink the full case; [the correction record](measurements/2026-09-11-retention-fit.json)
-preserves that feedback. Physical results for the new tests remain pending.
-
-Replace **body, lid and desk bracket together**. Their new screw centers move
-inward 1.5 mm per side, including the desk mounting pattern. The four PCB clamps
-and eight button pieces match revision 010 after translating their positions and
-can be reused. The completed printed assembly is **113.8 × 95.2 × 39.6 mm**.
+The concave cable support is unchanged. **[Cable test 006](fit-tests/006-cable-cradle/print-layout.3mf)**
+remains usable; its [instructions](fit-tests/006-cable-cradle/README.md) apply to
+this revision, and the actual production STEP crop has been checked for equality.
 
 **Button alignment remains unresolved:** the earlier actuator Y layout is still
 present. The measured 14 mm spacing and 3.3 mm edge inset need a separate mechanism
-revision; this width/cable update does not claim physical button alignment.
+revision; this fit update does not claim physical button alignment.
 The enclosure mounts lid-down; press the exposed pads upward. Test the actual
-52 mm populated span and available bare PCB edges using test 005.
+52 mm populated span and available bare PCB edges using test 007.
 
 The cable cradle has 2 mm side walls and 2 mm above its tie passage. The Ø8.4 mm
 cut provides provisional 0.2 mm radial allowance; actual zip-tie dimensions are
@@ -40,24 +42,24 @@ still unmeasured. The seated 8 mm cable and provisional tie/head leave 2.7 mm to
 the lid plane digitally. Thread with the lid open; seat the cable and snug the
 tie over it. Retention force has not been tested.
 
-![Actual concave cable cradle](revisions/011-fit-and-cable-cradle/cable-anchor.png)
+![Actual concave cable cradle](revisions/012-easier-board-fit/cable-anchor.png)
 
 ## Open or print
 
-- [Assembly STEP](revisions/011-fit-and-cable-cradle/assembly.step): 15 printable
+- [Assembly STEP](revisions/012-easier-board-fit/assembly.step): 15 printable
   solids in assembly position; open/import in Fusion 360 or FreeCAD. The editable
   parametric master is Python, not a Fusion timeline.
-- [Body 3MF](revisions/011-fit-and-cable-cradle/parts/body.3mf),
-  [lid 3MF](revisions/011-fit-and-cable-cradle/parts/lid.3mf), and
-  [desk bracket 3MF](revisions/011-fit-and-cable-cradle/parts/desk_bracket.3mf).
-- [Individual STEP/3MF parts](revisions/011-fit-and-cable-cradle/parts/) and
-  [full print-layout 3MF](revisions/011-fit-and-cable-cradle/print-layout.3mf).
-- [Cable/tie routing](revisions/011-fit-and-cable-cradle/cable-routing.png),
-  [lid clearance](revisions/011-fit-and-cable-cradle/cable-closure.png),
-  [mounted view](revisions/011-fit-and-cable-cradle/under-desk.png), and
-  [interior](revisions/011-fit-and-cable-cradle/interior.png).
-- [Revision guide](revisions/011-fit-and-cable-cradle/README.md) and
-  [design/validation notes](revisions/011-fit-and-cable-cradle/design-notes.md).
+- [Body 3MF](revisions/012-easier-board-fit/parts/body.3mf),
+  [lid 3MF](revisions/012-easier-board-fit/parts/lid.3mf), and
+  [desk bracket 3MF](revisions/012-easier-board-fit/parts/desk_bracket.3mf).
+- [Individual STEP/3MF parts](revisions/012-easier-board-fit/parts/) and
+  [full print-layout 3MF](revisions/012-easier-board-fit/print-layout.3mf).
+- [Cable/tie routing](revisions/012-easier-board-fit/cable-routing.png),
+  [lid clearance](revisions/012-easier-board-fit/cable-closure.png),
+  [mounted view](revisions/012-easier-board-fit/under-desk.png), and
+  [interior](revisions/012-easier-board-fit/interior.png).
+- [Revision guide](revisions/012-easier-board-fit/README.md) and
+  [design/validation notes](revisions/012-easier-board-fit/design-notes.md).
 
 These files carry geometry in millimeters, without verified printer or filament
 profiles. Reference electronics/cable/tie/desk solids are excluded from printing.
@@ -83,9 +85,10 @@ does not recreate the Python model's feature history.
 | [009-cable-retention](revisions/009-cable-retention/) | Rounded cable support with a zip-tie passage at the end opening; only the body changes from revision 008, accompanied by a small exact-geometry fit test |
 | [010-8mm-cable](revisions/010-8mm-cable/) | Records the measured 8 mm cable, updates clearance references and the quick test; all fifteen printed parts remain unchanged from revision 009 |
 | [011-fit-and-cable-cradle](revisions/011-fit-and-cable-cradle/) | Full body/lid/bracket width reduced 3 mm, measured 49 × 70 × 1 mm PCB capture, concave cylindrical cable seat and two exact-geometry fit tests |
+| [012-easier-board-fit](revisions/012-easier-board-fit/) | Adds 0.5 mm total fit width, 0.5 mm deeper shelf/clamp coverage per edge, matching slider arms and exact board test 007; cable coupon 006 remains usable |
 
 
-Revisions 001–010 are preserved unchanged. The original checksum manifest covers
+Revisions 001–011 are preserved unchanged. The original checksum manifest covers
 171 files in revisions 001–004; the lid-joint checks compare revision 006 with 005.
 The PCB-clamp checks compare revision 007 with 006; the corner-boss checks compare
 revision 008 with 007. The cable-retention checks compare revision 009 with 008; the measured-cable
@@ -94,6 +97,10 @@ Revision 011 separately checks the width reduction, exact board/cable coupons,
 concave geometry and clearance variant, button travel and bracket installation.
 Its width comparison confirms twelve reusable printed shapes; both new test
 prints and the full export also pass independent FreeCAD reopening.
+Revision 012 checks the added fit width, deeper support strips, matching clamps,
+slider arms, nominal/variant mechanism paths and the exact new board coupon.
+Its previous cable coupon remains unchanged; see the new revision guide for
+complete regeneration and fit-check commands.
 Their archived notes/reports contain historical workstation paths and references
 to ZIP bundles; use the portable commands below. ZIP duplicates and reference
 photos are not required to regenerate this numerical model and are omitted.
@@ -112,17 +119,17 @@ From this directory, with `uv` installed:
 
 ```bash
 uv sync --locked
-uv run --locked python revisions/011-fit-and-cable-cradle/build-revision.py --output builds/check
+uv run --locked python revisions/012-easier-board-fit/build-revision.py --output builds/check
 uv run --locked python builds/check/render-details.py builds/check
-uv run --locked python scripts/check-concave-cradle.py --source builds/check \
-  --baseline revisions/010-8mm-cable --output builds/check/cable-validation.json
+uv run --locked python scripts/check-eased-retention-mechanisms.py --source builds/check \
+  --baseline revisions/011-fit-and-cable-cradle --output builds/check/mechanism-validation.json
 uv run --locked python -m pytest -q
 uv run --locked python scripts/verify-archives.py
 ```
 
 The lockfile selects Python 3.13 and pinned CAD/mesh dependencies. The builder
 requires a **new output directory** so it cannot overwrite an archived revision.
-To change dimensions, copy `revisions/011-fit-and-cable-cradle/parameters.json`, edit it, and
+To change dimensions, copy `revisions/012-easier-board-fit/parameters.json`, edit it, and
 pass `--params your-parameters.json` with a new `--output` directory. Keep
 `model.py`, `base_model.py`, `button_module.py`, `mounting.py` and the build/render helpers together;
 the builder snapshots their source and hashes into every build.

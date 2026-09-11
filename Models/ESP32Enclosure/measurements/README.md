@@ -69,3 +69,19 @@ cutout** in a block, as requested. The measured 8 mm cable seats in this concave
 groove. Radial allowance 0.2 mm and zip-tie dimensions remain provisional. Use
 [test 006](../fit-tests/006-cable-cradle/README.md) for the changed cable geometry;
 old tests 003/004 represent the superseded convex support.
+
+## Easier fit after revision 011
+
+[2026-09-11-easier-fit.json](2026-09-11-easier-fit.json) records the request for
+0.5 mm more width and 0.5 mm deeper shelves. No new measured print dimension was
+supplied. Revision 012 keeps the measured 49 × 70 × 1 mm substrate and adds a
+separate 0.5 mm total fit allowance: shoulder gap 50.3 mm, centered side clearance
+0.65 mm. Shelves and matching upper clamps extend 0.5 mm farther under/over the
+actual board edges, giving 1.3 mm centered coverage and 0.65 mm minimum after
+lateral movement. The capture slot stays 1.2 mm high. Use
+[test 007](../fit-tests/007-board-easier-fit/README.md) to check the new interfaces.
+
+The deeper coverage is horizontal, not extra vertical slot height. Verify bare
+PCB contact on both faces, actual solder/ESP32 overhang and retention when
+inverted. The measured switch-position integration remains pending. Cable
+geometry is unchanged; test 006 remains representative.

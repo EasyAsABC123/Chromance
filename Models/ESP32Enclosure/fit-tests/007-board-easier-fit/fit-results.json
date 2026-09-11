@@ -1,0 +1,40 @@
+{
+  "test": "007-board-easier-fit",
+  "source_revision": "012-easier-board-fit",
+  "status": "awaiting_physical_test",
+  "physical_fit_tested": false,
+  "physical_load_tested": false,
+  "printed_source_sha256": "39fec78be303c8952c7e52a3c824fd12734d0a5eb9a070541583a9d567e23fe2",
+  "coupon_model_sha256": "0a730deb8a3c68ac96ef2545f74ac51fa21b5b3f9e23d58ec849bdbb228788e0",
+  "measurements_mm": {
+    "pcb_xyz": [
+      49,
+      70,
+      1
+    ],
+    "front_locating_gap": null,
+    "rear_locating_gap": null,
+    "front_shelf_inner_gap": null,
+    "rear_shelf_inner_gap": null,
+    "vertical_slot": null
+  },
+  "print_settings": {
+    "printer": null,
+    "material": null,
+    "nozzle_mm": null,
+    "layer_height_mm": null,
+    "dimensional_compensation": null
+  },
+  "checks": {
+    "board_seats_without_force": "pending",
+    "all_four_shelves_support_bare_board": "pending",
+    "upper_clamps_contact_bare_board": "pending",
+    "no_solder_or_component_contact": "pending",
+    "clamps_capture_board_inverted": "pending",
+    "populated_span_clears_hardware": "pending",
+    "insert_fit_and_screw_engagement": "pending"
+  },
+  "observations": [],
+  "prior_request_record": "../../measurements/2026-09-11-easier-fit.json",
+  "next_parameter_corrections": []
+}
