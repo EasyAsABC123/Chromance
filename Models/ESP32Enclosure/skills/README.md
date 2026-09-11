@@ -16,12 +16,13 @@ the Python runtime is a separate dependency.
 | [Mesh inspection and validation helpers](../src/fdm_cad/geometry.py) | Units, mesh scene handling, dimensions, topology and geometric comparisons |
 | [FreeCAD inspection script](../scripts/check-freecad.py) | Independent STEP read-back and imported `.FCStd` inspection documents |
 | [Fusion export helper](../fusion/README.md) | Run inside Fusion to convert the STEP assembly and parts to native `.f3d` archives and reopen them for checks; conversion has not yet been run here |
-| [Latest enclosure source](../revisions/007-pcb-heatsets/model.py) and [parameters](../revisions/007-pcb-heatsets/parameters.json) | Revision 007 replaces the four remaining PCB-clamp nut pockets with M3×5 inserts and M3×6 screws; only the body and four clamps change from revision 006 |
+| [Latest enclosure source](../revisions/008-corner-bosses/model.py) and [parameters](../revisions/008-corner-bosses/parameters.json) | Revision 008 replaces the full-height lid posts with compact corner pads and wall ribs, with matching lid-skirt clearance; only the body and lid change from revision 007 |
 | [Corrected board-fit test](../fit-tests/002-board-fit-heatsets/) | 49 × 70 × 1 mm PCB retention, heat-set clamp fasteners, printable 3MF and physical-fit checks |
 | [Recorded measurements](../measurements/) | User measurements, datum definitions and distinctions between confirmed dimensions and remaining assumptions |
 | [Mount and button integration checks](../scripts/check-flipped-mount.py) | Clearances, button travel, hardware engagement and sampled enclosure installation/removal positions |
 | [Lid heat-set checks](../scripts/check-lid-heatsets.py) | Lid-post changes, removal of old nut entries, insert/screw fit and preservation of the fourteen other printed parts against revision 005 |
 | [PCB heat-set checks](../scripts/check-pcb-heatsets.py) | PCB-post changes, removal of the remaining nut entries, insert/screw fit and preservation of the ten other printed parts against revision 006 |
+| [Corner-boss checks](../scripts/check-corner-bosses.py) | Corner pads and wall ribs, lid clearance, insert/screw fit and preservation of the thirteen other printed parts against revision 007 |
 
 The latest full enclosure keeps revision 005's provisional 52 × 70 × 1.6 mm PCB and button
 layout. The corrected **49 × 70 × 1 mm** board and measured **14 mm button spacing**
