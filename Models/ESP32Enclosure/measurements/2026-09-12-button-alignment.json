@@ -1,0 +1,28 @@
+{
+  "date": "2026-09-12",
+  "kind": "integration_of_previously_confirmed_measurements",
+  "request": "let us fix the alignment",
+  "source_record": "2026-09-10-board.json",
+  "units": "mm",
+  "pcb_xyz": [49, 70, 1],
+  "datum": "Component side up, terminals at top; perfboard left and bottom edges",
+  "button_centers": {
+    "reset": {"from_left": 3.3, "from_bottom": 30},
+    "boot": {"from_left": 3.3, "from_bottom": 16}
+  },
+  "nominal_centered_board_tip_xy": {"reset": [-21.2, -5], "boot": [-21.2, -19]},
+  "tip_spacing": 14,
+  "preserved_exterior_housing_centers_y": [4, -21],
+  "change": "Two dogleg sliders; straight tongues leave the guides before bending toward measured tips. Lower collar relief preserves a 1.2 mm ligament around the contact passage independently of the bend offset.",
+  "full_revision": "013-measured-buttons",
+  "quick_test": "008-button-alignment",
+  "new_printed_measurements_supplied": false,
+  "physical_fit_tested": false,
+  "unverified": [
+    "Actual switch top heights, travel, force and button return",
+    "Tip alignment across the PCB's available locating clearance",
+    "USB jack/plug dimensions and cable route; insert plug before cartridges",
+    "Actual heat-set dimensions and printed guide fit",
+    "Final lid clearance after setting the nylon contact screws"
+  ]
+}

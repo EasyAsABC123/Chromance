@@ -1,0 +1,232 @@
+{
+  "status": "passed",
+  "source_hashes": {
+    "enclosure_model.py": "d1159a38e947eb4c30294e9e563b447daa5dad53a62d347b931e5afd7f34342d",
+    "base_model.py": "ff46f1a49c963c06b2fc2c414c861a4438e18d6695e11ad043b5880b83287e46",
+    "button_module.py": "4b93b34b02521bf0bb0008eb03a909feeefb63014b70bfdf5da07f27373693dc",
+    "mounting.py": "8463a93558364dcd69e2e21c629888b875f51906d5b5c2a1a1768cbdaa96cd8b",
+    "parameters.json": "97799fc1e260b7e0c467c571fed6cc68277e3dcc9d2f2d2c0188b95cc60ad51e",
+    "model.py": "17832dff94546bbee5b58155202e9223274c3832c7c01726e4d1512d7e50e53f"
+  },
+  "checker_sha256": "611cac2686919749c797f960d9b1fa278b4b5f2b98bf745f5604c98f621f5565",
+  "production_revision": "013-measured-buttons",
+  "print_part_count": 13,
+  "hardware_proxy_count": 26,
+  "exact_production_interfaces": true,
+  "reuse_test007_frame_and_clamps": true,
+  "unchanged_revision012_full_parts": [
+    "body",
+    "lid",
+    "desk_bracket",
+    "pcb_clamp_left_front",
+    "pcb_clamp_left_rear",
+    "pcb_clamp_right_front",
+    "pcb_clamp_right_rear",
+    "reset_frame",
+    "reset_rear_keeper",
+    "reset_moving_magnet_keeper",
+    "boot_frame",
+    "boot_rear_keeper",
+    "boot_moving_magnet_keeper"
+  ],
+  "only_two_sliders_need_reprinting": true,
+  "sliders_only_3mf_instances": 2,
+  "measured_button_xy": {
+    "reset": {
+      "tip_center_local_xy_mm": [
+        -21.2,
+        -5.0
+      ],
+      "from_left_mm": 3.3,
+      "from_bottom_mm": 30.0,
+      "switch_height_is_provisional": true
+    },
+    "boot": {
+      "tip_center_local_xy_mm": [
+        -21.2,
+        -19.0
+      ],
+      "from_left_mm": 3.3,
+      "from_bottom_mm": 16.0,
+      "switch_height_is_provisional": true
+    }
+  },
+  "board_seating_poses_checked": 27,
+  "sampled_motion_states": [
+    {
+      "buttons": {
+        "reset": {
+          "travel_mm": 0,
+          "nylon_tip_z_mm": 16.6,
+          "nominal_switch_gap_mm": 0.6000000000000014
+        },
+        "boot": {
+          "travel_mm": 0,
+          "nylon_tip_z_mm": 16.6,
+          "nominal_switch_gap_mm": 0.6000000000000014
+        }
+      },
+      "unexpected_motion_interference": [],
+      "provisional_internal_usb_probe_hits_mm3": {
+        "pcb_clamp_left_front_screw": 18.85836647628243
+      },
+      "provisional_outer_plug_approach_hits_mm3": {
+        "boot_frame": 141.59999999999997,
+        "boot_rear_keeper": 28.799999999999986
+      },
+      "provisional_outer_cable_probe_hits_mm3": {}
+    },
+    {
+      "buttons": {
+        "reset": {
+          "travel_mm": 0.4,
+          "nylon_tip_z_mm": 16.200000000000003,
+          "nominal_switch_gap_mm": 0.20000000000000284
+        },
+        "boot": {
+          "travel_mm": 0.4,
+          "nylon_tip_z_mm": 16.200000000000003,
+          "nominal_switch_gap_mm": 0.20000000000000284
+        }
+      },
+      "unexpected_motion_interference": [],
+      "provisional_internal_usb_probe_hits_mm3": {
+        "pcb_clamp_left_front_screw": 18.85836647628243
+      },
+      "provisional_outer_plug_approach_hits_mm3": {
+        "boot_frame": 141.59999999999997,
+        "boot_rear_keeper": 28.799999999999986
+      },
+      "provisional_outer_cable_probe_hits_mm3": {}
+    },
+    {
+      "buttons": {
+        "reset": {
+          "travel_mm": 0.8,
+          "nylon_tip_z_mm": 15.8,
+          "nominal_switch_gap_mm": -0.1999999999999993
+        },
+        "boot": {
+          "travel_mm": 0.8,
+          "nylon_tip_z_mm": 15.8,
+          "nominal_switch_gap_mm": -0.1999999999999993
+        }
+      },
+      "unexpected_motion_interference": [],
+      "provisional_internal_usb_probe_hits_mm3": {
+        "pcb_clamp_left_front_screw": 18.85836647628243
+      },
+      "provisional_outer_plug_approach_hits_mm3": {
+        "boot_frame": 141.59999999999997,
+        "boot_rear_keeper": 28.799999999999986
+      },
+      "provisional_outer_cable_probe_hits_mm3": {}
+    },
+    {
+      "buttons": {
+        "reset": {
+          "travel_mm": 0.8,
+          "nylon_tip_z_mm": 15.8,
+          "nominal_switch_gap_mm": -0.1999999999999993
+        },
+        "boot": {
+          "travel_mm": 0,
+          "nylon_tip_z_mm": 16.6,
+          "nominal_switch_gap_mm": 0.6000000000000014
+        }
+      },
+      "unexpected_motion_interference": [],
+      "provisional_internal_usb_probe_hits_mm3": {
+        "pcb_clamp_left_front_screw": 18.85836647628243
+      },
+      "provisional_outer_plug_approach_hits_mm3": {
+        "boot_frame": 141.59999999999997,
+        "boot_rear_keeper": 28.799999999999986
+      },
+      "provisional_outer_cable_probe_hits_mm3": {}
+    },
+    {
+      "buttons": {
+        "reset": {
+          "travel_mm": 0,
+          "nylon_tip_z_mm": 16.6,
+          "nominal_switch_gap_mm": 0.6000000000000014
+        },
+        "boot": {
+          "travel_mm": 0.8,
+          "nylon_tip_z_mm": 15.8,
+          "nominal_switch_gap_mm": -0.1999999999999993
+        }
+      },
+      "unexpected_motion_interference": [],
+      "provisional_internal_usb_probe_hits_mm3": {
+        "pcb_clamp_left_front_screw": 18.85836647628243
+      },
+      "provisional_outer_plug_approach_hits_mm3": {
+        "boot_frame": 141.59999999999997,
+        "boot_rear_keeper": 28.799999999999986
+      },
+      "provisional_outer_cable_probe_hits_mm3": {}
+    }
+  ],
+  "positive_stop_checks": {
+    "reset": {
+      "lower_overtravel_contacts_mm3": {
+        "reset_frame": 1.3600000000000192,
+        "reset_rear_keeper": 0.660000000000008
+      },
+      "upper_overtravel_contacts_mm3": {
+        "reset_rear_keeper": 0.660000000000008
+      }
+    },
+    "boot": {
+      "lower_overtravel_contacts_mm3": {
+        "boot_frame": 1.3600000000000194,
+        "boot_rear_keeper": 0.660000000000008
+      },
+      "upper_overtravel_contacts_mm3": {
+        "boot_rear_keeper": 0.660000000000008
+      }
+    }
+  },
+  "usb_probe_definition": {
+    "internal_plug_box_local_mm": [
+      [
+        -38.5,
+        -16.0,
+        12.3
+      ],
+      [
+        -21.2,
+        -8.0,
+        18.3
+      ]
+    ],
+    "outer_plug_approach_box_local_mm": [
+      [
+        -60.0,
+        -16.0,
+        12.3
+      ],
+      [
+        -38.5,
+        -8.0,
+        18.3
+      ]
+    ],
+    "outer_cable_diameter_mm": 3.6,
+    "outer_cable_center_yz_mm": [
+      -12.0,
+      15.3
+    ],
+    "actual_plug_or_cable_measured": false,
+    "straight_plug_insertion_claimed": false
+  },
+  "physical_fit_tested": false,
+  "limitations": [
+    "USB probe intersections are reported, not hidden or used to certify an unmeasured plug. Fit the real plug before the cartridges and check travel.",
+    "Five motion combinations are finite samples; actual switch height/travel, return force, guide fit and conductor clearance require physical checks.",
+    "The PCB is loose by the production fit allowance. Nominal measured XY assumes it is centered; evaluate contact at its movement limits.",
+    "The floor window and omitted upper enclosure cannot validate central underside solder clearance, lid fit, shell stiffness or mounted loads."
+  ]
+}

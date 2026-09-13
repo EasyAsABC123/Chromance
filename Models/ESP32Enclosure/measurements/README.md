@@ -46,11 +46,11 @@ datum and overall height; it is not a measured solder protrusion. New
 using exact full-model geometry. The 52 mm populated span still needs physical
 clearance checks at the clamp locations.
 
-The measured button spacing also needs a later actuator layout change: the current
-4 mm housing offsets produce only 22 mm housing separation, below the 24 mm guard,
-and place BOOT too close to a mounting gusset. Those guards must remain in place
-until a revised mechanism is modeled and checked. The board-fit coupon omits the
-actuators and cannot validate their positions or travel.
+The old coupled 4 mm housing offsets could not directly accept the measured
+button spacing: they produced only 22 mm housing separation and placed BOOT too
+close to a mounting gusset. Revision 013 resolves this with independent housing
+positions and dogleg arms; the housing-separation and gusset guards remain.
+The board-only coupons omit the actuators and cannot validate their travel.
 
 ## Cable at the end opening
 
@@ -83,5 +83,15 @@ lateral movement. The capture slot stays 1.2 mm high. Use
 
 The deeper coverage is horizontal, not extra vertical slot height. Verify bare
 PCB contact on both faces, actual solder/ESP32 overhang and retention when
-inverted. The measured switch-position integration remains pending. Cable
-geometry is unchanged; test 006 remains representative.
+inverted. Cable geometry is unchanged; test 006 remains representative.
+
+## Measured button alignment in revision 013
+
+[2026-09-12-button-alignment.json](2026-09-12-button-alignment.json) records the
+integration of the already confirmed 30/16 mm bottom offsets and 3.3 mm left
+inset. The exterior housings stay at local Y4 and Y−21 while the two revised
+sliders reach X−21.2, Y−5/−19. The body and twelve other printed pieces retain
+revision 012 geometry. Use [test 008](../fit-tests/008-button-alignment/README.md)
+to check the two actuators with the actual board and USB plug. XY dimensions
+are now implemented; physical alignment, switch height/travel, return force
+and connector fit remain pending.

@@ -1,0 +1,26 @@
+{
+  "revision": "013-measured-buttons",
+  "status": "frozen_production_source",
+  "source_files": {
+    "model.py": {
+      "local_file": "enclosure_model.py",
+      "sha256": "d1159a38e947eb4c30294e9e563b447daa5dad53a62d347b931e5afd7f34342d"
+    },
+    "base_model.py": {
+      "local_file": "base_model.py",
+      "sha256": "ff46f1a49c963c06b2fc2c414c861a4438e18d6695e11ad043b5880b83287e46"
+    },
+    "button_module.py": {
+      "local_file": "button_module.py",
+      "sha256": "4b93b34b02521bf0bb0008eb03a909feeefb63014b70bfdf5da07f27373693dc"
+    },
+    "mounting.py": {
+      "local_file": "mounting.py",
+      "sha256": "8463a93558364dcd69e2e21c629888b875f51906d5b5c2a1a1768cbdaa96cd8b"
+    },
+    "parameters.json": {
+      "local_file": "parameters.json",
+      "sha256": "97799fc1e260b7e0c467c571fed6cc68277e3dcc9d2f2d2c0188b95cc60ad51e"
+    }
+  }
+}

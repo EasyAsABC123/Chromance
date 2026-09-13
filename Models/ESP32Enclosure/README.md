@@ -2,64 +2,65 @@
 
 Parametric enclosure for the pictured ESP32/perfboard controller, with console-inspired
 curves, chamfers, ventilation, an under-desk bracket and external EN/RESET and BOOT
-paddles. The user's [latest measurements](measurements/) separate the
-**49 × 70 × 1 mm perfboard** from the **52 mm ESP32 span**. Confirmed button centers
-are 30 and 16 mm from the bottom edge, each 3.3 mm from the left edge.
+paddles. The [measurements](measurements/) distinguish the **49 × 70 × 1 mm
+perfboard** from the **52 mm populated ESP32 span**.
 
-**Latest full enclosure: [012 — easier PCB fit and deeper shelves](revisions/012-easier-board-fit/README.md).**
-The body, lid and bracket are 0.5 mm wider than revision 011. The measured board
-stays 49 mm wide; a separate fit allowance increases the locating gap to
-**50.3 mm**. Shelves and matching top clamps reach **0.5 mm farther** under/over
-each edge, giving **1.3 mm coverage** with the board centered. The vertical slot
-stays 1.2 mm high.
+**Latest: [013 — measured button alignment](revisions/013-measured-buttons/README.md).**
+The two replacement sliders place RESET **30 mm** and BOOT **16 mm** from the
+bottom board edge, both **3.3 mm from the left edge**. Their arms bend after
+leaving the guides, so the exterior cartridge mounts stay in place.
 
-**[Print test 007 first — five-part board-fit 3MF](fit-tests/007-board-easier-fit/print-layout.3mf)**,
-with [fit instructions](fit-tests/007-board-easier-fit/README.md). The full-width
-low frame and new clamps use this revision's exact interfaces. Check that both
-deeper contact strips land on bare PCB. Physical fit results remain pending;
-[the request record](measurements/2026-09-11-easier-fit.json) separates the new
-allowance from measured board size.
+**[Quick print: the two revised sliders](fit-tests/008-button-alignment/sliders-only.3mf)**,
+with [fit instructions](fit-tests/008-button-alignment/README.md). Reuse the
+revision 012 body, lid, bracket, four PCB clamps and six other cartridge
+pieces. A [complete open test jig](fit-tests/008-button-alignment/print-layout.3mf)
+is also included for testing without a full enclosure.
 
-Use matching **body, lid, bracket, four PCB clamps and two button sliders**.
-The six other cartridge frame/keeper pieces retain their shapes and can be
-reused. Fastener centers move outward 0.25 mm per side, including the desk
-mounting pattern. Slider arms extend to the wider shell while tips stay in their
-board-relative X positions. Overall size is **114.3 × 95.2 × 39.6 mm**.
+**[Illustrated button assembly guide](assembly-guides/013-buttons/README.md)**
+covers the four printed pieces per cartridge, heat-set inserts, repelling magnet
+faces, keeper installation and nylon contact adjustment. Fit the board, clamps
+and USB plug before attaching the cartridges.
 
-The concave cable support is unchanged. **[Cable test 006](fit-tests/006-cable-cradle/print-layout.3mf)**
-remains usable; its [instructions](fit-tests/006-cable-cradle/README.md) apply to
-this revision, and the actual production STEP crop has been checked for equality.
+![Measured button alignment](assembly-guides/013-buttons/04-button-alignment.png)
 
-**Button alignment remains unresolved:** the earlier actuator Y layout is still
-present. The measured 14 mm spacing and 3.3 mm edge inset need a separate mechanism
-revision; this fit update does not claim physical button alignment.
-The enclosure mounts lid-down; press the exposed pads upward. Test the actual
-52 mm populated span and available bare PCB edges using test 007.
+The CAD now implements the measured XY coordinates. Physical button alignment
+still depends on PCB placement within its clearance; height/travel, magnetic
+return, insert fit and USB plug dimensions need the quick test. The closer
+contacts do not preserve the old 11 mm straight inner USB corridor. The
+provisional 8 × 6 mm plug box also intersects a PCB clamp screw head, so fitting
+the plug before the cartridges alone does not establish clearance. Test the
+actual connector before completing assembly. Check lid clearance after
+adjusting the contact screws. Mounted under the desk, the lid and pads face
+down; press the pads upward.
 
-The cable cradle has 2 mm side walls and 2 mm above its tie passage. The Ø8.4 mm
-cut provides provisional 0.2 mm radial allowance; actual zip-tie dimensions are
-still unmeasured. The seated 8 mm cable and provisional tie/head leave 2.7 mm to
-the lid plane digitally. Thread with the lid open; seat the cable and snug the
-tie over it. Retention force has not been tested.
-
-![Actual concave cable cradle](revisions/012-easier-board-fit/cable-anchor.png)
+Board retention and cable geometry are unchanged from 012: **50.3 mm** locating
+gap, **1.3 mm** centered shelf/clamp coverage per edge, and a **1.2 mm** vertical
+slot. Overall dimensions remain **114.3 × 95.2 × 39.6 mm**.
+[Board test 007](fit-tests/007-board-easier-fit/README.md) and
+[cable test 006](fit-tests/006-cable-cradle/README.md) remain usable. The concave
+Ø8.4 mm cradle supports the measured 8 mm cable with a zip-tie passage; actual
+tie dimensions and retention performance remain unverified.
 
 ## Open or print
 
-- [Assembly STEP](revisions/012-easier-board-fit/assembly.step): 15 printable
+- [Illustrated button assembly guide](assembly-guides/013-buttons/README.md):
+  current printed parts, short mounting inserts, magnet polarity, keeper
+  installation and nylon contact adjustment. Check actual board position,
+  switch height and USB plug clearance with the quick print.
+- [Assembly STEP](revisions/013-measured-buttons/assembly.step): 15 printable
   solids in assembly position; open/import in Fusion 360 or FreeCAD. The editable
   parametric master is Python, not a Fusion timeline.
-- [Body 3MF](revisions/012-easier-board-fit/parts/body.3mf),
-  [lid 3MF](revisions/012-easier-board-fit/parts/lid.3mf), and
-  [desk bracket 3MF](revisions/012-easier-board-fit/parts/desk_bracket.3mf).
-- [Individual STEP/3MF parts](revisions/012-easier-board-fit/parts/) and
-  [full print-layout 3MF](revisions/012-easier-board-fit/print-layout.3mf).
-- [Cable/tie routing](revisions/012-easier-board-fit/cable-routing.png),
-  [lid clearance](revisions/012-easier-board-fit/cable-closure.png),
-  [mounted view](revisions/012-easier-board-fit/under-desk.png), and
-  [interior](revisions/012-easier-board-fit/interior.png).
-- [Revision guide](revisions/012-easier-board-fit/README.md) and
-  [design/validation notes](revisions/012-easier-board-fit/design-notes.md).
+- [Body 3MF](revisions/013-measured-buttons/parts/body.3mf),
+  [lid 3MF](revisions/013-measured-buttons/parts/lid.3mf), and
+  [desk bracket 3MF](revisions/013-measured-buttons/parts/desk_bracket.3mf).
+- [Individual STEP/3MF parts](revisions/013-measured-buttons/parts/) and
+  [full print-layout 3MF](revisions/013-measured-buttons/print-layout.3mf).
+- [Cable/tie routing](revisions/013-measured-buttons/cable-routing.png),
+  [lid clearance](revisions/013-measured-buttons/cable-closure.png),
+  [mounted view](revisions/013-measured-buttons/under-desk.png), and
+  [interior](revisions/013-measured-buttons/interior.png).
+- [Revision guide](revisions/013-measured-buttons/README.md) and
+  [design/validation notes](revisions/013-measured-buttons/design-notes.md).
 
 These files carry geometry in millimeters, without verified printer or filament
 profiles. Reference electronics/cable/tie/desk solids are excluded from printing.
@@ -86,9 +87,10 @@ does not recreate the Python model's feature history.
 | [010-8mm-cable](revisions/010-8mm-cable/) | Records the measured 8 mm cable, updates clearance references and the quick test; all fifteen printed parts remain unchanged from revision 009 |
 | [011-fit-and-cable-cradle](revisions/011-fit-and-cable-cradle/) | Full body/lid/bracket width reduced 3 mm, measured 49 × 70 × 1 mm PCB capture, concave cylindrical cable seat and two exact-geometry fit tests |
 | [012-easier-board-fit](revisions/012-easier-board-fit/) | Adds 0.5 mm total fit width, 0.5 mm deeper shelf/clamp coverage per edge, matching slider arms and exact board test 007; cable coupon 006 remains usable |
+| [013-measured-buttons](revisions/013-measured-buttons/) | Two dogleg sliders reach the measured 30/16 mm bottom offsets and 3.3 mm left inset; thirteen other printed parts are unchanged from012 |
 
 
-Revisions 001–011 are preserved unchanged. The original checksum manifest covers
+Revisions 001–012 are preserved unchanged. The original checksum manifest covers
 171 files in revisions 001–004; the lid-joint checks compare revision 006 with 005.
 The PCB-clamp checks compare revision 007 with 006; the corner-boss checks compare
 revision 008 with 007. The cable-retention checks compare revision 009 with 008; the measured-cable
@@ -101,6 +103,9 @@ Revision 012 checks the added fit width, deeper support strips, matching clamps,
 slider arms, nominal/variant mechanism paths and the exact new board coupon.
 Its previous cable coupon remains unchanged; see the new revision guide for
 complete regeneration and fit-check commands.
+Revision 013 checks measured tip axes, independent button states, cartridge
+assembly and service paths, retained geometry, and provisional USB envelopes;
+its quick test includes the actual two replacement sliders.
 Their archived notes/reports contain historical workstation paths and references
 to ZIP bundles; use the portable commands below. ZIP duplicates and reference
 photos are not required to regenerate this numerical model and are omitted.
@@ -119,17 +124,17 @@ From this directory, with `uv` installed:
 
 ```bash
 uv sync --locked
-uv run --locked python revisions/012-easier-board-fit/build-revision.py --output builds/check
+uv run --locked python revisions/013-measured-buttons/build-revision.py --output builds/check
 uv run --locked python builds/check/render-details.py builds/check
-uv run --locked python scripts/check-eased-retention-mechanisms.py --source builds/check \
-  --baseline revisions/011-fit-and-cable-cradle --output builds/check/mechanism-validation.json
+uv run --locked python scripts/check-measured-button-alignment.py --source builds/check \
+  --baseline revisions/012-easier-board-fit --output builds/check/mechanism-validation.json
 uv run --locked python -m pytest -q
 uv run --locked python scripts/verify-archives.py
 ```
 
 The lockfile selects Python 3.13 and pinned CAD/mesh dependencies. The builder
 requires a **new output directory** so it cannot overwrite an archived revision.
-To change dimensions, copy `revisions/012-easier-board-fit/parameters.json`, edit it, and
+To change dimensions, copy `revisions/013-measured-buttons/parameters.json`, edit it, and
 pass `--params your-parameters.json` with a new `--output` directory. Keep
 `model.py`, `base_model.py`, `button_module.py`, `mounting.py` and the build/render helpers together;
 the builder snapshots their source and hashes into every build.
