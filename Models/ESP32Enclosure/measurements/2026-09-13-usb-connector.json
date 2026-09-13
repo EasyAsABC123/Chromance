@@ -1,0 +1,55 @@
+{
+  "date": "2026-09-13",
+  "units": "mm",
+  "kind": "user_supplied_measurements_with_explicit_height_clarification",
+  "connector": "USB cable plugged into ESP32, separate from the 8 mm cable at the end cradle",
+  "measurement_guide": "usb-connector-guide/README.md",
+  "raw_reply": {
+    "A": 10,
+    "B": 6,
+    "C": 20,
+    "D": 9,
+    "E": 23,
+    "F": 3.5
+  },
+  "clarification": "6 mm is plug thickness; underside=9 mm, so top=15 mm.",
+  "normalized": {
+    "maximum_plug_and_strain_relief_width": 10,
+    "plug_thickness": 6,
+    "plug_underside_above_perfboard_top": 9,
+    "plug_top_above_perfboard_top": 15,
+    "projection_from_perfboard_left_edge_to_flexible_cable": 20,
+    "usb_centerline_from_perfboard_bottom": 23,
+    "flexible_cable_diameter": 3.5
+  },
+  "derived_value": "Top height = 9 mm underside height + 6 mm plug thickness = 15 mm; B=6 in the raw reply was thickness, not the guide's top-height dimension.",
+  "datum": "Perfboard top surface for heights; perfboard left and bottom edges viewed component-side up, terminals at top; USB plug fully inserted",
+  "nominal_case_local_mapping": {
+    "perfboard_left_x": -24.5,
+    "perfboard_bottom_y": -35,
+    "perfboard_top_z": 10,
+    "conservative_outboard_plug_box_min_xyz": [
+      -44.5,
+      -17,
+      19
+    ],
+    "conservative_outboard_plug_box_max_xyz": [
+      -24.5,
+      -7,
+      25
+    ],
+    "flexible_cable_start_x": -44.5,
+    "usb_center_y": -12
+  },
+  "conservative_envelope_assumptions": [
+    "Apply the reported maximum 10 mm width and 6 mm thickness across the entire 20 mm projection, including strain relief; actual taper is unmeasured.",
+    "Center that envelope across the USB centerline; side-to-side asymmetry is unmeasured.",
+    "The envelope ends at the perfboard left edge; inboard jack/metal geometry is not established by these measurements.",
+    "The flexible cable diameter is measured, but its height within the connector and bend route are not. A cable axis at the plug mid-height is a reference assumption only.",
+    "The nominal mapping assumes a centered board. Existing X/Y/Z locating clearance can move the entire board and USB connector."
+  ],
+  "baseline": "013-measured-buttons",
+  "physical_fit_tested": false,
+  "implemented_revision": "014-usb-clearance",
+  "quick_test": "009-usb-clearance"
+}

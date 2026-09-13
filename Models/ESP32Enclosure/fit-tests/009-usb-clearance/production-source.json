@@ -1,0 +1,26 @@
+{
+  "revision": "014-usb-clearance",
+  "status": "frozen_production_source",
+  "source_files": {
+    "model.py": {
+      "local_file": "enclosure_model.py",
+      "sha256": "2ed6194f550040256ec52c3d48b8d6095675a0efb8aac06163a2f65a01dda8f0"
+    },
+    "base_model.py": {
+      "local_file": "base_model.py",
+      "sha256": "e5de447414db4b66b64e2808a19f0a700ae7311883d2acc0211758a5dccc45cc"
+    },
+    "button_module.py": {
+      "local_file": "button_module.py",
+      "sha256": "5d8f4891703886c74167866bb60752236c2f19b8f8d624a4724eb83d67733ed4"
+    },
+    "mounting.py": {
+      "local_file": "mounting.py",
+      "sha256": "8463a93558364dcd69e2e21c629888b875f51906d5b5c2a1a1768cbdaa96cd8b"
+    },
+    "parameters.json": {
+      "local_file": "parameters.json",
+      "sha256": "8912c8ec258901fe42e3d60c04278a17c861ca794a0502efcd8fb7940637bcc2"
+    }
+  }
+}

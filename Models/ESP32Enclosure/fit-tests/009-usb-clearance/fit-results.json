@@ -1,0 +1,43 @@
+{
+  "test": "009-usb-clearance",
+  "status": "not_physically_tested",
+  "printer": null,
+  "filament": null,
+  "nozzle_mm": null,
+  "layer_height_mm": null,
+  "xy_compensation_mm": null,
+  "trial": "Three replacement parts on revision013/test008, or fresh13-piece jig",
+  "pcb_position_during_contact_adjustment": null,
+  "reset_tip_centered_on_actual_switch": null,
+  "boot_tip_centered_on_actual_switch": null,
+  "alignment_at_pcb_movement_limits": null,
+  "reset_releases_at_rest": null,
+  "boot_releases_at_rest": null,
+  "smooth_return_with_printed_stops": null,
+  "inverted_press_up_checked": null,
+  "actual_switch_top_height_from_board_or_ledge_mm": null,
+  "nylon_contact_head_to_actual_lid_clearance_mm": null,
+  "usb_plug_dimensions_mm": {
+    "width": 10,
+    "thickness": 6,
+    "projection_beyond_perfboard": 20
+  },
+  "usb_cable_diameter_mm": 3.5,
+  "usb_plug_to_left_front_clamp_screw_clearance": null,
+  "usb_and_wiring_clear_through_both_button_strokes": null,
+  "binding_or_contact_notes": null,
+  "reported_usb_dimensions": {
+    "width_mm": 10,
+    "thickness_mm": 6,
+    "projection_from_perfboard_to_flexible_cable_mm": 20,
+    "center_from_bottom_mm": 23,
+    "underside_above_pcb_mm": 9,
+    "top_above_pcb_mm": 15,
+    "cable_diameter_mm": 3.5
+  },
+  "centered_board_plug_clear_through_both_strokes": null,
+  "pcb_movement_positions_that_bind": null,
+  "plug_taper_or_flexible_transition_notes": null,
+  "straight_external_plug_insertion_tested": null,
+  "usb_exit_axis_height_above_pcb_mm": null
+}

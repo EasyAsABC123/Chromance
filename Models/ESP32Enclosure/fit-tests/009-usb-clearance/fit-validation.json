@@ -1,0 +1,2482 @@
+{
+  "status": "passed",
+  "source_hashes": {
+    "enclosure_model.py": "2ed6194f550040256ec52c3d48b8d6095675a0efb8aac06163a2f65a01dda8f0",
+    "base_model.py": "e5de447414db4b66b64e2808a19f0a700ae7311883d2acc0211758a5dccc45cc",
+    "button_module.py": "5d8f4891703886c74167866bb60752236c2f19b8f8d624a4724eb83d67733ed4",
+    "mounting.py": "8463a93558364dcd69e2e21c629888b875f51906d5b5c2a1a1768cbdaa96cd8b",
+    "parameters.json": "8912c8ec258901fe42e3d60c04278a17c861ca794a0502efcd8fb7940637bcc2",
+    "model.py": "e29b05787fbed5ca14ce5112ab2d884236da52b2044ade47c898c06c5addce6c"
+  },
+  "checker_sha256": "2c234414dd15dfd98cd596b4f087f9d821338f3a49e39dd03c0068018f53f851",
+  "production_revision": "014-usb-clearance",
+  "print_part_count": 13,
+  "hardware_proxy_count": 26,
+  "exact_production_interfaces": true,
+  "reuse_prior_frame_and_clamps": true,
+  "unchanged_revision013_full_parts": [
+    "body",
+    "lid",
+    "desk_bracket",
+    "pcb_clamp_left_front",
+    "pcb_clamp_left_rear",
+    "pcb_clamp_right_front",
+    "pcb_clamp_right_rear",
+    "reset_frame",
+    "reset_rear_keeper",
+    "reset_moving_magnet_keeper",
+    "boot_rear_keeper",
+    "boot_moving_magnet_keeper"
+  ],
+  "unchanged_jig_parts": [
+    "button_fit_frame",
+    "pcb_clamp_left_front",
+    "pcb_clamp_left_rear",
+    "pcb_clamp_right_front",
+    "pcb_clamp_right_rear",
+    "reset_frame",
+    "reset_rear_keeper",
+    "reset_moving_magnet_keeper",
+    "boot_rear_keeper",
+    "boot_moving_magnet_keeper"
+  ],
+  "replacement_parts": [
+    "reset_slider",
+    "boot_slider",
+    "boot_frame"
+  ],
+  "replacements_only_3mf_instances": 3,
+  "measured_button_xy": {
+    "reset": {
+      "tip_center_local_xy_mm": [
+        -21.2,
+        -5.0
+      ],
+      "from_left_mm": 3.3,
+      "from_bottom_mm": 30.0,
+      "switch_height_is_provisional": true
+    },
+    "boot": {
+      "tip_center_local_xy_mm": [
+        -21.2,
+        -19.0
+      ],
+      "from_left_mm": 3.3,
+      "from_bottom_mm": 16.0,
+      "switch_height_is_provisional": true
+    }
+  },
+  "board_seating_poses_checked": 27,
+  "sampled_motion_states": [
+    {
+      "buttons": {
+        "reset": {
+          "travel_mm": 0,
+          "nylon_tip_z_mm": 16.6,
+          "nominal_switch_gap_mm": 0.6000000000000014
+        },
+        "boot": {
+          "travel_mm": 0,
+          "nylon_tip_z_mm": 16.6,
+          "nominal_switch_gap_mm": 0.6000000000000014
+        }
+      },
+      "unexpected_motion_interference": [],
+      "nominal_measured_usb_box_hits_mm3": {},
+      "straight_external_plug_approach_hits_mm3": {
+        "boot_frame": 34.39800000000002,
+        "boot_slider": 12.540000000000017,
+        "boot_rear_keeper": 30.239999999999988
+      },
+      "measured_cable_outer_segment_hits_mm3": {}
+    },
+    {
+      "buttons": {
+        "reset": {
+          "travel_mm": 0.4,
+          "nylon_tip_z_mm": 16.200000000000003,
+          "nominal_switch_gap_mm": 0.20000000000000284
+        },
+        "boot": {
+          "travel_mm": 0.4,
+          "nylon_tip_z_mm": 16.200000000000003,
+          "nominal_switch_gap_mm": 0.20000000000000284
+        }
+      },
+      "unexpected_motion_interference": [],
+      "nominal_measured_usb_box_hits_mm3": {},
+      "straight_external_plug_approach_hits_mm3": {
+        "boot_frame": 34.39800000000002,
+        "boot_slider": 16.92,
+        "boot_rear_keeper": 30.239999999999988
+      },
+      "measured_cable_outer_segment_hits_mm3": {}
+    },
+    {
+      "buttons": {
+        "reset": {
+          "travel_mm": 0.8,
+          "nylon_tip_z_mm": 15.8,
+          "nominal_switch_gap_mm": -0.1999999999999993
+        },
+        "boot": {
+          "travel_mm": 0.8,
+          "nylon_tip_z_mm": 15.8,
+          "nominal_switch_gap_mm": -0.1999999999999993
+        }
+      },
+      "unexpected_motion_interference": [],
+      "nominal_measured_usb_box_hits_mm3": {},
+      "straight_external_plug_approach_hits_mm3": {
+        "boot_frame": 34.39800000000002,
+        "boot_slider": 21.240000000000013,
+        "boot_rear_keeper": 30.239999999999988
+      },
+      "measured_cable_outer_segment_hits_mm3": {}
+    },
+    {
+      "buttons": {
+        "reset": {
+          "travel_mm": 0.8,
+          "nylon_tip_z_mm": 15.8,
+          "nominal_switch_gap_mm": -0.1999999999999993
+        },
+        "boot": {
+          "travel_mm": 0,
+          "nylon_tip_z_mm": 16.6,
+          "nominal_switch_gap_mm": 0.6000000000000014
+        }
+      },
+      "unexpected_motion_interference": [],
+      "nominal_measured_usb_box_hits_mm3": {},
+      "straight_external_plug_approach_hits_mm3": {
+        "boot_frame": 34.39800000000002,
+        "boot_slider": 12.540000000000017,
+        "boot_rear_keeper": 30.239999999999988
+      },
+      "measured_cable_outer_segment_hits_mm3": {}
+    },
+    {
+      "buttons": {
+        "reset": {
+          "travel_mm": 0,
+          "nylon_tip_z_mm": 16.6,
+          "nominal_switch_gap_mm": 0.6000000000000014
+        },
+        "boot": {
+          "travel_mm": 0.8,
+          "nylon_tip_z_mm": 15.8,
+          "nominal_switch_gap_mm": -0.1999999999999993
+        }
+      },
+      "unexpected_motion_interference": [],
+      "nominal_measured_usb_box_hits_mm3": {},
+      "straight_external_plug_approach_hits_mm3": {
+        "boot_frame": 34.39800000000002,
+        "boot_slider": 21.240000000000013,
+        "boot_rear_keeper": 30.239999999999988
+      },
+      "measured_cable_outer_segment_hits_mm3": {}
+    }
+  ],
+  "positive_stop_checks": {
+    "reset": {
+      "lower_overtravel_contacts_mm3": {
+        "reset_frame": 1.3600000000000192,
+        "reset_rear_keeper": 0.660000000000008
+      },
+      "upper_overtravel_contacts_mm3": {
+        "reset_rear_keeper": 0.660000000000008
+      }
+    },
+    "boot": {
+      "lower_overtravel_contacts_mm3": {
+        "boot_frame": 1.247000000000011,
+        "boot_rear_keeper": 0.660000000000008
+      },
+      "upper_overtravel_contacts_mm3": {
+        "boot_rear_keeper": 0.660000000000008
+      }
+    }
+  },
+  "usb_probe_definition": {
+    "measured_plug_box_local_mm": [
+      [
+        -44.5,
+        -17.0,
+        19.0
+      ],
+      [
+        -24.5,
+        -7.0,
+        25.0
+      ]
+    ],
+    "straight_external_approach_box_local_mm": [
+      [
+        -64.5,
+        -17.0,
+        19.0
+      ],
+      [
+        -24.5,
+        -7.0,
+        25.0
+      ]
+    ],
+    "measured_cable_diameter_mm": 3.5,
+    "cable_center_yz_mm": [
+      -12.0,
+      22.0
+    ],
+    "actual_dimensions_measured": true,
+    "plug_shape_conservative_box": true,
+    "cable_path_assumption": "Straight20mm external segment centered at plug mid-height; actual cable-axis height, bend and taper are unmeasured",
+    "physical_insertion_verified": false
+  },
+  "usb_board_play_samples": [
+    {
+      "pcb_shift_mm": [
+        -0.65,
+        -0.4,
+        0
+      ],
+      "button_travel_mm": [
+        0,
+        0
+      ],
+      "plug_box_hits_mm3": {
+        "boot_frame": 2.6459999999999786,
+        "boot_slider": 22.00321333049952
+      },
+      "cable_segment_hits_mm3": {
+        "boot_frame": 0.7723948776276588,
+        "boot_rear_keeper": 0.34328661227896834
+      }
+    },
+    {
+      "pcb_shift_mm": [
+        -0.65,
+        -0.4,
+        0.1
+      ],
+      "button_travel_mm": [
+        0,
+        0
+      ],
+      "plug_box_hits_mm3": {
+        "boot_frame": 2.582999999999978,
+        "boot_slider": 22.088891997449558
+      },
+      "cable_segment_hits_mm3": {
+        "boot_frame": 0.7723948776276588,
+        "boot_rear_keeper": 0.3432866122789683
+      }
+    },
+    {
+      "pcb_shift_mm": [
+        -0.65,
+        -0.4,
+        0.2
+      ],
+      "button_travel_mm": [
+        0,
+        0
+      ],
+      "plug_box_hits_mm3": {
+        "boot_frame": 2.5199999999999796,
+        "boot_slider": 22.17457066439959
+      },
+      "cable_segment_hits_mm3": {
+        "boot_frame": 0.7723948776276772,
+        "boot_rear_keeper": 0.3432866122789845
+      }
+    },
+    {
+      "pcb_shift_mm": [
+        -0.65,
+        0,
+        0
+      ],
+      "button_travel_mm": [
+        0,
+        0
+      ],
+      "plug_box_hits_mm3": {
+        "boot_frame": 2.6459999999999786,
+        "boot_slider": 1.3319999999999936
+      },
+      "cable_segment_hits_mm3": {}
+    },
+    {
+      "pcb_shift_mm": [
+        -0.65,
+        0,
+        0.1
+      ],
+      "button_travel_mm": [
+        0,
+        0
+      ],
+      "plug_box_hits_mm3": {
+        "boot_frame": 2.582999999999978,
+        "boot_slider": 1.4219999999999937
+      },
+      "cable_segment_hits_mm3": {}
+    },
+    {
+      "pcb_shift_mm": [
+        -0.65,
+        0,
+        0.2
+      ],
+      "button_travel_mm": [
+        0,
+        0
+      ],
+      "plug_box_hits_mm3": {
+        "boot_frame": 2.5199999999999796,
+        "boot_slider": 1.5119999999999911
+      },
+      "cable_segment_hits_mm3": {}
+    },
+    {
+      "pcb_shift_mm": [
+        -0.65,
+        0.4,
+        0
+      ],
+      "button_travel_mm": [
+        0,
+        0
+      ],
+      "plug_box_hits_mm3": {
+        "reset_slider": 0.9867438398751809,
+        "boot_frame": 2.6459999999999786,
+        "boot_slider": 0.7199999999999939
+      },
+      "cable_segment_hits_mm3": {}
+    },
+    {
+      "pcb_shift_mm": [
+        -0.65,
+        0.4,
+        0.1
+      ],
+      "button_travel_mm": [
+        0,
+        0
+      ],
+      "plug_box_hits_mm3": {
+        "reset_slider": 0.982422506825223,
+        "boot_frame": 2.582999999999978,
+        "boot_slider": 0.7919999999999942
+      },
+      "cable_segment_hits_mm3": {}
+    },
+    {
+      "pcb_shift_mm": [
+        -0.65,
+        0.4,
+        0.2
+      ],
+      "button_travel_mm": [
+        0,
+        0
+      ],
+      "plug_box_hits_mm3": {
+        "reset_slider": 0.978101173775264,
+        "boot_frame": 2.5199999999999796,
+        "boot_slider": 0.863999999999992
+      },
+      "cable_segment_hits_mm3": {}
+    },
+    {
+      "pcb_shift_mm": [
+        0,
+        -0.4,
+        0
+      ],
+      "button_travel_mm": [
+        0,
+        0
+      ],
+      "plug_box_hits_mm3": {
+        "boot_slider": 20.105213330499527
+      },
+      "cable_segment_hits_mm3": {
+        "boot_frame": 0.8367611174299248,
+        "boot_rear_keeper": 0.34328661227896834
+      }
+    },
+    {
+      "pcb_shift_mm": [
+        0,
+        -0.4,
+        0.1
+      ],
+      "button_travel_mm": [
+        0,
+        0
+      ],
+      "plug_box_hits_mm3": {
+        "boot_slider": 20.087891997449574
+      },
+      "cable_segment_hits_mm3": {
+        "boot_frame": 0.8367611174299009,
+        "boot_rear_keeper": 0.3432866122789683
+      }
+    },
+    {
+      "pcb_shift_mm": [
+        0,
+        -0.4,
+        0.2
+      ],
+      "button_travel_mm": [
+        0,
+        0
+      ],
+      "plug_box_hits_mm3": {
+        "boot_slider": 20.070570664399597
+      },
+      "cable_segment_hits_mm3": {
+        "boot_frame": 0.8367611174299738,
+        "boot_rear_keeper": 0.3432866122789846
+      }
+    },
+    {
+      "pcb_shift_mm": [
+        0,
+        0,
+        0
+      ],
+      "button_travel_mm": [
+        0,
+        0
+      ],
+      "plug_box_hits_mm3": {},
+      "cable_segment_hits_mm3": {}
+    },
+    {
+      "pcb_shift_mm": [
+        0,
+        0,
+        0.1
+      ],
+      "button_travel_mm": [
+        0,
+        0
+      ],
+      "plug_box_hits_mm3": {},
+      "cable_segment_hits_mm3": {}
+    },
+    {
+      "pcb_shift_mm": [
+        0,
+        0,
+        0.2
+      ],
+      "button_travel_mm": [
+        0,
+        0
+      ],
+      "plug_box_hits_mm3": {},
+      "cable_segment_hits_mm3": {}
+    },
+    {
+      "pcb_shift_mm": [
+        0,
+        0.4,
+        0
+      ],
+      "button_travel_mm": [
+        0,
+        0
+      ],
+      "plug_box_hits_mm3": {
+        "reset_slider": 1.7407438398751764
+      },
+      "cable_segment_hits_mm3": {}
+    },
+    {
+      "pcb_shift_mm": [
+        0,
+        0.4,
+        0.1
+      ],
+      "button_travel_mm": [
+        0,
+        0
+      ],
+      "plug_box_hits_mm3": {
+        "reset_slider": 1.7234225068252185
+      },
+      "cable_segment_hits_mm3": {}
+    },
+    {
+      "pcb_shift_mm": [
+        0,
+        0.4,
+        0.2
+      ],
+      "button_travel_mm": [
+        0,
+        0
+      ],
+      "plug_box_hits_mm3": {
+        "reset_slider": 1.7061011737752598
+      },
+      "cable_segment_hits_mm3": {}
+    },
+    {
+      "pcb_shift_mm": [
+        0.65,
+        -0.4,
+        0
+      ],
+      "button_travel_mm": [
+        0,
+        0
+      ],
+      "plug_box_hits_mm3": {
+        "reset_slider": 2.710443405200029,
+        "boot_slider": 25.113188304418767
+      },
+      "cable_segment_hits_mm3": {
+        "boot_frame": 0.8367611174299248,
+        "boot_rear_keeper": 0.34328661227896834
+      }
+    },
+    {
+      "pcb_shift_mm": [
+        0.65,
+        -0.4,
+        0.1
+      ],
+      "button_travel_mm": [
+        0,
+        0
+      ],
+      "plug_box_hits_mm3": {
+        "reset_slider": 2.687943405200029,
+        "boot_slider": 25.03336697136881
+      },
+      "cable_segment_hits_mm3": {
+        "boot_frame": 0.8367611174299009,
+        "boot_rear_keeper": 0.3432866122789683
+      }
+    },
+    {
+      "pcb_shift_mm": [
+        0.65,
+        -0.4,
+        0.2
+      ],
+      "button_travel_mm": [
+        0,
+        0
+      ],
+      "plug_box_hits_mm3": {
+        "reset_slider": 2.665443405199982,
+        "boot_slider": 24.953545638318808
+      },
+      "cable_segment_hits_mm3": {
+        "boot_frame": 0.8367611174299738,
+        "boot_rear_keeper": 0.3432866122789846
+      }
+    },
+    {
+      "pcb_shift_mm": [
+        0.65,
+        0,
+        0
+      ],
+      "button_travel_mm": [
+        0,
+        0
+      ],
+      "plug_box_hits_mm3": {
+        "reset_slider": 3.7544434052000235,
+        "boot_slider": 4.511974973919251
+      },
+      "cable_segment_hits_mm3": {}
+    },
+    {
+      "pcb_shift_mm": [
+        0.65,
+        0,
+        0.1
+      ],
+      "button_travel_mm": [
+        0,
+        0
+      ],
+      "plug_box_hits_mm3": {
+        "reset_slider": 3.713943405200023,
+        "boot_slider": 4.47147497391925
+      },
+      "cable_segment_hits_mm3": {}
+    },
+    {
+      "pcb_shift_mm": [
+        0.65,
+        0,
+        0.2
+      ],
+      "button_travel_mm": [
+        0,
+        0
+      ],
+      "plug_box_hits_mm3": {
+        "reset_slider": 3.673443405199965,
+        "boot_slider": 4.430974973919231
+      },
+      "cable_segment_hits_mm3": {}
+    },
+    {
+      "pcb_shift_mm": [
+        0.65,
+        0.4,
+        0
+      ],
+      "button_travel_mm": [
+        0,
+        0
+      ],
+      "plug_box_hits_mm3": {
+        "reset_slider": 6.771187245075192,
+        "boot_slider": 3.467974973919257
+      },
+      "cable_segment_hits_mm3": {}
+    },
+    {
+      "pcb_shift_mm": [
+        0.65,
+        0.4,
+        0.1
+      ],
+      "button_travel_mm": [
+        0,
+        0
+      ],
+      "plug_box_hits_mm3": {
+        "reset_slider": 6.691365912025233,
+        "boot_slider": 3.4454749739192567
+      },
+      "cable_segment_hits_mm3": {}
+    },
+    {
+      "pcb_shift_mm": [
+        0.65,
+        0.4,
+        0.2
+      ],
+      "button_travel_mm": [
+        0,
+        0
+      ],
+      "plug_box_hits_mm3": {
+        "reset_slider": 6.611544578975127,
+        "boot_slider": 3.4229749739192354
+      },
+      "cable_segment_hits_mm3": {}
+    },
+    {
+      "pcb_shift_mm": [
+        -0.65,
+        -0.4,
+        0
+      ],
+      "button_travel_mm": [
+        0.4,
+        0.4
+      ],
+      "plug_box_hits_mm3": {
+        "boot_frame": 2.6459999999999786,
+        "boot_slider": 21.684570664399576
+      },
+      "cable_segment_hits_mm3": {
+        "boot_frame": 0.7723948776276588,
+        "boot_rear_keeper": 0.34328661227896834
+      }
+    },
+    {
+      "pcb_shift_mm": [
+        -0.65,
+        -0.4,
+        0.1
+      ],
+      "button_travel_mm": [
+        0.4,
+        0.4
+      ],
+      "plug_box_hits_mm3": {
+        "boot_frame": 2.582999999999978,
+        "boot_slider": 21.439570664399582
+      },
+      "cable_segment_hits_mm3": {
+        "boot_frame": 0.7723948776276588,
+        "boot_rear_keeper": 0.3432866122789683
+      }
+    },
+    {
+      "pcb_shift_mm": [
+        -0.65,
+        -0.4,
+        0.2
+      ],
+      "button_travel_mm": [
+        0.4,
+        0.4
+      ],
+      "plug_box_hits_mm3": {
+        "boot_frame": 2.5199999999999796,
+        "boot_slider": 21.19457066439959
+      },
+      "cable_segment_hits_mm3": {
+        "boot_frame": 0.7723948776276772,
+        "boot_rear_keeper": 0.3432866122789845
+      }
+    },
+    {
+      "pcb_shift_mm": [
+        -0.65,
+        0,
+        0
+      ],
+      "button_travel_mm": [
+        0.4,
+        0.4
+      ],
+      "plug_box_hits_mm3": {
+        "boot_frame": 2.6459999999999786,
+        "boot_slider": 1.6739999999999893
+      },
+      "cable_segment_hits_mm3": {}
+    },
+    {
+      "pcb_shift_mm": [
+        -0.65,
+        0,
+        0.1
+      ],
+      "button_travel_mm": [
+        0.4,
+        0.4
+      ],
+      "plug_box_hits_mm3": {
+        "boot_frame": 2.582999999999978,
+        "boot_slider": 1.7549999999999895
+      },
+      "cable_segment_hits_mm3": {}
+    },
+    {
+      "pcb_shift_mm": [
+        -0.65,
+        0,
+        0.2
+      ],
+      "button_travel_mm": [
+        0.4,
+        0.4
+      ],
+      "plug_box_hits_mm3": {
+        "boot_frame": 2.5199999999999796,
+        "boot_slider": 1.835999999999987
+      },
+      "cable_segment_hits_mm3": {}
+    },
+    {
+      "pcb_shift_mm": [
+        -0.65,
+        0.4,
+        0
+      ],
+      "button_travel_mm": [
+        0.4,
+        0.4
+      ],
+      "plug_box_hits_mm3": {
+        "reset_slider": 0.93878740255128,
+        "boot_frame": 2.6459999999999786,
+        "boot_slider": 1.0079999999999905
+      },
+      "cable_segment_hits_mm3": {}
+    },
+    {
+      "pcb_shift_mm": [
+        -0.65,
+        0.4,
+        0.1
+      ],
+      "button_travel_mm": [
+        0.4,
+        0.4
+      ],
+      "plug_box_hits_mm3": {
+        "reset_slider": 0.919130516939288,
+        "boot_frame": 2.582999999999978,
+        "boot_slider": 1.0799999999999907
+      },
+      "cable_segment_hits_mm3": {}
+    },
+    {
+      "pcb_shift_mm": [
+        -0.65,
+        0.4,
+        0.2
+      ],
+      "button_travel_mm": [
+        0.4,
+        0.4
+      ],
+      "plug_box_hits_mm3": {
+        "reset_slider": 0.8994736313272966,
+        "boot_frame": 2.5199999999999796,
+        "boot_slider": 1.1519999999999888
+      },
+      "cable_segment_hits_mm3": {}
+    },
+    {
+      "pcb_shift_mm": [
+        0,
+        -0.4,
+        0
+      ],
+      "button_travel_mm": [
+        0.4,
+        0.4
+      ],
+      "plug_box_hits_mm3": {
+        "boot_slider": 19.392570664399603
+      },
+      "cable_segment_hits_mm3": {
+        "boot_frame": 0.8367611174299248,
+        "boot_rear_keeper": 0.34328661227896834
+      }
+    },
+    {
+      "pcb_shift_mm": [
+        0,
+        -0.4,
+        0.1
+      ],
+      "button_travel_mm": [
+        0.4,
+        0.4
+      ],
+      "plug_box_hits_mm3": {
+        "boot_slider": 19.053570664399597
+      },
+      "cable_segment_hits_mm3": {
+        "boot_frame": 0.8367611174299009,
+        "boot_rear_keeper": 0.3432866122789683
+      }
+    },
+    {
+      "pcb_shift_mm": [
+        0,
+        -0.4,
+        0.2
+      ],
+      "button_travel_mm": [
+        0.4,
+        0.4
+      ],
+      "plug_box_hits_mm3": {
+        "boot_slider": 18.714570664399606
+      },
+      "cable_segment_hits_mm3": {
+        "boot_frame": 0.8367611174299738,
+        "boot_rear_keeper": 0.3432866122789846
+      }
+    },
+    {
+      "pcb_shift_mm": [
+        0,
+        0,
+        0
+      ],
+      "button_travel_mm": [
+        0.4,
+        0.4
+      ],
+      "plug_box_hits_mm3": {},
+      "cable_segment_hits_mm3": {}
+    },
+    {
+      "pcb_shift_mm": [
+        0,
+        0,
+        0.1
+      ],
+      "button_travel_mm": [
+        0.4,
+        0.4
+      ],
+      "plug_box_hits_mm3": {},
+      "cable_segment_hits_mm3": {}
+    },
+    {
+      "pcb_shift_mm": [
+        0,
+        0,
+        0.2
+      ],
+      "button_travel_mm": [
+        0.4,
+        0.4
+      ],
+      "plug_box_hits_mm3": {},
+      "cable_segment_hits_mm3": {}
+    },
+    {
+      "pcb_shift_mm": [
+        0,
+        0.4,
+        0
+      ],
+      "button_travel_mm": [
+        0.4,
+        0.4
+      ],
+      "plug_box_hits_mm3": {
+        "reset_slider": 1.640787402551276
+      },
+      "cable_segment_hits_mm3": {}
+    },
+    {
+      "pcb_shift_mm": [
+        0,
+        0.4,
+        0.1
+      ],
+      "button_travel_mm": [
+        0.4,
+        0.4
+      ],
+      "plug_box_hits_mm3": {
+        "reset_slider": 1.6081305169392843
+      },
+      "cable_segment_hits_mm3": {}
+    },
+    {
+      "pcb_shift_mm": [
+        0,
+        0.4,
+        0.2
+      ],
+      "button_travel_mm": [
+        0.4,
+        0.4
+      ],
+      "plug_box_hits_mm3": {
+        "reset_slider": 1.5754736313272932
+      },
+      "cable_segment_hits_mm3": {}
+    },
+    {
+      "pcb_shift_mm": [
+        0.65,
+        -0.4,
+        0
+      ],
+      "button_travel_mm": [
+        0.4,
+        0.4
+      ],
+      "plug_box_hits_mm3": {
+        "reset_slider": 2.570248997871455,
+        "boot_slider": 24.06878741562694
+      },
+      "cable_segment_hits_mm3": {
+        "boot_frame": 0.8367611174299248,
+        "boot_rear_keeper": 0.34328661227896834
+      }
+    },
+    {
+      "pcb_shift_mm": [
+        0.65,
+        -0.4,
+        0.1
+      ],
+      "button_travel_mm": [
+        0.4,
+        0.4
+      ],
+      "plug_box_hits_mm3": {
+        "reset_slider": 2.5226517942071682,
+        "boot_slider": 23.62640830428099
+      },
+      "cable_segment_hits_mm3": {
+        "boot_frame": 0.8367611174299009,
+        "boot_rear_keeper": 0.3432866122789683
+      }
+    },
+    {
+      "pcb_shift_mm": [
+        0.65,
+        -0.4,
+        0.2
+      ],
+      "button_travel_mm": [
+        0.4,
+        0.4
+      ],
+      "plug_box_hits_mm3": {
+        "reset_slider": 2.475054590542883,
+        "boot_slider": 23.184029192935075
+      },
+      "cable_segment_hits_mm3": {
+        "boot_frame": 0.8367611174299738,
+        "boot_rear_keeper": 0.3432866122789846
+      }
+    },
+    {
+      "pcb_shift_mm": [
+        0.65,
+        0,
+        0
+      ],
+      "button_travel_mm": [
+        0.4,
+        0.4
+      ],
+      "plug_box_hits_mm3": {
+        "reset_slider": 3.542248997871451,
+        "boot_slider": 4.268216751227371
+      },
+      "cable_segment_hits_mm3": {}
+    },
+    {
+      "pcb_shift_mm": [
+        0.65,
+        0,
+        0.1
+      ],
+      "button_travel_mm": [
+        0.4,
+        0.4
+      ],
+      "plug_box_hits_mm3": {
+        "reset_slider": 3.476651794207164,
+        "boot_slider": 4.186837639881434
+      },
+      "cable_segment_hits_mm3": {}
+    },
+    {
+      "pcb_shift_mm": [
+        0.65,
+        0,
+        0.2
+      ],
+      "button_travel_mm": [
+        0.4,
+        0.4
+      ],
+      "plug_box_hits_mm3": {
+        "reset_slider": 3.411054590542879,
+        "boot_slider": 4.105458528535498
+      },
+      "cable_segment_hits_mm3": {}
+    },
+    {
+      "pcb_shift_mm": [
+        0.65,
+        0.4,
+        0
+      ],
+      "button_travel_mm": [
+        0.4,
+        0.4
+      ],
+      "plug_box_hits_mm3": {
+        "reset_slider": 6.371036400422684,
+        "boot_slider": 3.296216751227377
+      },
+      "cable_segment_hits_mm3": {}
+    },
+    {
+      "pcb_shift_mm": [
+        0.65,
+        0.4,
+        0.1
+      ],
+      "button_travel_mm": [
+        0.4,
+        0.4
+      ],
+      "plug_box_hits_mm3": {
+        "reset_slider": 6.250782311146404,
+        "boot_slider": 3.232837639881439
+      },
+      "cable_segment_hits_mm3": {}
+    },
+    {
+      "pcb_shift_mm": [
+        0.65,
+        0.4,
+        0.2
+      ],
+      "button_travel_mm": [
+        0.4,
+        0.4
+      ],
+      "plug_box_hits_mm3": {
+        "reset_slider": 6.130528221870131,
+        "boot_slider": 3.169458528535504
+      },
+      "cable_segment_hits_mm3": {}
+    },
+    {
+      "pcb_shift_mm": [
+        -0.65,
+        -0.4,
+        0
+      ],
+      "button_travel_mm": [
+        0.8,
+        0.8
+      ],
+      "plug_box_hits_mm3": {
+        "boot_frame": 2.6459999999999786,
+        "boot_slider": 20.704570664399583
+      },
+      "cable_segment_hits_mm3": {
+        "boot_frame": 0.7723948776276588,
+        "boot_rear_keeper": 0.34328661227896834
+      }
+    },
+    {
+      "pcb_shift_mm": [
+        -0.65,
+        -0.4,
+        0.1
+      ],
+      "button_travel_mm": [
+        0.8,
+        0.8
+      ],
+      "plug_box_hits_mm3": {
+        "boot_frame": 2.582999999999978,
+        "boot_slider": 20.45957066439958
+      },
+      "cable_segment_hits_mm3": {
+        "boot_frame": 0.7723948776276588,
+        "boot_rear_keeper": 0.3432866122789683
+      }
+    },
+    {
+      "pcb_shift_mm": [
+        -0.65,
+        -0.4,
+        0.2
+      ],
+      "button_travel_mm": [
+        0.8,
+        0.8
+      ],
+      "plug_box_hits_mm3": {
+        "boot_frame": 2.5199999999999796,
+        "boot_slider": 20.214570664399584
+      },
+      "cable_segment_hits_mm3": {
+        "boot_frame": 0.7723948776276772,
+        "boot_rear_keeper": 0.3432866122789845
+      }
+    },
+    {
+      "pcb_shift_mm": [
+        -0.65,
+        0,
+        0
+      ],
+      "button_travel_mm": [
+        0.8,
+        0.8
+      ],
+      "plug_box_hits_mm3": {
+        "boot_frame": 2.6459999999999786,
+        "boot_slider": 1.997999999999987
+      },
+      "cable_segment_hits_mm3": {}
+    },
+    {
+      "pcb_shift_mm": [
+        -0.65,
+        0,
+        0.1
+      ],
+      "button_travel_mm": [
+        0.8,
+        0.8
+      ],
+      "plug_box_hits_mm3": {
+        "boot_frame": 2.582999999999978,
+        "boot_slider": 2.078999999999987
+      },
+      "cable_segment_hits_mm3": {}
+    },
+    {
+      "pcb_shift_mm": [
+        -0.65,
+        0,
+        0.2
+      ],
+      "button_travel_mm": [
+        0.8,
+        0.8
+      ],
+      "plug_box_hits_mm3": {
+        "boot_frame": 2.5199999999999796,
+        "boot_slider": 2.1599999999999846
+      },
+      "cable_segment_hits_mm3": {}
+    },
+    {
+      "pcb_shift_mm": [
+        -0.65,
+        0.4,
+        0
+      ],
+      "button_travel_mm": [
+        0.8,
+        0.8
+      ],
+      "plug_box_hits_mm3": {
+        "reset_slider": 0.8601598601033128,
+        "boot_frame": 2.6459999999999786,
+        "boot_slider": 1.2959999999999892
+      },
+      "cable_segment_hits_mm3": {}
+    },
+    {
+      "pcb_shift_mm": [
+        -0.65,
+        0.4,
+        0.1
+      ],
+      "button_travel_mm": [
+        0.8,
+        0.8
+      ],
+      "plug_box_hits_mm3": {
+        "reset_slider": 0.8405029744913208,
+        "boot_frame": 2.582999999999978,
+        "boot_slider": 1.3679999999999897
+      },
+      "cable_segment_hits_mm3": {}
+    },
+    {
+      "pcb_shift_mm": [
+        -0.65,
+        0.4,
+        0.2
+      ],
+      "button_travel_mm": [
+        0.8,
+        0.8
+      ],
+      "plug_box_hits_mm3": {
+        "reset_slider": 0.8208460888793297,
+        "boot_frame": 2.5199999999999796,
+        "boot_slider": 1.4399999999999875
+      },
+      "cable_segment_hits_mm3": {}
+    },
+    {
+      "pcb_shift_mm": [
+        0,
+        -0.4,
+        0
+      ],
+      "button_travel_mm": [
+        0.8,
+        0.8
+      ],
+      "plug_box_hits_mm3": {
+        "boot_slider": 18.0365706643996
+      },
+      "cable_segment_hits_mm3": {
+        "boot_frame": 0.8367611174299248,
+        "boot_rear_keeper": 0.34328661227896834
+      }
+    },
+    {
+      "pcb_shift_mm": [
+        0,
+        -0.4,
+        0.1
+      ],
+      "button_travel_mm": [
+        0.8,
+        0.8
+      ],
+      "plug_box_hits_mm3": {
+        "boot_slider": 17.697570664399596
+      },
+      "cable_segment_hits_mm3": {
+        "boot_frame": 0.8367611174299009,
+        "boot_rear_keeper": 0.3432866122789683
+      }
+    },
+    {
+      "pcb_shift_mm": [
+        0,
+        -0.4,
+        0.2
+      ],
+      "button_travel_mm": [
+        0.8,
+        0.8
+      ],
+      "plug_box_hits_mm3": {
+        "boot_slider": 17.3585706643996
+      },
+      "cable_segment_hits_mm3": {
+        "boot_frame": 0.8367611174299738,
+        "boot_rear_keeper": 0.3432866122789846
+      }
+    },
+    {
+      "pcb_shift_mm": [
+        0,
+        0,
+        0
+      ],
+      "button_travel_mm": [
+        0.8,
+        0.8
+      ],
+      "plug_box_hits_mm3": {},
+      "cable_segment_hits_mm3": {}
+    },
+    {
+      "pcb_shift_mm": [
+        0,
+        0,
+        0.1
+      ],
+      "button_travel_mm": [
+        0.8,
+        0.8
+      ],
+      "plug_box_hits_mm3": {},
+      "cable_segment_hits_mm3": {}
+    },
+    {
+      "pcb_shift_mm": [
+        0,
+        0,
+        0.2
+      ],
+      "button_travel_mm": [
+        0.8,
+        0.8
+      ],
+      "plug_box_hits_mm3": {},
+      "cable_segment_hits_mm3": {}
+    },
+    {
+      "pcb_shift_mm": [
+        0,
+        0.4,
+        0
+      ],
+      "button_travel_mm": [
+        0.8,
+        0.8
+      ],
+      "plug_box_hits_mm3": {
+        "reset_slider": 1.5101598601033093
+      },
+      "cable_segment_hits_mm3": {}
+    },
+    {
+      "pcb_shift_mm": [
+        0,
+        0.4,
+        0.1
+      ],
+      "button_travel_mm": [
+        0.8,
+        0.8
+      ],
+      "plug_box_hits_mm3": {
+        "reset_slider": 1.4775029744913173
+      },
+      "cable_segment_hits_mm3": {}
+    },
+    {
+      "pcb_shift_mm": [
+        0,
+        0.4,
+        0.2
+      ],
+      "button_travel_mm": [
+        0.8,
+        0.8
+      ],
+      "plug_box_hits_mm3": {
+        "reset_slider": 1.4448460888793262
+      },
+      "cable_segment_hits_mm3": {}
+    },
+    {
+      "pcb_shift_mm": [
+        0.65,
+        -0.4,
+        0
+      ],
+      "button_travel_mm": [
+        0.8,
+        0.8
+      ],
+      "plug_box_hits_mm3": {
+        "reset_slider": 2.3798601832143094,
+        "boot_slider": 22.299270970243168
+      },
+      "cable_segment_hits_mm3": {
+        "boot_frame": 0.8367611174299248,
+        "boot_rear_keeper": 0.34328661227896834
+      }
+    },
+    {
+      "pcb_shift_mm": [
+        0.65,
+        -0.4,
+        0.1
+      ],
+      "button_travel_mm": [
+        0.8,
+        0.8
+      ],
+      "plug_box_hits_mm3": {
+        "reset_slider": 2.3322629795500225,
+        "boot_slider": 21.85689185889723
+      },
+      "cable_segment_hits_mm3": {
+        "boot_frame": 0.8367611174299009,
+        "boot_rear_keeper": 0.3432866122789683
+      }
+    },
+    {
+      "pcb_shift_mm": [
+        0.65,
+        -0.4,
+        0.2
+      ],
+      "button_travel_mm": [
+        0.8,
+        0.8
+      ],
+      "plug_box_hits_mm3": {
+        "reset_slider": 2.284665775885737,
+        "boot_slider": 21.414512747551303
+      },
+      "cable_segment_hits_mm3": {
+        "boot_frame": 0.8367611174299738,
+        "boot_rear_keeper": 0.3432866122789846
+      }
+    },
+    {
+      "pcb_shift_mm": [
+        0.65,
+        0,
+        0
+      ],
+      "button_travel_mm": [
+        0.8,
+        0.8
+      ],
+      "plug_box_hits_mm3": {
+        "reset_slider": 3.279860183214305,
+        "boot_slider": 3.9427003058436227
+      },
+      "cable_segment_hits_mm3": {}
+    },
+    {
+      "pcb_shift_mm": [
+        0.65,
+        0,
+        0.1
+      ],
+      "button_travel_mm": [
+        0.8,
+        0.8
+      ],
+      "plug_box_hits_mm3": {
+        "reset_slider": 3.2142629795500186,
+        "boot_slider": 3.8613211944976853
+      },
+      "cable_segment_hits_mm3": {}
+    },
+    {
+      "pcb_shift_mm": [
+        0.65,
+        0,
+        0.2
+      ],
+      "button_travel_mm": [
+        0.8,
+        0.8
+      ],
+      "plug_box_hits_mm3": {
+        "reset_slider": 3.148665775885733,
+        "boot_slider": 3.7799420831517505
+      },
+      "cable_segment_hits_mm3": {}
+    },
+    {
+      "pcb_shift_mm": [
+        0.65,
+        0.4,
+        0
+      ],
+      "button_travel_mm": [
+        0.8,
+        0.8
+      ],
+      "plug_box_hits_mm3": {
+        "reset_slider": 5.8900200433175725,
+        "boot_slider": 3.0427003058436286
+      },
+      "cable_segment_hits_mm3": {}
+    },
+    {
+      "pcb_shift_mm": [
+        0.65,
+        0.4,
+        0.1
+      ],
+      "button_travel_mm": [
+        0.8,
+        0.8
+      ],
+      "plug_box_hits_mm3": {
+        "reset_slider": 5.769765954041291,
+        "boot_slider": 2.979321194497691
+      },
+      "cable_segment_hits_mm3": {}
+    },
+    {
+      "pcb_shift_mm": [
+        0.65,
+        0.4,
+        0.2
+      ],
+      "button_travel_mm": [
+        0.8,
+        0.8
+      ],
+      "plug_box_hits_mm3": {
+        "reset_slider": 5.649511864765019,
+        "boot_slider": 2.915942083151756
+      },
+      "cable_segment_hits_mm3": {}
+    },
+    {
+      "pcb_shift_mm": [
+        -0.65,
+        -0.4,
+        0
+      ],
+      "button_travel_mm": [
+        0.8,
+        0
+      ],
+      "plug_box_hits_mm3": {
+        "boot_frame": 2.6459999999999786,
+        "boot_slider": 22.00321333049952
+      },
+      "cable_segment_hits_mm3": {
+        "boot_frame": 0.7723948776276588,
+        "boot_rear_keeper": 0.34328661227896834
+      }
+    },
+    {
+      "pcb_shift_mm": [
+        -0.65,
+        -0.4,
+        0.1
+      ],
+      "button_travel_mm": [
+        0.8,
+        0
+      ],
+      "plug_box_hits_mm3": {
+        "boot_frame": 2.582999999999978,
+        "boot_slider": 22.088891997449558
+      },
+      "cable_segment_hits_mm3": {
+        "boot_frame": 0.7723948776276588,
+        "boot_rear_keeper": 0.3432866122789683
+      }
+    },
+    {
+      "pcb_shift_mm": [
+        -0.65,
+        -0.4,
+        0.2
+      ],
+      "button_travel_mm": [
+        0.8,
+        0
+      ],
+      "plug_box_hits_mm3": {
+        "boot_frame": 2.5199999999999796,
+        "boot_slider": 22.17457066439959
+      },
+      "cable_segment_hits_mm3": {
+        "boot_frame": 0.7723948776276772,
+        "boot_rear_keeper": 0.3432866122789845
+      }
+    },
+    {
+      "pcb_shift_mm": [
+        -0.65,
+        0,
+        0
+      ],
+      "button_travel_mm": [
+        0.8,
+        0
+      ],
+      "plug_box_hits_mm3": {
+        "boot_frame": 2.6459999999999786,
+        "boot_slider": 1.3319999999999936
+      },
+      "cable_segment_hits_mm3": {}
+    },
+    {
+      "pcb_shift_mm": [
+        -0.65,
+        0,
+        0.1
+      ],
+      "button_travel_mm": [
+        0.8,
+        0
+      ],
+      "plug_box_hits_mm3": {
+        "boot_frame": 2.582999999999978,
+        "boot_slider": 1.4219999999999937
+      },
+      "cable_segment_hits_mm3": {}
+    },
+    {
+      "pcb_shift_mm": [
+        -0.65,
+        0,
+        0.2
+      ],
+      "button_travel_mm": [
+        0.8,
+        0
+      ],
+      "plug_box_hits_mm3": {
+        "boot_frame": 2.5199999999999796,
+        "boot_slider": 1.5119999999999911
+      },
+      "cable_segment_hits_mm3": {}
+    },
+    {
+      "pcb_shift_mm": [
+        -0.65,
+        0.4,
+        0
+      ],
+      "button_travel_mm": [
+        0.8,
+        0
+      ],
+      "plug_box_hits_mm3": {
+        "reset_slider": 0.8601598601033128,
+        "boot_frame": 2.6459999999999786,
+        "boot_slider": 0.7199999999999939
+      },
+      "cable_segment_hits_mm3": {}
+    },
+    {
+      "pcb_shift_mm": [
+        -0.65,
+        0.4,
+        0.1
+      ],
+      "button_travel_mm": [
+        0.8,
+        0
+      ],
+      "plug_box_hits_mm3": {
+        "reset_slider": 0.8405029744913208,
+        "boot_frame": 2.582999999999978,
+        "boot_slider": 0.7919999999999942
+      },
+      "cable_segment_hits_mm3": {}
+    },
+    {
+      "pcb_shift_mm": [
+        -0.65,
+        0.4,
+        0.2
+      ],
+      "button_travel_mm": [
+        0.8,
+        0
+      ],
+      "plug_box_hits_mm3": {
+        "reset_slider": 0.8208460888793297,
+        "boot_frame": 2.5199999999999796,
+        "boot_slider": 0.863999999999992
+      },
+      "cable_segment_hits_mm3": {}
+    },
+    {
+      "pcb_shift_mm": [
+        0,
+        -0.4,
+        0
+      ],
+      "button_travel_mm": [
+        0.8,
+        0
+      ],
+      "plug_box_hits_mm3": {
+        "boot_slider": 20.105213330499527
+      },
+      "cable_segment_hits_mm3": {
+        "boot_frame": 0.8367611174299248,
+        "boot_rear_keeper": 0.34328661227896834
+      }
+    },
+    {
+      "pcb_shift_mm": [
+        0,
+        -0.4,
+        0.1
+      ],
+      "button_travel_mm": [
+        0.8,
+        0
+      ],
+      "plug_box_hits_mm3": {
+        "boot_slider": 20.087891997449574
+      },
+      "cable_segment_hits_mm3": {
+        "boot_frame": 0.8367611174299009,
+        "boot_rear_keeper": 0.3432866122789683
+      }
+    },
+    {
+      "pcb_shift_mm": [
+        0,
+        -0.4,
+        0.2
+      ],
+      "button_travel_mm": [
+        0.8,
+        0
+      ],
+      "plug_box_hits_mm3": {
+        "boot_slider": 20.070570664399597
+      },
+      "cable_segment_hits_mm3": {
+        "boot_frame": 0.8367611174299738,
+        "boot_rear_keeper": 0.3432866122789846
+      }
+    },
+    {
+      "pcb_shift_mm": [
+        0,
+        0,
+        0
+      ],
+      "button_travel_mm": [
+        0.8,
+        0
+      ],
+      "plug_box_hits_mm3": {},
+      "cable_segment_hits_mm3": {}
+    },
+    {
+      "pcb_shift_mm": [
+        0,
+        0,
+        0.1
+      ],
+      "button_travel_mm": [
+        0.8,
+        0
+      ],
+      "plug_box_hits_mm3": {},
+      "cable_segment_hits_mm3": {}
+    },
+    {
+      "pcb_shift_mm": [
+        0,
+        0,
+        0.2
+      ],
+      "button_travel_mm": [
+        0.8,
+        0
+      ],
+      "plug_box_hits_mm3": {},
+      "cable_segment_hits_mm3": {}
+    },
+    {
+      "pcb_shift_mm": [
+        0,
+        0.4,
+        0
+      ],
+      "button_travel_mm": [
+        0.8,
+        0
+      ],
+      "plug_box_hits_mm3": {
+        "reset_slider": 1.5101598601033093
+      },
+      "cable_segment_hits_mm3": {}
+    },
+    {
+      "pcb_shift_mm": [
+        0,
+        0.4,
+        0.1
+      ],
+      "button_travel_mm": [
+        0.8,
+        0
+      ],
+      "plug_box_hits_mm3": {
+        "reset_slider": 1.4775029744913173
+      },
+      "cable_segment_hits_mm3": {}
+    },
+    {
+      "pcb_shift_mm": [
+        0,
+        0.4,
+        0.2
+      ],
+      "button_travel_mm": [
+        0.8,
+        0
+      ],
+      "plug_box_hits_mm3": {
+        "reset_slider": 1.4448460888793262
+      },
+      "cable_segment_hits_mm3": {}
+    },
+    {
+      "pcb_shift_mm": [
+        0.65,
+        -0.4,
+        0
+      ],
+      "button_travel_mm": [
+        0.8,
+        0
+      ],
+      "plug_box_hits_mm3": {
+        "reset_slider": 2.3798601832143094,
+        "boot_slider": 25.113188304418767
+      },
+      "cable_segment_hits_mm3": {
+        "boot_frame": 0.8367611174299248,
+        "boot_rear_keeper": 0.34328661227896834
+      }
+    },
+    {
+      "pcb_shift_mm": [
+        0.65,
+        -0.4,
+        0.1
+      ],
+      "button_travel_mm": [
+        0.8,
+        0
+      ],
+      "plug_box_hits_mm3": {
+        "reset_slider": 2.3322629795500225,
+        "boot_slider": 25.03336697136881
+      },
+      "cable_segment_hits_mm3": {
+        "boot_frame": 0.8367611174299009,
+        "boot_rear_keeper": 0.3432866122789683
+      }
+    },
+    {
+      "pcb_shift_mm": [
+        0.65,
+        -0.4,
+        0.2
+      ],
+      "button_travel_mm": [
+        0.8,
+        0
+      ],
+      "plug_box_hits_mm3": {
+        "reset_slider": 2.284665775885737,
+        "boot_slider": 24.953545638318808
+      },
+      "cable_segment_hits_mm3": {
+        "boot_frame": 0.8367611174299738,
+        "boot_rear_keeper": 0.3432866122789846
+      }
+    },
+    {
+      "pcb_shift_mm": [
+        0.65,
+        0,
+        0
+      ],
+      "button_travel_mm": [
+        0.8,
+        0
+      ],
+      "plug_box_hits_mm3": {
+        "reset_slider": 3.279860183214305,
+        "boot_slider": 4.511974973919251
+      },
+      "cable_segment_hits_mm3": {}
+    },
+    {
+      "pcb_shift_mm": [
+        0.65,
+        0,
+        0.1
+      ],
+      "button_travel_mm": [
+        0.8,
+        0
+      ],
+      "plug_box_hits_mm3": {
+        "reset_slider": 3.2142629795500186,
+        "boot_slider": 4.47147497391925
+      },
+      "cable_segment_hits_mm3": {}
+    },
+    {
+      "pcb_shift_mm": [
+        0.65,
+        0,
+        0.2
+      ],
+      "button_travel_mm": [
+        0.8,
+        0
+      ],
+      "plug_box_hits_mm3": {
+        "reset_slider": 3.148665775885733,
+        "boot_slider": 4.430974973919231
+      },
+      "cable_segment_hits_mm3": {}
+    },
+    {
+      "pcb_shift_mm": [
+        0.65,
+        0.4,
+        0
+      ],
+      "button_travel_mm": [
+        0.8,
+        0
+      ],
+      "plug_box_hits_mm3": {
+        "reset_slider": 5.8900200433175725,
+        "boot_slider": 3.467974973919257
+      },
+      "cable_segment_hits_mm3": {}
+    },
+    {
+      "pcb_shift_mm": [
+        0.65,
+        0.4,
+        0.1
+      ],
+      "button_travel_mm": [
+        0.8,
+        0
+      ],
+      "plug_box_hits_mm3": {
+        "reset_slider": 5.769765954041291,
+        "boot_slider": 3.4454749739192567
+      },
+      "cable_segment_hits_mm3": {}
+    },
+    {
+      "pcb_shift_mm": [
+        0.65,
+        0.4,
+        0.2
+      ],
+      "button_travel_mm": [
+        0.8,
+        0
+      ],
+      "plug_box_hits_mm3": {
+        "reset_slider": 5.649511864765019,
+        "boot_slider": 3.4229749739192354
+      },
+      "cable_segment_hits_mm3": {}
+    },
+    {
+      "pcb_shift_mm": [
+        -0.65,
+        -0.4,
+        0
+      ],
+      "button_travel_mm": [
+        0,
+        0.8
+      ],
+      "plug_box_hits_mm3": {
+        "boot_frame": 2.6459999999999786,
+        "boot_slider": 20.704570664399583
+      },
+      "cable_segment_hits_mm3": {
+        "boot_frame": 0.7723948776276588,
+        "boot_rear_keeper": 0.34328661227896834
+      }
+    },
+    {
+      "pcb_shift_mm": [
+        -0.65,
+        -0.4,
+        0.1
+      ],
+      "button_travel_mm": [
+        0,
+        0.8
+      ],
+      "plug_box_hits_mm3": {
+        "boot_frame": 2.582999999999978,
+        "boot_slider": 20.45957066439958
+      },
+      "cable_segment_hits_mm3": {
+        "boot_frame": 0.7723948776276588,
+        "boot_rear_keeper": 0.3432866122789683
+      }
+    },
+    {
+      "pcb_shift_mm": [
+        -0.65,
+        -0.4,
+        0.2
+      ],
+      "button_travel_mm": [
+        0,
+        0.8
+      ],
+      "plug_box_hits_mm3": {
+        "boot_frame": 2.5199999999999796,
+        "boot_slider": 20.214570664399584
+      },
+      "cable_segment_hits_mm3": {
+        "boot_frame": 0.7723948776276772,
+        "boot_rear_keeper": 0.3432866122789845
+      }
+    },
+    {
+      "pcb_shift_mm": [
+        -0.65,
+        0,
+        0
+      ],
+      "button_travel_mm": [
+        0,
+        0.8
+      ],
+      "plug_box_hits_mm3": {
+        "boot_frame": 2.6459999999999786,
+        "boot_slider": 1.997999999999987
+      },
+      "cable_segment_hits_mm3": {}
+    },
+    {
+      "pcb_shift_mm": [
+        -0.65,
+        0,
+        0.1
+      ],
+      "button_travel_mm": [
+        0,
+        0.8
+      ],
+      "plug_box_hits_mm3": {
+        "boot_frame": 2.582999999999978,
+        "boot_slider": 2.078999999999987
+      },
+      "cable_segment_hits_mm3": {}
+    },
+    {
+      "pcb_shift_mm": [
+        -0.65,
+        0,
+        0.2
+      ],
+      "button_travel_mm": [
+        0,
+        0.8
+      ],
+      "plug_box_hits_mm3": {
+        "boot_frame": 2.5199999999999796,
+        "boot_slider": 2.1599999999999846
+      },
+      "cable_segment_hits_mm3": {}
+    },
+    {
+      "pcb_shift_mm": [
+        -0.65,
+        0.4,
+        0
+      ],
+      "button_travel_mm": [
+        0,
+        0.8
+      ],
+      "plug_box_hits_mm3": {
+        "reset_slider": 0.9867438398751809,
+        "boot_frame": 2.6459999999999786,
+        "boot_slider": 1.2959999999999892
+      },
+      "cable_segment_hits_mm3": {}
+    },
+    {
+      "pcb_shift_mm": [
+        -0.65,
+        0.4,
+        0.1
+      ],
+      "button_travel_mm": [
+        0,
+        0.8
+      ],
+      "plug_box_hits_mm3": {
+        "reset_slider": 0.982422506825223,
+        "boot_frame": 2.582999999999978,
+        "boot_slider": 1.3679999999999897
+      },
+      "cable_segment_hits_mm3": {}
+    },
+    {
+      "pcb_shift_mm": [
+        -0.65,
+        0.4,
+        0.2
+      ],
+      "button_travel_mm": [
+        0,
+        0.8
+      ],
+      "plug_box_hits_mm3": {
+        "reset_slider": 0.978101173775264,
+        "boot_frame": 2.5199999999999796,
+        "boot_slider": 1.4399999999999875
+      },
+      "cable_segment_hits_mm3": {}
+    },
+    {
+      "pcb_shift_mm": [
+        0,
+        -0.4,
+        0
+      ],
+      "button_travel_mm": [
+        0,
+        0.8
+      ],
+      "plug_box_hits_mm3": {
+        "boot_slider": 18.0365706643996
+      },
+      "cable_segment_hits_mm3": {
+        "boot_frame": 0.8367611174299248,
+        "boot_rear_keeper": 0.34328661227896834
+      }
+    },
+    {
+      "pcb_shift_mm": [
+        0,
+        -0.4,
+        0.1
+      ],
+      "button_travel_mm": [
+        0,
+        0.8
+      ],
+      "plug_box_hits_mm3": {
+        "boot_slider": 17.697570664399596
+      },
+      "cable_segment_hits_mm3": {
+        "boot_frame": 0.8367611174299009,
+        "boot_rear_keeper": 0.3432866122789683
+      }
+    },
+    {
+      "pcb_shift_mm": [
+        0,
+        -0.4,
+        0.2
+      ],
+      "button_travel_mm": [
+        0,
+        0.8
+      ],
+      "plug_box_hits_mm3": {
+        "boot_slider": 17.3585706643996
+      },
+      "cable_segment_hits_mm3": {
+        "boot_frame": 0.8367611174299738,
+        "boot_rear_keeper": 0.3432866122789846
+      }
+    },
+    {
+      "pcb_shift_mm": [
+        0,
+        0,
+        0
+      ],
+      "button_travel_mm": [
+        0,
+        0.8
+      ],
+      "plug_box_hits_mm3": {},
+      "cable_segment_hits_mm3": {}
+    },
+    {
+      "pcb_shift_mm": [
+        0,
+        0,
+        0.1
+      ],
+      "button_travel_mm": [
+        0,
+        0.8
+      ],
+      "plug_box_hits_mm3": {},
+      "cable_segment_hits_mm3": {}
+    },
+    {
+      "pcb_shift_mm": [
+        0,
+        0,
+        0.2
+      ],
+      "button_travel_mm": [
+        0,
+        0.8
+      ],
+      "plug_box_hits_mm3": {},
+      "cable_segment_hits_mm3": {}
+    },
+    {
+      "pcb_shift_mm": [
+        0,
+        0.4,
+        0
+      ],
+      "button_travel_mm": [
+        0,
+        0.8
+      ],
+      "plug_box_hits_mm3": {
+        "reset_slider": 1.7407438398751764
+      },
+      "cable_segment_hits_mm3": {}
+    },
+    {
+      "pcb_shift_mm": [
+        0,
+        0.4,
+        0.1
+      ],
+      "button_travel_mm": [
+        0,
+        0.8
+      ],
+      "plug_box_hits_mm3": {
+        "reset_slider": 1.7234225068252185
+      },
+      "cable_segment_hits_mm3": {}
+    },
+    {
+      "pcb_shift_mm": [
+        0,
+        0.4,
+        0.2
+      ],
+      "button_travel_mm": [
+        0,
+        0.8
+      ],
+      "plug_box_hits_mm3": {
+        "reset_slider": 1.7061011737752598
+      },
+      "cable_segment_hits_mm3": {}
+    },
+    {
+      "pcb_shift_mm": [
+        0.65,
+        -0.4,
+        0
+      ],
+      "button_travel_mm": [
+        0,
+        0.8
+      ],
+      "plug_box_hits_mm3": {
+        "reset_slider": 2.710443405200029,
+        "boot_slider": 22.299270970243168
+      },
+      "cable_segment_hits_mm3": {
+        "boot_frame": 0.8367611174299248,
+        "boot_rear_keeper": 0.34328661227896834
+      }
+    },
+    {
+      "pcb_shift_mm": [
+        0.65,
+        -0.4,
+        0.1
+      ],
+      "button_travel_mm": [
+        0,
+        0.8
+      ],
+      "plug_box_hits_mm3": {
+        "reset_slider": 2.687943405200029,
+        "boot_slider": 21.85689185889723
+      },
+      "cable_segment_hits_mm3": {
+        "boot_frame": 0.8367611174299009,
+        "boot_rear_keeper": 0.3432866122789683
+      }
+    },
+    {
+      "pcb_shift_mm": [
+        0.65,
+        -0.4,
+        0.2
+      ],
+      "button_travel_mm": [
+        0,
+        0.8
+      ],
+      "plug_box_hits_mm3": {
+        "reset_slider": 2.665443405199982,
+        "boot_slider": 21.414512747551303
+      },
+      "cable_segment_hits_mm3": {
+        "boot_frame": 0.8367611174299738,
+        "boot_rear_keeper": 0.3432866122789846
+      }
+    },
+    {
+      "pcb_shift_mm": [
+        0.65,
+        0,
+        0
+      ],
+      "button_travel_mm": [
+        0,
+        0.8
+      ],
+      "plug_box_hits_mm3": {
+        "reset_slider": 3.7544434052000235,
+        "boot_slider": 3.9427003058436227
+      },
+      "cable_segment_hits_mm3": {}
+    },
+    {
+      "pcb_shift_mm": [
+        0.65,
+        0,
+        0.1
+      ],
+      "button_travel_mm": [
+        0,
+        0.8
+      ],
+      "plug_box_hits_mm3": {
+        "reset_slider": 3.713943405200023,
+        "boot_slider": 3.8613211944976853
+      },
+      "cable_segment_hits_mm3": {}
+    },
+    {
+      "pcb_shift_mm": [
+        0.65,
+        0,
+        0.2
+      ],
+      "button_travel_mm": [
+        0,
+        0.8
+      ],
+      "plug_box_hits_mm3": {
+        "reset_slider": 3.673443405199965,
+        "boot_slider": 3.7799420831517505
+      },
+      "cable_segment_hits_mm3": {}
+    },
+    {
+      "pcb_shift_mm": [
+        0.65,
+        0.4,
+        0
+      ],
+      "button_travel_mm": [
+        0,
+        0.8
+      ],
+      "plug_box_hits_mm3": {
+        "reset_slider": 6.771187245075192,
+        "boot_slider": 3.0427003058436286
+      },
+      "cable_segment_hits_mm3": {}
+    },
+    {
+      "pcb_shift_mm": [
+        0.65,
+        0.4,
+        0.1
+      ],
+      "button_travel_mm": [
+        0,
+        0.8
+      ],
+      "plug_box_hits_mm3": {
+        "reset_slider": 6.691365912025233,
+        "boot_slider": 2.979321194497691
+      },
+      "cable_segment_hits_mm3": {}
+    },
+    {
+      "pcb_shift_mm": [
+        0.65,
+        0.4,
+        0.2
+      ],
+      "button_travel_mm": [
+        0,
+        0.8
+      ],
+      "plug_box_hits_mm3": {
+        "reset_slider": 6.611544578975127,
+        "boot_slider": 2.915942083151756
+      },
+      "cable_segment_hits_mm3": {}
+    }
+  ],
+  "usb_board_play_obstructed_samples": 120,
+  "physical_fit_tested": false,
+  "limitations": [
+    "Nominal measured-box clearance is required; conservative-box conflicts at PCB-play limits remain reported and unresolved. Fit the actual plug before the cartridges and check travel and locating extremes.",
+    "Five motion combinations are finite samples; actual switch height/travel, return force, guide fit and conductor clearance require physical checks.",
+    "The PCB is loose by the production fit allowance. Nominal measured XY assumes it is centered; evaluate contact at its movement limits.",
+    "The floor window and omitted upper enclosure cannot validate central underside solder clearance, lid fit, shell stiffness or mounted loads."
+  ]
+}

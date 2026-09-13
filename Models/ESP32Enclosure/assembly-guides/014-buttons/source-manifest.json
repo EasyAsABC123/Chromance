@@ -1,0 +1,174 @@
+{
+  "source_revision": "014-usb-clearance",
+  "source_path_from_guide": "../../revisions/014-usb-clearance",
+  "source_sha256": {
+    "model.py": "2ed6194f550040256ec52c3d48b8d6095675a0efb8aac06163a2f65a01dda8f0",
+    "base_model.py": "e5de447414db4b66b64e2808a19f0a700ae7311883d2acc0211758a5dccc45cc",
+    "button_module.py": "5d8f4891703886c74167866bb60752236c2f19b8f8d624a4724eb83d67733ed4",
+    "mounting.py": "8463a93558364dcd69e2e21c629888b875f51906d5b5c2a1a1768cbdaa96cd8b",
+    "parameters.json": "8912c8ec258901fe42e3d60c04278a17c861ca794a0502efcd8fb7940637bcc2"
+  },
+  "render_script_sha256": "d48004a11bdbf8935d413b7f0f17a08b12985bf7ef1e21940893d74a705ff9ff",
+  "coordinate_frame": "Case-local bench orientation: +Z toward the open lid; press in -Z. The mounting wrapper flips the assembled enclosure for under-desk use.",
+  "printed_source": "full.case_local_assembly: current extended pads and revision-specific slider arms, not standalone button-module defaults",
+  "hardware_source": "full.reference_hardware: original case-local hardware proxies",
+  "reset_exploded_translation_xyz_mm": {
+    "frame": [
+      0,
+      0,
+      0
+    ],
+    "slider": [
+      0,
+      0,
+      22
+    ],
+    "rear_keeper": [
+      -18,
+      0,
+      0
+    ],
+    "moving_magnet_keeper": [
+      -20,
+      0,
+      22
+    ],
+    "fixed_magnet": [
+      -13,
+      0,
+      0
+    ],
+    "moving_magnet": [
+      -13,
+      0,
+      22
+    ],
+    "contact_heatset_insert": [
+      0,
+      0,
+      34
+    ],
+    "nylon_jam_nut": [
+      0,
+      0,
+      38
+    ],
+    "nylon_adjuster": [
+      0,
+      0,
+      51
+    ],
+    "mount_screw_1": [
+      -45,
+      0,
+      0
+    ],
+    "mount_screw_2": [
+      -45,
+      0,
+      0
+    ],
+    "body_section": [
+      16,
+      0,
+      0
+    ]
+  },
+  "body_crop_bounds_local_mm": [
+    [
+      -39.05,
+      -4.0,
+      0
+    ],
+    [
+      -32.25,
+      12.0,
+      11
+    ]
+  ],
+  "cutaway": "Display copies only: material in front of guide Y=housing_y is removed for X<mounting_face_x+3; material in front of contact Y=tip_y is removed farther inboard.",
+  "magnet_polarity": "Labels illustrate like poles facing (N/N or S/S); actual polarity/return force is not inferred from CAD.",
+  "magnified_keeper": "Same exact geometry, enlarged viewport; no new print geometry.",
+  "printed_exports_created": false,
+  "cad_geometry_modified": false,
+  "physical_fit_tested": false,
+  "images": [
+    "01-reset-exploded.png",
+    "02-reset-cutaway.png",
+    "03-slider-comparison.png",
+    "04-button-alignment.png",
+    "05-usb-clearance.png"
+  ],
+  "board_alignment_reference": {
+    "status": "User-supplied XY implemented; physical fit and switch height/travel pending",
+    "datum": "Centered 49x70 PCB; left edge X=-width/2, bottom edge Y=-length/2; local Z toward lid",
+    "left_edge_inset_mm": 3.3,
+    "reset_from_bottom_mm": 30.0,
+    "boot_from_bottom_mm": 16.0,
+    "tip_spacing_y_mm": 14.0,
+    "tips_local_xy_mm": {
+      "reset": [
+        -21.2,
+        -5.0
+      ],
+      "boot": [
+        -21.2,
+        -19.0
+      ]
+    },
+    "housing_centers_y_mm": [
+      4.0,
+      -21.0
+    ],
+    "lower_collar_gap_y_mm": 8.2,
+    "measurement_record": "measurements/2026-09-12-button-alignment.json",
+    "fit_test": "fit-tests/009-usb-clearance"
+  },
+  "usb_clearance_illustration": {
+    "printed_crop_bounds_local_mm": [
+      [
+        -45.1,
+        -28.1,
+        8.9
+      ],
+      [
+        -16.4,
+        10.1,
+        25.9
+      ]
+    ],
+    "printed_sources": [
+      "boot_frame",
+      "reset_slider",
+      "boot_slider"
+    ],
+    "board_reference_bounds_local_mm": [
+      [
+        -24.5,
+        -28.1,
+        9.0
+      ],
+      [
+        -16.4,
+        10.1,
+        10.0
+      ]
+    ],
+    "nominal_plug_bounds_local_mm": [
+      [
+        -44.5,
+        -17.0,
+        19.0
+      ],
+      [
+        -24.5,
+        -7.0,
+        25.0
+      ]
+    ],
+    "view": "Actual case-local printed shapes clipped for illustration; exact nominal plug reference is opaque in the second view.",
+    "normalized_diagram_B_top_above_pcb_mm": 15.0,
+    "plug_thickness_mm": 6.0
+  },
+  "board_reference_geometry": "Measured rectangular substrate envelope only; no PCB components or switch bodies are inferred."
+}

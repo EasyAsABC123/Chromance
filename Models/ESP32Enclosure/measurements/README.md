@@ -95,3 +95,32 @@ revision 012 geometry. Use [test 008](../fit-tests/008-button-alignment/README.m
 to check the two actuators with the actual board and USB plug. XY dimensions
 are now implemented; physical alignment, switch height/travel, return force
 and connector fit remain pending.
+
+## Measured USB connector in revision 014
+
+[2026-09-13-usb-connector.json](2026-09-13-usb-connector.json) preserves the raw
+A–F reply and the user's height clarification. The
+[measurement diagram](usb-connector-guide/README.md) uses the perfboard top as
+its height datum. **The raw B=6 meant thickness**, although diagram B labels top
+height: underside D=9 plus thickness 6 gives a **15 mm top height**.
+
+| Feature | Confirmed value |
+| --- | ---: |
+| Maximum molded plug/strain-relief width, A | 10 mm |
+| Plug thickness | 6 mm |
+| Top above perfboard, normalized B | 15 mm |
+| Outward projection past left edge, C | 20 mm |
+| Underside above perfboard, D | 9 mm |
+| USB center from board bottom, E | 23 mm |
+| Flexible USB cable diameter, F | 3.5 mm |
+
+The centered conservative outboard plug occupies case-local X−44.5…−24.5,
+Y−17…−7 and Z19…25. The maximum width/thickness is applied over the whole
+projection; taper and the inboard jack/metal geometry are unmeasured. Cable axis
+height and bend route remain assumptions. This USB cable is separate from the
+unchanged 8 mm cable in the end cradle.
+
+[Revision 014](../revisions/014-usb-clearance/README.md) relieves both sliders and
+the BOOT guide. [Quick test 009](../fit-tests/009-usb-clearance/README.md) checks the
+actual plug and board positions before a full print. Centered CAD clearance
+passes; board movement can consume the allowance, so physical fit is pending.
