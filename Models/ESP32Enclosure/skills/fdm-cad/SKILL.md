@@ -47,6 +47,15 @@ Choose the design around its load path and manufacturing conditions:
 - Prefer support-free geometry when it suits the part. Otherwise name the support strategy: slicer-generated, modeled sacrificial, or a separate printed support. Verify removal access and protect mating/visible surfaces. Keep modeled supports separately identifiable.
 - Make mating clearance and hole compensation adjustable. Identify critical fits for the quick iterative test prints; do not present printer-dependent allowances as measured facts.
 
+## Justin's cable-retention preference
+
+For Justin's enclosures and wire-retention requests, default to a supported block with an open concave cable seat formed by subtracting a cylinder along the cable axis. Add integrated zip-tie slots or a passage so the tie loops over the cable and holds it inside that cutout. This is a user preference; adapt it when the cable shape, access constraints or later instructions call for a different arrangement.
+
+- Keep cable diameter or bundle profile, groove allowance, cradle length, wall/web thickness and tie-slot dimensions adjustable. Size the passage and head space from the actual tie; dimensions from the Chromance example are project-specific, not global defaults.
+- Connect the cradle firmly to the enclosure. Preserve material between the cylindrical groove and tie passage, with printable roots/roofs and smooth cable-contact edges. Leave wiring slack between retention and terminals.
+- Provide access to thread and tighten the tie, position its head, trim its tail and cut/replace it later. Check the lid and nearby electronics against both cable and tie/head envelopes.
+- Include a quick test of the actual cradle, tie passage and relevant lid section. Show the empty concave cut in an actual-geometry preview and the seated cable/tie in a separate reference view; keep those reference shapes out of print files. Check threading, seating, closure and jacket grip physically before claiming fit or strain-relief performance.
+
 ## Quick iterative test prints
 
 Always create a small, quick test-print artifact for each new design or geometry revision to check assumptions and fits before recommending a full print. Include it in the deliverables instead of merely suggesting a future coupon.

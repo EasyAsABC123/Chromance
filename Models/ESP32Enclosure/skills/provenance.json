@@ -4,13 +4,21 @@
   "changes": [
     "Replaced the workstation-specific runtime path and discovery instructions with the packaged Chromance runtime.",
     "Added guidance to use archived enclosure build helpers when model source spans several modules.",
-    "Retained the shared design, validation and mesh-editing guidance and UI metadata, including the required quick iterative test-print workflow."
+    "Retained the shared design, validation and mesh-editing guidance and UI metadata, including the required quick iterative test-print workflow.",
+    "Recorded Justin's concave cylindrical cable seat and integrated zip-tie slot/passage preference in both maintained and portable skills, with adjustable dimensions and a quick physical fit test."
   ],
   "source_files": {
-    "fdm-cad/SKILL.md": "2ad884ba9887811befbe167dc830380d86dc607bb0dddd92ea40f0cae0d65c6e",
+    "fdm-cad/SKILL.md": "47c3e796fbe275ac89a5ca22cca89247161635accb033f478ddaa00b6aa624f7",
     "fdm-cad/agents/openai.yaml": "9791cb88b699f7a27d6a37ddb0d432e978c03217dc2bdaf77fe7a2faf6254bf9",
-    "fdm-mesh-edit/SKILL.md": "bc7f53c1e113d46149c2329ce432c98f2307ee7f955141520a85999c55405296",
+    "fdm-mesh-edit/SKILL.md": "e9e501223980aac95a9c4b7ed267e3243dbd3fbb513785797aa7b1f2987c3561",
     "fdm-mesh-edit/agents/openai.yaml": "27e03711ecf87a666c9d63ea02f187c8153edb00b4537e0856d86bd09bfe752a"
   },
-  "source_files_note": "SHA256 of the maintained local skill sources used by the current portable adaptations; portable runtime instructions differ."
+  "source_files_note": "SHA256 of the maintained local skill sources used by the current portable adaptations; portable runtime instructions differ.",
+  "portable_files": {
+    "fdm-cad/SKILL.md": "41a35674d0dcc7bb374cb68998846c2fc89148380ec571bf42cf128293548e56",
+    "fdm-cad/agents/openai.yaml": "9791cb88b699f7a27d6a37ddb0d432e978c03217dc2bdaf77fe7a2faf6254bf9",
+    "fdm-mesh-edit/SKILL.md": "7467c7a4fabd6445c1f3a16ae3859b3537e428bbbdd3d39f95547303d0e54759",
+    "fdm-mesh-edit/agents/openai.yaml": "27e03711ecf87a666c9d63ea02f187c8153edb00b4537e0856d86bd09bfe752a"
+  },
+  "updated": "2026-09-12"
 }
