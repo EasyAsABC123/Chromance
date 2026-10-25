@@ -48,7 +48,7 @@ private:
             "MeteorShowerAnimation", "PlasmaAnimation", "RainbowAnimation", "RainbowPinwheelAnimation",
             "RainbowRadiateAnimation", "RandomAnimation", "SearchlightAnimation", "ShootingStarAnimation",
             "SnakeAnimation", "StarburstAnimation", "WaterAnimation", "WaveAnimation",
-            "AuroraAnimation", "ColorWavesAnimation", "LavaLampAnimation", "NoiseDriftAnimation", "OceanWavesAnimation"
+            "AuroraAnimation", "ColorWavesAnimation", "LavaLampAnimation", "NoiseDriftAnimation", "OceanWavesAnimation", "ChristmasAnimation"
         };
         const int count = sizeof(names) / sizeof(names[0]);
         for (int i = 0; i < count; ++i) if (name == names[i]) return i;
